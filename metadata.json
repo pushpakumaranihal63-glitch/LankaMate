@@ -1,0 +1,6 @@
+{
+  "name": "LankaMate – Sri Lanka Travel Guide & Trip Planner",
+  "description": "A modern, mobile-first travel guide and trip planner for Sri Lanka, featuring curated destinations, interactive map, day-by-day itinerary planner, hotels, authentic cuisine, transport guides, and AI travel assistant.",
+  "requestFramePermissions": ["geolocation"],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

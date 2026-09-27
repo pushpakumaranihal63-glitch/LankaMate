@@ -1,0 +1,1483 @@
+[
+  {
+    "id": "peradeniya-botanic-gardens",
+    "name": "Royal Botanic Gardens Peradeniya",
+    "category": "Nature",
+    "district": "Kandy",
+    "region": "Hill Country",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/9/98/Botanical_Garden_of_Peradeniya_03.jpg",
+    "gallery": [
+      "https://upload.wikimedia.org/wikipedia/commons/9/98/Botanical_Garden_of_Peradeniya_03.jpg"
+    ],
+    "file": "CentralHighlands"
+  },
+  {
+    "id": "ambuluwawa-tower",
+    "name": "Ambuluwawa Biodiversity Complex & Tower",
+    "category": "Mountain",
+    "district": "Kandy",
+    "region": "Hill Country",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/b/b2/Ambuluwawa_tower_casual_shot.jpg",
+    "gallery": [
+      "https://upload.wikimedia.org/wikipedia/commons/b/b2/Ambuluwawa_tower_casual_shot.jpg"
+    ],
+    "file": "CentralHighlands"
+  },
+  {
+    "id": "bahirawakanda-temple",
+    "name": "Bahirawakanda Vihara Buddha Statue",
+    "category": "Heritage",
+    "district": "Kandy",
+    "region": "Hill Country",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Bahirawakanda_Vihara_Buddha_Statue.jpg/1280px-Bahirawakanda_Vihara_Buddha_Statue.jpg",
+    "gallery": [
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Bahirawakanda_Vihara_Buddha_Statue.jpg/1280px-Bahirawakanda_Vihara_Buddha_Statue.jpg"
+    ],
+    "file": "CentralHighlands"
+  },
+  {
+    "id": "embekke-devalaya",
+    "name": "Embekke Devalaya Wood Carving Temple",
+    "category": "Heritage",
+    "district": "Kandy",
+    "region": "Hill Country",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/Embekka_Devalaya_%282%29.jpg/1280px-Embekka_Devalaya_%282%29.jpg",
+    "gallery": [
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/Embekka_Devalaya_%282%29.jpg/1280px-Embekka_Devalaya_%282%29.jpg"
+    ],
+    "file": "CentralHighlands"
+  },
+  {
+    "id": "riverston-knuckles",
+    "name": "Riverston Peak & Pitawala Pathana",
+    "category": "Mountain",
+    "district": "Matale",
+    "region": "Cultural Triangle",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9b/Riverston_Matale.jpg/1280px-Riverston_Matale.jpg",
+    "gallery": [
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9b/Riverston_Matale.jpg/1280px-Riverston_Matale.jpg"
+    ],
+    "file": "CentralHighlands"
+  },
+  {
+    "id": "aluvihare-temple",
+    "name": "Aluvihare Rock Temple",
+    "category": "Heritage",
+    "district": "Matale",
+    "region": "Cultural Triangle",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/8/8b/Matale_aluviharaya.jpg",
+    "gallery": [
+      "https://upload.wikimedia.org/wikipedia/commons/8/8b/Matale_aluviharaya.jpg"
+    ],
+    "file": "CentralHighlands"
+  },
+  {
+    "id": "nalanda-gedige",
+    "name": "Nalanda Gedige",
+    "category": "Heritage",
+    "district": "Matale",
+    "region": "Cultural Triangle",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nalanda_Gedige.jpg/1280px-Nalanda_Gedige.jpg",
+    "gallery": [
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nalanda_Gedige.jpg/1280px-Nalanda_Gedige.jpg"
+    ],
+    "file": "CentralHighlands"
+  },
+  {
+    "id": "ramboda-falls",
+    "name": "Ramboda Falls & Pass",
+    "category": "Nature",
+    "district": "Nuwara Eliya",
+    "region": "Hill Country",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1d/SL_NuwaraEDistrict_asv2020-01_img08_Lower_Ramboda_Falls.jpg/1280px-SL_NuwaraEDistrict_asv2020-01_img08_Lower_Ramboda_Falls.jpg",
+    "gallery": [
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1d/SL_NuwaraEDistrict_asv2020-01_img08_Lower_Ramboda_Falls.jpg/1280px-SL_NuwaraEDistrict_asv2020-01_img08_Lower_Ramboda_Falls.jpg"
+    ],
+    "file": "CentralHighlands"
+  },
+  {
+    "id": "lake-gregory",
+    "name": "Gregory Lake",
+    "category": "Nature",
+    "district": "Nuwara Eliya",
+    "region": "Hill Country",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4f/UG-LK_Photowalk_-_2018-03-25_-_Lake_Gregory_%281%29.jpg/1280px-UG-LK_Photowalk_-_2018-03-25_-_Lake_Gregory_%281%29.jpg",
+    "gallery": [
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4f/UG-LK_Photowalk_-_2018-03-25_-_Lake_Gregory_%281%29.jpg/1280px-UG-LK_Photowalk_-_2018-03-25_-_Lake_Gregory_%281%29.jpg"
+    ],
+    "file": "CentralHighlands"
+  },
+  {
+    "id": "victoria-park-nuwara-eliya",
+    "name": "Victoria Park",
+    "category": "Nature",
+    "district": "Nuwara Eliya",
+    "region": "Hill Country",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/Victoria_Park_Nuwara_Eliya.jpg/1280px-Victoria_Park_Nuwara_Eliya.jpg",
+    "gallery": [
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/Victoria_Park_Nuwara_Eliya.jpg/1280px-Victoria_Park_Nuwara_Eliya.jpg"
+    ],
+    "file": "CentralHighlands"
+  },
+  {
+    "id": "hakgala-botanical-garden",
+    "name": "Hakgala Botanical Garden",
+    "category": "Nature",
+    "district": "Nuwara Eliya",
+    "region": "Hill Country",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/Hakgala_Botanical_Garden.jpg/1280px-Hakgala_Botanical_Garden.jpg",
+    "gallery": [
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/Hakgala_Botanical_Garden.jpg/1280px-Hakgala_Botanical_Garden.jpg"
+    ],
+    "file": "CentralHighlands"
+  },
+  {
+    "id": "pedro-tea-estate",
+    "name": "Pedro Tea Estate & Factory",
+    "category": "Heritage",
+    "district": "Nuwara Eliya",
+    "region": "Hill Country",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Pedro_Tea_Estate_Nuwara_Eliya.jpg/1280px-Pedro_Tea_Estate_Nuwara_Eliya.jpg",
+    "gallery": [
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Pedro_Tea_Estate_Nuwara_Eliya.jpg/1280px-Pedro_Tea_Estate_Nuwara_Eliya.jpg"
+    ],
+    "file": "CentralHighlands"
+  },
+  {
+    "id": "lovers-leap-waterfall",
+    "name": "Lover’s Leap Waterfall",
+    "category": "Nature",
+    "district": "Nuwara Eliya",
+    "region": "Hill Country",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/90/Lovers_Leap_Waterfall_Nuwara_Eliya.jpg/1280px-Lovers_Leap_Waterfall_Nuwara_Eliya.jpg",
+    "gallery": [
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/9/90/Lovers_Leap_Waterfall_Nuwara_Eliya.jpg/1280px-Lovers_Leap_Waterfall_Nuwara_Eliya.jpg"
+    ],
+    "file": "CentralHighlands"
+  },
+  {
+    "id": "seetha-amman-temple",
+    "name": "Seetha Amman Temple (Ashok Vatika)",
+    "category": "Heritage",
+    "district": "Nuwara Eliya",
+    "region": "Hill Country",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e9/Seetha_Amman_Temple_Seetha_Eliya.jpg/1280px-Seetha_Amman_Temple_Seetha_Eliya.jpg",
+    "gallery": [
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e9/Seetha_Amman_Temple_Seetha_Eliya.jpg/1280px-Seetha_Amman_Temple_Seetha_Eliya.jpg"
+    ],
+    "file": "CentralHighlands"
+  },
+  {
+    "id": "moon-plains-nuwara-eliya",
+    "name": "Moon Plains (Sandathanna)",
+    "category": "Nature",
+    "district": "Nuwara Eliya",
+    "region": "Hill Country",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/77/Moon_Plains_Nuwara_Eliya.jpg/1280px-Moon_Plains_Nuwara_Eliya.jpg",
+    "gallery": [
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/7/77/Moon_Plains_Nuwara_Eliya.jpg/1280px-Moon_Plains_Nuwara_Eliya.jpg"
+    ],
+    "file": "CentralHighlands"
+  },
+  {
+    "id": "single-tree-hill",
+    "name": "Single Tree Hill Viewpoint",
+    "category": "Mountain",
+    "district": "Nuwara Eliya",
+    "region": "Hill Country",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/23/Single_Tree_Hill_Nuwara_Eliya.jpg/1280px-Single_Tree_Hill_Nuwara_Eliya.jpg",
+    "gallery": [
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/2/23/Single_Tree_Hill_Nuwara_Eliya.jpg/1280px-Single_Tree_Hill_Nuwara_Eliya.jpg"
+    ],
+    "file": "CentralHighlands"
+  },
+  {
+    "id": "ambewela-farm",
+    "name": "Ambewela Farm (Little New Zealand)",
+    "category": "Nature",
+    "district": "Nuwara Eliya",
+    "region": "Hill Country",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/df/Ambewela_Farm_Sri_Lanka.jpg/1280px-Ambewela_Farm_Sri_Lanka.jpg",
+    "gallery": [
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/d/df/Ambewela_Farm_Sri_Lanka.jpg/1280px-Ambewela_Farm_Sri_Lanka.jpg"
+    ],
+    "file": "CentralHighlands"
+  },
+  {
+    "id": "nuwara-eliya-post-office",
+    "name": "Nuwara Eliya Post Office",
+    "category": "Heritage",
+    "district": "Nuwara Eliya",
+    "region": "Hill Country",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/Nuwara_Eliya_Post_Office.jpg/1280px-Nuwara_Eliya_Post_Office.jpg",
+    "gallery": [
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/Nuwara_Eliya_Post_Office.jpg/1280px-Nuwara_Eliya_Post_Office.jpg"
+    ],
+    "file": "CentralHighlands"
+  },
+  {
+    "id": "dunhinda-falls-badulla",
+    "name": "Dunhinda Falls",
+    "category": "Nature",
+    "district": "Badulla",
+    "region": "Hill Country",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/f/f8/Dunhinda.jpg",
+    "gallery": [
+      "https://upload.wikimedia.org/wikipedia/commons/f/f8/Dunhinda.jpg"
+    ],
+    "file": "CentralHighlands"
+  },
+  {
+    "id": "liptons-seat-haputale",
+    "name": "Lipton’s Seat (Haputale)",
+    "category": "Mountain",
+    "district": "Badulla",
+    "region": "Hill Country",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d6/Lipton-seat_Sri_Lanka.jpg/1280px-Lipton-seat_Sri_Lanka.jpg",
+    "gallery": [
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d6/Lipton-seat_Sri_Lanka.jpg/1280px-Lipton-seat_Sri_Lanka.jpg"
+    ],
+    "file": "CentralHighlands"
+  },
+  {
+    "id": "diyaluma-falls",
+    "name": "Diyaluma Falls & Natural Infinity Pools",
+    "category": "Nature",
+    "district": "Badulla",
+    "region": "Hill Country",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Diyaluma_Falls_1.jpg/1280px-Diyaluma_Falls_1.jpg",
+    "gallery": [
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Diyaluma_Falls_1.jpg/1280px-Diyaluma_Falls_1.jpg"
+    ],
+    "file": "CentralHighlands"
+  },
+  {
+    "id": "muthiyangana-viharaya",
+    "name": "Muthiyangana Raja Maha Viharaya",
+    "category": "Heritage",
+    "district": "Badulla",
+    "region": "Hill Country",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/SL_Badulla_asv2020-01_img06_Muthiyangana_Temple.jpg/1280px-SL_Badulla_asv2020-01_img06_Muthiyangana_Temple.jpg",
+    "gallery": [
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/SL_Badulla_asv2020-01_img06_Muthiyangana_Temple.jpg/1280px-SL_Badulla_asv2020-01_img06_Muthiyangana_Temple.jpg"
+    ],
+    "file": "CentralHighlands"
+  },
+  {
+    "id": "kataragama-sacred-city",
+    "name": "Kataragama Sacred City (Kiri Vehera & Devalaya)",
+    "category": "Heritage",
+    "district": "Monaragala",
+    "region": "Wildlife & Safari",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/5/51/Kataragama_Kiri_Vehera_Sri_Lanka_01.jpg",
+    "gallery": [
+      "https://upload.wikimedia.org/wikipedia/commons/5/51/Kataragama_Kiri_Vehera_Sri_Lanka_01.jpg"
+    ],
+    "file": "CentralHighlands"
+  },
+  {
+    "id": "buduruwagala-sculptures",
+    "name": "Buduruwagala Rock Sculptures",
+    "category": "Heritage",
+    "district": "Monaragala",
+    "region": "Wildlife & Safari",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/6/61/Buduruwagala_-_Le_grand_Bouddha.JPG",
+    "gallery": [
+      "https://upload.wikimedia.org/wikipedia/commons/6/61/Buduruwagala_-_Le_grand_Bouddha.JPG"
+    ],
+    "file": "CentralHighlands"
+  },
+  {
+    "id": "maligawila-buddha-statue",
+    "name": "Maligawila Colossal Buddha Statue",
+    "category": "Heritage",
+    "district": "Monaragala",
+    "region": "Wildlife & Safari",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/6/6e/Standing_Buddha_Statue_Maligawila.jpg",
+    "gallery": [
+      "https://upload.wikimedia.org/wikipedia/commons/6/6e/Standing_Buddha_Statue_Maligawila.jpg"
+    ],
+    "file": "CentralHighlands"
+  },
+  {
+    "id": "adams-peak-sri-pada",
+    "name": "Sri Pada / Adam’s Peak",
+    "category": "Mountain",
+    "district": "Ratnapura",
+    "region": "Hill Country",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/Sri_Pada.JPG/1280px-Sri_Pada.JPG",
+    "gallery": [
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/Sri_Pada.JPG/1280px-Sri_Pada.JPG"
+    ],
+    "file": "CentralHighlands"
+  },
+  {
+    "id": "ratnapura-saman-dewalaya",
+    "name": "Maha Saman Dewalaya",
+    "category": "Heritage",
+    "district": "Ratnapura",
+    "region": "Sabaragamuwa",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/36/Maha_Saman_Devalaya_Ratnapura.jpg/1280px-Maha_Saman_Devalaya_Ratnapura.jpg",
+    "gallery": [
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/3/36/Maha_Saman_Devalaya_Ratnapura.jpg/1280px-Maha_Saman_Devalaya_Ratnapura.jpg"
+    ],
+    "file": "CentralHighlands"
+  },
+  {
+    "id": "ratnapura-gem-museum",
+    "name": "National Museum of Ratnapura (City of Gems)",
+    "category": "Heritage",
+    "district": "Ratnapura",
+    "region": "Sabaragamuwa",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/Ehelepola_Walauwa_Ratnapura_Museum.jpg/1280px-Ehelepola_Walauwa_Ratnapura_Museum.jpg",
+    "gallery": [
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/Ehelepola_Walauwa_Ratnapura_Museum.jpg/1280px-Ehelepola_Walauwa_Ratnapura_Museum.jpg"
+    ],
+    "file": "CentralHighlands"
+  },
+  {
+    "id": "ratnapura-sankapala-viharaya",
+    "name": "Sri Sankapala Raja Maha Viharaya",
+    "category": "Heritage",
+    "district": "Ratnapura",
+    "region": "Sabaragamuwa",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/Sankapala_Raja_Maha_Viharaya.jpg/1280px-Sankapala_Raja_Maha_Viharaya.jpg",
+    "gallery": [
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/Sankapala_Raja_Maha_Viharaya.jpg/1280px-Sankapala_Raja_Maha_Viharaya.jpg"
+    ],
+    "file": "CentralHighlands"
+  },
+  {
+    "id": "ratnapura-doowili-ella",
+    "name": "Doowili Ella Falls (Balangoda / Kalthota)",
+    "category": "Nature",
+    "district": "Ratnapura",
+    "region": "Sabaragamuwa",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b5/Doowili_Ella_Kalthota.jpg/1280px-Doowili_Ella_Kalthota.jpg",
+    "gallery": [
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b5/Doowili_Ella_Kalthota.jpg/1280px-Doowili_Ella_Kalthota.jpg"
+    ],
+    "file": "CentralHighlands"
+  },
+  {
+    "id": "ratnapura-gem-market-mines",
+    "name": "Ratnapura Gem Market & Pelmadulla Mines",
+    "category": "City",
+    "district": "Ratnapura",
+    "region": "Sabaragamuwa",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/Gem_mining_in_Sri_Lanka.jpg/1280px-Gem_mining_in_Sri_Lanka.jpg",
+    "gallery": [
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/Gem_mining_in_Sri_Lanka.jpg/1280px-Gem_mining_in_Sri_Lanka.jpg"
+    ],
+    "file": "CentralHighlands"
+  },
+  {
+    "id": "bopath-ella-falls",
+    "name": "Bopath Ella Waterfall",
+    "category": "Nature",
+    "district": "Ratnapura",
+    "region": "Sabaragamuwa",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/2/27/Bopath_Ella_Falls_-_panoramio.jpg",
+    "gallery": [
+      "https://upload.wikimedia.org/wikipedia/commons/2/27/Bopath_Ella_Falls_-_panoramio.jpg"
+    ],
+    "file": "CentralHighlands"
+  },
+  {
+    "id": "ratnapura-kirindi-ella",
+    "name": "Kirindi Ella Waterfall",
+    "category": "Nature",
+    "district": "Ratnapura",
+    "region": "Sabaragamuwa",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/Kirindi_Ella_Falls_Pelmadulla.jpg/1280px-Kirindi_Ella_Falls_Pelmadulla.jpg",
+    "gallery": [
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/Kirindi_Ella_Falls_Pelmadulla.jpg/1280px-Kirindi_Ella_Falls_Pelmadulla.jpg"
+    ],
+    "file": "CentralHighlands"
+  },
+  {
+    "id": "sinharaja-forest-reserve",
+    "name": "Sinharaja Forest Reserve (UNESCO World Heritage)",
+    "category": "Nature",
+    "district": "Ratnapura",
+    "region": "Wildlife & Safari",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/58/20160128_Sri_Lanka_4132_Sinharaja_Forest_Preserve_sRGB_%2825674474901%29.jpg/1280px-20160128_Sri_Lanka_4132_Sinharaja_Forest_Preserve_sRGB_%2825674474901%29.jpg",
+    "gallery": [
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/5/58/20160128_Sri_Lanka_4132_Sinharaja_Forest_Preserve_sRGB_%2825674474901%29.jpg/1280px-20160128_Sri_Lanka_4132_Sinharaja_Forest_Preserve_sRGB_%2825674474901%29.jpg"
+    ],
+    "file": "CentralHighlands"
+  },
+  {
+    "id": "ratnapura-batadombalena",
+    "name": "Batadombalena Prehistoric Cave",
+    "category": "Heritage",
+    "district": "Ratnapura",
+    "region": "Sabaragamuwa",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Batadombalena_Cave.jpg/1280px-Batadombalena_Cave.jpg",
+    "gallery": [
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Batadombalena_Cave.jpg/1280px-Batadombalena_Cave.jpg"
+    ],
+    "file": "CentralHighlands"
+  },
+  {
+    "id": "pinnawala-elephant-orphanage",
+    "name": "Pinnawala Elephant Orphanage",
+    "category": "Wildlife",
+    "district": "Kegalle",
+    "region": "Hill Country",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/50/Pinnawala_01.jpg/1280px-Pinnawala_01.jpg",
+    "gallery": [
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/5/50/Pinnawala_01.jpg/1280px-Pinnawala_01.jpg"
+    ],
+    "file": "CentralHighlands"
+  },
+  {
+    "id": "alagalla-mountain",
+    "name": "Alagalla Mountain Peak (Potato Mountain)",
+    "category": "Mountain",
+    "district": "Kegalle",
+    "region": "Hill Country",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2e/A_view_from_Alagalla_Mountain_Range.jpg/1280px-A_view_from_Alagalla_Mountain_Range.jpg",
+    "gallery": [
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2e/A_view_from_Alagalla_Mountain_Range.jpg/1280px-A_view_from_Alagalla_Mountain_Range.jpg"
+    ],
+    "file": "CentralHighlands"
+  },
+  {
+    "id": "belilena-cave-kitulgala",
+    "name": "Belilena Prehistoric Cave",
+    "category": "Heritage",
+    "district": "Kegalle",
+    "region": "Sabaragamuwa",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/si/thumb/0/09/N6aw68.jpg/1280px-N6aw68.jpg",
+    "gallery": [
+      "https://upload.wikimedia.org/wikipedia/si/thumb/0/09/N6aw68.jpg/1280px-N6aw68.jpg"
+    ],
+    "file": "CentralHighlands"
+  },
+  {
+    "id": "kelaniya-temple",
+    "name": "Kelaniya Raja Maha Viharaya",
+    "category": "Heritage",
+    "district": "Gampaha",
+    "region": "Western & Urban",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/2/2c/Kelaniya_AS1.JPG",
+    "gallery": [
+      "https://upload.wikimedia.org/wikipedia/commons/2/2c/Kelaniya_AS1.JPG"
+    ],
+    "file": "WesternSouthern"
+  },
+  {
+    "id": "gangaramaya-temple",
+    "name": "Gangaramaya Temple",
+    "category": "Heritage",
+    "district": "Colombo",
+    "region": "Western & Urban",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Gangaramaya_Temple.JPG/1280px-Gangaramaya_Temple.JPG",
+    "gallery": [
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Gangaramaya_Temple.JPG/1280px-Gangaramaya_Temple.JPG",
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Seema_Malaka_Temple_Colombo_Sri_Lanka.jpg/1280px-Seema_Malaka_Temple_Colombo_Sri_Lanka.jpg"
+    ],
+    "file": "WesternSouthern"
+  },
+  {
+    "id": "colombo-seema-malaka",
+    "name": "Seema Malaka",
+    "category": "Heritage",
+    "district": "Colombo",
+    "region": "Western & Urban",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Seema_Malaka_Temple_Colombo_Sri_Lanka.jpg/1280px-Seema_Malaka_Temple_Colombo_Sri_Lanka.jpg",
+    "gallery": [
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Seema_Malaka_Temple_Colombo_Sri_Lanka.jpg/1280px-Seema_Malaka_Temple_Colombo_Sri_Lanka.jpg"
+    ],
+    "file": "WesternSouthern"
+  },
+  {
+    "id": "colombo-galle-face-green",
+    "name": "Galle Face Green",
+    "category": "City",
+    "district": "Colombo",
+    "region": "Western & Urban",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Galle_Face_Green_Colombo.jpg/1280px-Galle_Face_Green_Colombo.jpg",
+    "gallery": [
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Galle_Face_Green_Colombo.jpg/1280px-Galle_Face_Green_Colombo.jpg"
+    ],
+    "file": "WesternSouthern"
+  },
+  {
+    "id": "colombo-lotus-tower",
+    "name": "Colombo Lotus Tower (Nelum Kuluna)",
+    "category": "City",
+    "district": "Colombo",
+    "region": "Western & Urban",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/Lotus_Tower_Colombo.jpg/1280px-Lotus_Tower_Colombo.jpg",
+    "gallery": [
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/Lotus_Tower_Colombo.jpg/1280px-Lotus_Tower_Colombo.jpg"
+    ],
+    "file": "WesternSouthern"
+  },
+  {
+    "id": "colombo-independence-square",
+    "name": "Independence Square (Memorial Hall)",
+    "category": "Heritage",
+    "district": "Colombo",
+    "region": "Western & Urban",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/Independence_Square%2C_Colombo.jpg/1280px-Independence_Square%2C_Colombo.jpg",
+    "gallery": [
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/Independence_Square%2C_Colombo.jpg/1280px-Independence_Square%2C_Colombo.jpg"
+    ],
+    "file": "WesternSouthern"
+  },
+  {
+    "id": "colombo-national-museum",
+    "name": "National Museum of Colombo",
+    "category": "Heritage",
+    "district": "Colombo",
+    "region": "Western & Urban",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Colombo_National_Museum_Sri_Lanka_%283%29.JPG/1280px-Colombo_National_Museum_Sri_Lanka_%283%29.JPG",
+    "gallery": [
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Colombo_National_Museum_Sri_Lanka_%283%29.JPG/1280px-Colombo_National_Museum_Sri_Lanka_%283%29.JPG"
+    ],
+    "file": "WesternSouthern"
+  },
+  {
+    "id": "colombo-pettah-market",
+    "name": "Pettah Market & Floating Market",
+    "category": "City",
+    "district": "Colombo",
+    "region": "Western & Urban",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/75/Pettah_Market_Colombo.jpg/1280px-Pettah_Market_Colombo.jpg",
+    "gallery": [
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/7/75/Pettah_Market_Colombo.jpg/1280px-Pettah_Market_Colombo.jpg"
+    ],
+    "file": "WesternSouthern"
+  },
+  {
+    "id": "colombo-jami-ul-alfar",
+    "name": "Jami Ul-Alfar Mosque (Red Mosque)",
+    "category": "Heritage",
+    "district": "Colombo",
+    "region": "Western & Urban",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b3/Jami_Ul-Alfar_Mosque_Colombo_Sri_Lanka.jpg/1280px-Jami_Ul-Alfar_Mosque_Colombo_Sri_Lanka.jpg",
+    "gallery": [
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b3/Jami_Ul-Alfar_Mosque_Colombo_Sri_Lanka.jpg/1280px-Jami_Ul-Alfar_Mosque_Colombo_Sri_Lanka.jpg"
+    ],
+    "file": "WesternSouthern"
+  },
+  {
+    "id": "colombo-old-dutch-hospital",
+    "name": "Old Dutch Hospital Precinct",
+    "category": "Heritage",
+    "district": "Colombo",
+    "region": "Western & Urban",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/87/Old_Dutch_Hospital_Colombo.jpg/1280px-Old_Dutch_Hospital_Colombo.jpg",
+    "gallery": [
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/8/87/Old_Dutch_Hospital_Colombo.jpg/1280px-Old_Dutch_Hospital_Colombo.jpg"
+    ],
+    "file": "WesternSouthern"
+  },
+  {
+    "id": "colombo-dutch-museum",
+    "name": "Colombo Dutch Museum",
+    "category": "Heritage",
+    "district": "Colombo",
+    "region": "Western & Urban",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/07/Colombo_Dutch_Museum.jpg/1280px-Colombo_Dutch_Museum.jpg",
+    "gallery": [
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/0/07/Colombo_Dutch_Museum.jpg/1280px-Colombo_Dutch_Museum.jpg"
+    ],
+    "file": "WesternSouthern"
+  },
+  {
+    "id": "colombo-viharamahadevi-park",
+    "name": "Viharamahadevi Park",
+    "category": "Nature",
+    "district": "Colombo",
+    "region": "Western & Urban",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/40/Viharamahadevi_Park_Colombo.jpg/1280px-Viharamahadevi_Park_Colombo.jpg",
+    "gallery": [
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/4/40/Viharamahadevi_Park_Colombo.jpg/1280px-Viharamahadevi_Park_Colombo.jpg"
+    ],
+    "file": "WesternSouthern"
+  },
+  {
+    "id": "colombo-beira-lake",
+    "name": "Beira Lake Promenade",
+    "category": "Nature",
+    "district": "Colombo",
+    "region": "Western & Urban",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Beira_Lake_Colombo.jpg/1280px-Beira_Lake_Colombo.jpg",
+    "gallery": [
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Beira_Lake_Colombo.jpg/1280px-Beira_Lake_Colombo.jpg"
+    ],
+    "file": "WesternSouthern"
+  },
+  {
+    "id": "colombo-fort-precinct",
+    "name": "Colombo Fort & Lighthouse Clock Tower",
+    "category": "City",
+    "district": "Colombo",
+    "region": "Western & Urban",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Colombo_Lighthouse.jpg/1280px-Colombo_Lighthouse.jpg",
+    "gallery": [
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Colombo_Lighthouse.jpg/1280px-Colombo_Lighthouse.jpg"
+    ],
+    "file": "WesternSouthern"
+  },
+  {
+    "id": "colombo-mount-lavinia-beach",
+    "name": "Mount Lavinia Beach",
+    "category": "Beach",
+    "district": "Colombo",
+    "region": "Western & Urban",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/be/Mount_Lavinia_Beach.jpg/1280px-Mount_Lavinia_Beach.jpg",
+    "gallery": [
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/b/be/Mount_Lavinia_Beach.jpg/1280px-Mount_Lavinia_Beach.jpg"
+    ],
+    "file": "WesternSouthern"
+  },
+  {
+    "id": "henarathgoda-botanical-garden",
+    "name": "Henarathgoda Botanical Garden",
+    "category": "Nature",
+    "district": "Gampaha",
+    "region": "Western & Urban",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/Henarathgoda_Botanical_Garden.jpg/1280px-Henarathgoda_Botanical_Garden.jpg",
+    "gallery": [
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/Henarathgoda_Botanical_Garden.jpg/1280px-Henarathgoda_Botanical_Garden.jpg"
+    ],
+    "file": "WesternSouthern"
+  },
+  {
+    "id": "negombo-beach",
+    "name": "Negombo Beach & Shoreline",
+    "category": "Beach",
+    "district": "Gampaha",
+    "region": "Western & Urban",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/9/97/Negombo_Beach%2C_Sri_Lanka.jpg",
+    "gallery": [
+      "https://upload.wikimedia.org/wikipedia/commons/9/97/Negombo_Beach%2C_Sri_Lanka.jpg"
+    ],
+    "file": "WesternSouthern"
+  },
+  {
+    "id": "dutch-canal-negombo",
+    "name": "Hamilton Canal & Dutch Canal (Negombo)",
+    "category": "Heritage",
+    "district": "Gampaha",
+    "region": "Western & Urban",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/d/d1/Negombo_dutch_canal.jpg",
+    "gallery": [
+      "https://upload.wikimedia.org/wikipedia/commons/d/d1/Negombo_dutch_canal.jpg"
+    ],
+    "file": "WesternSouthern"
+  },
+  {
+    "id": "pilikuththuwa-temple",
+    "name": "Pilikuththuwa Raja Maha Viharaya",
+    "category": "Heritage",
+    "district": "Gampaha",
+    "region": "Western & Urban",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d6/Pilikutthuwa_temple.jpg/1280px-Pilikutthuwa_temple.jpg",
+    "gallery": [
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d6/Pilikutthuwa_temple.jpg/1280px-Pilikutthuwa_temple.jpg"
+    ],
+    "file": "WesternSouthern"
+  },
+  {
+    "id": "kalutara-bodhiya",
+    "name": "Kalutara Bodhiya & Chaitya",
+    "category": "Heritage",
+    "district": "Kalutara",
+    "region": "Western & Urban",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Kalautara_Bodhiya_1.jpg/1280px-Kalautara_Bodhiya_1.jpg",
+    "gallery": [
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Kalautara_Bodhiya_1.jpg/1280px-Kalautara_Bodhiya_1.jpg"
+    ],
+    "file": "WesternSouthern"
+  },
+  {
+    "id": "richmond-castle-kalutara",
+    "name": "Richmond Castle",
+    "category": "Heritage",
+    "district": "Kalutara",
+    "region": "Western & Urban",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/5/56/Richmond_Castle_Kalutara_II.jpg",
+    "gallery": [
+      "https://upload.wikimedia.org/wikipedia/commons/5/56/Richmond_Castle_Kalutara_II.jpg"
+    ],
+    "file": "WesternSouthern"
+  },
+  {
+    "id": "calido-beach-kalutara",
+    "name": "Calido Beach & Kalu River Estuary",
+    "category": "Beach",
+    "district": "Kalutara",
+    "region": "Western & Urban",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/31/Aerial_view_of_Kalutara_City%2C_Sri_Lanka.jpg/1280px-Aerial_view_of_Kalutara_City%2C_Sri_Lanka.jpg",
+    "gallery": [
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/3/31/Aerial_view_of_Kalutara_City%2C_Sri_Lanka.jpg/1280px-Aerial_view_of_Kalutara_City%2C_Sri_Lanka.jpg"
+    ],
+    "file": "WesternSouthern"
+  },
+  {
+    "id": "unawatuna-beach",
+    "name": "Unawatuna Beach",
+    "category": "Beach",
+    "district": "Galle",
+    "region": "Southern Coast",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/83/Unawatuna.jpg/1280px-Unawatuna.jpg",
+    "gallery": [
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/8/83/Unawatuna.jpg/1280px-Unawatuna.jpg"
+    ],
+    "file": "WesternSouthern"
+  },
+  {
+    "id": "jungle-beach-rumassala",
+    "name": "Jungle Beach (Rumassala)",
+    "category": "Beach",
+    "district": "Galle",
+    "region": "Southern Coast",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/8/8a/Rumassala_Jungle_Beach.jpg",
+    "gallery": [
+      "https://upload.wikimedia.org/wikipedia/commons/8/8a/Rumassala_Jungle_Beach.jpg"
+    ],
+    "file": "WesternSouthern"
+  },
+  {
+    "id": "dalawella-beach",
+    "name": "Dalawella Beach & Coconut Tree Swing",
+    "category": "Beach",
+    "district": "Galle",
+    "region": "Southern Coast",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d0/White_sands_of_Dalawella.jpg/1280px-White_sands_of_Dalawella.jpg",
+    "gallery": [
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d0/White_sands_of_Dalawella.jpg/1280px-White_sands_of_Dalawella.jpg"
+    ],
+    "file": "WesternSouthern"
+  },
+  {
+    "id": "wijaya-beach",
+    "name": "Wijaya Beach",
+    "category": "Beach",
+    "district": "Galle",
+    "region": "Southern Coast",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/2/2b/Wijaya_beach_Unawatuna_Sri_Lanka.jpg",
+    "gallery": [
+      "https://upload.wikimedia.org/wikipedia/commons/2/2b/Wijaya_beach_Unawatuna_Sri_Lanka.jpg",
+      "https://upload.wikimedia.org/wikipedia/commons/7/79/Wijaya_Beach.jpg"
+    ],
+    "file": "WesternSouthern"
+  },
+  {
+    "id": "dewata-beach",
+    "name": "Dewata Beach (Closenberg Bay)",
+    "category": "Beach",
+    "district": "Galle",
+    "region": "Southern Coast",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/2/2b/Galle_Harbour.JPG",
+    "gallery": [
+      "https://upload.wikimedia.org/wikipedia/commons/2/2b/Galle_Harbour.JPG"
+    ],
+    "file": "WesternSouthern"
+  },
+  {
+    "id": "hikkaduwa-marine-park",
+    "name": "Hikkaduwa Beach & Coral Reef",
+    "category": "Beach",
+    "district": "Galle",
+    "region": "Southern Coast",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/Hikkaduwa3.JPG/1280px-Hikkaduwa3.JPG",
+    "gallery": [
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/Hikkaduwa3.JPG/1280px-Hikkaduwa3.JPG"
+    ],
+    "file": "WesternSouthern"
+  },
+  {
+    "id": "kanneliya-forest",
+    "name": "Kanneliya Rain Forest Reserve",
+    "category": "Nature",
+    "district": "Galle",
+    "region": "Southern Coast",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ab/Beauty_of_the_Kanneliya_Rainforest_Sri_Lanka.jpg/1280px-Beauty_of_the_Kanneliya_Rainforest_Sri_Lanka.jpg",
+    "gallery": [
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ab/Beauty_of_the_Kanneliya_Rainforest_Sri_Lanka.jpg/1280px-Beauty_of_the_Kanneliya_Rainforest_Sri_Lanka.jpg"
+    ],
+    "file": "WesternSouthern"
+  },
+  {
+    "id": "dondra-head-lighthouse",
+    "name": "Dondra Head Lighthouse & Shrine",
+    "category": "Heritage",
+    "district": "Matara",
+    "region": "Southern Coast",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/f/fc/Dondra_Head_Lighthouse_-_ATennakoon.jpg",
+    "gallery": [
+      "https://upload.wikimedia.org/wikipedia/commons/f/fc/Dondra_Head_Lighthouse_-_ATennakoon.jpg"
+    ],
+    "file": "WesternSouthern"
+  },
+  {
+    "id": "paravi-duwa-matara",
+    "name": "Paravi Duwa Island Temple & Matara Fort",
+    "category": "Heritage",
+    "district": "Matara",
+    "region": "Southern Coast",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/db/%E0%B6%B4%E0%B6%BB%E0%B7%80%E0%B7%92_%E0%B6%AF%E0%B7%96%E0%B7%80_%E0%B7%80%E0%B7%92%E0%B7%84%E0%B7%8F%E0%B6%BB%E0%B7%83%E0%B7%8A%E0%B6%AE%E0%B7%8F%E0%B6%B1%E0%B6%BA_-_Paravi_Duwa_Temple.jpg/1280px-%E0%B6%B4%E0%B6%BB%E0%B7%80%E0%B7%92_%E0%B6%AF%E0%B7%96%E0%B7%80_%E0%B7%80%E0%B7%92%E0%B7%84%E0%B7%8F%E0%B6%BB%E0%B7%83%E0%B7%8A%E0%B6%AE%E0%B7%8F%E0%B6%B1%E0%B6%BA_-_Paravi_Duwa_Temple.jpg",
+    "gallery": [
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/d/db/%E0%B6%B4%E0%B6%BB%E0%B7%80%E0%B7%92_%E0%B6%AF%E0%B7%96%E0%B7%80_%E0%B7%80%E0%B7%92%E0%B7%84%E0%B7%8F%E0%B6%BB%E0%B7%83%E0%B7%8A%E0%B6%AE%E0%B7%8F%E0%B6%B1%E0%B6%BA_-_Paravi_Duwa_Temple.jpg/1280px-%E0%B6%B4%E0%B6%BB%E0%B7%80%E0%B7%92_%E0%B6%AF%E0%B7%96%E0%B7%80_%E0%B7%80%E0%B7%92%E0%B7%84%E0%B7%8F%E0%B6%BB%E0%B7%83%E0%B7%8A%E0%B6%AE%E0%B7%8F%E0%B6%B1%E0%B6%BA_-_Paravi_Duwa_Temple.jpg"
+    ],
+    "file": "WesternSouthern"
+  },
+  {
+    "id": "polhena-beach",
+    "name": "Polhena Beach & Turtle Reef",
+    "category": "Beach",
+    "district": "Matara",
+    "region": "Southern Coast",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5d/Matara_Beach%2C_Sri_Lanka.JPG/1280px-Matara_Beach%2C_Sri_Lanka.JPG",
+    "gallery": [
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5d/Matara_Beach%2C_Sri_Lanka.JPG/1280px-Matara_Beach%2C_Sri_Lanka.JPG"
+    ],
+    "file": "WesternSouthern"
+  },
+  {
+    "id": "bundala-national-park",
+    "name": "Bundala National Park (UNESCO Biosphere)",
+    "category": "Wildlife",
+    "district": "Hambantota",
+    "region": "Wildlife & Safari",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e6/Wildlife_Preserve_Near_Kirinda%2C_Sri_Lanka.jpg/1280px-Wildlife_Preserve_Near_Kirinda%2C_Sri_Lanka.jpg",
+    "gallery": [
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e6/Wildlife_Preserve_Near_Kirinda%2C_Sri_Lanka.jpg/1280px-Wildlife_Preserve_Near_Kirinda%2C_Sri_Lanka.jpg"
+    ],
+    "file": "WesternSouthern"
+  },
+  {
+    "id": "hummanaya-blowhole",
+    "name": "Hummanaya Natural Blowhole",
+    "category": "Nature",
+    "district": "Hambantota",
+    "region": "Southern Coast",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/Hummanaya-3.jpg/1280px-Hummanaya-3.jpg",
+    "gallery": [
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/Hummanaya-3.jpg/1280px-Hummanaya-3.jpg"
+    ],
+    "file": "WesternSouthern"
+  },
+  {
+    "id": "ridiyagama-safari-park",
+    "name": "Ridiyagama Safari Park",
+    "category": "Wildlife",
+    "district": "Hambantota",
+    "region": "Wildlife & Safari",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9f/Zebra_Ridiyagama_Safari_Park.jpg/1280px-Zebra_Ridiyagama_Safari_Park.jpg",
+    "gallery": [
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9f/Zebra_Ridiyagama_Safari_Park.jpg/1280px-Zebra_Ridiyagama_Safari_Park.jpg"
+    ],
+    "file": "WesternSouthern"
+  },
+  {
+    "id": "yapahuwa-rock-fortress",
+    "name": "Yapahuwa Rock Fortress & Ancient Kingdom",
+    "category": "Heritage",
+    "district": "Kurunegala",
+    "region": "Cultural Triangle",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Yapahuwa_Staricase_2_cdm.jpg/1280px-Yapahuwa_Staricase_2_cdm.jpg",
+    "gallery": [
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Yapahuwa_Staricase_2_cdm.jpg/1280px-Yapahuwa_Staricase_2_cdm.jpg"
+    ],
+    "file": "WesternSouthern"
+  },
+  {
+    "id": "ethagala-kurunegala",
+    "name": "Ethagala (Elephant Rock) & Samadhi Buddha",
+    "category": "Mountain",
+    "district": "Kurunegala",
+    "region": "Cultural Triangle",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/SL_Kurunegala_asv2020-01_img05.jpg/1280px-SL_Kurunegala_asv2020-01_img05.jpg",
+    "gallery": [
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/SL_Kurunegala_asv2020-01_img05.jpg/1280px-SL_Kurunegala_asv2020-01_img05.jpg"
+    ],
+    "file": "WesternSouthern"
+  },
+  {
+    "id": "ridi-viharaya",
+    "name": "Ridi Viharaya (Silver Temple)",
+    "category": "Heritage",
+    "district": "Kurunegala",
+    "region": "Cultural Triangle",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cb/Ridi_Viharaya_3.JPG/1280px-Ridi_Viharaya_3.JPG",
+    "gallery": [
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cb/Ridi_Viharaya_3.JPG/1280px-Ridi_Viharaya_3.JPG"
+    ],
+    "file": "WesternSouthern"
+  },
+  {
+    "id": "wilpattu-national-park",
+    "name": "Wilpattu National Park",
+    "category": "Wildlife",
+    "district": "Puttalam",
+    "region": "Wildlife & Safari",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/WilpattuNationalPark-April2014_%283%29.JPG/1280px-WilpattuNationalPark-April2014_%283%29.JPG",
+    "gallery": [
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/WilpattuNationalPark-April2014_%283%29.JPG/1280px-WilpattuNationalPark-April2014_%283%29.JPG"
+    ],
+    "file": "WesternSouthern"
+  },
+  {
+    "id": "kalpitiya-peninsula",
+    "name": "Kalpitiya Lagoon & Dolphin Bay",
+    "category": "Beach",
+    "district": "Puttalam",
+    "region": "Western & Urban",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/SL_Kalpitiya_asv2020-01_img4_Fishery_harbour.jpg/1280px-SL_Kalpitiya_asv2020-01_img4_Fishery_harbour.jpg",
+    "gallery": [
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/SL_Kalpitiya_asv2020-01_img4_Fishery_harbour.jpg/1280px-SL_Kalpitiya_asv2020-01_img4_Fishery_harbour.jpg"
+    ],
+    "file": "WesternSouthern"
+  },
+  {
+    "id": "munneswaram-kovil",
+    "name": "Munneswaram Hindu Kovil (Chilaw)",
+    "category": "Heritage",
+    "district": "Puttalam",
+    "region": "Cultural Triangle",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/c/c5/Munneswaram.jpg",
+    "gallery": [
+      "https://upload.wikimedia.org/wikipedia/commons/c/c5/Munneswaram.jpg"
+    ],
+    "file": "WesternSouthern"
+  },
+  {
+    "id": "st-annes-talawila",
+    "name": "St. Anne’s National Shrine (Talawila)",
+    "category": "Heritage",
+    "district": "Puttalam",
+    "region": "Western & Urban",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/6/69/St._Anne_of_Thalawila_%2C_Sri_Lanka.jpg",
+    "gallery": [
+      "https://upload.wikimedia.org/wikipedia/commons/6/69/St._Anne_of_Thalawila_%2C_Sri_Lanka.jpg"
+    ],
+    "file": "WesternSouthern"
+  },
+  {
+    "id": "nallur-kandaswamy-kovil",
+    "name": "Nallur Kandaswamy Kovil",
+    "category": "Heritage",
+    "district": "Jaffna",
+    "region": "Northern Peninsula",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/Nallur_Kandasamy_front_entrance.jpg/1280px-Nallur_Kandasamy_front_entrance.jpg",
+    "gallery": [
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/Nallur_Kandasamy_front_entrance.jpg/1280px-Nallur_Kandasamy_front_entrance.jpg"
+    ],
+    "file": "NorthEastCentral"
+  },
+  {
+    "id": "nagadeepa-viharaya",
+    "name": "Nagadeepa Purana Viharaya (Nainativu)",
+    "category": "Heritage",
+    "district": "Jaffna",
+    "region": "Northern Peninsula",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/2/22/Nainathivunakaviharai_2.jpg",
+    "gallery": [
+      "https://upload.wikimedia.org/wikipedia/commons/2/22/Nainathivunakaviharai_2.jpg"
+    ],
+    "file": "NorthEastCentral"
+  },
+  {
+    "id": "casuarina-beach",
+    "name": "Casuarina Beach (Karainagar)",
+    "category": "Beach",
+    "district": "Jaffna",
+    "region": "Northern Peninsula",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/Casuarina_Beach_1.jpg/1280px-Casuarina_Beach_1.jpg",
+    "gallery": [
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/Casuarina_Beach_1.jpg/1280px-Casuarina_Beach_1.jpg"
+    ],
+    "file": "NorthEastCentral"
+  },
+  {
+    "id": "keerimalai-springs",
+    "name": "Keerimalai Sacred Water Springs",
+    "category": "Nature",
+    "district": "Jaffna",
+    "region": "Northern Peninsula",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/Keerimalai_madapam-1-keerimalai-jaffna-Sri_Lanka.jpg/1280px-Keerimalai_madapam-1-keerimalai-jaffna-Sri_Lanka.jpg",
+    "gallery": [
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/Keerimalai_madapam-1-keerimalai-jaffna-Sri_Lanka.jpg/1280px-Keerimalai_madapam-1-keerimalai-jaffna-Sri_Lanka.jpg"
+    ],
+    "file": "NorthEastCentral"
+  },
+  {
+    "id": "iranamadu-reservoir",
+    "name": "Iranamadu Reservoir & Bird Sanctuary",
+    "category": "Nature",
+    "district": "Kilinochchi",
+    "region": "Northern Peninsula",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/c/cb/Iranamadu_Tank2.jpg",
+    "gallery": [
+      "https://upload.wikimedia.org/wikipedia/commons/c/cb/Iranamadu_Tank2.jpg"
+    ],
+    "file": "NorthEastCentral"
+  },
+  {
+    "id": "kilinochchi-memorial",
+    "name": "Kilinochchi Landmark Water Tower & War Memorial",
+    "category": "Heritage",
+    "district": "Kilinochchi",
+    "region": "Northern Peninsula",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/a/a8/KilinochchiWaterTowerDestroyedByLTTE.JPG",
+    "gallery": [
+      "https://upload.wikimedia.org/wikipedia/commons/a/a8/KilinochchiWaterTowerDestroyedByLTTE.JPG",
+      "https://upload.wikimedia.org/wikipedia/commons/4/4f/War_Memorial2.jpg"
+    ],
+    "file": "NorthEastCentral"
+  },
+  {
+    "id": "elephant-pass-memorial",
+    "name": "Elephant Pass War Memorial & Salterns",
+    "category": "Heritage",
+    "district": "Kilinochchi",
+    "region": "Northern Peninsula",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d6/Elephant_Pass_Memorial_And_Tree2.jpg/1280px-Elephant_Pass_Memorial_And_Tree2.jpg",
+    "gallery": [
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d6/Elephant_Pass_Memorial_And_Tree2.jpg/1280px-Elephant_Pass_Memorial_And_Tree2.jpg"
+    ],
+    "file": "NorthEastCentral"
+  },
+  {
+    "id": "adams-bridge-talaimannar",
+    "name": "Adam’s Bridge (Rama Setu) & Talaimannar Pier",
+    "category": "Nature",
+    "district": "Mannar",
+    "region": "Northern Peninsula",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/e/ea/Adams_Bridge_aerial.jpg",
+    "gallery": [
+      "https://upload.wikimedia.org/wikipedia/commons/e/ea/Adams_Bridge_aerial.jpg"
+    ],
+    "file": "NorthEastCentral"
+  },
+  {
+    "id": "mannar-baobab-tree",
+    "name": "Ancient Baobab Tree of Mannar",
+    "category": "Nature",
+    "district": "Mannar",
+    "region": "Northern Peninsula",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/f/fe/Mannar_Baobab_%2831294170688%29.jpg",
+    "gallery": [
+      "https://upload.wikimedia.org/wikipedia/commons/f/fe/Mannar_Baobab_%2831294170688%29.jpg"
+    ],
+    "file": "NorthEastCentral"
+  },
+  {
+    "id": "thiruketheeswaram-kovil",
+    "name": "Thiruketheeswaram Shiva Kovil",
+    "category": "Heritage",
+    "district": "Mannar",
+    "region": "Northern Peninsula",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/%E0%AE%88%E0%AE%B4%E0%AE%A4%E0%AF%8D%E0%AE%A4%E0%AF%81_%E0%AE%A4%E0%AE%BF%E0%AE%B0%E0%AF%81%E0%AE%95%E0%AF%8D%E0%AE%95%E0%AF%87%E0%AE%A4%E0%AF%80%E0%AE%B8%E0%AF%8D%E0%AE%B5%E0%AE%B0_%E0%AE%86%E0%AE%B2%E0%AE%AF_%E0%AE%95%E0%AF%8B%E0%AE%AA%E0%AF%81%E0%AE%B0%E0%AE%AE%E0%AF%8D_%28%E0%AE%AE%E0%AE%A9%E0%AF%8D%E0%AE%A9%E0%AE%BE%E0%AE%B0%E0%AF%8D%29.jpg/1280px-%E0%AE%88%E0%AE%B4%E0%AE%A4%E0%AF%8D%E0%AE%A4%E0%AF%81_%E0%AE%A4%E0%AE%BF%E0%AE%B0%E0%AF%81%E0%AE%95%E0%AF%8D%E0%AE%95%E0%AF%87%E0%AE%A4%E0%AF%80%E0%AE%B8%E0%AF%8D%E0%AE%B5%E0%AE%B0_%E0%AE%86%E0%AE%B2%E0%AE%AF_%E0%AE%95%E0%AF%8B%E0%AE%AA%E0%AF%81%E0%AE%B0%E0%AE%AE%E0%AF%8D_%28%E0%AE%AE%E0%AE%A9%E0%AF%8D%E0%AE%A9%E0%AE%BE%E0%AE%B0%E0%AF%8D%29.jpg",
+    "gallery": [
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/%E0%AE%88%E0%AE%B4%E0%AE%A4%E0%AF%8D%E0%AE%A4%E0%AF%81_%E0%AE%A4%E0%AE%BF%E0%AE%B0%E0%AF%81%E0%AE%95%E0%AF%8D%E0%AE%95%E0%AF%87%E0%AE%A4%E0%AF%80%E0%AE%B8%E0%AF%8D%E0%AE%B5%E0%AE%B0_%E0%AE%86%E0%AE%B2%E0%AE%AF_%E0%AE%95%E0%AF%8B%E0%AE%AA%E0%AF%81%E0%AE%B0%E0%AE%AE%E0%AF%8D_%28%E0%AE%AE%E0%AE%A9%E0%AF%8D%E0%AE%A9%E0%AE%BE%E0%AE%B0%E0%AF%8D%29.jpg/1280px-%E0%AE%88%E0%AE%B4%E0%AE%A4%E0%AF%8D%E0%AE%A4%E0%AF%81_%E0%AE%A4%E0%AE%BF%E0%AE%B0%E0%AF%81%E0%AE%95%E0%AF%8D%E0%AE%95%E0%AF%87%E0%AE%A4%E0%AF%80%E0%AE%B8%E0%AF%8D%E0%AE%B5%E0%AE%B0_%E0%AE%86%E0%AE%B2%E0%AE%AF_%E0%AE%95%E0%AF%8B%E0%AE%AA%E0%AF%81%E0%AE%B0%E0%AE%AE%E0%AF%8D_%28%E0%AE%AE%E0%AE%A9%E0%AF%8D%E0%AE%A9%E0%AE%BE%E0%AE%B0%E0%AF%8D%29.jpg"
+    ],
+    "file": "NorthEastCentral"
+  },
+  {
+    "id": "mannar-fort",
+    "name": "Mannar Dutch Fort & Bird Sanctuary",
+    "category": "Heritage",
+    "district": "Mannar",
+    "region": "Northern Peninsula",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/38/Mannar_Dutch_Fort.jpg/1280px-Mannar_Dutch_Fort.jpg",
+    "gallery": [
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/3/38/Mannar_Dutch_Fort.jpg/1280px-Mannar_Dutch_Fort.jpg"
+    ],
+    "file": "NorthEastCentral"
+  },
+  {
+    "id": "nayaru-lagoon",
+    "name": "Nayaru Lagoon & Coastal Reserve",
+    "category": "Nature",
+    "district": "Mullaitivu",
+    "region": "Northern Peninsula",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b4/Nayaru_in_Mullaitivu.jpg/1280px-Nayaru_in_Mullaitivu.jpg",
+    "gallery": [
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b4/Nayaru_in_Mullaitivu.jpg/1280px-Nayaru_in_Mullaitivu.jpg"
+    ],
+    "file": "NorthEastCentral"
+  },
+  {
+    "id": "kokkilai-bird-sanctuary",
+    "name": "Kokkilai Bird Sanctuary",
+    "category": "Wildlife",
+    "district": "Mullaitivu",
+    "region": "Northern Peninsula",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/77/Sunset_in_Kokkilai_sanctuary.jpg/1280px-Sunset_in_Kokkilai_sanctuary.jpg",
+    "gallery": [
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/7/77/Sunset_in_Kokkilai_sanctuary.jpg/1280px-Sunset_in_Kokkilai_sanctuary.jpg"
+    ],
+    "file": "NorthEastCentral"
+  },
+  {
+    "id": "mullaitivu-beach",
+    "name": "Mullaitivu Coastal Beach & Maritime Heritage",
+    "category": "Beach",
+    "district": "Mullaitivu",
+    "region": "Northern Peninsula",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/6/63/Semmalai_beach_of_mullaitheevu.jpg",
+    "gallery": [
+      "https://upload.wikimedia.org/wikipedia/commons/6/63/Semmalai_beach_of_mullaitheevu.jpg",
+      "https://upload.wikimedia.org/wikipedia/commons/b/bc/Farah_III_shipwreck.jpg"
+    ],
+    "file": "NorthEastCentral"
+  },
+  {
+    "id": "madukanda-temple",
+    "name": "Madukanda Sri Dalada Viharaya",
+    "category": "Heritage",
+    "district": "Vavuniya",
+    "region": "Northern Peninsula",
+    "heroImage": "/images/destinations/placeholder-destination.svg",
+    "gallery": [
+      "/images/destinations/placeholder-destination.svg"
+    ],
+    "file": "NorthEastCentral"
+  },
+  {
+    "id": "vavuniya-archaeological-museum",
+    "name": "Vavuniya Archaeological Museum",
+    "category": "Heritage",
+    "district": "Vavuniya",
+    "region": "Northern Peninsula",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/b/b9/Vavuniya_Museum.jpg",
+    "gallery": [
+      "https://upload.wikimedia.org/wikipedia/commons/b/b9/Vavuniya_Museum.jpg"
+    ],
+    "file": "NorthEastCentral"
+  },
+  {
+    "id": "iratperiyakulama-reservoir",
+    "name": "Iratperiyakulama Ancient Reservoir",
+    "category": "Nature",
+    "district": "Vavuniya",
+    "region": "Northern Peninsula",
+    "heroImage": "/images/destinations/placeholder-destination.svg",
+    "gallery": [
+      "/images/destinations/placeholder-destination.svg"
+    ],
+    "file": "NorthEastCentral"
+  },
+  {
+    "id": "koneswaram-temple",
+    "name": "Koneswaram Temple & Swami Rock (Lover’s Leap)",
+    "category": "Heritage",
+    "district": "Trincomalee",
+    "region": "Eastern Coast",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/36/Spiritual_16.jpg/1280px-Spiritual_16.jpg",
+    "gallery": [
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/3/36/Spiritual_16.jpg/1280px-Spiritual_16.jpg"
+    ],
+    "file": "NorthEastCentral"
+  },
+  {
+    "id": "pigeon-island-nilaveli",
+    "name": "Pigeon Island National Park & Nilaveli Beach",
+    "category": "Beach",
+    "district": "Trincomalee",
+    "region": "Eastern Coast",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5f/Pigeon_Island_National_Park%2C_Trincomalee.jpg/1280px-Pigeon_Island_National_Park%2C_Trincomalee.jpg",
+    "gallery": [
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5f/Pigeon_Island_National_Park%2C_Trincomalee.jpg/1280px-Pigeon_Island_National_Park%2C_Trincomalee.jpg"
+    ],
+    "file": "NorthEastCentral"
+  },
+  {
+    "id": "kanniya-hot-springs",
+    "name": "Kanniya Hot Water Springs",
+    "category": "Nature",
+    "district": "Trincomalee",
+    "region": "Eastern Coast",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/6/63/Kanniya_hot_springs.jpg",
+    "gallery": [
+      "https://upload.wikimedia.org/wikipedia/commons/6/63/Kanniya_hot_springs.jpg"
+    ],
+    "file": "NorthEastCentral"
+  },
+  {
+    "id": "pasikuda-beach",
+    "name": "Pasikuda Bay (Calm Shallow Waters)",
+    "category": "Beach",
+    "district": "Batticaloa",
+    "region": "Eastern Coast",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/11/Pasikudah_beach.JPG/1280px-Pasikudah_beach.JPG",
+    "gallery": [
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/1/11/Pasikudah_beach.JPG/1280px-Pasikudah_beach.JPG"
+    ],
+    "file": "NorthEastCentral"
+  },
+  {
+    "id": "batticaloa-fort",
+    "name": "Batticaloa Dutch Fort & Singing Fish Lagoon",
+    "category": "Heritage",
+    "district": "Batticaloa",
+    "region": "Eastern Coast",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Batticaloa_Portuguese_%28dutch%29_fort.jpg/1280px-Batticaloa_Portuguese_%28dutch%29_fort.jpg",
+    "gallery": [
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Batticaloa_Portuguese_%28dutch%29_fort.jpg/1280px-Batticaloa_Portuguese_%28dutch%29_fort.jpg"
+    ],
+    "file": "NorthEastCentral"
+  },
+  {
+    "id": "kallady-beach",
+    "name": "Kallady Beach & Lighthouse",
+    "category": "Beach",
+    "district": "Batticaloa",
+    "region": "Eastern Coast",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/f/f5/Batticaloa_lighthouse.jpg",
+    "gallery": [
+      "https://upload.wikimedia.org/wikipedia/commons/f/f5/Batticaloa_lighthouse.jpg",
+      "https://upload.wikimedia.org/wikipedia/commons/5/55/Kallady_Beach_01.jpg"
+    ],
+    "file": "NorthEastCentral"
+  },
+  {
+    "id": "kumana-national-park",
+    "name": "Kumana National Park (Bird Paradise)",
+    "category": "Wildlife",
+    "district": "Ampara",
+    "region": "Eastern Coast",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/58/Kumana_National_Park_%28Kudumbigala_Sanctuary%29.JPG/1280px-Kumana_National_Park_%28Kudumbigala_Sanctuary%29.JPG",
+    "gallery": [
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/5/58/Kumana_National_Park_%28Kudumbigala_Sanctuary%29.JPG/1280px-Kumana_National_Park_%28Kudumbigala_Sanctuary%29.JPG"
+    ],
+    "file": "NorthEastCentral"
+  },
+  {
+    "id": "deegawapiya-stupa",
+    "name": "Deegawapiya Stupa & Archaeological Complex",
+    "category": "Heritage",
+    "district": "Ampara",
+    "region": "Eastern Coast",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/1/17/Deegawapi.jpg",
+    "gallery": [
+      "https://upload.wikimedia.org/wikipedia/commons/1/17/Deegawapi.jpg"
+    ],
+    "file": "NorthEastCentral"
+  },
+  {
+    "id": "muhudu-maha-viharaya",
+    "name": "Muhudu Maha Viharaya (Pottuvil)",
+    "category": "Heritage",
+    "district": "Ampara",
+    "region": "Eastern Coast",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/Muhudu_Maha_Vihara_1.jpg/1280px-Muhudu_Maha_Vihara_1.jpg",
+    "gallery": [
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/Muhudu_Maha_Vihara_1.jpg/1280px-Muhudu_Maha_Vihara_1.jpg"
+    ],
+    "file": "NorthEastCentral"
+  },
+  {
+    "id": "sri-maha-bodhi-anuradhapura",
+    "name": "Jaya Sri Maha Bodhi",
+    "category": "Heritage",
+    "district": "Anuradhapura",
+    "region": "Cultural Triangle",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/9/92/Photograph_of_Jaya_Sri_Maha_Bodhi_Anuradhapura_Sri_Lanka.jpg",
+    "gallery": [
+      "https://upload.wikimedia.org/wikipedia/commons/9/92/Photograph_of_Jaya_Sri_Maha_Bodhi_Anuradhapura_Sri_Lanka.jpg"
+    ],
+    "file": "NorthEastCentral"
+  },
+  {
+    "id": "ruwanwelisaya-stupa",
+    "name": "Ruwanwelisaya Maha Stupa",
+    "category": "Heritage",
+    "district": "Anuradhapura",
+    "region": "Cultural Triangle",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/04/SL_Anuradhapura_asv2020-01_img11_Ruwanwelisaya_Stupa.jpg/1280px-SL_Anuradhapura_asv2020-01_img11_Ruwanwelisaya_Stupa.jpg",
+    "gallery": [
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/0/04/SL_Anuradhapura_asv2020-01_img11_Ruwanwelisaya_Stupa.jpg/1280px-SL_Anuradhapura_asv2020-01_img11_Ruwanwelisaya_Stupa.jpg"
+    ],
+    "file": "NorthEastCentral"
+  },
+  {
+    "id": "mihintale-sacred-mountain",
+    "name": "Mihintale Sacred Mountain & Cradle of Buddhism",
+    "category": "Heritage",
+    "district": "Anuradhapura",
+    "region": "Cultural Triangle",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/aa/Mihintale_Rock.jpg/1280px-Mihintale_Rock.jpg",
+    "gallery": [
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/a/aa/Mihintale_Rock.jpg/1280px-Mihintale_Rock.jpg"
+    ],
+    "file": "NorthEastCentral"
+  },
+  {
+    "id": "jetavanaramaya-stupa",
+    "name": "Jetavanaramaya Stupa",
+    "category": "Heritage",
+    "district": "Anuradhapura",
+    "region": "Cultural Triangle",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/46/Jetavanaramaya_Stupa_profile.jpg/1280px-Jetavanaramaya_Stupa_profile.jpg",
+    "gallery": [
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/4/46/Jetavanaramaya_Stupa_profile.jpg/1280px-Jetavanaramaya_Stupa_profile.jpg"
+    ],
+    "file": "NorthEastCentral"
+  },
+  {
+    "id": "aukana-buddha-statue",
+    "name": "Aukana Buddha Statue",
+    "category": "Heritage",
+    "district": "Anuradhapura",
+    "region": "Cultural Triangle",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/c/ca/Avukana_Buddha_Statue.jpg",
+    "gallery": [
+      "https://upload.wikimedia.org/wikipedia/commons/c/ca/Avukana_Buddha_Statue.jpg"
+    ],
+    "file": "NorthEastCentral"
+  },
+  {
+    "id": "jathika-namal-uyana",
+    "name": "Jathika Namal Uyana & Rose Quartz Mountain",
+    "category": "Nature",
+    "district": "Anuradhapura",
+    "region": "Cultural Triangle",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/0/0a/Jathika_Namal_Uyana_%2C_%E0%B6%A2%E0%B7%8F%E0%B6%AD%E0%B7%92%E0%B6%9A_%E0%B6%B1%E0%B7%8F%E0%B6%B8%E0%B6%BD%E0%B7%8A_%E0%B6%8B%E0%B6%BA%E0%B6%B1.jpg",
+    "gallery": [
+      "https://upload.wikimedia.org/wikipedia/commons/0/0a/Jathika_Namal_Uyana_%2C_%E0%B6%A2%E0%B7%8F%E0%B6%AD%E0%B7%92%E0%B6%9A_%E0%B6%B1%E0%B7%8F%E0%B6%B8%E0%B6%BD%E0%B7%8A_%E0%B6%8B%E0%B6%BA%E0%B6%B1.jpg"
+    ],
+    "file": "NorthEastCentral"
+  },
+  {
+    "id": "abhayagiri-vihara",
+    "name": "Abhayagiri Vihara & Stupa",
+    "category": "Heritage",
+    "district": "Anuradhapura",
+    "region": "Cultural Triangle",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/d/d3/Abhayagiri_Dagoba_in_Anuradhapura%2C_Sri_Lanka.jpg",
+    "gallery": [
+      "https://upload.wikimedia.org/wikipedia/commons/d/d3/Abhayagiri_Dagoba_in_Anuradhapura%2C_Sri_Lanka.jpg"
+    ],
+    "file": "NorthEastCentral"
+  },
+  {
+    "id": "thuparamaya-stupa",
+    "name": "Thuparamaya Stupa",
+    "category": "Heritage",
+    "district": "Anuradhapura",
+    "region": "Cultural Triangle",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/c/c7/Thuparamaya_dagaba.jpg",
+    "gallery": [
+      "https://upload.wikimedia.org/wikipedia/commons/c/c7/Thuparamaya_dagaba.jpg"
+    ],
+    "file": "NorthEastCentral"
+  },
+  {
+    "id": "isurumuniya-temple",
+    "name": "Isurumuniya Viharaya & The Lovers Carving",
+    "category": "Heritage",
+    "district": "Anuradhapura",
+    "region": "Cultural Triangle",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/b/b9/ISURUMUNIYA_ROCK_TEMPLE.JPG",
+    "gallery": [
+      "https://upload.wikimedia.org/wikipedia/commons/b/b9/ISURUMUNIYA_ROCK_TEMPLE.JPG"
+    ],
+    "file": "NorthEastCentral"
+  },
+  {
+    "id": "ritigala-forest-monastery",
+    "name": "Ritigala Forest Monastery & Strict Nature Reserve",
+    "category": "Nature",
+    "district": "Anuradhapura",
+    "region": "Cultural Triangle",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/1/1a/Stone_bridge_-Ritigala-SriLanka.png",
+    "gallery": [
+      "https://upload.wikimedia.org/wikipedia/commons/1/1a/Stone_bridge_-Ritigala-SriLanka.png"
+    ],
+    "file": "NorthEastCentral"
+  },
+  {
+    "id": "kuttam-pokuna",
+    "name": "Kuttam Pokuna (Twin Ponds)",
+    "category": "Heritage",
+    "district": "Anuradhapura",
+    "region": "Cultural Triangle",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/0/09/Kuttam_Pokuna_07.JPG",
+    "gallery": [
+      "https://upload.wikimedia.org/wikipedia/commons/0/09/Kuttam_Pokuna_07.JPG"
+    ],
+    "file": "NorthEastCentral"
+  },
+  {
+    "id": "samadhi-buddha-statue",
+    "name": "Samadhi Buddha Statue",
+    "category": "Heritage",
+    "district": "Anuradhapura",
+    "region": "Cultural Triangle",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/0/0c/Samadhi_Statue.jpg",
+    "gallery": [
+      "https://upload.wikimedia.org/wikipedia/commons/0/0c/Samadhi_Statue.jpg"
+    ],
+    "file": "NorthEastCentral"
+  },
+  {
+    "id": "lovamahapaya-brazen-palace",
+    "name": "Lovamahapaya (The Brazen Palace)",
+    "category": "Heritage",
+    "district": "Anuradhapura",
+    "region": "Cultural Triangle",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/4/43/Lovamahapaya.jpg",
+    "gallery": [
+      "https://upload.wikimedia.org/wikipedia/commons/4/43/Lovamahapaya.jpg"
+    ],
+    "file": "NorthEastCentral"
+  },
+  {
+    "id": "gal-vihara-polonnaruwa",
+    "name": "Gal Vihara Rock Monolith Sculptures",
+    "category": "Heritage",
+    "district": "Polonnaruwa",
+    "region": "Cultural Triangle",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/92/%E0%B6%8B%E0%B6%AD%E0%B7%8A%E0%B6%AD%E0%B6%BB%E0%B7%8F%E0%B6%BB%E0%B7%8F%E0%B6%B8%E0%B6%BA_%E0%B6%9A%E0%B7%85%E0%B7%94_%E0%B6%9C%E0%B6%BD_%E0%B6%B1%E0%B7%99%E0%B6%BD%E0%B7%8F.jpg/1280px-%E0%B6%8B%E0%B6%AD%E0%B7%8A%E0%B6%AD%E0%B6%BB%E0%B7%8F%E0%B6%BB%E0%B7%8F%E0%B6%B8%E0%B6%BA_%E0%B6%9A%E0%B7%85%E0%B7%94_%E0%B6%9C%E0%B6%BD_%E0%B6%B1%E0%B7%99%E0%B6%BD%E0%B7%8F.jpg",
+    "gallery": [
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/9/92/%E0%B6%8B%E0%B6%AD%E0%B7%8A%E0%B6%AD%E0%B6%BB%E0%B7%8F%E0%B6%BB%E0%B7%8F%E0%B6%B8%E0%B6%BA_%E0%B6%9A%E0%B7%85%E0%B7%94_%E0%B6%9C%E0%B6%BD_%E0%B6%B1%E0%B7%99%E0%B6%BD%E0%B7%8F.jpg/1280px-%E0%B6%8B%E0%B6%AD%E0%B7%8A%E0%B6%AD%E0%B6%BB%E0%B7%8F%E0%B6%BB%E0%B7%8F%E0%B6%B8%E0%B6%BA_%E0%B6%9A%E0%B7%85%E0%B7%94_%E0%B6%9C%E0%B6%BD_%E0%B6%B1%E0%B7%99%E0%B6%BD%E0%B7%8F.jpg"
+    ],
+    "file": "NorthEastCentral"
+  },
+  {
+    "id": "minneriya-national-park",
+    "name": "Minneriya National Park (The Elephant Gathering)",
+    "category": "Wildlife",
+    "district": "Polonnaruwa",
+    "region": "Wildlife & Safari",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Minneriya_National_Park%2C_herd_of_elephants_with_lake.jpg/1280px-Minneriya_National_Park%2C_herd_of_elephants_with_lake.jpg",
+    "gallery": [
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Minneriya_National_Park%2C_herd_of_elephants_with_lake.jpg/1280px-Minneriya_National_Park%2C_herd_of_elephants_with_lake.jpg"
+    ],
+    "file": "NorthEastCentral"
+  },
+  {
+    "id": "parakrama-samudra",
+    "name": "Parakrama Samudra (Sea of Parakrama)",
+    "category": "Nature",
+    "district": "Polonnaruwa",
+    "region": "Cultural Triangle",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ed/Polonnaruwa-panta.jpg/1280px-Polonnaruwa-panta.jpg",
+    "gallery": [
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ed/Polonnaruwa-panta.jpg/1280px-Polonnaruwa-panta.jpg"
+    ],
+    "file": "NorthEastCentral"
+  },
+  {
+    "id": "polonnaruwa-vatadage",
+    "name": "Polonnaruwa Vatadage & Sacred Quadrangle",
+    "category": "Heritage",
+    "district": "Polonnaruwa",
+    "region": "Cultural Triangle",
+    "heroImage": "https://upload.wikimedia.org/wikipedia/commons/e/ef/Vatadage.jpg",
+    "gallery": [
+      "https://upload.wikimedia.org/wikipedia/commons/e/ef/Vatadage.jpg"
+    ],
+    "file": "NorthEastCentral"
+  }
+]

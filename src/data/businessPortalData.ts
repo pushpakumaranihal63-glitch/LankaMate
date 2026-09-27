@@ -1,0 +1,153 @@
+import { BusinessProfile, BusinessEnquiry } from '../types/businessPortal';
+
+export const INITIAL_DEMO_BUSINESSES: BusinessProfile[] = [
+  {
+    id: 'biz-demo-01',
+    businessName: 'Ella Cloud Valley Homestay & Eco Lodge',
+    businessType: 'Hotels & Guest Houses',
+    location: 'Ella, Badulla District',
+    address: 'Sapumalthanna Road, Ella 90090, Sri Lanka',
+    phone: '+94 77 123 4567',
+    email: 'contact@ellacloudvalley.example.com',
+    description:
+      'Cozy mountain-view eco lodge tucked along the misty ridges of Ella. Steps from Little Adam’s Peak and Nine Arch Bridge, offering authentic home-cooked Sri Lankan breakfast and tea plantation treks.',
+    openingHours: '24 Hours (Front Desk: 06:00 - 22:00)',
+    services: [
+      'Free High-Speed Wi-Fi',
+      'Traditional Sri Lankan Breakfast',
+      'Ella Train Station Pickup',
+      'Hiking & Trek Guides',
+      'Scooter & Tuk-Tuk Rental',
+      'Hot Water Showers',
+      'Tea Valley Balcony Views',
+    ],
+    photos: [
+      'https://images.unsplash.com/photo-1544735716-392fe2489ffa?w=800&auto=format&fit=crop&q=80',
+      'https://images.unsplash.com/photo-1566073771259-6a8506099945?w=800&auto=format&fit=crop&q=80',
+      'https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=800&auto=format&fit=crop&q=80',
+    ],
+    website: 'https://instagram.com/ellacloudvalley_demo',
+    status: 'Approved',
+    completeness: 92,
+    submittedAt: '2026-08-14',
+    lastUpdated: '2026-09-15',
+    sltdaRegistered: true,
+  },
+  {
+    id: 'biz-demo-02',
+    businessName: 'Ruhunu Spice Garden & Traditional Kitchen',
+    businessType: 'Restaurants & Food Shops',
+    location: 'Kandy, Central Province',
+    address: 'No. 42 Peradeniya Road, Kandy, Sri Lanka',
+    phone: '+94 81 223 9876',
+    email: 'hello@ruhunuspicekandy.example.com',
+    description:
+      'Authentic clay-pot rice and curry dining experience. Specializing in organic spices, slow-cooked Jaffna crab, Ambul Thiyal, and fresh hoppers in an open-air tropical courtyard.',
+    openingHours: '11:00 AM - 10:30 PM (Daily)',
+    services: [
+      'Clay Pot Rice & Curry Buffet',
+      'Vegetarian & Vegan Options',
+      'Fresh Hopper Live Station',
+      'Spice Cooking Classes',
+      'Card & LANKAQR Accepted',
+      'Covered Garden Dining',
+    ],
+    photos: [
+      'https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=800&auto=format&fit=crop&q=80',
+      'https://images.unsplash.com/photo-1610057099431-d73a1c9d2f2f?w=800&auto=format&fit=crop&q=80',
+    ],
+    website: 'https://ruhunuspicekandy.example.com',
+    status: 'Approved',
+    completeness: 88,
+    submittedAt: '2026-08-28',
+    lastUpdated: '2026-09-10',
+    sltdaRegistered: true,
+  },
+  {
+    id: 'biz-demo-03',
+    businessName: 'Ceylon Chauffeurs & Safari Expeditions',
+    businessType: 'Drivers / Chauffeur Services',
+    location: 'Negombo & Colombo',
+    address: 'Lewis Place, Negombo, Sri Lanka',
+    phone: '+94 71 987 6543',
+    email: 'info@ceylonchauffeurs.example.com',
+    description:
+      'English and German speaking licensed tourist chauffeur drivers. Air-conditioned modern vans and customized Yala, Sigiriya, and Hill Country circuit transport with flexible stopovers.',
+    openingHours: '05:00 AM - 11:30 PM',
+    services: [
+      'Bandaranaike Airport (CMB) Transfers',
+      'AC Luxury HiAce & Sedans',
+      'Yala & Wilpattu Safari 4x4 Jeeps',
+      'English Speaking Chauffeurs',
+      'Child Safety Seats on Request',
+    ],
+    photos: [
+      'https://images.unsplash.com/photo-1549399542-7e3f8b79c341?w=800&auto=format&fit=crop&q=80',
+    ],
+    website: 'https://ceylonchauffeurs.example.com',
+    status: 'Pending Review',
+    completeness: 75,
+    submittedAt: '2026-09-17',
+    lastUpdated: '2026-09-17',
+    sltdaRegistered: false,
+  },
+];
+
+export const INITIAL_DEMO_ENQUIRIES: BusinessEnquiry[] = [
+  {
+    id: 'enq-001',
+    businessId: 'biz-demo-01',
+    customerName: 'Marcus & Elena Lindberg',
+    customerEmail: 'marcus.lindberg@example.se',
+    customerPhone: '+46 70 123 4567',
+    topic: 'Room Availability & Train Pickup',
+    date: '2026-09-18',
+    message:
+      'Ayubowan! We are arriving on the Badulla train around 3:30 PM next Tuesday. Do you have a double room with valley view available for 3 nights, and could someone meet us at Ella station with a tuk-tuk?',
+    status: 'New',
+  },
+  {
+    id: 'enq-002',
+    businessId: 'biz-demo-01',
+    customerName: 'Claire Dupont',
+    customerEmail: 'claire.dupont@example.fr',
+    topic: 'Nine Arch Bridge sunrise guided walk',
+    date: '2026-09-16',
+    message:
+      'Hello! Do your lodge guides do early morning sunrise photography walks to Nine Arch Bridge before the big tourist crowd arrives? If so, what is the best timing and fee?',
+    status: 'Replied',
+    replyText:
+      'Ayubowan Claire! Yes, our in-house guide Chaminda leads early sunrise walks leaving at 5:45 AM. The light over the viaduct is spectacular. We would love to arrange this for you during your stay!',
+    repliedAt: '2026-09-16 14:30',
+  },
+  {
+    id: 'enq-003',
+    businessId: 'biz-demo-02',
+    customerName: 'Dr. Aruni Wickremasinghe',
+    customerEmail: 'aruni.w@example.com',
+    customerPhone: '+94 77 555 1212',
+    topic: 'Family Reunion Dinner (14 Guests)',
+    date: '2026-09-17',
+    message:
+      'We would like to book the garden terrace for our family dinner this coming Saturday night. Do you accommodate custom spice level requests for elders and children?',
+    status: 'New',
+  },
+];
+
+export const COMMON_SRI_LANKAN_AMENITIES: string[] = [
+  'Free High-Speed Wi-Fi',
+  'Air Conditioning',
+  'Traditional Sri Lankan Breakfast',
+  'Vegetarian & Vegan Friendly',
+  'Airport Pickup / Drop',
+  'Tuk-Tuk & Taxi Services',
+  'English Speaking Staff',
+  'Sinhala / Tamil Language Support',
+  'LANKAQR & Credit Card Accepted',
+  'Secure Vehicle Parking',
+  'Scenic Mountain / Ocean View',
+  'Guided Tours & Excursions',
+  'Hot Water Showers',
+  'Tea & Coffee Station',
+  'Family Friendly',
+];
