@@ -151,7 +151,9 @@ export const HomeView: React.FC<HomeViewProps> = ({
         borderHover: 'hover:border-emerald-300 hover:shadow-emerald-500/10',
         onClick: () => onNavigatePage('destinations'),
       },
-      {
+        
+       
+        {
         id: 'hotels',
         title: t('Hotels & Resorts'),
         subtitle: t('Boutique & Hill Lodges'),
@@ -222,16 +224,7 @@ export const HomeView: React.FC<HomeViewProps> = ({
         onClick: () => onNavigatePage('handbook'),
       },
       {
-        id: 'near-me',
-        title: t('Near Me & Nav'),
-        subtitle: t('GPS Places & Routes'),
-        keywords: 'near me gps places navigation directions hotels fuel banks atms restaurants hospitals pharmacies supermarkets car service attractions nearby find around me route maps',
-        icon: <MapPin className="w-5 h-5 text-emerald-600" />,
-        iconBg: 'bg-emerald-100/90 text-emerald-700',
-        borderHover: 'hover:border-emerald-300 hover:shadow-emerald-500/10',
-        onClick: () => onNavigatePage('near-me'),
-      },
-      {
+       
         id: 'fuel',
         title: t('Fuel Finder'),
         subtitle: t('Petrol & Diesel Stations'),
