@@ -780,7 +780,7 @@ export function setupAdminBackend(app: Express) {
     return res.status(201).json({ success: true, registration: newRecord });
   });
 
-  app.patch('/api/business-registrations/:id/status', (req: Request, res: Response) => {
+  app.patch('/api/business-registrations/:id/status', requireAdminAuth(['super_admin', 'editor']), (req: Request, res: Response) => {
     const { id } = req.params;
     const { status, adminNotes, sltdaVerified } = req.body;
 
