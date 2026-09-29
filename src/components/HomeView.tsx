@@ -234,16 +234,6 @@ export const HomeView: React.FC<HomeViewProps> = ({
         borderHover: 'hover:border-amber-300 hover:shadow-amber-500/10',
         onClick: () => onNavigatePage('fuel'),
       },
-      {
-        id: 'business-portal',
-        title: t('Business Portal'),
-        subtitle: t('Grow with LankaMate'),
-        keywords: 'business owner portal register business partner listing enquiries hotels restaurants tour operators chauffeur car rental travel agency promote tourism',
-        icon: <Building2 className="w-5 h-5 text-emerald-700" />,
-        iconBg: 'bg-emerald-100/90 text-emerald-800',
-        borderHover: 'hover:border-emerald-300 hover:shadow-emerald-500/10',
-        onClick: () => onNavigatePage('business-portal'),
-      },
     ],
     [onNavigatePage, t]
   );

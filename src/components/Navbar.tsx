@@ -71,7 +71,6 @@ export const Navbar: React.FC<NavbarProps> = ({
     },
     { id: 'assistant', label: t('nav.assistant'), icon: <Bot className="w-4 h-4 text-emerald-600" /> },
     { id: 'handbook', label: t('nav.handbook'), icon: <BookOpen className="w-4 h-4" /> },
-    { id: 'business-portal', label: t('Partner Portal', 'Partner Portal'), icon: <Building2 className="w-4 h-4 text-amber-500" /> },
   ];
 
   const languages: { code: LanguageCode; label: string; flag: string }[] = [
@@ -239,21 +238,6 @@ export const Navbar: React.FC<NavbarProps> = ({
             >
               <Sparkles className="w-3.5 h-3.5 text-amber-500 animate-pulse" />
               <span>{t('nav.assistant')}</span>
-            </button>
-
-            {/* Business Owner Partner Portal CTA */}
-            <button
-              id="top-business-portal-btn"
-              onClick={() => handleNavigate('business-portal')}
-              className={`hidden lg:flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold transition-all cursor-pointer ${
-                currentPage === 'business-portal'
-                  ? 'bg-emerald-900 text-white shadow-xs'
-                  : 'bg-stone-50 text-stone-800 border border-stone-200 hover:bg-emerald-50 hover:text-emerald-900'
-              }`}
-              title={t('Sri Lankan Business Owner Portal', 'Sri Lankan Business Owner Portal')}
-            >
-              <Building2 className="w-3.5 h-3.5 text-amber-500" />
-              <span>{t('Partner Hub', 'Partner Hub')}</span>
             </button>
 
             {/* Plan Trip CTA Button */}

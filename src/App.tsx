@@ -357,9 +357,6 @@ function AppContent() {
           <NearMeView onNavigatePage={handleNavigatePage} />
         )}
 
-        {currentPage === 'business-portal' && (
-          <BusinessOwnerPortalView onNavigatePage={handleNavigatePage} />
-        )}
 
         {currentPage === 'booking' && (
           <BookingView
@@ -468,36 +465,6 @@ function AppContent() {
                   </div>
                 </div>
                 <ChevronRight className="w-4 h-4 text-stone-400 shrink-0 ml-1" />
-              </button>
-
-              {/* Business Owner Portal Item */}
-              <button
-                type="button"
-                id="btn-drawer-business-portal"
-                onClick={() => {
-                  setCurrentPage('business-portal');
-                  setMoreMenuOpen(false);
-                  window.scrollTo({ top: 0, behavior: 'smooth' });
-                }}
-                className="col-span-2 flex items-center justify-between p-3 rounded-xl bg-gradient-to-r from-emerald-950 via-emerald-900 to-blue-950 hover:from-emerald-900 hover:to-blue-900 text-white font-bold text-left transition-all cursor-pointer shadow-sm border border-emerald-700/80"
-              >
-                <div className="flex items-center gap-2.5">
-                  <div className="p-2 rounded-lg bg-amber-400 text-emerald-950 shadow-xs">
-                    <Building2 className="w-4 h-4" />
-                  </div>
-                  <div>
-                    <div className="flex items-center gap-1.5">
-                      <span className="text-xs font-black text-white">{t('Business Owner Portal')}</span>
-                      <span className="px-1.5 py-0.2 rounded bg-amber-400 text-emerald-950 text-[9px] font-extrabold uppercase">
-                        {t('Partner Hub')}
-                      </span>
-                    </div>
-                    <div className="text-[10px] text-emerald-200 font-medium">
-                      {t('Grow your Sri Lankan business with LankaMate')}
-                    </div>
-                  </div>
-                </div>
-                <ChevronRight className="w-4 h-4 text-amber-400 shrink-0 ml-1" />
               </button>
 
               {/* All Travel Guides Item */}

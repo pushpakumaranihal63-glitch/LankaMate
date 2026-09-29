@@ -195,19 +195,6 @@ export const Footer: React.FC<FooterProps> = ({ onNavigatePage }) => {
                   {t('About LankaMate')}
                 </button>
               </li>
-              <li className="pt-1.5 border-t border-emerald-900/60">
-                <button
-                  id="btn-footer-business-portal"
-                  onClick={() => onNavigatePage('business-portal')}
-                  className="flex items-center gap-1.5 text-amber-300 hover:text-amber-200 transition-colors font-bold cursor-pointer"
-                >
-                  <Building2 className="w-3.5 h-3.5 text-amber-400" />
-                  <span>{t('Business Owner Portal')}</span>
-                  <span className="text-[9px] uppercase px-1.5 py-0.2 rounded bg-amber-400/20 text-amber-300 font-extrabold">
-                    {t('Partner')}
-                  </span>
-                </button>
-              </li>
             </ul>
           </div>
 

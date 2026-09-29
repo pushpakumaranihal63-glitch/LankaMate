@@ -332,12 +332,7 @@ export const TransportView: React.FC<TransportViewProps> = ({ onNavigatePage }) 
                 </p>
               </div>
 
-              <button
-                onClick={() => onNavigatePage('business-portal')}
-                className="px-4 py-2 rounded-xl bg-amber-400 hover:bg-amber-300 text-emerald-950 font-black text-xs transition-colors cursor-pointer"
-              >
-                Register as a Transport Provider
-              </button>
+
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
