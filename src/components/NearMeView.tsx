@@ -46,6 +46,7 @@ import {
 } from '../utils/navigation';
 import { PageId } from '../types';
 import { handleEmergencyCall } from '../utils/emergencyCall';
+import { useTranslation } from '../i18n/LanguageContext';
 
 interface NearMeViewProps {
   onNavigatePage: (page: PageId) => void;
@@ -88,6 +89,31 @@ export const CATEGORY_NAMES: Record<NearMeCategory | 'all', string> = {
 };
 
 export const NearMeView: React.FC<NearMeViewProps> = ({ onNavigatePage }) => {
+  const { t } = useTranslation();
+  const CATEGORY_TITLES_T: Record<NearMeCategory | 'all', string> = {
+    all: t('All Useful Places'),
+    fuel: t('Nearby Fuel Stations'),
+    hotel: t('Nearby Hotels'),
+    bank: t('Nearby Banks & ATMs'),
+    restaurant: t('Nearby Restaurants'),
+    hospital: t('Nearby Hospitals'),
+    pharmacy: t('Nearby Pharmacies'),
+    supermarket: t('Nearby Supermarkets'),
+    car_service: t('Nearby Car Services'),
+    attraction: t('Nearby Tourist Attractions'),
+  };
+  const CATEGORY_NAMES_T: Record<NearMeCategory | 'all', string> = {
+    all: t('places'),
+    fuel: t('Fuel Stations'),
+    hotel: t('Hotels'),
+    bank: t('Banks & ATMs'),
+    restaurant: t('Restaurants'),
+    hospital: t('Hospitals'),
+    pharmacy: t('Pharmacies'),
+    supermarket: t('Supermarkets'),
+    car_service: t('Car Services'),
+    attraction: t('Tourist Attractions'),
+  };
   const [activeCategory, setActiveCategory] = useState<NearMeCategory | 'all'>('all');
   const [searchQuery, setSearchQuery] = useState('');
 
@@ -198,7 +224,7 @@ export const NearMeView: React.FC<NearMeViewProps> = ({ onNavigatePage }) => {
 
       if (!result.isInsideSriLanka) {
         setLocationError(
-          `Detected location (${result.coordinates.lat.toFixed(5)}°, ${result.coordinates.lng.toFixed(5)}°) is outside Sri Lanka. Distances are calculated from your real location.`
+          t('Detected location') + ` (${result.coordinates.lat.toFixed(5)}°, ${result.coordinates.lng.toFixed(5)}°) ` + t('is outside Sri Lanka. Distances are calculated from your real location.')
         );
       }
     } else {
@@ -214,7 +240,7 @@ export const NearMeView: React.FC<NearMeViewProps> = ({ onNavigatePage }) => {
         // ignore
       }
       setLocationError(
-        result.error || 'Failed to acquire GPS location. Please check your device location settings.'
+        result.error || t('Failed to acquire GPS location. Please check your device location settings.')
       );
       setLocationErrorCode(result.errorCode ?? null);
       setLocationErrorName(result.errorName ?? null);
@@ -227,7 +253,7 @@ export const NearMeView: React.FC<NearMeViewProps> = ({ onNavigatePage }) => {
     setIsRealGps(false);
     setIsUsingFallback(true);
     setLocationAccuracy(null);
-    setDetectedAreaName('Colombo Central (Fallback Reference)');
+    setDetectedAreaName(t('Colombo Central (Fallback Reference)'));
     setLocationError(null);
     setLocationErrorCode(null);
     setLocationErrorName(null);
@@ -440,23 +466,23 @@ export const NearMeView: React.FC<NearMeViewProps> = ({ onNavigatePage }) => {
           <div className="flex flex-wrap items-center justify-between gap-3">
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-800/80 border border-blue-700/80 text-sky-200 text-xs font-bold tracking-wide">
               <Compass className="w-3.5 h-3.5 text-sky-300" />
-              <span>Smart GPS & Route Navigation</span>
+              <span>{t('Smart GPS & Route Navigation')}</span>
             </div>
 
             {/* Disclaimer badge */}
             <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-amber-500/20 border border-amber-400/40 text-amber-200 text-xs font-semibold">
               <Info className="w-3.5 h-3.5 text-amber-300" />
-              <span>Reference Information</span>
+              <span>{t('Reference Information')}</span>
             </div>
           </div>
 
           <div>
             <h1 className="text-2xl sm:text-4xl font-black tracking-tight text-white flex items-center gap-3">
               <MapPin className="w-7 h-7 sm:w-9 sm:h-9 text-amber-400 shrink-0" />
-              Near Me
+              {t('Near Me')}
             </h1>
             <p className="text-base sm:text-lg text-slate-200 font-medium mt-2 leading-relaxed max-w-2xl">
-              Find useful places around your current location
+              {t('Find useful places around your current location')}
             </p>
           </div>
 
@@ -464,10 +490,10 @@ export const NearMeView: React.FC<NearMeViewProps> = ({ onNavigatePage }) => {
           <div className="p-3 sm:p-4 rounded-2xl bg-white/10 backdrop-blur-md border border-white/15 text-xs text-slate-200 flex items-start gap-3 max-w-3xl">
             <ShieldAlert className="w-4 h-4 text-amber-400 shrink-0 mt-0.5" />
             <p className="leading-relaxed">
-              <strong className="text-white">Live Navigation Handover:</strong> Tap{' '}
-              <span className="font-bold text-amber-300">Navigate</span> on any place to launch
-              native Google Maps on your device for turn-by-turn routing and live traffic. Static directory
-              operating hours are labeled as reference information.
+              <strong className="text-white">{t('Live Navigation Handover:')}</strong> {t('Tap')}{' '}
+              <span className="font-bold text-amber-300">{t('Navigate')}</span> {t('on any place to launch')}
+              {t('native Google Maps on your device for turn-by-turn routing and live traffic. Static directory')}
+              {t('operating hours are labeled as reference information.')}
             </p>
           </div>
         </div>
@@ -486,7 +512,7 @@ export const NearMeView: React.FC<NearMeViewProps> = ({ onNavigatePage }) => {
                 id="near-me-search-input"
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                placeholder="Search a place, city, landmark, hotel, fuel station, bank, hospital..."
+                placeholder={t('Search a place, city, landmark, hotel, fuel station, bank, hospital...')}
                 className="w-full pl-11 pr-10 py-3 bg-stone-50 hover:bg-stone-100/80 focus:bg-white border border-stone-200 rounded-2xl text-sm font-medium text-stone-900 placeholder:text-stone-400 focus:outline-none focus:ring-2 focus:ring-blue-800 transition-all shadow-2xs"
               />
               {searchQuery && (
@@ -495,7 +521,7 @@ export const NearMeView: React.FC<NearMeViewProps> = ({ onNavigatePage }) => {
                   id="btn-clear-nearme-search"
                   onClick={() => setSearchQuery('')}
                   className="absolute right-3.5 top-1/2 -translate-y-1/2 p-1 text-stone-400 hover:text-stone-600 rounded-full cursor-pointer"
-                  title="Clear search text"
+                  title={t('Clear search text')}
                 >
                   <X className="w-4 h-4" />
                 </button>
@@ -514,7 +540,7 @@ export const NearMeView: React.FC<NearMeViewProps> = ({ onNavigatePage }) => {
                 <LocateFixed
                   className={`w-4 h-4 text-emerald-200 ${isLocating ? 'animate-spin' : ''}`}
                 />
-                <span>{isLocating ? 'Acquiring GPS...' : 'Use My Location'}</span>
+                <span>{isLocating ? t('Acquiring GPS...') : t('Use My Location')}</span>
               </button>
 
               {(searchQuery || activeCategory !== 'all' || distanceRadius !== 'all' || userLocation) && (
@@ -523,7 +549,7 @@ export const NearMeView: React.FC<NearMeViewProps> = ({ onNavigatePage }) => {
                   id="btn-reset-nearme-filters"
                   onClick={handleResetFilters}
                   className="p-3 bg-stone-100 hover:bg-stone-200 text-stone-700 rounded-2xl transition-colors cursor-pointer shrink-0"
-                  title="Reset All Filters"
+                  title={t('Reset All Filters')}
                 >
                   <RotateCcw className="w-4 h-4" />
                 </button>
@@ -539,9 +565,9 @@ export const NearMeView: React.FC<NearMeViewProps> = ({ onNavigatePage }) => {
             >
               <div className="w-4 h-4 border-2 border-blue-600 border-t-transparent rounded-full animate-spin shrink-0" />
               <div>
-                <span className="font-bold text-blue-900 block">Acquiring device GPS location...</span>
+                <span className="font-bold text-blue-900 block">{t('Acquiring device GPS location...')}</span>
                 <span className="text-xs text-blue-800">
-                  Requesting location from your device. If prompted by your browser or phone system, please tap &ldquo;Allow while using app&rdquo;.
+                  {t('Requesting location from your device. If prompted by your browser or phone system, please tap “Allow while using app”.')}
                 </span>
               </div>
             </div>
@@ -556,7 +582,7 @@ export const NearMeView: React.FC<NearMeViewProps> = ({ onNavigatePage }) => {
               <div className="flex flex-wrap items-center justify-between gap-2">
                 <div className="flex items-center gap-2 font-bold text-emerald-900">
                   <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
-                  <span>Real Device GPS Active</span>
+                  <span>{t('Real Device GPS Active')}</span>
                   {detectedAreaName && (
                     <span className="px-2 py-0.5 rounded-lg bg-emerald-200/80 text-emerald-950 font-bold text-[11px]">
                       {detectedAreaName}
@@ -573,7 +599,7 @@ export const NearMeView: React.FC<NearMeViewProps> = ({ onNavigatePage }) => {
                     className="text-[11px] font-bold text-emerald-800 hover:text-emerald-950 flex items-center gap-1 cursor-pointer underline"
                   >
                     <RotateCcw className="w-3 h-3" />
-                    <span>Refresh GPS</span>
+                    <span>{t('Refresh GPS')}</span>
                   </button>
                   <button
                     type="button"
@@ -581,7 +607,7 @@ export const NearMeView: React.FC<NearMeViewProps> = ({ onNavigatePage }) => {
                     onClick={handleClearGps}
                     className="text-[11px] font-bold text-stone-500 hover:text-stone-800 cursor-pointer ml-1"
                   >
-                    Clear
+                    {t('Clear')}
                   </button>
                 </div>
               </div>
@@ -596,12 +622,12 @@ export const NearMeView: React.FC<NearMeViewProps> = ({ onNavigatePage }) => {
 
                 {locationAccuracy !== null && (
                   <span className="text-emerald-800 font-medium">
-                    Accuracy: ±{locationAccuracy} m
+                    {t('Accuracy:')} ±{locationAccuracy} m
                   </span>
                 )}
 
                 <span className="text-emerald-700 font-medium">
-                  • Distances & sorting calculated using actual device coordinates
+                  • {t('Distances & sorting calculated using actual device coordinates')}
                 </span>
               </div>
 
@@ -623,7 +649,7 @@ export const NearMeView: React.FC<NearMeViewProps> = ({ onNavigatePage }) => {
               <div className="flex flex-wrap items-center justify-between gap-2">
                 <div className="flex items-center gap-2 font-bold text-amber-900">
                   <Info className="w-4 h-4 text-amber-600 shrink-0" />
-                  <span>Reference Point Active: Colombo Central</span>
+                  <span>{t('Reference Point Active: Colombo Central')}</span>
                 </div>
                 <div className="flex items-center gap-2">
                   <button
@@ -633,19 +659,19 @@ export const NearMeView: React.FC<NearMeViewProps> = ({ onNavigatePage }) => {
                     className="px-2.5 py-1 rounded-lg bg-emerald-700 hover:bg-emerald-800 text-white font-bold text-[11px] flex items-center gap-1 cursor-pointer"
                   >
                     <LocateFixed className="w-3 h-3" />
-                    <span>Try Real GPS</span>
+                    <span>{t('Try Real GPS')}</span>
                   </button>
                   <button
                     type="button"
                     onClick={handleClearGps}
                     className="text-[11px] font-bold text-stone-500 hover:text-stone-800 cursor-pointer ml-1"
                   >
-                    Clear
+                    {t('Clear')}
                   </button>
                 </div>
               </div>
               <p className="text-xs text-amber-900 leading-relaxed">
-                Measuring distances from Colombo Central ({SRI_LANKA_DEFAULT_CENTER.lat.toFixed(4)}°, {SRI_LANKA_DEFAULT_CENTER.lng.toFixed(4)}°) as manual fallback. Tap &ldquo;Try Real GPS&rdquo; to use your device&rsquo;s actual location.
+                {t('Measuring distances from Colombo Central')} ({SRI_LANKA_DEFAULT_CENTER.lat.toFixed(4)}°, {SRI_LANKA_DEFAULT_CENTER.lng.toFixed(4)}°) {t('as manual fallback. Tap “Try Real GPS” to use your device’s actual location.')}
               </p>
             </div>
           )}
@@ -660,7 +686,7 @@ export const NearMeView: React.FC<NearMeViewProps> = ({ onNavigatePage }) => {
                 <AlertTriangle className="w-4 h-4 text-rose-600 shrink-0 mt-0.5" />
                 <div className="space-y-1 flex-1">
                   <span className="font-bold text-rose-900 block">
-                    {locationErrorCode === 1 ? 'Location Permission Denied' : 'GPS Acquisition Issue'}
+                    {locationErrorCode === 1 ? t('Location Permission Denied') : t('GPS Acquisition Issue')}
                   </span>
                   <p className="text-xs text-rose-800 leading-relaxed font-medium">
                     {locationError}
@@ -676,7 +702,7 @@ export const NearMeView: React.FC<NearMeViewProps> = ({ onNavigatePage }) => {
                   className="px-3.5 py-2 rounded-xl bg-rose-700 hover:bg-rose-800 active:bg-rose-900 text-white font-bold text-xs flex items-center gap-1.5 cursor-pointer shadow-2xs touch-manipulation"
                 >
                   <RotateCcw className="w-3.5 h-3.5" />
-                  <span>Retry GPS</span>
+                  <span>{t('Retry GPS')}</span>
                 </button>
                 <button
                   type="button"
@@ -685,7 +711,7 @@ export const NearMeView: React.FC<NearMeViewProps> = ({ onNavigatePage }) => {
                   className="px-3.5 py-2 rounded-xl bg-white border border-rose-200 hover:bg-stone-50 active:bg-stone-100 text-stone-800 font-bold text-xs flex items-center gap-1.5 cursor-pointer shadow-2xs touch-manipulation"
                 >
                   <Compass className="w-3.5 h-3.5 text-stone-600" />
-                  <span>Use Colombo Central Reference Fallback</span>
+                  <span>{t('Use Colombo Central Reference Fallback')}</span>
                 </button>
               </div>
             </div>
@@ -699,7 +725,7 @@ export const NearMeView: React.FC<NearMeViewProps> = ({ onNavigatePage }) => {
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-2 font-bold text-stone-900">
                 <Compass className="w-4 h-4 text-blue-900 shrink-0" />
-                <span>GPS Diagnostic Information</span>
+                <span>{t('GPS Diagnostic Information')}</span>
               </div>
               <span
                 id="diag-gps-status-badge"
@@ -737,45 +763,45 @@ export const NearMeView: React.FC<NearMeViewProps> = ({ onNavigatePage }) => {
 
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
               <div className="p-2.5 rounded-xl bg-white border border-stone-200/80 shadow-2xs">
-                <span className="text-[10px] uppercase font-bold text-stone-400 block">GPS Status</span>
+                <span className="text-[10px] uppercase font-bold text-stone-400 block">{t('GPS Status')}</span>
                 <span id="diag-gps-status" className="font-semibold text-stone-900 text-xs block mt-0.5 truncate">
                   {isLocating
-                    ? 'Acquiring device GPS...'
+                    ? t('Acquiring device GPS...')
                     : isRealGps
-                    ? 'Real Hardware GPS'
+                    ? t('Real Hardware GPS')
                     : isUsingFallback
-                    ? 'Colombo Fallback'
+                    ? t('Colombo Fallback')
                     : locationErrorCode === 1
-                    ? 'Permission Denied'
+                    ? t('Permission Denied')
                     : locationErrorCode === 3
-                    ? 'Request Timed Out'
+                    ? t('Request Timed Out')
                     : locationError
-                    ? 'Failed'
-                    : 'Not requested'}
+                    ? t('Failed')
+                    : t('Not requested')}
                 </span>
               </div>
 
               <div className="p-2.5 rounded-xl bg-white border border-stone-200/80 shadow-2xs">
-                <span className="text-[10px] uppercase font-bold text-stone-400 block">Latitude</span>
+                <span className="text-[10px] uppercase font-bold text-stone-400 block">{t('Latitude')}</span>
                 <span id="diag-gps-latitude" className="font-mono font-semibold text-stone-900 text-xs block mt-0.5">
                   {userLocation ? `${userLocation.lat.toFixed(6)}° N` : '—'}
                 </span>
               </div>
 
               <div className="p-2.5 rounded-xl bg-white border border-stone-200/80 shadow-2xs">
-                <span className="text-[10px] uppercase font-bold text-stone-400 block">Longitude</span>
+                <span className="text-[10px] uppercase font-bold text-stone-400 block">{t('Longitude')}</span>
                 <span id="diag-gps-longitude" className="font-mono font-semibold text-stone-900 text-xs block mt-0.5">
                   {userLocation ? `${userLocation.lng.toFixed(6)}° E` : '—'}
                 </span>
               </div>
 
               <div className="p-2.5 rounded-xl bg-white border border-stone-200/80 shadow-2xs">
-                <span className="text-[10px] uppercase font-bold text-stone-400 block">Accuracy</span>
+                <span className="text-[10px] uppercase font-bold text-stone-400 block">{t('Accuracy')}</span>
                 <span id="diag-gps-accuracy" className="font-mono font-semibold text-stone-900 text-xs block mt-0.5">
                   {locationAccuracy !== null
                     ? `±${locationAccuracy} m`
                     : isUsingFallback
-                    ? 'Reference Point'
+                    ? t('Reference Point')
                     : '—'}
                 </span>
               </div>
@@ -790,7 +816,7 @@ export const NearMeView: React.FC<NearMeViewProps> = ({ onNavigatePage }) => {
                 <AlertTriangle className="w-3.5 h-3.5 text-rose-600 shrink-0 mt-0.5" />
                 <div className="space-y-0.5">
                   <div className="font-bold">
-                    {locationErrorCode ? `Error Code ${locationErrorCode} (${locationErrorName || 'ERROR'})` : 'Error'}:
+                    {locationErrorCode ? `${t('Error Code')} ${locationErrorCode} (${locationErrorName || 'ERROR'})` : t('Error')}:
                   </div>
                   <div className="leading-relaxed font-medium">{locationError}</div>
                 </div>
@@ -800,15 +826,15 @@ export const NearMeView: React.FC<NearMeViewProps> = ({ onNavigatePage }) => {
             <div className="flex flex-wrap items-center justify-between gap-2 text-[11px] text-stone-500 pt-1 border-t border-stone-200/60">
               <div className="flex items-center gap-3">
                 <span>
-                  Context:{' '}
+                  {t('Context:')}{' '}
                   <strong className="text-stone-700">
-                    {typeof window !== 'undefined' && window.isSecureContext ? 'HTTPS (Secure)' : 'HTTP / Insecure'}
+                    {typeof window !== 'undefined' && window.isSecureContext ? t('HTTPS (Secure)') : t('HTTP / Insecure')}
                   </strong>
                 </span>
                 <span>
-                  Sensor API:{' '}
+                  {t('Sensor API:')}{' '}
                   <strong className="text-stone-700">
-                    {typeof navigator !== 'undefined' && !!navigator.geolocation ? 'Available' : 'Unavailable'}
+                    {typeof navigator !== 'undefined' && !!navigator.geolocation ? t('Available') : t('Unavailable')}
                   </strong>
                 </span>
               </div>
@@ -820,7 +846,7 @@ export const NearMeView: React.FC<NearMeViewProps> = ({ onNavigatePage }) => {
                   onClick={handleUseColomboFallback}
                   className="text-stone-600 hover:text-blue-900 font-semibold underline cursor-pointer"
                 >
-                  Use Colombo Central Reference Fallback
+                  {t('Use Colombo Central Reference Fallback')}
                 </button>
               )}
             </div>
@@ -829,9 +855,9 @@ export const NearMeView: React.FC<NearMeViewProps> = ({ onNavigatePage }) => {
           {/* Distance Radius Filter (Available when location is acquired) */}
           {userLocation && (
             <div className="flex flex-wrap items-center gap-2 pt-2 border-t border-stone-100">
-              <span className="text-xs font-bold text-stone-600 mr-1 flex items-center gap-1">
+                <span className="text-xs font-bold text-stone-600 mr-1 flex items-center gap-1">
                 <LocateFixed className="w-3.5 h-3.5 text-emerald-600" />
-                Distance Radius:
+                {t('Distance Radius:')}
               </span>
               {(['all', '5', '10', '25'] as const).map((r) => (
                 <button
@@ -845,7 +871,7 @@ export const NearMeView: React.FC<NearMeViewProps> = ({ onNavigatePage }) => {
                       : 'bg-stone-100 hover:bg-stone-200 text-stone-700'
                   }`}
                 >
-                  {r === 'all' ? 'All Island' : `Within ${r} km`}
+                  {r === 'all' ? t('All Island') : `${t('Within')} ${r} km`}
                 </button>
               ))}
             </div>
@@ -855,7 +881,7 @@ export const NearMeView: React.FC<NearMeViewProps> = ({ onNavigatePage }) => {
           <div className="space-y-3 pt-2 border-t border-stone-100">
             <div className="flex items-center justify-between">
               <h2 className="text-xs sm:text-sm font-bold text-stone-700 uppercase tracking-wider">
-                Browse Useful Places by Category
+                {t('Browse Useful Places by Category')}
               </h2>
               {activeCategory !== 'all' && (
                 <button
@@ -864,7 +890,7 @@ export const NearMeView: React.FC<NearMeViewProps> = ({ onNavigatePage }) => {
                   onClick={() => setActiveCategory('all')}
                   className="text-xs text-blue-800 font-bold hover:underline cursor-pointer"
                 >
-                  Show All Categories
+                  {t('Show All Categories')}
                 </button>
               )}
             </div>
@@ -879,7 +905,7 @@ export const NearMeView: React.FC<NearMeViewProps> = ({ onNavigatePage }) => {
                     id={`btn-category-${cat.id}`}
                     data-category={cat.id}
                     data-active={isActive}
-                    aria-label={cat.label}
+                    aria-label={t(cat.label)}
                     aria-pressed={isActive}
                     type="button"
                     onClick={() => handleCategorySelect(cat.id)}
@@ -891,7 +917,7 @@ export const NearMeView: React.FC<NearMeViewProps> = ({ onNavigatePage }) => {
                   >
                     <span className="text-xl mb-1">{cat.emoji}</span>
                     <span className="text-xs font-bold tracking-tight line-clamp-1">
-                      {cat.label}
+                      {t(cat.label)}
                     </span>
                   </button>
                 );
@@ -912,10 +938,10 @@ export const NearMeView: React.FC<NearMeViewProps> = ({ onNavigatePage }) => {
               </div>
               <div>
                 <span className="text-[11px] font-bold uppercase tracking-wider text-amber-400">
-                  Self-Driving & Road Trip Advisory
+                  {t('Self-Driving & Road Trip Advisory')}
                 </span>
                 <h3 className="text-lg sm:text-xl font-black text-white">
-                  Driving Around Sri Lanka
+                  {t('Driving Around Sri Lanka')}
                 </h3>
               </div>
             </div>
@@ -927,7 +953,7 @@ export const NearMeView: React.FC<NearMeViewProps> = ({ onNavigatePage }) => {
                 className="px-3 py-1.5 rounded-xl bg-amber-400 hover:bg-amber-300 text-stone-950 text-xs font-bold transition-colors flex items-center gap-1.5 cursor-pointer"
               >
                 <Fuel className="w-3.5 h-3.5" />
-                <span>Dedicated Fuel Finder</span>
+                <span>{t('Dedicated Fuel Finder')}</span>
               </button>
               <button
                 type="button"
@@ -935,7 +961,7 @@ export const NearMeView: React.FC<NearMeViewProps> = ({ onNavigatePage }) => {
                 className="px-3 py-1.5 rounded-xl bg-white/10 hover:bg-white/20 text-white text-xs font-bold transition-colors flex items-center gap-1.5 cursor-pointer border border-white/20"
               >
                 <MapIcon className="w-3.5 h-3.5 text-sky-300" />
-                <span>Interactive Island Map</span>
+                <span>{t('Interactive Island Map')}</span>
               </button>
             </div>
           </div>
@@ -944,32 +970,32 @@ export const NearMeView: React.FC<NearMeViewProps> = ({ onNavigatePage }) => {
             <div className="p-3.5 rounded-2xl bg-stone-800/80 border border-stone-700/60 space-y-1.5">
               <div className="flex items-center gap-2 text-amber-300 font-bold">
                 <Fuel className="w-4 h-4" />
-                <span>Keep Fuel Topped Up</span>
+                <span>{t('Keep Fuel Topped Up')}</span>
               </div>
               <p className="leading-relaxed">
-                Refuel before long rural stretches, mountain ascents (Kandy to Nuwara Eliya/Ella), and national park gateways. Stations are 20–35 km apart in hill terrain.
+                {t('Refuel before long rural stretches, mountain ascents (Kandy to Nuwara Eliya/Ella), and national park gateways. Stations are 20–35 km apart in hill terrain.')}
               </p>
             </div>
 
             <div className="p-3.5 rounded-2xl bg-stone-800/80 border border-stone-700/60 space-y-1.5">
               <div className="flex items-center gap-2 text-sky-300 font-bold">
                 <Compass className="w-4 h-4" />
-                <span>Check Remote Routes</span>
+                <span>{t('Check Remote Routes')}</span>
               </div>
               <p className="leading-relaxed">
-                Pre-download offline maps before entering cloud forest corridors or deep wildlife sanctuaries where cellular coverage can dip.
+                {t('Pre-download offline maps before entering cloud forest corridors or deep wildlife sanctuaries where cellular coverage can dip.')}
               </p>
             </div>
 
             <div className="p-3.5 rounded-2xl bg-stone-800/80 border border-stone-700/60 space-y-1.5">
               <div className="flex items-center gap-2 text-rose-300 font-bold">
                 <PhoneCall className="w-4 h-4" />
-                <span>Emergency Hotlines</span>
+                <span>{t('Emergency Hotlines')}</span>
               </div>
               <p className="leading-relaxed">
-                Free ambulance: <strong className="text-white">1990</strong> • Police:{' '}
-                <strong className="text-white">119</strong> • Tourist Police:{' '}
-                <strong className="text-white">1912</strong> • Expressway Breakdown:{' '}
+                {t('Free ambulance:')} <strong className="text-white">1990</strong> • {t('Police:')}{' '}
+                <strong className="text-white">119</strong> • {t('Tourist Police:')}{' '}
+                <strong className="text-white">1912</strong> • {t('Expressway Breakdown:')}{' '}
                 <strong className="text-white">1969</strong>.
               </p>
             </div>
@@ -977,10 +1003,10 @@ export const NearMeView: React.FC<NearMeViewProps> = ({ onNavigatePage }) => {
             <div className="p-3.5 rounded-2xl bg-stone-800/80 border border-stone-700/60 space-y-1.5">
               <div className="flex items-center gap-2 text-emerald-300 font-bold">
                 <ShieldCheck className="w-4 h-4" />
-                <span>Local Traffic Rules</span>
+                <span>{t('Local Traffic Rules')}</span>
               </div>
               <p className="leading-relaxed">
-                Drive strictly on the <strong className="text-white">left side</strong>. Give way to oncoming traffic on steep single-lane climbs and strictly yield to pedestrians at zebra crossings.
+                {t('Drive strictly on the')} <strong className="text-white">{t('left side')}</strong>. {t('Give way to oncoming traffic on steep single-lane climbs and strictly yield to pedestrians at zebra crossings.')}
               </p>
             </div>
           </div>
@@ -996,7 +1022,7 @@ export const NearMeView: React.FC<NearMeViewProps> = ({ onNavigatePage }) => {
                 data-category={activeCategory}
                 className="text-xl font-black text-stone-900 tracking-tight"
               >
-                {CATEGORY_TITLES[activeCategory]}
+                {CATEGORY_TITLES_T[activeCategory]}
               </h2>
               <span
                 id="near-me-selected-category-count"
@@ -1014,13 +1040,13 @@ export const NearMeView: React.FC<NearMeViewProps> = ({ onNavigatePage }) => {
                     className="inline-flex items-center gap-1.5 font-bold text-emerald-800 bg-emerald-50 border border-emerald-200 px-2.5 py-1 rounded-xl"
                   >
                     <LocateFixed className="w-3.5 h-3.5 text-emerald-600" />
-                    Using your device location
+                    {t('Using your device location')}
                   </span>
                   <span
                     id="near-me-distance-radius-badge"
                     className="inline-flex items-center gap-1 font-bold text-stone-700 bg-stone-100 border border-stone-200 px-2.5 py-1 rounded-xl"
                   >
-                    {distanceRadius === 'all' ? 'Radius: All Island' : `Radius: Within ${distanceRadius} km`}
+                    {distanceRadius === 'all' ? `${t('Radius:')} ${t('All Island')}` : `${t('Radius:')} ${t('Within')} ${distanceRadius} km`}
                   </span>
                 </div>
               ) : (
@@ -1030,7 +1056,7 @@ export const NearMeView: React.FC<NearMeViewProps> = ({ onNavigatePage }) => {
                   className="text-blue-800 font-bold hover:underline cursor-pointer flex items-center gap-1"
                 >
                   <LocateFixed className="w-3.5 h-3.5" />
-                  Sort by nearest to me
+                  {t('Sort by nearest to me')}
                 </button>
               )}
             </div>
@@ -1042,7 +1068,7 @@ export const NearMeView: React.FC<NearMeViewProps> = ({ onNavigatePage }) => {
               <div className="flex items-center gap-2">
                 <span className="font-bold text-stone-700 flex items-center gap-1">
                   <LocateFixed className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
-                  Radius:
+                  {t('Radius:')}
                 </span>
                 <div className="flex items-center gap-1.5">
                   {(['all', '5', '10', '25'] as const).map((r) => (
@@ -1057,7 +1083,7 @@ export const NearMeView: React.FC<NearMeViewProps> = ({ onNavigatePage }) => {
                           : 'bg-stone-100 hover:bg-stone-200 text-stone-700'
                       }`}
                     >
-                      {r === 'all' ? 'All Island' : `Within ${r} km`}
+                      {r === 'all' ? t('All Island') : `${t('Within')} ${r} km`}
                     </button>
                   ))}
                 </div>
@@ -1065,9 +1091,9 @@ export const NearMeView: React.FC<NearMeViewProps> = ({ onNavigatePage }) => {
 
               <div className="text-[11px] text-stone-500 font-medium">
                 {distanceRadius === 'all' ? (
-                  <span>All Island • Sorted from nearest to farthest</span>
+                  <span>{t('All Island • Sorted from nearest to farthest')}</span>
                 ) : (
-                  <span>Filtered within <strong className="text-emerald-800">{distanceRadius} km</strong></span>
+                  <span>{t('Filtered within')} <strong className="text-emerald-800">{distanceRadius} km</strong></span>
                 )}
               </div>
             </div>
@@ -1086,10 +1112,10 @@ export const NearMeView: React.FC<NearMeViewProps> = ({ onNavigatePage }) => {
               {distanceRadius !== 'all' ? (
                 <div className="space-y-3">
                   <h3 id="no-nearby-places-found" className="font-bold text-stone-900 text-lg">
-                    No {CATEGORY_NAMES[activeCategory]} found within {distanceRadius} km.
+                    {t('No')} {CATEGORY_NAMES_T[activeCategory]} {t('found within')} {distanceRadius} km.
                   </h3>
                   <p className="text-xs sm:text-sm text-stone-600 leading-relaxed max-w-md mx-auto">
-                    No {CATEGORY_NAMES[activeCategory]} found within <strong className="text-emerald-900">{distanceRadius} km</strong>. Expand your distance radius to view available places across Sri Lanka.
+                    {t('No')} {CATEGORY_NAMES_T[activeCategory]} {t('found within')} <strong className="text-emerald-900">{distanceRadius} km</strong>. {t('Expand your distance radius to view available places across Sri Lanka.')}
                   </p>
 
                   {/* Option to change the radius */}
@@ -1102,7 +1128,7 @@ export const NearMeView: React.FC<NearMeViewProps> = ({ onNavigatePage }) => {
                           onClick={() => setDistanceRadius('10')}
                           className="px-4 py-2 rounded-xl text-xs font-bold transition-all cursor-pointer bg-blue-900 text-white hover:bg-blue-950 shadow-xs"
                         >
-                          Expand to 10 km
+                          {t('Expand to 10 km')}
                         </button>
                       )}
                       {(distanceRadius === '5' || distanceRadius === '10') && (
@@ -1112,7 +1138,7 @@ export const NearMeView: React.FC<NearMeViewProps> = ({ onNavigatePage }) => {
                           onClick={() => setDistanceRadius('25')}
                           className="px-4 py-2 rounded-xl text-xs font-bold transition-all cursor-pointer bg-blue-900 text-white hover:bg-blue-950 shadow-xs"
                         >
-                          Expand to 25 km
+                          {t('Expand to 25 km')}
                         </button>
                       )}
                       <button
@@ -1121,24 +1147,24 @@ export const NearMeView: React.FC<NearMeViewProps> = ({ onNavigatePage }) => {
                         onClick={() => setDistanceRadius('all')}
                         className="px-4 py-2 rounded-xl text-xs font-bold transition-all cursor-pointer bg-stone-100 hover:bg-stone-200 text-stone-800 border border-stone-300"
                       >
-                        Show All Island
+                        {t('Show All Island')}
                       </button>
                     </div>
                   </div>
                 </div>
               ) : (
                 <div className="space-y-3">
-                  <h3 className="font-bold text-stone-900 text-base">No Matching Places Found</h3>
+                  <h3 className="font-bold text-stone-900 text-base">{t('No Matching Places Found')}</h3>
                   <p className="text-xs text-stone-500 leading-relaxed max-w-sm mx-auto">
-                    We couldn’t find any {CATEGORY_NAMES[activeCategory]} matching &ldquo;{searchQuery}&rdquo;.
-                    Try adjusting your search terms or resetting filters.
+                    {t('We couldn’t find any')} {CATEGORY_NAMES_T[activeCategory]} {t('matching')} “{searchQuery}”.
+                    {t('Try adjusting your search terms or resetting filters.')}
                   </p>
                   <button
                     type="button"
                     onClick={handleResetFilters}
                     className="px-4 py-2 bg-blue-900 text-white rounded-xl text-xs font-bold hover:bg-blue-950 transition-colors cursor-pointer"
                   >
-                    Reset Filters
+                    {t('Reset Filters')}
                   </button>
                 </div>
               )}
@@ -1165,7 +1191,7 @@ export const NearMeView: React.FC<NearMeViewProps> = ({ onNavigatePage }) => {
                           }`}
                         >
                           {getCategoryIcon(place.category, 'w-3.5 h-3.5')}
-                          <span>{place.categoryLabel}</span>
+                          <span>{t(place.categoryLabel)}</span>
                         </span>
 
                         <div className="flex items-center gap-2 shrink-0">
@@ -1188,7 +1214,7 @@ export const NearMeView: React.FC<NearMeViewProps> = ({ onNavigatePage }) => {
                                 : 'bg-stone-100 text-stone-700'
                             }`}
                           >
-                            {place.openStatus}
+                            {t(place.openStatus)}
                           </span>
                         </div>
                       </div>
@@ -1196,19 +1222,19 @@ export const NearMeView: React.FC<NearMeViewProps> = ({ onNavigatePage }) => {
                       {/* Place Name & Location */}
                       <div>
                         <h3 className="text-base font-bold text-stone-900 group-hover:text-blue-900 transition-colors leading-snug">
-                          {place.name}
+                          {t(place.name)}
                         </h3>
                         <div className="flex items-center gap-1 text-xs text-stone-500 mt-1">
                           <MapPin className="w-3.5 h-3.5 text-stone-400 shrink-0" />
-                          <span className="font-semibold text-stone-700">{place.area}</span>
+                          <span className="font-semibold text-stone-700">{t(place.area)}</span>
                           <span>•</span>
-                          <span>{place.city}</span>
+                          <span>{t(place.city)}</span>
                         </div>
                       </div>
 
                       {/* Description */}
                       <p className="text-xs text-stone-600 line-clamp-2 leading-relaxed">
-                        {place.description}
+                        {t(place.description)}
                       </p>
 
                       {/* Services Chips */}
@@ -1218,12 +1244,12 @@ export const NearMeView: React.FC<NearMeViewProps> = ({ onNavigatePage }) => {
                             key={idx}
                             className="px-2 py-0.5 rounded-md bg-stone-100 text-stone-700 text-[10px] font-medium"
                           >
-                            {service}
+                            {t(service)}
                           </span>
                         ))}
                         {place.services.length > 3 && (
                           <span className="px-1.5 py-0.5 text-[10px] text-stone-400 font-bold">
-                            +{place.services.length - 3} more
+                            +{place.services.length - 3} {t('more')}
                           </span>
                         )}
                       </div>
@@ -1233,7 +1259,7 @@ export const NearMeView: React.FC<NearMeViewProps> = ({ onNavigatePage }) => {
                         <div className="p-2.5 rounded-xl bg-amber-50/70 border border-amber-200/60 text-[11px] text-amber-900 flex items-start gap-1.5">
                           <Car className="w-3.5 h-3.5 text-amber-600 shrink-0 mt-0.5" />
                           <p className="line-clamp-1 leading-snug">
-                            <strong>Tip:</strong> {place.drivingTip}
+                            <strong>{t('Tip:')}</strong> {t(place.drivingTip)}
                           </p>
                         </div>
                       )}
@@ -1253,10 +1279,10 @@ export const NearMeView: React.FC<NearMeViewProps> = ({ onNavigatePage }) => {
                           )
                         }
                         className="flex-1 py-2.5 px-4 bg-blue-900 hover:bg-blue-950 active:bg-[#0c2340] text-white rounded-xl text-xs font-black transition-all flex items-center justify-center gap-2 cursor-pointer shadow-xs touch-manipulation group/btn"
-                        title="Open directions in Google Maps"
+                        title={t('Open directions in Google Maps')}
                       >
                         <Navigation className="w-4 h-4 text-amber-300 group-hover/btn:translate-x-0.5 transition-transform" />
-                        <span>Navigate</span>
+                        <span>{t('Navigate')}</span>
                       </button>
 
                       {/* View Details Button */}
@@ -1266,7 +1292,7 @@ export const NearMeView: React.FC<NearMeViewProps> = ({ onNavigatePage }) => {
                         onClick={() => setSelectedPlaceForModal(place)}
                         className="flex-1 py-2.5 px-3 bg-stone-100 hover:bg-stone-200 active:bg-stone-300 text-stone-800 rounded-xl text-xs font-bold transition-colors flex items-center justify-center gap-1 cursor-pointer touch-manipulation"
                       >
-                        <span>View Details</span>
+                        <span>{t('View Details')}</span>
                         <ChevronRight className="w-3.5 h-3.5 text-stone-500" />
                       </button>
                     </div>
@@ -1285,10 +1311,10 @@ export const NearMeView: React.FC<NearMeViewProps> = ({ onNavigatePage }) => {
             </div>
             <div>
               <h3 className="text-base font-bold text-stone-900">
-                Planning a Full Island Tour?
+                {t('Planning a Full Island Tour?')}
               </h3>
               <p className="text-xs text-stone-500 max-w-xl mt-0.5">
-                Explore our curated 7-day road itinerary, find specific petrol & diesel grades with the Fuel Finder, or view all island attractions on the interactive map.
+                {t('Explore our curated 7-day road itinerary, find specific petrol & diesel grades with the Fuel Finder, or view all island attractions on the interactive map.')}
               </p>
             </div>
           </div>
@@ -1300,7 +1326,7 @@ export const NearMeView: React.FC<NearMeViewProps> = ({ onNavigatePage }) => {
               className="flex-1 md:flex-initial py-2.5 px-4 bg-amber-400 hover:bg-amber-300 text-stone-950 rounded-xl text-xs font-bold transition-colors flex items-center justify-center gap-1.5 cursor-pointer"
             >
               <Fuel className="w-4 h-4" />
-              <span>Fuel Finder</span>
+              <span>{t('Fuel Finder')}</span>
             </button>
             <button
               type="button"
@@ -1308,14 +1334,14 @@ export const NearMeView: React.FC<NearMeViewProps> = ({ onNavigatePage }) => {
               className="flex-1 md:flex-initial py-2.5 px-4 bg-stone-100 hover:bg-stone-200 text-stone-800 rounded-xl text-xs font-bold transition-colors flex items-center justify-center gap-1.5 cursor-pointer"
             >
               <MapIcon className="w-4 h-4 text-stone-600" />
-              <span>Interactive Map</span>
+              <span>{t('Interactive Map')}</span>
             </button>
             <button
               type="button"
               onClick={() => onNavigatePage('itinerary-7day')}
               className="flex-1 md:flex-initial py-2.5 px-4 bg-blue-900 hover:bg-blue-950 text-white rounded-xl text-xs font-bold transition-colors flex items-center justify-center gap-1.5 cursor-pointer"
             >
-              <span>7-Day Itinerary</span>
+              <span>{t('7-Day Itinerary')}</span>
             </button>
           </div>
         </section>
@@ -1339,24 +1365,24 @@ export const NearMeView: React.FC<NearMeViewProps> = ({ onNavigatePage }) => {
               <div className="space-y-1">
                 <div className="flex items-center gap-2 flex-wrap">
                   <span className="px-2.5 py-0.5 rounded-lg bg-blue-100 text-blue-900 text-[11px] font-bold">
-                    {selectedPlaceForModal.categoryLabel}
+                    {t(selectedPlaceForModal.categoryLabel)}
                   </span>
                   {selectedPlaceForModal.distanceKm !== null && (
                     <span className="px-2.5 py-0.5 rounded-lg bg-emerald-100 text-emerald-900 text-[11px] font-black flex items-center gap-1">
                       <Navigation className="w-3 h-3 text-emerald-700" />
-                      <span>{formatDistanceKm(selectedPlaceForModal.distanceKm)} away</span>
+                      <span>{formatDistanceKm(selectedPlaceForModal.distanceKm)} {t('away')}</span>
                     </span>
                   )}
                   <span className="text-[10px] text-stone-500 bg-stone-100 px-2 py-0.5 rounded font-bold uppercase">
-                    Reference Information
+                    {t('Reference Information')}
                   </span>
                 </div>
                 <h3 className="text-xl font-black text-stone-900 leading-snug">
-                  {selectedPlaceForModal.name}
+                  {t(selectedPlaceForModal.name)}
                 </h3>
                 <div className="flex items-center gap-1.5 text-xs text-stone-500">
                   <MapPin className="w-3.5 h-3.5 text-stone-400 shrink-0" />
-                  <span>{selectedPlaceForModal.address}</span>
+                  <span>{t(selectedPlaceForModal.address)}</span>
                 </div>
               </div>
 
@@ -1372,10 +1398,10 @@ export const NearMeView: React.FC<NearMeViewProps> = ({ onNavigatePage }) => {
             {/* Description */}
             <div className="space-y-2">
               <h4 className="text-xs font-bold text-stone-500 uppercase tracking-wider">
-                About this Place
+                {t('About this Place')}
               </h4>
               <p className="text-xs sm:text-sm text-stone-700 leading-relaxed">
-                {selectedPlaceForModal.description}
+                {t(selectedPlaceForModal.description)}
               </p>
             </div>
 
@@ -1384,10 +1410,10 @@ export const NearMeView: React.FC<NearMeViewProps> = ({ onNavigatePage }) => {
               <div className="p-3.5 rounded-2xl bg-amber-50 border border-amber-200/80 space-y-1">
                 <div className="flex items-center gap-2 text-amber-900 font-bold text-xs">
                   <Car className="w-4 h-4 text-amber-700" />
-                  <span>Self-Driving & Traveler Advice</span>
+                  <span>{t('Self-Driving & Traveler Advice')}</span>
                 </div>
                 <p className="text-xs text-amber-900 leading-relaxed">
-                  {selectedPlaceForModal.drivingTip}
+                  {t(selectedPlaceForModal.drivingTip)}
                 </p>
               </div>
             )}
@@ -1395,7 +1421,7 @@ export const NearMeView: React.FC<NearMeViewProps> = ({ onNavigatePage }) => {
             {/* Services & Amenities */}
             <div className="space-y-2">
               <h4 className="text-xs font-bold text-stone-500 uppercase tracking-wider">
-                Services & Amenities
+                {t('Services & Amenities')}
               </h4>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
                 {selectedPlaceForModal.services.map((srv, idx) => (
@@ -1404,7 +1430,7 @@ export const NearMeView: React.FC<NearMeViewProps> = ({ onNavigatePage }) => {
                     className="flex items-center gap-2 p-2 rounded-xl bg-stone-50 border border-stone-100 text-xs text-stone-700 font-medium"
                   >
                     <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
-                    <span>{srv}</span>
+                    <span>{t(srv)}</span>
                   </div>
                 ))}
               </div>
@@ -1415,10 +1441,10 @@ export const NearMeView: React.FC<NearMeViewProps> = ({ onNavigatePage }) => {
               <div className="p-3 rounded-2xl bg-stone-50 border border-stone-100 space-y-1">
                 <div className="flex items-center gap-1.5 text-stone-600 font-bold text-xs">
                   <Clock className="w-3.5 h-3.5 text-stone-400" />
-                  <span>Operating Hours</span>
+                  <span>{t('Operating Hours')}</span>
                 </div>
                 <p className="text-xs text-stone-800 font-semibold">
-                  {selectedPlaceForModal.openingHours}
+                  {t(selectedPlaceForModal.openingHours)}
                 </p>
               </div>
 
@@ -1426,7 +1452,7 @@ export const NearMeView: React.FC<NearMeViewProps> = ({ onNavigatePage }) => {
                 <div className="p-3 rounded-2xl bg-stone-50 border border-stone-100 space-y-1">
                   <div className="flex items-center gap-1.5 text-stone-600 font-bold text-xs">
                     <Phone className="w-3.5 h-3.5 text-stone-400" />
-                    <span>Telephone</span>
+                    <span>{t('Telephone')}</span>
                   </div>
                   <a
                     href={`tel:${selectedPlaceForModal.contactPhone.replace(/\s+/g, '')}`}
@@ -1453,7 +1479,7 @@ export const NearMeView: React.FC<NearMeViewProps> = ({ onNavigatePage }) => {
                 className="w-full sm:flex-1 py-3 px-4 bg-blue-900 hover:bg-blue-950 active:bg-[#0c2340] text-white rounded-2xl text-xs sm:text-sm font-black shadow-md transition-all flex items-center justify-center gap-2 cursor-pointer touch-manipulation"
               >
                 <Navigation className="w-4 h-4 text-amber-300" />
-                <span>Navigate in Google Maps</span>
+                <span>{t('Navigate in Google Maps')}</span>
               </button>
 
               <button
@@ -1461,7 +1487,7 @@ export const NearMeView: React.FC<NearMeViewProps> = ({ onNavigatePage }) => {
                 onClick={() => setSelectedPlaceForModal(null)}
                 className="w-full sm:w-auto py-3 px-5 bg-stone-100 hover:bg-stone-200 text-stone-800 rounded-2xl text-xs sm:text-sm font-bold transition-colors cursor-pointer"
               >
-                Close
+                {t('Close')}
               </button>
             </div>
           </div>

@@ -1,0 +1,897 @@
+000|||app in Colombo, Kandy, and Galle for metered fair rates.
+001||| hours
+002||| in your local LankaMate record. No fees were charged, and no real hotel was contacted.
+003|||#1 Leopard Density
+004|||+94 77 123 4567 or international number
+005|||+94 77 123 4567 or yourname@gmail.com
+006|||. In accordance with demo mode, no real hotel cancellation or fee was processed with external properties.
+007|||0 hotels within
+008|||1 Pax, 1 Suitcase
+009|||1 Solo Traveler
+010|||100% Vegan
+011|||14 Days (Grand Tour)
+012|||2 - 3.5 hrs
+013|||2 Guests (1 Double/Twin Room)
+014|||2 Pax, 2 Suitcases
+015|||2,500+ Years
+016|||24/7 AI Travel Concierge
+017|||24/7 Multilingual Support
+018|||3 Days (Weekend)
+019|||3 Guests (1 Triple Room)
+020|||3 Key Transit Services
+021|||3-4 Pax, Family Bags
+022|||3.5 - 4 Hours
+023|||4+ Family / Group (2+ Rooms)
+024|||5-8 Group, Large Luggage
+025|||7 Days (Highlights)
+026|||7 Days / 6 Nights
+027|||7-Day Itinerary
+028|||7-Day Sri Lanka Itinerary
+029|||7-Day Sri Lanka Itinerary - LankaMate
+030|||7-Day Sri Lanka Itinerary:
+031|||8 UNESCO Sites
+032|||< 1 km away
+033|||A demo QR authorization will automatically approve upon tapping Pay Now.
+034|||About this Place
+035|||Access your bookmarked Sri Lankan destinations, heritage stays, and iconic culinary specialties anytime.
+036|||Accommodation
+037|||Accommodations in
+038|||Accuracy
+039|||Accuracy:
+040|||Acquiring GPS...
+041|||Acquiring device GPS location...
+042|||Acquiring device GPS...
+043|||Active & Action-Packed
+044|||Active Search Results
+045|||Actual Searched Fuel Station Results
+046|||Address
+047|||Adjust your daily pace, calculate estimated budgets in USD/LKR, explore hand-picked heritage hotels, and generate a printable personal travel itinerary.
+048|||Adults / Family
+049|||Afternoon
+050|||Afternoon:
+051|||Air-Conditioned Sedan, SUV or Van
+052|||Air-conditioned, private bath, balcony view
+053|||Airport Transfers
+054|||Airport transfers, private chauffeur tourist guides, and verified car & tuk-tuk rentals.
+055|||All 7 Days View
+056|||All 9 Provinces
+057|||All Bookings
+058|||All Diesel
+059|||All Fuels
+060|||All Island
+061|||All Island • Sorted from nearest to farthest
+062|||All Items
+063|||All Near Me Places (Hotels, ATMs, Hospitals...)
+064|||All Petrol
+065|||All Sri Lanka Travel Guides
+066|||All Transport Options
+067|||All Useful Places
+068|||Amenities & Services
+069|||Approx.
+070|||Approximate Cost:
+071|||Approximate reference estimates
+072|||Are you sure you want to cancel your demo reservation for 
+073|||Arrival Guarantee:
+074|||Ask AI
+075|||Ask AI Travel Guide
+076|||Ask AI travel question
+077|||Ask anything: blue train tickets, temple dress code, seafood spots, monsoons...
+078|||Ask our intelligent assistant for customized train schedules, temple guidelines, kottu recommendations, or personalized itinerary modifications.
+079|||Authentic Culinary Tips & Flavors
+080|||Authentic Hospitality Guarantee:
+081|||Authentic Sri Lankan Wildlife Sanctuary
+082|||Available Fleets
+083|||Available Fuel Grades
+084|||Available Room Types
+085|||Available in Greater Colombo, Kandy, and southern coastal expressway corridors for Uber Tuk, Uber Go, and Premier cars with cashless digital payment.
+086|||Ayubowan! We have received your booking inquiry for
+087|||Back to All Guides
+088|||Back to All Island Reference Directory
+089|||Back to Booking Summary
+090|||Back to Custom Plan Builder
+091|||Back to Home
+092|||Back to Hotels
+093|||Back to Hotels Catalog
+094|||Back to My Trips
+095|||Back to previous page
+096|||Balanced
+097|||Balanced & Scenic
+098|||Balcony & En-suite
+099|||Bank Transfer Notice:
+100|||Base rate:
+101|||Best App:
+102|||Best Spot
+103|||Best rate guarantee with complimentary breakfast & free cancellation.
+104|||Bohoma Sthuthi! Thank You!
+105|||Book
+106|||Book Another Hotel
+107|||Book This Tour Experience
+108|||Book a ride through PickMe.
+109|||Book a ride through Uber.
+110|||Booked On:
+111|||Booking Confirmed
+112|||Booking Confirmed!
+113|||Booking Inquiry Dispatched
+114|||Booking Reference Number
+115|||Booking Reference:
+116|||Booking Rule:
+117|||Booking Summary
+118|||Browse All Hotels & Homestays
+119|||Browse Hotels
+120|||Browse Province / Island-wide Region
+121|||Browse Useful Places by Category
+122|||Budget
+123|||Budget Fast
+124|||Budget per Night:
+125|||CVC Code
+126|||Calculated from
+127|||Call 110
+128|||Call 119
+129|||Call 1912
+130|||Call 1990
+131|||Cancel Booking
+132|||Cancel Hotel Reservation?
+133|||Cancelled
+134|||Capacity:
+135|||Car & Tuk-Tuk Rental
+136|||Car Services
+137|||Carefully timed and field-tested routes covering iconic archaeological wonders, high tea country, wildlife parks, and pristine southern beaches.
+138|||Category 1 • Luxury & Heritage Lodging
+139|||Category 2 • Authentic Local Hospitality
+140|||Category 3 • Certified Guided Excursions
+141|||Category 4 • Island-Wide Mobility
+142|||Category:
+143|||Change currency or edit details
+144|||Check Availability
+145|||Check Remote Routes
+146|||Check-in Date
+147|||Check-out Date
+148|||Checkout & Payment
+149|||Chronicles in the Mahavamsa detail ancient hydraulic civilizations, giant stupas, and sacred bo-trees.
+150|||City:
+151|||Classic Island Circuit • 7 Days / 6 Nights
+152|||Clear
+153|||Clear All Favourites
+154|||Clear Chat Conversation
+155|||Clear Filters
+156|||Clear guidance on dual monsoons, train ticketing, tipping, and tourist police safety.
+157|||Clear location filter
+158|||Clear search text
+159|||Click to view transport details & route options
+160|||Close Voucher
+161|||Collapse Full Details
+162|||Colombo Central (Fallback Reference)
+163|||Colombo Fallback
+164|||Coming Soon
+165|||Commence & Explore
+166|||Commercial Bank of Ceylon / Hatton National Bank
+167|||Completing demo reservation for
+168|||Confirmed
+169|||Confirmed Reservation Summary
+170|||Contact Phone / WhatsApp
+171|||Context:
+172|||Continue to Payment
+173|||Copied
+174|||Copied Link!
+175|||Copied to Clipboard!
+176|||Copied!
+177|||Copy
+178|||Copy Ref
+179|||Copy Reference Number
+180|||Copy Summary
+181|||Copy text
+182|||Core Takeaways & Guidelines
+183|||Create a Custom Plan
+184|||Credit or Debit Card (Demo Test Card)
+185|||Critical island knowledge: weather seasons, currency handling, emergency speed-dials, temple etiquette, and health safety tips for first-timers and seasoned visitors.
+186|||Culinary Odyssey of Ceylon
+187|||Culinary Tip:
+188|||Culturally grounded assistant for Sri Lanka local and tourist travel
+189|||Curated Guide Sample
+190|||Curated Option for
+191|||Curated Sample & Reference Stations Across Sri Lanka (Browse Mode)
+192|||Curated Sri Lankan Hospitality
+193|||Curated Tours
+194|||Current location:
+195|||Currently Viewing in
+196|||Currently browsing sample stations nationwide. Type any city (e.g. Ratnapura, Batticaloa, Kurunegala, Chilaw) above to view actual local search results.
+197|||Custom Plan Builder
+198|||Custom itineraries and multi-day signature routes you have saved.
+199|||Customize Your Trip
+200|||Customize or adapt this 7-day plan in our Planner
+201|||DAY
+202|||Date of Transit
+203|||Dates
+204|||Dates:
+205|||Day
+206|||Days Route
+207|||Days across Sri Lanka
+208|||Dedicated Fuel Finder
+209|||Demo
+210|||Demo / Reference Directory
+211|||Demo / Test Payment Completed
+212|||Demo Cancellation Notice:
+213|||Demo Mode
+214|||Demo Payment
+215|||Demo Rate
+216|||Demo Sandbox Mode
+217|||Demo Sandbox Payment
+218|||Demo booking reference will act as your deposit voucher. No physical slip upload required.
+219|||Demodara Nine Arches Viaduct, Ella
+220|||Departure City
+221|||Departure Hub:
+222|||Departure Origin
+223|||Design your personalized island journey with realistic travel timings, authentic meal recommendations, and day-by-day itineraries.
+224|||Destination
+225|||Destination City
+226|||Destination Recommendation
+227|||Destination:
+228|||Destinations
+229|||Destinations:
+230|||Detected Location
+231|||Detected location
+232|||Detecting Location...
+233|||Diesel
+234|||Dietary:
+235|||Dining
+236|||Direct Bank Transfer / Deposit (Demo)
+237|||Direct Rates
+238|||Direct Reservation Inquiry
+239|||Direct contact with registered independent drivers and transport businesses across Sri Lanka.
+240|||Direct partner links & transparent concierge inquiries. No markups.
+241|||Directory Entry
+242|||Distance / Real GPS Location
+243|||Distance Radius:
+244|||Distance calculated via GPS
+245|||Distance from
+246|||Distance from Your Search Location
+247|||Distances & sorting calculated using actual device coordinates
+248|||Documented History
+249|||Done
+250|||Drive strictly on the
+251|||Driving Across Provinces & Rural Corridors
+252|||Driving Around Sri Lanka
+253|||Driving Distance
+254|||Duration
+255|||Duration & Units
+256|||Duration of Stay
+257|||Duration:
+258|||Edit Room & Dates
+259|||Email Address
+260|||Emergency Fire Brigade
+261|||Emergency Hotlines
+262|||Equivalent to approx.
+263|||Error
+264|||Error Code
+265|||Essential Island Greetings & Phrases
+266|||Essential Tourist Tips:
+267|||Essential for city exploring, beach hops in Mirissa/Weligama, and reaching trailheads. Install the local 
+268|||Essential practical handbooks, official transit guides, cultural etiquette protocols, authentic street food highlights, wildlife safari strategies, and curated itineraries.
+269|||Estimated Cost (per person)
+270|||Estimated Cost:
+271|||Estimated Seasonal Guide:
+272|||Estimated Total
+273|||Estimated Total Price
+274|||Estimated Total:
+275|||Evening
+276|||Evening:
+277|||Everything you need to navigate Sri Lanka: the legendary scenic blue trains, metered tuk-tuks, modern highway express buses, and private chauffeur-driven vehicles.
+278|||Expand the radius to view more accommodations.
+279|||Expand to 10 km
+280|||Expand to 25 km
+281|||Expand to Within 25 km
+282|||Expand your distance radius to view available places across Sri Lanka.
+283|||Experience Overview
+284|||Expiry Date
+285|||Explore Full Sri Lanka Transit & Mobility Page
+286|||Explore Full Sri Lankan Food Guide
+287|||Explore hidden gems across the Central Highlands, Northern Peninsula, and pristine southern bays.
+288|||Explore our curated 7-day road itinerary, find specific petrol & diesel grades with the Fuel Finder, or view all island attractions on the interactive map.
+289|||Explore our curated Sri Lankan hotels and resorts catalog across Sigiriya, Kandy, Galle, Bentota, and more. Tapping "Book Now" will save your demo reservation here!
+290|||Expressway & Intercity Buses
+291|||Expressway Breakdown:
+292|||Expressway Cost:
+293|||External Service
+294|||Failed
+295|||Failed to acquire GPS location. Please check your device location settings.
+296|||Favorite Activities:
+297|||Featured Signature Routes
+298|||Featured Stays in
+299|||Filter by Distance:
+300|||Filtered within
+301|||Final Booking Summary
+302|||Find fuel stations across all 9 provinces and regions of Sri Lanka
+303|||Find useful places around your current location
+304|||Fixed & Transparent
+305|||Food & Dishes
+306|||For International Visitors
+307|||For Sri Lankan Locals
+308|||For immediate street pickups in Colombo, Kandy, Galle, and major coastal hubs, use Sri Lanka’s two official ride-hailing networks.
+309|||Free ambulance:
+310|||Free cancellation up to 48 hours prior to check-in.
+311|||From 2:00 PM
+312|||From Geoffrey Bawa\'s legendary architecture at Heritance Kandalama to cliffside luxury chalets overlooking Ella Gap, welcoming family homestays, and colonial villas in Galle Fort.
+313|||Front Desk:
+314|||Fuel Stations
+315|||Fuel Type Selector
+316|||Fuel stations available across all provinces — Western, Central, Southern, Northern, Eastern, North Western, North Central, Uva, and Sabaragamuwa. Search by city, town, or province, or use your GPS location to calculate exact travel distances.
+317|||Fuel, insurance & highway tolls
+318|||Full Name
+319|||GPS Acquisition Issue
+320|||GPS Diagnostic Information
+321|||GPS Status
+322|||General Inquiries
+323|||Generate Itinerary Plan
+324|||Give way to oncoming traffic on steep single-lane climbs and strictly yield to pedestrians at zebra crossings.
+325|||Global Reliability in Sri Lanka
+326|||Global Ride-Hailing Service
+327|||Go to My Trips
+328|||Grade:
+329|||Guest
+330|||Guest Details for Reservation Voucher
+331|||Guest Houses & Homestays
+332|||Guest Name
+333|||Guests & Rooms
+334|||Guide Sample
+335|||HTTP / Insecure
+336|||HTTPS (Secure)
+337|||Handpicked 5-star properties, architectural icons by Geoffrey Bawa, tea estate bungalows, and coastal sanctuaries.
+338|||Have a suggestion for a new Sri Lankan destination, verified hotel, or culinary spot? We love hearing from our community.
+339|||Have questions about Sri Lanka tickets, permits, or etiquette?
+340|||Heritage Class
+341|||Heritage, Safari, Tea & Sea
+342|||Highland Heritage
+343|||Homegrown #1 Tuk-Tuk & Taxi App
+344|||Homestay Inquiry
+345|||Homestays
+346|||Honoring the Island’s Authenticity
+347|||Hospitals
+348|||Host
+349|||Hotel / Resort Reservation
+350|||Hotel / Villa Review
+351|||Hotel Bookings & Reservations
+352|||Hotel Name
+353|||Hotel Type:
+354|||Hotel desk
+355|||Hotels
+356|||Hotels & Homestays
+357|||Hotels near
+358|||How to Book:
+359|||How to Eat & Savor:
+360|||Iconic Sri Lankan Dishes
+361|||Ideal for international credit cards, airport runs, Uber Auto (tuk-tuk), and Uber Premier sedans.
+362|||Included:
+363|||Includes service charge, heritage preservation fee & Sri Lankan taxes
+364|||Includes:
+365|||Including Sigiriya Rock Fortress, Ancient Polonnaruwa, Galle Fort, and Sinharaja Rainforest.
+366|||Inquire Only
+367|||Inquiry Received!
+368|||Instant City Rides & Tuk-Tuks
+369|||Interactive Island Map
+370|||Interactive Map
+371|||Intercity Distance & Travel Timing Lookup
+372|||Island Transit & Mobility Guide
+373|||Island-Wide
+374|||Island-wide Coverage:
+375|||Islandwide street stalls & tea shops
+376|||Issued On
+377|||Keep Fuel Topped Up
+378|||Keep Reservation
+379|||Key Day Highlights
+380|||Key Focus
+381|||Key Highlights
+382|||Key Ingredients:
+383|||Key Takeaway:
+384|||LankaMate AI Travel Guide
+385|||LankaMate AI is consulting Sri Lanka travel knowledge...
+386|||LankaMate Demo Booking Information
+387|||LankaMate Local Insider Tip
+388|||LankaMate Reservation Voucher
+389|||LankaMate Verified Partners
+390|||LankaPay QR / FriMi / Genie (Demo)
+391|||Latitude
+392|||Launch PickMe Official
+393|||Launch Uber Sri Lanka
+394|||Less than 1 km
+395|||Less than 1 km away
+396|||Live Navigation Handover:
+397|||Load & Customize This Itinerary
+398|||Local Host
+399|||Local Three-Wheelers & City Cabs
+400|||Local Traffic Rules
+401|||Location
+402|||Location Permission Denied
+403|||Location:
+404|||Longitude
+405|||Luxury
+406|||Luxury Resorts
+407|||Makumbura Multi-Modal Center
+408|||Map
+409|||Measuring distances from Colombo Central
+410|||Meeting Pin
+411|||Meeting Point:
+412|||Mode:
+413|||Modify Dates & Room Selection
+414|||Morning
+415|||Morning:
+416|||Most Flexible
+417|||Most Iconic
+418|||Mountain roads (Kandy, Nuwara Eliya, Ella) average 25–35 km/h due to winding elevation climbs. Southern Expressway averages 80–100 km/h.
+419|||Must-Order Specialties:
+420|||Must-Try Sri Lankan Specialties
+421|||My Bookings
+422|||My Hotel Bookings
+423|||My Trips
+424|||My Trips & Bookings
+425|||National Payment Network & Mobile Wallets
+426|||Near
+427|||Near Me
+428|||Near Me (GPS)
+429|||Nearby Banks & ATMs
+430|||Nearby Car Services
+431|||Nearby Fuel Stations
+432|||Nearby Hospitals
+433|||Nearby Hotel Results
+434|||Nearby Hotels
+435|||Nearby Pharmacies
+436|||Nearby Restaurants
+437|||Nearby Supermarkets
+438|||Nearby Tourist Attractions
+439|||Need custom dates or special safari group? Inquire here
+440|||Night
+441|||Nights
+442|||No
+443|||No Favourites Saved Yet
+444|||No Hotel Bookings Yet
+445|||No Immediate Payment Required
+446|||No Matching Places Found
+447|||No Matching Stations
+448|||No accommodation found matching your current filter criteria near
+449|||No accommodation found matching your filters
+450|||No accommodation found within
+451|||No accommodation near
+452|||No guides found matching your query
+453|||No homestays found matching
+454|||No hotels found matching
+455|||No hotels match the selected budget
+456|||No hotels match your filters
+457|||No payment has been charged.
+458|||No real credit card or bank payments will be processed, and no real financial information is collected or stored.
+459|||No real money or card details processed
+460|||No saved custom itineraries yet. Use the Custom Plan Builder to create and save itineraries.
+461|||No station found matching
+462|||No tours found matching
+463|||Not requested
+464|||Number of Nights
+465|||Number of Rooms
+466|||Number of rooms:
+467|||Official Demo Voucher
+468|||Official LankaMate Travel Guides
+469|||Official Traveler Dossier
+470|||Official receipt generated.
+471|||On-Demand Ride-Hailing Apps in Sri Lanka
+472|||On-Demand Transit
+473|||On-demand ride-hailing services in Sri Lanka for metered tuk-tuks, city cars, and airport transfers.
+474|||Open Full Transit Guide
+475|||Open Itinerary
+476|||Open Official Partner Portal Directly
+477|||Open PickMe
+478|||Open Uber
+479|||Open directions in Google Maps
+480|||Open in Trip Planner
+481|||Open official PickMe service
+482|||Open official Uber service
+483|||Opens 30 days prior (10:00 AM)
+484|||Opens official PickMe service / app
+485|||Opens official Uber service / app
+486|||Operating Hours
+487|||Option
+488|||Options
+489|||Options Available
+490|||Our LankaMate concierge and the hotel reservations desk will confirm room availability and special rates within 2 hours.
+491|||Our Vision & Mission
+492|||Our chauffeur dispatch coordinator will verify the flight & driver details via WhatsApp.
+493|||Our verified partner concierge will contact you shortly via
+494|||Pace:
+495|||Partner Booking
+496|||Party
+497|||Party capacity allocated
+498|||Passengers & Luggage
+499|||Pax
+500|||Pay Now
+501|||Pay on Arrival at Hotel
+502|||Payment Methods & Checkout
+503|||Payment Options
+504|||Payment Status:
+505|||Payment confirmed for
+506|||Per Night
+507|||Permission Denied
+508|||Petrol
+509|||Petrol 92
+510|||Petrol 92 Octane
+511|||Petrol 95
+512|||Petrol 95 Octane
+513|||Pharmacies
+514|||Phone Number
+515|||PickMe
+516|||PickMe (or Uber in Colombo)
+517|||Pickup Location
+518|||Pickup Time / Flight #
+519|||Plan
+520|||Plan your transfers between tour destinations: distance calculations, scenic trains, chauffeur hires, and metered ride-hailing.
+521|||Planned with LankaMate!
+522|||Planning a Full Island Tour?
+523|||Plans
+524|||Plate:
+525|||Please enter a contact phone number.
+526|||Please enter a valid email address.
+527|||Please enter your WhatsApp number or email address.
+528|||Please enter your full name.
+529|||Police:
+530|||Policy: Standard Check-in 2:00 PM • Free cancellation up to 48h
+531|||Popular Routes & Fares:
+532|||Pre-configured for sandbox testing. No real card verification or storage.
+533|||Pre-download offline maps before entering cloud forest corridors or deep wildlife sanctuaries where cellular coverage can dip.
+534|||Preferred Fleet
+535|||Price Calculation
+536|||Price Calculation & Payment
+537|||Price Guide
+538|||Price Per Night
+539|||Price per night:
+540|||Pricing & Capacity:
+541|||Pricing Estimate:
+542|||Pricing Tier
+543|||Primary Guest
+544|||Primary Guest Details
+545|||Primary Guest Full Name
+546|||Primary Transit
+547|||Print
+548|||Print Itinerary
+549|||Print Voucher
+550|||Private Chauffeur & Vehicle
+551|||Processing Booking…
+552|||Property:
+553|||Pros
+554|||Province
+555|||Pure Ceylon Tea
+556|||Quick Jump:
+557|||Quick asks:
+558|||Radius:
+559|||Rate examples are indicative reference rates
+560|||Rate per Night:
+561|||Rates Guide:
+562|||Read Complete Detailed Guide
+563|||Ready to Customize Your Journey?
+564|||Real Device GPS Active
+565|||Real GPS Active
+566|||Real Hardware GPS
+567|||Recommended Dishes for
+568|||Recommended Restaurants & Street Stalls
+569|||Recommended Transit
+570|||Recommended Transport:
+571|||Reference Code
+572|||Reference Daily Rate:
+573|||Reference Information
+574|||Reference Meter Rate:
+575|||Reference Point
+576|||Reference Point Active: Colombo Central
+577|||Reference Stations Loaded
+578|||Reference:
+579|||Refresh GPS
+580|||Refuel before long rural stretches, mountain ascents (Kandy to Nuwara Eliya/Ella), and national park gateways. Stations are 20–35 km apart in hill terrain.
+581|||Region
+582|||Relaxed & Leisurely
+583|||Remove budget filter
+584|||Remove city filter
+585|||Remove hotel type filter
+586|||Remove region filter
+587|||Request Booking
+588|||Request Timed Out
+589|||Requesting location from your device. If prompted by your browser or phone system, please tap “Allow while using app”.
+590|||Required before payment
+591|||Reservation Status: Cancelled
+592|||Reservation Status: Confirmed
+593|||Reserve authentic Sri Lankan heritage resorts, welcoming family-run homestays, licensed wildlife safaris, and island-wide airport & chauffeur transfers with transparent pricing and direct partner assurance.
+594|||Reserved Property
+595|||Reserved Suite
+596|||Reserved Units
+597|||Reset
+598|||Reset All Filters
+599|||Reset Budget
+600|||Reset Budget Filter
+601|||Reset Type
+602|||Reset all filters to All Island
+603|||Reset to All
+604|||Reset to All Hotels
+605|||Restaurant or Street Food Suggestion
+606|||Restaurants
+607|||Retry GPS
+608|||Review your reservation details and select your preferred currency before payment.
+609|||Ride Booking
+610|||Ride bookings are completed through the selected external service. Availability, fares and service terms are controlled by that provider.
+611|||Road Distance & Car Time
+612|||Room
+613|||Room Category:
+614|||Room Type
+615|||Room Type:
+616|||Rooms
+617|||Route Corridor
+618|||Sandbox Demo Payment Flow
+619|||Save Plan
+620|||Save hotel to Favourites
+621|||Saved in LankaMate
+622|||Saved on
+623|||Saved to Saved Plans!
+624|||Savor an explosion of fresh coconut milk, aromatic Ceylon cinnamon, roasted curry powders, and sweet jaggery treacle. Discover what to eat and where to find it.
+625|||Scenic Blue Train Network
+626|||Scenic Train Time: ~
+627|||Scenic rail or road coach available
+628|||Search Another Location
+629|||Search Result
+630|||Search Stations
+631|||Search a place, city, landmark, hotel, fuel station, bank, hospital...
+632|||Search by hotel, homestay, tour, or region...
+633|||Search city, town, or area (e.g., Ratnapura, Kurunegala, Galle, Ella, Jaffna, Trincomalee)...
+634|||Search food or places...
+635|||Search guides (e.g., train ticket, temple dress code, street food, yala, weather, 7-day)...
+636|||Search handbook tips...
+637|||Search hotels by name, city or amenity...
+638|||Search hotels near
+639|||Select Currency
+640|||Select Focus Destinations (Min 1):
+641|||Select Payment Method
+642|||Select your payment method and complete your reservation.
+643|||Select your preferred room
+644|||Selected Room & Property
+645|||Selected Room Option
+646|||Selected on Map
+647|||Self-Driving & Road Trip Advisory
+648|||Self-Driving & Traveler Advice
+649|||Send Reservation Request to Host / Partner
+650|||Send reservation inquiry
+651|||Sensor API:
+652|||Services & Amenities
+653|||Share
+654|||Share Feedback or Request a Route
+655|||Share details about your Sri Lanka travel experience or suggestions...
+656|||Short Hops
+657|||Show All Categories
+658|||Show All Distances
+659|||Show All Island
+660|||Showing matched stations for
+661|||Sightseeing & Culture
+662|||Signature Sri Lankan Itineraries
+663|||Simulated LankaPay Flow:
+664|||Simulated Test Card Number
+665|||Since 1867, Sri Lanka produces the globe’s most prized single-origin orthodox black and silver-tip teas.
+666|||Smart GPS & Route Navigation
+667|||Smart Itinerary Generator
+668|||Sort by nearest to me
+669|||Sorted by GPS distance
+670|||Sorted from Colombo
+671|||Southern Expressway AC Coaches & CTB
+672|||Southern Expressway AC buses connect Colombo to Galle/Matara in ~1 hour for under $3 USD. Red CTB state buses serve every village, offering high frequency at ultra-low fares.
+673|||Speaking a few words of Sinhala and Tamil brings warm smiles across the island:
+674|||Special Requests
+675|||Special Requests (Optional)
+676|||Special Requests or Arrival Notes (Optional)
+677|||Sri Lanka Fuel Station Map
+678|||Sri Lanka Island Highlights
+679|||Sri Lanka Island Transport & Mobility Guide
+680|||Sri Lanka Railways (Main Line & Coastal)
+681|||Sri Lanka Railways Mainline
+682|||Sri Lanka Road Trip Advice
+683|||Sri Lanka Route & Distance Calculator
+684|||Sri Lanka Transport & Travel Modes
+685|||Sri Lanka Travel & Tour Reservation
+686|||Sri Lanka Travel Handbook
+687|||Sri Lanka Travel Support
+688|||Sri Lanka Trip Planner
+689|||Sri Lanka scenic train journey
+690|||Sri Lanka\'s Popular Local Ride App
+691|||Sri Lankan Accommodation Tip
+692|||Sri Lankan Flavor Guide
+693|||Sri Lankan Food & Restaurants
+694|||Sri Lankan dishes celebrate Ceylon spices, freshly grated coconut, aromatic curry leaves, and fragrant pandan. You can always ask local eateries for "tourist mild" if you prefer gentler heat.
+695|||Sri Lanka’s premier digital travel companion crafted specifically for both domestic Sri Lankan explorers and foreign international tourists.
+696|||Standard 11:00 AM
+697|||Standard 2:00 PM
+698|||Standard Check-in: 2:00 PM
+699|||Standard Check-out: 11:00 AM
+700|||Standard Pricing:
+701|||Star Heritage
+702|||Star Luxury Heritage
+703|||Stars
+704|||Stars Luxury
+705|||Starting From
+706|||Station Amenities
+707|||Station Contact
+708|||Status:
+709|||Status: Cancelled
+710|||Status: Confirmed
+711|||Stay
+712|||Stay Duration
+713|||Stay Formula
+714|||Stay Option:
+715|||Stay Recommendations
+716|||Stay duration:
+717|||Stay with warm Sri Lankan host families, enjoy homecooked coconut curries, and discover hidden neighborhood tranquility.
+718|||Stays
+719|||Stops included:
+720|||Submit Feedback to LankaMate
+721|||Submit Reservation Inquiry
+722|||Submit Transport Booking Request
+723|||Sunset, Dinner & Relaxation
+724|||Super Diesel (Euro 4)
+725|||Suwa Seriya Pre-Hospital
+726|||Tap
+727|||Tap the heart icon on any Sri Lankan destination, boutique hotel, or authentic dish to save it here for quick access during your journey.
+728|||Tap to view culinary tips, regional dishes & food guide
+729|||Tap to view stay recommendations & accommodation details
+730|||Taxes & breakfast included
+731|||Telephone
+732|||Test Ready
+733|||Thank you,
+734|||The most convenient choice for multi-stop tours with luggage. Drivers are certified, handle mountain driving expertly, and can make spontaneous viewpoint and tea stopovers.
+735|||The premier first-time route connecting Sri Lanka’s ancient UNESCO rock fortresses, sacred Buddhist capitals, misty Ceylon tea hills, world-famous blue train, big-game leopard safari, and 400-year-old ocean ramparts.
+736|||Things to Consider
+737|||This Booking is Cancelled
+738|||This action updates your local reservation status to 
+739|||This checkout is running in
+740|||This demo booking was marked as 
+741|||This is a simulated demo booking stored in your browser\'s local profile. No real credit card was charged and no external reservation was booked with hotel properties.
+742|||This reservation was processed in sandbox test mode. No real credit or debit card details were collected, and no real money was charged. This confirmed booking is stored in your LankaMate local storage and accessible under
+743|||Tip:
+744|||Topic
+745|||Total Amount
+746|||Total Duration
+747|||Total Estimated Amount
+748|||Total Nights & Rooms:
+749|||Tour Highlights
+750|||Tourist Attractions
+751|||Tourist Police:
+752|||Tours & Activities
+753|||Train + Car/Expressway
+754|||Transit Duration
+755|||Transport
+756|||Transport & Transfers
+757|||Transport / Schedule Correction
+758|||Transport Booking Concierge
+759|||Transport:
+760|||Travel Booking
+761|||Travel Pace
+762|||Travel Style & Budget:
+763|||Travel Tip:
+764|||Traveler Note: 
+765|||Travelers / Guests
+766|||Trip Pace:
+767|||Trip Records
+768|||Try Real GPS
+769|||Try adjusting your budget per night, expanding the distance radius, or clearing applied filters.
+770|||Try adjusting your search terms or resetting filters.
+771|||Try clearing your search or selecting "All" to browse all travel guides.
+772|||Try selecting another province or broadening your search distance.
+773|||Tuk-Tuk & PickMe Ride-Hailing
+774|||Type
+775|||Unavailable
+776|||Unique Booking Reference Number
+777|||Until 11:00 AM
+778|||Urban & Airport
+779|||Use Colombo Central Reference Fallback
+780|||Use My Location
+781|||Used strictly to send your reservation confirmation & partner verification.
+782|||Using your device location
+783|||Valued Traveler
+784|||Vehicle:
+785|||Verified Local Drivers, Vans & Private Chauffeurs
+786|||Verified Sri Lanka Travel Concierge
+787|||View All Saved Bookings
+788|||View Booking Details
+789|||View My Booking
+790|||View Stay
+791|||View Summary
+792|||View Tips
+793|||View all your confirmed hotel stays, reservation vouchers, and manage your bookings.
+794|||Visa, Mastercard, Amex • Sandbox Simulated
+795|||We couldn\'t find any hotels matching your current city, region, or search criteria.
+796|||We couldn’t find any
+797|||We reject cookie-cutter AI tourist itineraries. Every guide, train schedule, emergency contact, food recommendation, and destination portrait in LankaMate has been curated with verified local intelligence — respecting sacred temple customs, realistic road transit durations, and actual local Rupee prices.
+798|||Welcome king coconut drink upon arrival, daily complimentary Ceylon tea tastings, and on-site safari/trekking concierge assistance.
+799|||What to Bring:
+800|||WhatsApp
+801|||When traveling across remote highland passes (Ella, Nuwara Eliya, Hatton) or coastal national park routes (Yala, Wilpattu, Kumana, Bundala), fuel stations can be 20–35 km apart. Major expressways (E01 Southern Expressway, E03 Airport Highway, E02 Outer Circular) have dedicated 24-hour service plazas like Welipenna. Keep tire pressure checked at 32 psi and maintain at least half a tank when climbing hills.
+802|||Why Sri Lanka is celebrated among the world’s top travel destinations:
+803|||Widely available for metered Tuk-Tuks, compact cars, large passenger vans, and express deliveries.
+804|||Widely used across Sri Lanka for verified metered tuk-tuks, flex cars, and airport transfers in Colombo, Kandy, Galle, and major tourist hubs.
+805|||Wildlife 4x4 safaris, deep ocean whale cruises, ancient fortress sunrise treks, and scenic tea train passes.
+806|||Wildlife Wonder
+807|||Within
+808|||Within 50 km
+809|||World Heritage Shrines
+810|||World-famous Kandy → Ella hill country route across tea hills, mist-veiled valleys, and Nine Arch Bridge. Coastal train links Colombo Fort to Galle alongside ocean surf.
+811|||Yala National Park Block 1 hosts the highest wild Panthera pardus kotiya concentration on Earth.
+812|||Yes, Cancel Booking
+813|||You haven\'t made any hotel reservations yet.
+814|||Your Full Name
+815|||Your Location
+816|||Your Message
+817|||Your Name
+818|||Your Personal Saved Collection
+819|||Your Saved Trip Plans
+820|||Your WhatsApp Number or Email
+821|||Your WhatsApp or Phone
+822|||Your demo reservation for
+823|||Your message has been received by the LankaMate editorial team. We continuously update our guides with user contributions.
+824|||Your room is reserved. Payment will be collected in person upon arrival via Cash or Card.
+825|||Your stay is saved in your LankaMate trips profile. Present your booking reference upon demo arrival.
+826|||Zero pre-payment • Settle at front reception desk
+827|||across Sri Lanka
+828|||all distances
+829|||any distance
+830|||as manual fallback. Tap “Try Real GPS” to use your device’s actual location.
+831|||away
+832|||by name or amenity...
+833|||curated hotel
+834|||e.g. +94 77 123 4567 / +44 7911 123456
+835|||e.g. 10:30 AM or UL 504
+836|||e.g. Airport pickup required, king bed, vegetarian meals, early arrival...
+837|||e.g. BIA Colombo Airport or Hotel
+838|||e.g. Dilshan Perera
+839|||e.g. Kandy, Galle, Sigiriya...
+840|||e.g. Kasun Silva / Sarah Jenkins
+841|||e.g. Late check-in after 6 PM, quiet room, honeymoon arrangement...
+842|||e.g. Maya Fernando
+843|||e.g. guest@example.com
+844|||found
+845|||found within
+846|||from search location
+847|||has been logged in your LankaMate trip records.
+848|||hotel
+849|||hotels
+850|||hrs by Road
+851|||hrs drive
+852|||in
+853|||is outside Sri Lanka. Distances are calculated from your real location.
+854|||left side
+855|||match the selected budget of
+856|||matching
+857|||more
+858|||native Google Maps on your device for turn-by-turn routing and live traffic. Static directory
+859|||night
+860|||nights
+861|||of
+862|||on Google Maps
+863|||on any place to launch
+864|||operating hours are labeled as reference information.
+865|||range from heritage colonial boutique hotels to scenic hill lodges. High season (December to April) books out quickly—reserve top-rated stays in advance.
+866|||reviews
+867|||room
+868|||room(s)
+869|||rooms
+870|||stations across Sri Lanka • Tap marker to view details & navigate
+871|||stations found
+872|||to
+873|||to Booking Hub
+874|||to Destinations
+875|||to Home
+876|||to Previous
+877|||to Trip Planner
+878|||verified guest reviews
+879|||was born from a simple belief: Sri Lanka is not just another tourist stop, but a deeply spiritual, ecologically diverse paradise where 2,500 years of civilization meet warm tropical waters, misty tea mountain ranges, and free-roaming wildlife.
+880|||with your current filters
+881|||your location
+882|||~$110/day
+883|||~$280/day
+884|||~$45/day
+885|||~100 LKR base + ~100 LKR/km
+886|||~150 km (approx)
+887|||~20,000–26,000 LKR ($65–$85 USD/day)
+888|||~3,000–5,000 LKR ($10–$16 USD)
+889|||~800–1,200 LKR ($2.50–$4 USD)
+890|||✓ Available
+891|||✓ Verified
+892|||🚂 Scenic Trains
+893|||🚌 Highway Express Buses
+894|||🚗 Private Chauffeurs & Cars
+895|||🛺 Tuk-Tuks (Three-Wheelers)
+896|||(exit 0, 200ms)

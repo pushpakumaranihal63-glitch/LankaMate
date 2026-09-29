@@ -21,6 +21,7 @@ import {
   isCoordinatesInSriLanka,
   reverseGeocodeCoords,
 } from '../utils/locationHelper';
+import { useTranslation } from '../i18n/LanguageContext';
 
 interface HotelLocationSearchProps {
   activeLocation: DetectedLocationInfo | null;
@@ -39,6 +40,7 @@ export const HotelLocationSearch: React.FC<HotelLocationSearchProps> = ({
   isManualSearchOpen: controlledManualOpen,
   onToggleManualSearch,
 }) => {
+  const { t } = useTranslation();
   const [isDetecting, setIsDetecting] = useState(false);
   const [detectionError, setDetectionError] = useState<string | null>(null);
   const [localManualSearchOpen, setLocalManualSearchOpen] = useState(false);
@@ -205,12 +207,12 @@ export const HotelLocationSearch: React.FC<HotelLocationSearchProps> = ({
             {isDetecting ? (
               <>
                 <Loader2 className="w-4 h-4 animate-spin text-emerald-200" />
-                <span>Detecting Location...</span>
+                <span>{t('Detecting Location...')}</span>
               </>
             ) : (
               <>
                 <LocateFixed className="w-4 h-4 text-emerald-300" />
-                <span>Use My Location</span>
+                <span>{t('Use My Location')}</span>
               </>
             )}
           </button>
@@ -225,7 +227,7 @@ export const HotelLocationSearch: React.FC<HotelLocationSearchProps> = ({
             }`}
           >
             <Search className="w-4 h-4 text-stone-500" />
-            <span>Search Another Location</span>
+            <span>{t('Search Another Location')}</span>
           </button>
 
           {activeLocation && (
@@ -236,7 +238,7 @@ export const HotelLocationSearch: React.FC<HotelLocationSearchProps> = ({
               title="Reset location filter and show all hotels"
             >
               <RotateCcw className="w-3.5 h-3.5 text-stone-500" />
-              <span>Reset</span>
+              <span>{t('Reset')}</span>
             </button>
           )}
         </div>

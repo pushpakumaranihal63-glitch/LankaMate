@@ -26,6 +26,7 @@ import {
 import { FuelStation, fuelStationsData } from '../data/fuelData';
 import { PageId } from '../types';
 import { openGoogleMapsDirections } from '../utils/navigation';
+import { useTranslation } from '../i18n/LanguageContext';
 
 interface FuelFinderViewProps {
   onNavigatePage: (page: PageId) => void;
@@ -94,6 +95,7 @@ const PROVINCE_OPTIONS = [
 ] as const;
 
 export const FuelFinderView: React.FC<FuelFinderViewProps> = ({ onNavigatePage }) => {
+  const { t } = useTranslation();
   const [searchQuery, setSearchQuery] = useState('');
   const [provinceFilter, setProvinceFilter] = useState<string>('All Island');
   const [fuelTypeFilter, setFuelTypeFilter] = useState<'all' | 'petrol' | 'diesel'>('all');
@@ -461,7 +463,7 @@ export const FuelFinderView: React.FC<FuelFinderViewProps> = ({ onNavigatePage }
             <div className="flex flex-wrap items-center gap-2">
               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-800/80 border border-blue-700/80 text-sky-200 text-xs font-bold tracking-wide">
                 <Fuel className="w-3.5 h-3.5 text-amber-400" />
-                <span>Sri Lanka Travel Support</span>
+                <span>{t('Sri Lanka Travel Support')}</span>
               </div>
 
               <button
@@ -471,7 +473,7 @@ export const FuelFinderView: React.FC<FuelFinderViewProps> = ({ onNavigatePage }
                 className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-500/20 hover:bg-emerald-500/30 border border-emerald-400/40 text-emerald-200 text-xs font-bold transition-colors cursor-pointer"
               >
                 <MapPin className="w-3 h-3 text-emerald-300" />
-                <span>All Near Me Places (Hotels, ATMs, Hospitals...)</span>
+                <span>{t('All Near Me Places (Hotels, ATMs, Hospitals...)')}</span>
               </button>
             </div>
 
@@ -479,22 +481,22 @@ export const FuelFinderView: React.FC<FuelFinderViewProps> = ({ onNavigatePage }
             {isSearchActive ? (
               <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-500/20 border border-emerald-400/50 text-emerald-200 text-xs font-bold">
                 <CheckCircle2 className="w-3.5 h-3.5 text-emerald-300" />
-                <span>Active Search Results</span>
+                <span>{t('Active Search Results')}</span>
               </div>
             ) : (
               <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-amber-500/20 border border-amber-400/40 text-amber-200 text-xs font-semibold">
                 <Info className="w-3.5 h-3.5 text-amber-300" />
-                <span>Demo / Reference Directory</span>
+                <span>{t('Demo / Reference Directory')}</span>
               </div>
             )}
           </div>
 
           <div className="max-w-3xl">
             <h1 className="text-3xl sm:text-4xl md:text-5xl font-black tracking-tight text-white">
-              Fuel Finder
+              {t('Fuel Finder')}
             </h1>
             <p className="text-base sm:text-lg text-slate-200 font-medium mt-2 leading-relaxed">
-              Find fuel stations across all 9 provinces and regions of Sri Lanka
+              {t('Find fuel stations across all 9 provinces and regions of Sri Lanka')}
             </p>
           </div>
 
@@ -502,9 +504,7 @@ export const FuelFinderView: React.FC<FuelFinderViewProps> = ({ onNavigatePage }
           <div className="p-3 sm:p-4 rounded-2xl bg-white/10 backdrop-blur-md border border-white/15 text-xs text-slate-200 flex items-start gap-3 max-w-3xl">
             <ShieldAlert className="w-4 h-4 text-amber-400 shrink-0 mt-0.5" />
             <p className="leading-relaxed">
-              <strong className="text-white">Island-wide Coverage:</strong> Fuel stations available across
-              all provinces — Western, Central, Southern, Northern, Eastern, North Western, North Central, Uva, and
-              Sabaragamuwa. Search by city, town, or province, or use your GPS location to calculate exact travel distances.
+              <strong className="text-white">{t('Island-wide Coverage:')}</strong> {t('Fuel stations available across all provinces — Western, Central, Southern, Northern, Eastern, North Western, North Central, Uva, and Sabaragamuwa. Search by city, town, or province, or use your GPS location to calculate exact travel distances.')}
             </p>
           </div>
         </div>
@@ -523,7 +523,7 @@ export const FuelFinderView: React.FC<FuelFinderViewProps> = ({ onNavigatePage }
                 id="fuel-search-input"
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                placeholder="Search city, town, or area (e.g., Ratnapura, Kurunegala, Galle, Ella, Jaffna, Trincomalee)..."
+                placeholder={t('Search city, town, or area (e.g., Ratnapura, Kurunegala, Galle, Ella, Jaffna, Trincomalee)...')}
                 className="w-full pl-11 pr-10 py-3 bg-stone-50 hover:bg-stone-100/80 focus:bg-white border border-stone-200 rounded-2xl text-sm font-medium text-stone-900 placeholder:text-stone-400 focus:outline-none focus:ring-2 focus:ring-blue-800 transition-all shadow-2xs"
               />
               {searchQuery && (
@@ -531,7 +531,7 @@ export const FuelFinderView: React.FC<FuelFinderViewProps> = ({ onNavigatePage }
                   type="button"
                   onClick={() => setSearchQuery('')}
                   className="absolute right-3.5 top-1/2 -translate-y-1/2 p-1 text-stone-400 hover:text-stone-600 rounded-full cursor-pointer"
-                  title="Clear search text"
+                  title={t('Clear search text')}
                 >
                   <X className="w-4 h-4" />
                 </button>
@@ -549,7 +549,7 @@ export const FuelFinderView: React.FC<FuelFinderViewProps> = ({ onNavigatePage }
                 className="flex-1 py-3 px-4 bg-blue-900 hover:bg-blue-950 active:bg-[#0c2340] text-white rounded-2xl text-xs sm:text-sm font-bold shadow-sm transition-all flex items-center justify-center gap-2 cursor-pointer touch-manipulation"
               >
                 <Search className="w-4 h-4" />
-                <span>Search Stations</span>
+                <span>{t('Search Stations')}</span>
               </button>
 
               <button
@@ -557,10 +557,10 @@ export const FuelFinderView: React.FC<FuelFinderViewProps> = ({ onNavigatePage }
                 id="btn-fuel-clear-filters"
                 onClick={handleClearFilters}
                 className="py-3 px-3.5 bg-stone-100 hover:bg-stone-200 text-stone-700 rounded-2xl text-xs sm:text-sm font-bold transition-all flex items-center justify-center gap-1.5 cursor-pointer touch-manipulation"
-                title="Reset all filters to All Island"
+                title={t('Reset all filters to All Island')}
               >
                 <RotateCcw className="w-4 h-4" />
-                <span className="hidden sm:inline">Reset</span>
+                <span className="hidden sm:inline">{t('Reset')}</span>
               </button>
             </div>
           </div>
@@ -570,10 +570,10 @@ export const FuelFinderView: React.FC<FuelFinderViewProps> = ({ onNavigatePage }
             <div className="flex items-center justify-between">
               <label className="text-xs font-bold text-stone-700 uppercase tracking-wider flex items-center gap-1.5">
                 <Globe className="w-3.5 h-3.5 text-blue-900" />
-                <span>Browse Province / Island-wide Region</span>
+                <span>{t('Browse Province / Island-wide Region')}</span>
               </label>
               <span className="text-[11px] text-stone-500">
-                {provinceFilter === 'All Island' ? 'All 9 Provinces' : `${provinceFilter} Province`}
+                {provinceFilter === 'All Island' ? t('All 9 Provinces') : `${provinceFilter} ${t('Province')}`}
               </span>
             </div>
 
@@ -605,7 +605,7 @@ export const FuelFinderView: React.FC<FuelFinderViewProps> = ({ onNavigatePage }
             <div className="lg:col-span-6 space-y-2">
               <label className="text-xs font-bold text-stone-700 uppercase tracking-wider flex items-center gap-1.5">
                 <Fuel className="w-3.5 h-3.5 text-blue-900" />
-                <span>Fuel Type Selector</span>
+                <span>{t('Fuel Type Selector')}</span>
               </label>
 
               <div className="flex flex-wrap gap-2">
@@ -622,7 +622,7 @@ export const FuelFinderView: React.FC<FuelFinderViewProps> = ({ onNavigatePage }
                       : 'bg-stone-100 hover:bg-stone-200 text-stone-700'
                   }`}
                 >
-                  All Fuels
+                  {t('All Fuels')}
                 </button>
 
                 <button
@@ -639,7 +639,7 @@ export const FuelFinderView: React.FC<FuelFinderViewProps> = ({ onNavigatePage }
                   }`}
                 >
                   <span className="w-2 h-2 rounded-full bg-emerald-400"></span>
-                  <span>Petrol</span>
+                  <span>{t('Petrol')}</span>
                 </button>
 
                 <button
@@ -656,18 +656,18 @@ export const FuelFinderView: React.FC<FuelFinderViewProps> = ({ onNavigatePage }
                   }`}
                 >
                   <span className="w-2 h-2 rounded-full bg-amber-400"></span>
-                  <span>Diesel</span>
+                  <span>{t('Diesel')}</span>
                 </button>
               </div>
 
               {/* Sub-chips for specific fuel grades */}
               {fuelTypeFilter === 'petrol' && (
                 <div className="flex items-center gap-1.5 pt-1 animate-in fade-in duration-150">
-                  <span className="text-[11px] text-stone-500 font-medium mr-1">Grade:</span>
+                  <span className="text-[11px] text-stone-500 font-medium mr-1">{t('Grade:')}</span>
                   {[
-                    { id: 'all', label: 'All Petrol' },
-                    { id: '92', label: 'Petrol 92 Octane' },
-                    { id: '95', label: 'Petrol 95 Octane' },
+                    { id: 'all', label: t('All Petrol') },
+                    { id: '92', label: t('Petrol 92 Octane') },
+                    { id: '95', label: t('Petrol 95 Octane') },
                   ].map((sub) => (
                     <button
                       key={sub.id}
@@ -687,11 +687,11 @@ export const FuelFinderView: React.FC<FuelFinderViewProps> = ({ onNavigatePage }
 
               {fuelTypeFilter === 'diesel' && (
                 <div className="flex items-center gap-1.5 pt-1 animate-in fade-in duration-150">
-                  <span className="text-[11px] text-stone-500 font-medium mr-1">Grade:</span>
+                  <span className="text-[11px] text-stone-500 font-medium mr-1">{t('Grade:')}</span>
                   {[
-                    { id: 'all', label: 'All Diesel' },
-                    { id: 'auto', label: 'Auto Diesel' },
-                    { id: 'super', label: 'Super Diesel (Euro 4)' },
+                    { id: 'all', label: t('All Diesel') },
+                    { id: 'auto', label: t('Auto Diesel') },
+                    { id: 'super', label: t('Super Diesel (Euro 4)') },
                   ].map((sub) => (
                     <button
                       key={sub.id}
@@ -715,12 +715,12 @@ export const FuelFinderView: React.FC<FuelFinderViewProps> = ({ onNavigatePage }
               <label className="text-xs font-bold text-stone-700 uppercase tracking-wider flex items-center justify-between">
                 <span className="flex items-center gap-1.5">
                   <MapPin className="w-3.5 h-3.5 text-blue-900" />
-                  <span>Distance / Real GPS Location</span>
+                  <span>{t('Distance / Real GPS Location')}</span>
                 </span>
                 {isRealGpsActive && (
                   <span className="text-[10px] text-emerald-700 font-bold flex items-center gap-1">
                     <CheckCircle2 className="w-3 h-3 text-emerald-600" />
-                    <span>Real GPS Active</span>
+                    <span>{t('Real GPS Active')}</span>
                   </span>
                 )}
               </label>
@@ -742,7 +742,7 @@ export const FuelFinderView: React.FC<FuelFinderViewProps> = ({ onNavigatePage }
                   <LocateFixed
                     className={`w-3.5 h-3.5 ${locatingUser ? 'animate-spin text-amber-400' : ''}`}
                   />
-                  <span>Near Me (GPS)</span>
+                  <span>{t('Near Me (GPS)')}</span>
                 </button>
 
                 <button
@@ -755,7 +755,7 @@ export const FuelFinderView: React.FC<FuelFinderViewProps> = ({ onNavigatePage }
                       : 'bg-stone-100 hover:bg-stone-200 text-stone-700'
                   }`}
                 >
-                  Within 10 km
+                  {t('Within 10 km')}
                 </button>
 
                 <button
@@ -768,7 +768,7 @@ export const FuelFinderView: React.FC<FuelFinderViewProps> = ({ onNavigatePage }
                       : 'bg-stone-100 hover:bg-stone-200 text-stone-700'
                   }`}
                 >
-                  Within 25 km
+                  {t('Within 25 km')}
                 </button>
 
                 <button
@@ -781,7 +781,7 @@ export const FuelFinderView: React.FC<FuelFinderViewProps> = ({ onNavigatePage }
                       : 'bg-stone-100 hover:bg-stone-200 text-stone-700'
                   }`}
                 >
-                  Within 50 km
+                  {t('Within 50 km')}
                 </button>
 
                 <button
@@ -794,7 +794,7 @@ export const FuelFinderView: React.FC<FuelFinderViewProps> = ({ onNavigatePage }
                       : 'bg-stone-100 hover:bg-stone-200 text-stone-700'
                   }`}
                 >
-                  All Island
+                  {t('All Island')}
                 </button>
               </div>
 
@@ -817,10 +817,10 @@ export const FuelFinderView: React.FC<FuelFinderViewProps> = ({ onNavigatePage }
                 </div>
                 <div>
                   <h4 className="text-xs sm:text-sm font-black text-emerald-950">
-                    Actual Searched Fuel Station Results ({filteredStations.length} stations found)
+                    {t('Actual Searched Fuel Station Results')} ({filteredStations.length} {t('stations found')})
                   </h4>
                   <p className="text-[11px] text-emerald-800">
-                    Showing matched stations for {searchQuery ? `"${searchQuery}"` : ''} {provinceFilter !== 'All Island' ? `in ${provinceFilter} Province` : 'across Sri Lanka'}.
+                    {t('Showing matched stations for')} {searchQuery ? `"${searchQuery}"` : ''} {provinceFilter !== 'All Island' ? `${t('in')} ${provinceFilter} ${t('Province')}` : t('across Sri Lanka')}.
                   </p>
                 </div>
               </div>
@@ -830,7 +830,7 @@ export const FuelFinderView: React.FC<FuelFinderViewProps> = ({ onNavigatePage }
                 onClick={handleClearFilters}
                 className="px-3 py-1.5 bg-emerald-700 hover:bg-emerald-800 text-white rounded-xl text-xs font-bold transition-colors shrink-0 cursor-pointer self-start sm:self-auto"
               >
-                Back to All Island Reference Directory
+                {t('Back to All Island Reference Directory')}
               </button>
             </div>
           ) : (
@@ -841,17 +841,17 @@ export const FuelFinderView: React.FC<FuelFinderViewProps> = ({ onNavigatePage }
                 </div>
                 <div>
                   <h4 className="text-xs sm:text-sm font-black text-amber-950">
-                    Curated Sample & Reference Stations Across Sri Lanka (Browse Mode)
+                    {t('Curated Sample & Reference Stations Across Sri Lanka (Browse Mode)')}
                   </h4>
                   <p className="text-[11px] text-amber-800">
-                    Currently browsing sample stations nationwide. Type any city (e.g. Ratnapura, Batticaloa, Kurunegala, Chilaw) above to view actual local search results.
+                    {t('Currently browsing sample stations nationwide. Type any city (e.g. Ratnapura, Batticaloa, Kurunegala, Chilaw) above to view actual local search results.')}
                   </p>
                 </div>
               </div>
 
               <div className="flex items-center gap-2 shrink-0">
                 <span className="text-[11px] font-bold text-amber-900 bg-amber-100/80 px-2.5 py-1 rounded-lg border border-amber-300/60">
-                  {filteredStations.length} Reference Stations Loaded
+                  {filteredStations.length} {t('Reference Stations Loaded')}
                 </span>
               </div>
             </div>
@@ -870,10 +870,10 @@ export const FuelFinderView: React.FC<FuelFinderViewProps> = ({ onNavigatePage }
                   </div>
                   <div>
                     <h3 className="text-sm sm:text-base font-bold text-stone-900">
-                      Sri Lanka Fuel Station Map
+                      {t('Sri Lanka Fuel Station Map')}
                     </h3>
                     <p className="text-xs text-stone-500">
-                      Showing {filteredStations.length} stations across Sri Lanka • Tap marker to view details & navigate
+                      {t('Showing')} {filteredStations.length} {t('stations across Sri Lanka • Tap marker to view details & navigate')}
                     </p>
                   </div>
                 </div>
@@ -899,7 +899,7 @@ export const FuelFinderView: React.FC<FuelFinderViewProps> = ({ onNavigatePage }
               <div className="flex items-center gap-1.5 overflow-x-auto pb-1 pt-0.5 scrollbar-thin text-xs">
                 <span className="font-extrabold text-stone-500 uppercase text-[10px] tracking-wider shrink-0 mr-1 flex items-center gap-1">
                   <Navigation className="w-3 h-3 text-blue-900" />
-                  <span>Quick Jump:</span>
+                  <span>{t('Quick Jump:')}</span>
                 </span>
                 {MAP_JUMP_HUBS.map((hub) => {
                   const isActive = activeJumpHubId === hub.id;
@@ -915,7 +915,7 @@ export const FuelFinderView: React.FC<FuelFinderViewProps> = ({ onNavigatePage }
                           : 'bg-stone-100 hover:bg-stone-200 text-stone-700 border border-stone-200'
                       }`}
                     >
-                      {hub.label}
+                      {t(hub.label)}
                     </button>
                   );
                 })}
@@ -934,19 +934,19 @@ export const FuelFinderView: React.FC<FuelFinderViewProps> = ({ onNavigatePage }
                   <div className="space-y-1">
                     <div className="flex items-center gap-2">
                       <span className="px-2 py-0.5 bg-blue-900 text-white rounded text-[10px] font-black uppercase">
-                        Selected on Map
+                        {t('Selected on Map')}
                       </span>
                       <span className="text-xs font-bold text-stone-500">
-                        {selectedStation.area} • {selectedStation.province} Province
+                        {t(selectedStation.area)} • {selectedStation.province} {t('Province')}
                       </span>
                       {selectedStation.isCuratedSample && (
                         <span className="text-[10px] font-bold text-amber-800 bg-amber-100 px-1.5 py-0.2 rounded border border-amber-200">
-                          Curated Guide Sample
+                          {t('Curated Guide Sample')}
                         </span>
                       )}
                     </div>
-                    <h4 className="font-extrabold text-sm text-stone-900">{selectedStation.name}</h4>
-                    <p className="text-xs text-stone-600">{selectedStation.address}</p>
+                    <h4 className="font-extrabold text-sm text-stone-900">{t(selectedStation.name)}</h4>
+                    <p className="text-xs text-stone-600">{t(selectedStation.address)}</p>
                   </div>
 
                   <div className="flex items-center gap-2 shrink-0">
@@ -957,7 +957,7 @@ export const FuelFinderView: React.FC<FuelFinderViewProps> = ({ onNavigatePage }
                       className="px-3.5 py-2 bg-blue-900 hover:bg-blue-950 text-white rounded-xl text-xs font-bold transition-all shadow-xs flex items-center gap-1.5 cursor-pointer touch-manipulation"
                     >
                       <Navigation className="w-3.5 h-3.5 text-sky-300" />
-                      <span>Navigate</span>
+                      <span>{t('Navigate')}</span>
                     </button>
                     <button
                       type="button"
@@ -965,7 +965,7 @@ export const FuelFinderView: React.FC<FuelFinderViewProps> = ({ onNavigatePage }
                       onClick={() => setDetailModalStation(selectedStation)}
                       className="px-3.5 py-2 bg-white hover:bg-stone-100 border border-stone-200 text-stone-800 rounded-xl text-xs font-bold transition-all shadow-2xs cursor-pointer touch-manipulation"
                     >
-                      <span>View Details</span>
+                      <span>{t('View Details')}</span>
                     </button>
                   </div>
                 </div>
@@ -976,16 +976,13 @@ export const FuelFinderView: React.FC<FuelFinderViewProps> = ({ onNavigatePage }
             <div className="bg-emerald-950 text-white rounded-3xl p-5 sm:p-6 shadow-md border border-emerald-900/40 space-y-3">
               <div className="flex items-center gap-2 text-emerald-300 text-xs font-bold uppercase tracking-wider">
                 <Sparkles className="w-4 h-4 text-amber-400" />
-                <span>Sri Lanka Road Trip Advice</span>
+                <span>{t('Sri Lanka Road Trip Advice')}</span>
               </div>
               <h4 className="text-base font-extrabold text-white">
-                Driving Across Provinces & Rural Corridors
+                {t('Driving Across Provinces & Rural Corridors')}
               </h4>
               <p className="text-xs text-emerald-100/90 leading-relaxed">
-                When traveling across remote highland passes (Ella, Nuwara Eliya, Hatton) or coastal national park
-                routes (Yala, Wilpattu, Kumana, Bundala), fuel stations can be 20–35 km apart. Major expressways (E01
-                Southern Expressway, E03 Airport Highway, E02 Outer Circular) have dedicated 24-hour service plazas like
-                Welipenna. Keep tire pressure checked at 32 psi and maintain at least half a tank when climbing hills.
+                {t('When traveling across remote highland passes (Ella, Nuwara Eliya, Hatton) or coastal national park routes (Yala, Wilpattu, Kumana, Bundala), fuel stations can be 20–35 km apart. Major expressways (E01 Southern Expressway, E03 Airport Highway, E02 Outer Circular) have dedicated 24-hour service plazas like Welipenna. Keep tire pressure checked at 32 psi and maintain at least half a tank when climbing hills.')}
               </p>
             </div>
           </div>
@@ -994,7 +991,7 @@ export const FuelFinderView: React.FC<FuelFinderViewProps> = ({ onNavigatePage }
           <div id="fuel-results-section" className="lg:col-span-5 xl:col-span-4 space-y-4">
             <div className="flex items-center justify-between">
               <h3 className="text-lg font-black text-stone-900 tracking-tight flex items-center gap-2">
-                <span>{isSearchActive ? 'Search Results' : 'Fuel Stations'}</span>
+                <span>{isSearchActive ? t('Search Results') : t('Fuel Stations')}</span>
                 <span className={`text-xs font-bold px-2.5 py-0.5 rounded-full ${
                   isSearchActive ? 'bg-emerald-100 text-emerald-900' : 'bg-blue-100 text-blue-900'
                 }`}>
@@ -1002,7 +999,7 @@ export const FuelFinderView: React.FC<FuelFinderViewProps> = ({ onNavigatePage }
                 </span>
               </h3>
               <span className="text-[11px] text-stone-500 font-medium">
-                {userLocation ? 'Sorted by GPS distance' : 'Sorted from Colombo'}
+                {userLocation ? t('Sorted by GPS distance') : t('Sorted from Colombo')}
               </span>
             </div>
 
@@ -1012,9 +1009,9 @@ export const FuelFinderView: React.FC<FuelFinderViewProps> = ({ onNavigatePage }
                   <AlertTriangle className="w-6 h-6" />
                 </div>
                 <div className="space-y-1">
-                  <h4 className="font-bold text-stone-900 text-base">No Matching Stations</h4>
+                  <h4 className="font-bold text-stone-900 text-base">{t('No Matching Stations')}</h4>
                   <p className="text-xs text-stone-500 leading-relaxed max-w-xs mx-auto">
-                    No station found matching "{searchQuery}". Try selecting another province or broadening your search distance.
+                    {t('No station found matching')} "{searchQuery}". {t('Try selecting another province or broadening your search distance.')}
                   </p>
                 </div>
 
@@ -1026,7 +1023,7 @@ export const FuelFinderView: React.FC<FuelFinderViewProps> = ({ onNavigatePage }
                       rel="noopener noreferrer"
                       className="inline-flex items-center gap-2 px-4 py-2.5 bg-blue-900 hover:bg-blue-950 text-white rounded-xl text-xs font-bold transition-colors shadow-xs"
                     >
-                      <span>Search "{searchQuery}" on Google Maps</span>
+                      <span>{t('Search')} "{searchQuery}" {t('on Google Maps')}</span>
                       <ExternalLink className="w-3.5 h-3.5" />
                     </a>
                   </div>
@@ -1038,7 +1035,7 @@ export const FuelFinderView: React.FC<FuelFinderViewProps> = ({ onNavigatePage }
                     onClick={handleClearFilters}
                     className="px-4 py-2 bg-stone-100 hover:bg-stone-200 text-stone-800 rounded-xl text-xs font-bold transition-colors cursor-pointer"
                   >
-                    Reset All Filters
+                    {t('Reset All Filters')}
                   </button>
                 </div>
               </div>
@@ -1077,15 +1074,15 @@ export const FuelFinderView: React.FC<FuelFinderViewProps> = ({ onNavigatePage }
                           {isSearchActive ? (
                             <span className="px-2 py-0.5 rounded-md text-[10px] font-black uppercase bg-emerald-600 text-white flex items-center gap-1">
                               <CheckCircle2 className="w-2.5 h-2.5" />
-                              <span>Search Result</span>
+                              <span>{t('Search Result')}</span>
                             </span>
                           ) : station.isCuratedSample ? (
                             <span className="px-2 py-0.5 rounded-md text-[10px] font-bold uppercase bg-amber-50 text-amber-900 border border-amber-200">
-                              Guide Sample
+                              {t('Guide Sample')}
                             </span>
                           ) : (
                             <span className="px-2 py-0.5 rounded-md text-[10px] font-bold uppercase bg-stone-100 text-stone-600 border border-stone-200">
-                              Directory Entry
+                              {t('Directory Entry')}
                             </span>
                           )}
 
@@ -1103,17 +1100,17 @@ export const FuelFinderView: React.FC<FuelFinderViewProps> = ({ onNavigatePage }
                           }`}
                         >
                           <Clock className="w-3 h-3 text-emerald-600" />
-                          <span>{station.openStatus}</span>
+                          <span>{t(station.openStatus)}</span>
                         </span>
                       </div>
 
                       {/* Station Name, City & Province */}
                       <div>
                         <h4 className="font-extrabold text-sm sm:text-base text-stone-900 group-hover:text-blue-950 transition-colors leading-snug">
-                          {station.name}
+                          {t(station.name)}
                         </h4>
                         <p className="text-xs text-stone-500 mt-0.5 line-clamp-1">
-                          {station.city}, {station.area} • <strong className="text-stone-700">{station.province} Province</strong>
+                          {t(station.city)}, {t(station.area)} • <strong className="text-stone-700">{station.province} {t('Province')}</strong>
                         </p>
                       </div>
 
@@ -1121,27 +1118,27 @@ export const FuelFinderView: React.FC<FuelFinderViewProps> = ({ onNavigatePage }
                       <div className="flex flex-wrap gap-1.5 pt-0.5">
                         {station.fuelTypes.petrol92 && (
                           <span className="px-2 py-0.5 rounded bg-emerald-50 text-emerald-900 text-[10px] font-bold border border-emerald-200">
-                            Petrol 92
+                            {t('Petrol 92')}
                           </span>
                         )}
                         {station.fuelTypes.petrol95 && (
                           <span className="px-2 py-0.5 rounded bg-emerald-100 text-emerald-950 text-[10px] font-black border border-emerald-300">
-                            Petrol 95
+                            {t('Petrol 95')}
                           </span>
                         )}
                         {station.fuelTypes.autoDiesel && (
                           <span className="px-2 py-0.5 rounded bg-amber-50 text-amber-900 text-[10px] font-bold border border-amber-200">
-                            Auto Diesel
+                            {t('Auto Diesel')}
                           </span>
                         )}
                         {station.fuelTypes.superDiesel && (
                           <span className="px-2 py-0.5 rounded bg-amber-100 text-amber-950 text-[10px] font-black border border-amber-300">
-                            Super Diesel
+                            {t('Super Diesel')}
                           </span>
                         )}
                         {station.fuelTypes.kerosene && (
                           <span className="px-2 py-0.5 rounded bg-stone-100 text-stone-700 text-[10px] font-semibold border border-stone-200">
-                            Kerosene
+                            {t('Kerosene')}
                           </span>
                         )}
                       </div>
@@ -1158,7 +1155,7 @@ export const FuelFinderView: React.FC<FuelFinderViewProps> = ({ onNavigatePage }
                           className="flex-1 py-2 px-3 bg-blue-900 hover:bg-blue-950 active:bg-[#0c2340] text-white rounded-xl text-xs font-bold transition-colors flex items-center justify-center gap-1.5 cursor-pointer shadow-2xs touch-manipulation"
                         >
                           <Navigation className="w-3.5 h-3.5 text-sky-300" />
-                          <span>Navigate</span>
+                          <span>{t('Navigate')}</span>
                         </button>
 
                         <button
@@ -1170,7 +1167,7 @@ export const FuelFinderView: React.FC<FuelFinderViewProps> = ({ onNavigatePage }
                           }}
                           className="flex-1 py-2 px-3 bg-stone-100 hover:bg-stone-200 text-stone-800 rounded-xl text-xs font-bold transition-colors flex items-center justify-center gap-1 cursor-pointer touch-manipulation"
                         >
-                          <span>View Details</span>
+                          <span>{t('View Details')}</span>
                           <ChevronRight className="w-3.5 h-3.5 text-stone-500" />
                         </button>
                       </div>
@@ -1210,11 +1207,11 @@ export const FuelFinderView: React.FC<FuelFinderViewProps> = ({ onNavigatePage }
                     {detailModalStation.operator}
                   </span>
                   <span className="text-xs font-bold text-stone-500">
-                    {detailModalStation.city} • {detailModalStation.province} Province
+                    {t(detailModalStation.city)} • {detailModalStation.province} {t('Province')}
                   </span>
                 </div>
                 <h3 className="text-lg sm:text-xl font-black text-stone-900 leading-snug">
-                  {detailModalStation.name}
+                  {t(detailModalStation.name)}
                 </h3>
               </div>
 
@@ -1223,7 +1220,7 @@ export const FuelFinderView: React.FC<FuelFinderViewProps> = ({ onNavigatePage }
                 id="btn-close-fuel-modal"
                 onClick={() => setDetailModalStation(null)}
                 className="p-2 -mr-1 rounded-full text-stone-400 hover:text-stone-700 hover:bg-stone-100 transition-colors cursor-pointer"
-                aria-label="Close modal"
+                aria-label={t('Close modal')}
               >
                 <X className="w-5 h-5" />
               </button>
@@ -1234,23 +1231,23 @@ export const FuelFinderView: React.FC<FuelFinderViewProps> = ({ onNavigatePage }
               <div className="flex items-start gap-2.5">
                 <MapPin className="w-4 h-4 text-stone-400 shrink-0 mt-0.5" />
                 <div>
-                  <span className="font-bold text-stone-900 block">Address</span>
-                  <span>{detailModalStation.address}</span>
+                  <span className="font-bold text-stone-900 block">{t('Address')}</span>
+                  <span>{t(detailModalStation.address)}</span>
                 </div>
               </div>
 
               <div className="flex items-start gap-2.5">
                 <Clock className="w-4 h-4 text-stone-400 shrink-0 mt-0.5" />
                 <div>
-                  <span className="font-bold text-stone-900 block">Operating Hours</span>
-                  <span>{detailModalStation.openingHours}</span>
+                  <span className="font-bold text-stone-900 block">{t('Operating Hours')}</span>
+                  <span>{t(detailModalStation.openingHours)}</span>
                 </div>
               </div>
 
               <div className="flex items-start gap-2.5">
                 <Phone className="w-4 h-4 text-stone-400 shrink-0 mt-0.5" />
                 <div>
-                  <span className="font-bold text-stone-900 block">Station Contact</span>
+                  <span className="font-bold text-stone-900 block">{t('Station Contact')}</span>
                   <a
                     href={`tel:${detailModalStation.contactPhone}`}
                     className="text-blue-800 font-bold hover:underline"
@@ -1264,7 +1261,7 @@ export const FuelFinderView: React.FC<FuelFinderViewProps> = ({ onNavigatePage }
             {/* Fuel Grades Available */}
             <div className="space-y-2">
               <h4 className="text-xs font-bold text-stone-900 uppercase tracking-wider">
-                Available Fuel Grades
+                {t('Available Fuel Grades')}
               </h4>
               <div className="grid grid-cols-2 gap-2">
                 <div
@@ -1274,8 +1271,8 @@ export const FuelFinderView: React.FC<FuelFinderViewProps> = ({ onNavigatePage }
                       : 'bg-stone-50 border-stone-200 text-stone-400'
                   }`}
                 >
-                  <span>Petrol 92 Octane</span>
-                  <span>{detailModalStation.fuelTypes.petrol92 ? '✓ Available' : '—'}</span>
+                  <span>{t('Petrol 92 Octane')}</span>
+                  <span>{detailModalStation.fuelTypes.petrol92 ? t('✓ Available') : '—'}</span>
                 </div>
 
                 <div
@@ -1285,8 +1282,8 @@ export const FuelFinderView: React.FC<FuelFinderViewProps> = ({ onNavigatePage }
                       : 'bg-stone-50 border-stone-200 text-stone-400'
                   }`}
                 >
-                  <span>Petrol 95 Octane</span>
-                  <span>{detailModalStation.fuelTypes.petrol95 ? '✓ Available' : '—'}</span>
+                  <span>{t('Petrol 95 Octane')}</span>
+                  <span>{detailModalStation.fuelTypes.petrol95 ? t('✓ Available') : '—'}</span>
                 </div>
 
                 <div
@@ -1296,8 +1293,8 @@ export const FuelFinderView: React.FC<FuelFinderViewProps> = ({ onNavigatePage }
                       : 'bg-stone-50 border-stone-200 text-stone-400'
                   }`}
                 >
-                  <span>Auto Diesel</span>
-                  <span>{detailModalStation.fuelTypes.autoDiesel ? '✓ Available' : '—'}</span>
+                  <span>{t('Auto Diesel')}</span>
+                  <span>{detailModalStation.fuelTypes.autoDiesel ? t('✓ Available') : '—'}</span>
                 </div>
 
                 <div
@@ -1307,8 +1304,8 @@ export const FuelFinderView: React.FC<FuelFinderViewProps> = ({ onNavigatePage }
                       : 'bg-stone-50 border-stone-200 text-stone-400'
                   }`}
                 >
-                  <span>Super Diesel (Euro 4)</span>
-                  <span>{detailModalStation.fuelTypes.superDiesel ? '✓ Available' : '—'}</span>
+                  <span>{t('Super Diesel (Euro 4)')}</span>
+                  <span>{detailModalStation.fuelTypes.superDiesel ? t('✓ Available') : '—'}</span>
                 </div>
               </div>
             </div>
@@ -1318,7 +1315,7 @@ export const FuelFinderView: React.FC<FuelFinderViewProps> = ({ onNavigatePage }
               <div className="space-y-1.5">
                 <h4 className="text-xs font-bold text-stone-900 uppercase tracking-wider flex items-center gap-1">
                   <CreditCard className="w-3.5 h-3.5 text-blue-800" />
-                  <span>Payment Options</span>
+                  <span>{t('Payment Options')}</span>
                 </h4>
                 <div className="flex flex-wrap gap-1.5">
                   {detailModalStation.paymentMethods.map((pm, i) => (
@@ -1326,7 +1323,7 @@ export const FuelFinderView: React.FC<FuelFinderViewProps> = ({ onNavigatePage }
                       key={i}
                       className="px-2 py-0.5 rounded-md bg-stone-100 text-stone-800 text-[11px] font-medium"
                     >
-                      {pm}
+                      {t(pm)}
                     </span>
                   ))}
                 </div>
@@ -1334,7 +1331,7 @@ export const FuelFinderView: React.FC<FuelFinderViewProps> = ({ onNavigatePage }
 
               <div className="space-y-1.5">
                 <h4 className="text-xs font-bold text-stone-900 uppercase tracking-wider">
-                  Station Amenities
+                  {t('Station Amenities')}
                 </h4>
                 <div className="flex flex-wrap gap-1.5">
                   {detailModalStation.amenities.map((am, i) => (
@@ -1342,7 +1339,7 @@ export const FuelFinderView: React.FC<FuelFinderViewProps> = ({ onNavigatePage }
                       key={i}
                       className="px-2 py-0.5 rounded-md bg-stone-100 text-stone-800 text-[11px] font-medium"
                     >
-                      {am}
+                      {t(am)}
                     </span>
                   ))}
                 </div>
@@ -1352,8 +1349,8 @@ export const FuelFinderView: React.FC<FuelFinderViewProps> = ({ onNavigatePage }
             {/* Tourist / Route Note */}
             {detailModalStation.notes && (
               <div className="p-3 bg-blue-50/70 rounded-2xl border border-blue-100 text-xs text-blue-950 leading-relaxed">
-                <strong className="font-bold">Traveler Note: </strong>
-                {detailModalStation.notes}
+                <strong className="font-bold">{t('Traveler Note: ')}</strong>
+                {t(detailModalStation.notes)}
               </div>
             )}
 
@@ -1366,7 +1363,7 @@ export const FuelFinderView: React.FC<FuelFinderViewProps> = ({ onNavigatePage }
                 className="flex-1 py-3 bg-blue-900 hover:bg-blue-950 text-white font-bold text-xs sm:text-sm rounded-xl transition-colors flex items-center justify-center gap-2 cursor-pointer shadow-sm"
               >
                 <Navigation className="w-4 h-4 text-sky-300" />
-                <span>Navigate in Google Maps</span>
+                <span>{t('Navigate in Google Maps')}</span>
                 <ExternalLink className="w-3.5 h-3.5" />
               </button>
 
@@ -1375,7 +1372,7 @@ export const FuelFinderView: React.FC<FuelFinderViewProps> = ({ onNavigatePage }
                 onClick={() => setDetailModalStation(null)}
                 className="py-3 px-5 bg-stone-100 hover:bg-stone-200 text-stone-700 font-bold text-xs sm:text-sm rounded-xl transition-colors cursor-pointer"
               >
-                Close
+                {t('Close')}
               </button>
             </div>
           </div>

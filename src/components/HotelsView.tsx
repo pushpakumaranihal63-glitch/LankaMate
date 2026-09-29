@@ -25,6 +25,7 @@ import { hotelsData } from '../data/hotelsData';
 import { HotelLocationSearch } from './HotelLocationSearch';
 import { HotelDetailPage } from './HotelDetailPage';
 import { DetectedLocationInfo, calculateDistanceKm } from '../utils/locationHelper';
+import { useTranslation } from '../i18n/LanguageContext';
 
 interface HotelsViewProps {
   onToggleFavourite: (item: any) => void;
@@ -82,6 +83,7 @@ export const HotelsView: React.FC<HotelsViewProps> = ({
   onBack,
   previousPage,
 }) => {
+  const { t } = useTranslation();
   const [selectedLocation, setSelectedLocation] = useState<string>('All');
   const [selectedRegion, setSelectedRegion] = useState<string>('All');
   const [selectedHotelType, setSelectedHotelType] = useState<string>('All');
@@ -369,11 +371,11 @@ export const HotelsView: React.FC<HotelsViewProps> = ({
             type="button"
             onClick={onBack ? onBack : () => onNavigatePage(previousPage || 'home')}
             className="inline-flex items-center gap-2 px-3.5 py-2 rounded-xl bg-white hover:bg-stone-100 active:bg-stone-200 text-stone-700 hover:text-emerald-950 border border-stone-200 text-xs sm:text-sm font-bold shadow-2xs transition-all cursor-pointer touch-manipulation group"
-            aria-label="Back to previous page"
+            aria-label={t('Back to previous page')}
           >
             <ArrowLeft className="w-4 h-4 text-stone-500 group-hover:text-emerald-800 transition-colors" />
             <span>
-              Back{previousPage === 'planner' ? ' to Trip Planner' : previousPage === 'home' ? ' to Home' : previousPage === 'booking' ? ' to Booking Hub' : previousPage === 'destinations' ? ' to Destinations' : ' to Previous'}
+              {t('Back')}{previousPage === 'planner' ? ` ${t('to Trip Planner')}` : previousPage === 'home' ? ` ${t('to Home')}` : previousPage === 'booking' ? ` ${t('to Booking Hub')}` : previousPage === 'destinations' ? ` ${t('to Destinations')}` : ` ${t('to Previous')}`}
             </span>
           </button>
         </div>
@@ -383,13 +385,13 @@ export const HotelsView: React.FC<HotelsViewProps> = ({
           <div>
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-100 text-emerald-900 text-xs font-bold uppercase tracking-wider mb-2">
               <HotelIcon className="w-3.5 h-3.5 text-emerald-700" />
-              Curated Sri Lankan Hospitality
+              {t('Curated Sri Lankan Hospitality')}
             </div>
             <h1 className="text-3xl sm:text-4xl font-black text-emerald-950 tracking-tight">
-              Hotels & Homestays
+              {t('Hotels & Homestays')}
             </h1>
             <p className="text-stone-600 text-sm sm:text-base mt-1 max-w-2xl">
-              From Geoffrey Bawa’s legendary architecture at Heritance Kandalama to cliffside luxury chalets overlooking Ella Gap, welcoming family homestays, and colonial villas in Galle Fort.
+              {t("From Geoffrey Bawa's legendary architecture at Heritance Kandalama to cliffside luxury chalets overlooking Ella Gap, welcoming family homestays, and colonial villas in Galle Fort.")}
             </p>
           </div>
 
@@ -400,7 +402,7 @@ export const HotelsView: React.FC<HotelsViewProps> = ({
               className="px-4 py-2.5 rounded-xl bg-emerald-800 hover:bg-emerald-900 active:bg-emerald-950 text-white text-xs font-bold transition-colors cursor-pointer flex items-center gap-2 shadow-xs shrink-0 self-start sm:self-auto"
             >
               <Calendar className="w-4 h-4" />
-              <span>My Bookings ({hotelBookings.length})</span>
+              <span>{t('My Bookings')} ({hotelBookings.length})</span>
             </button>
           )}
         </div>
@@ -432,15 +434,15 @@ export const HotelsView: React.FC<HotelsViewProps> = ({
               <div>
                 <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-emerald-100 text-emerald-900 text-xs font-bold uppercase tracking-wider mb-1.5">
                   <Navigation className="w-3 h-3 text-emerald-700" />
-                  <span>Nearby Hotel Results</span>
+                  <span>{t('Nearby Hotel Results')}</span>
                 </div>
                 <h2 className="text-2xl sm:text-3xl font-black text-emerald-950 tracking-tight">
-                  Hotels near {activeLocation.city || 'Your Location'}
+                  {t('Hotels near')} {activeLocation.city || t('Your Location')}
                 </h2>
                 <div className="flex flex-wrap items-center gap-2 text-xs sm:text-sm text-stone-600 mt-1">
                   <span className="flex items-center gap-1.5">
                     <MapPin className="w-3.5 h-3.5 text-emerald-700 shrink-0" />
-                    <span>Current location:</span>
+                    <span>{t('Current location:')}</span>
                     <strong className="text-stone-900 font-semibold">{activeLocation.displayName}</strong>
                   </span>
                   {activeLocation.source === 'gps' && (
@@ -457,7 +459,7 @@ export const HotelsView: React.FC<HotelsViewProps> = ({
                   className="px-3.5 py-2 rounded-xl text-xs font-bold text-stone-700 bg-stone-100 hover:bg-stone-200 border border-stone-200 flex items-center gap-1.5 transition-colors cursor-pointer"
                 >
                   <Search className="w-3.5 h-3.5 text-stone-500" />
-                  <span>Search Another Location</span>
+                  <span>{t('Search Another Location')}</span>
                 </button>
                 <button
                   onClick={() => {
@@ -465,10 +467,10 @@ export const HotelsView: React.FC<HotelsViewProps> = ({
                     setDistanceFilter(25);
                   }}
                   className="px-3 py-2 rounded-xl text-xs font-semibold text-stone-500 hover:text-stone-800 hover:bg-stone-100 border border-stone-200 flex items-center gap-1.5 transition-colors cursor-pointer"
-                  title="Clear location filter"
+                  title={t('Clear location filter')}
                 >
                   <RotateCcw className="w-3.5 h-3.5 text-stone-400" />
-                  <span>Reset to All</span>
+                  <span>{t('Reset to All')}</span>
                 </button>
               </div>
             </div>
@@ -478,12 +480,12 @@ export const HotelsView: React.FC<HotelsViewProps> = ({
               <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1 text-xs">
                 <span className="font-bold text-stone-700 uppercase tracking-wide flex items-center gap-1.5">
                   <SlidersHorizontal className="w-3.5 h-3.5 text-emerald-700" />
-                  <span>Filter by Distance:</span>
+                  <span>{t('Filter by Distance:')}</span>
                 </span>
                 <span className="text-stone-500 font-medium">
                   {filteredHotels.length === 0
-                    ? `0 hotels within ${distanceFilter === 'all' ? 'any distance' : `${distanceFilter} km`}`
-                    : `${filteredHotels.length} curated hotel${filteredHotels.length === 1 ? '' : 's'} found within ${distanceFilter === 'all' ? 'all distances' : `${distanceFilter} km`}`}
+                    ? `${t('0 hotels within')} ${distanceFilter === 'all' ? t('any distance') : `${distanceFilter} km`}`
+                    : `${filteredHotels.length} ${t('curated hotel' + (filteredHotels.length === 1 ? '' : 's') + ' found within')} ${distanceFilter === 'all' ? t('all distances') : `${distanceFilter} km`}`}
                 </span>
               </div>
 
@@ -508,7 +510,7 @@ export const HotelsView: React.FC<HotelsViewProps> = ({
                           : 'bg-stone-100 text-stone-700 hover:bg-stone-200 border border-stone-200/60'
                       }`}
                     >
-                      <span>{opt.label}</span>
+                      <span>{t(opt.label)}</span>
                       <span
                         className={`px-1.5 py-0.5 rounded-full text-[10px] font-black ${
                           isSelected
@@ -529,14 +531,14 @@ export const HotelsView: React.FC<HotelsViewProps> = ({
               <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1 text-xs">
                 <span className="font-bold text-stone-700 uppercase tracking-wide flex items-center gap-1.5">
                   <DollarSign className="w-3.5 h-3.5 text-emerald-700" />
-                  <span>Budget per Night:</span>
+                  <span>{t('Budget per Night:')}</span>
                 </span>
                 {budgetFilter !== 'all' && (
                   <button
                     onClick={() => setBudgetFilter('all')}
                     className="text-emerald-700 hover:text-emerald-900 font-bold text-xs flex items-center gap-1 cursor-pointer self-start sm:self-auto"
                   >
-                    <span>Reset Budget</span>
+                    <span>{t('Reset Budget')}</span>
                     <X className="w-3 h-3" />
                   </button>
                 )}
@@ -559,7 +561,7 @@ export const HotelsView: React.FC<HotelsViewProps> = ({
                           : 'bg-stone-100 text-stone-700 hover:bg-stone-200 border border-stone-200/60'
                       }`}
                     >
-                      <span>{opt.label}</span>
+                      <span>{t(opt.label)}</span>
                       <span
                         className={`px-1.5 py-0.5 rounded-full text-[10px] font-black ${
                           isSelected
@@ -580,14 +582,14 @@ export const HotelsView: React.FC<HotelsViewProps> = ({
               <div className="flex items-center justify-between text-xs">
                 <span className="font-bold text-stone-700 uppercase tracking-wide flex items-center gap-1.5">
                   <HotelIcon className="w-3.5 h-3.5 text-emerald-700" />
-                  <span>Hotel Type:</span>
+                  <span>{t('Hotel Type:')}</span>
                 </span>
                 {selectedHotelType !== 'All' && (
                   <button
                     onClick={() => setSelectedHotelType('All')}
                     className="text-emerald-700 hover:text-emerald-900 font-bold text-xs flex items-center gap-1 cursor-pointer"
                   >
-                    <span>Reset Type</span>
+                    <span>{t('Reset Type')}</span>
                     <X className="w-3 h-3" />
                   </button>
                 )}
@@ -608,7 +610,7 @@ export const HotelsView: React.FC<HotelsViewProps> = ({
                           : 'bg-stone-100 text-stone-700 hover:bg-stone-200 border border-stone-200/60'
                       }`}
                     >
-                      <span>{type}</span>
+                      <span>{t(type)}</span>
                       <span
                         className={`text-[10px] px-1.5 py-0.2 rounded-full ${
                           isSelected ? 'bg-stone-700 text-stone-100 font-bold' : 'bg-white text-stone-500'
@@ -630,7 +632,7 @@ export const HotelsView: React.FC<HotelsViewProps> = ({
                   type="text"
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
-                  placeholder={`Search hotels near ${activeLocation.city} by name or amenity...`}
+                  placeholder={t('Search hotels near') + ` ${activeLocation.city} ` + t('by name or amenity...')}
                   className="w-full pl-10 pr-4 py-2 bg-stone-50 border border-stone-200 rounded-xl text-xs sm:text-sm focus:outline-none focus:border-emerald-600 focus:bg-white"
                 />
               </div>
@@ -646,7 +648,7 @@ export const HotelsView: React.FC<HotelsViewProps> = ({
                   type="text"
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
-                  placeholder="Search hotels by name, city or amenity..."
+                  placeholder={t('Search hotels by name, city or amenity...')}
                   className="w-full pl-10 pr-4 py-2.5 bg-stone-50 border border-stone-200 rounded-xl text-sm focus:outline-none focus:border-emerald-600 focus:bg-white shadow-2xs"
                 />
               </div>
@@ -665,7 +667,7 @@ export const HotelsView: React.FC<HotelsViewProps> = ({
                           : 'bg-stone-100 text-stone-700 border border-stone-200/80 hover:bg-stone-200'
                       }`}
                     >
-                      {region}
+                      {t(region)}
                     </button>
                   )
                 )}
@@ -674,7 +676,7 @@ export const HotelsView: React.FC<HotelsViewProps> = ({
 
             {/* Location Pills */}
             <div className="flex items-center gap-2 overflow-x-auto pb-1">
-              <span className="text-xs font-bold text-stone-400 shrink-0 uppercase tracking-wider">City:</span>
+              <span className="text-xs font-bold text-stone-400 shrink-0 uppercase tracking-wider">{t('City:')}</span>
               {locations.map((loc) => (
                 <button
                   key={loc}
@@ -696,14 +698,14 @@ export const HotelsView: React.FC<HotelsViewProps> = ({
               <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1 text-xs">
                 <span className="font-bold text-stone-700 uppercase tracking-wide flex items-center gap-1.5">
                   <DollarSign className="w-3.5 h-3.5 text-emerald-700" />
-                  <span>Budget per Night:</span>
+                  <span>{t('Budget per Night:')}</span>
                 </span>
                 {budgetFilter !== 'all' && (
                   <button
                     onClick={() => setBudgetFilter('all')}
                     className="text-emerald-700 hover:text-emerald-900 font-bold text-xs flex items-center gap-1 cursor-pointer self-start sm:self-auto"
                   >
-                    <span>Reset Budget</span>
+                    <span>{t('Reset Budget')}</span>
                     <X className="w-3 h-3" />
                   </button>
                 )}
@@ -726,7 +728,7 @@ export const HotelsView: React.FC<HotelsViewProps> = ({
                           : 'bg-stone-100 text-stone-700 hover:bg-stone-200 border border-stone-200/60'
                       }`}
                     >
-                      <span>{opt.label}</span>
+                      <span>{t(opt.label)}</span>
                       <span
                         className={`px-1.5 py-0.5 rounded-full text-[10px] font-black ${
                           isSelected
@@ -747,14 +749,14 @@ export const HotelsView: React.FC<HotelsViewProps> = ({
               <div className="flex items-center justify-between text-xs">
                 <span className="font-bold text-stone-700 uppercase tracking-wide flex items-center gap-1.5">
                   <HotelIcon className="w-3.5 h-3.5 text-emerald-700" />
-                  <span>Hotel Type:</span>
+                  <span>{t('Hotel Type:')}</span>
                 </span>
                 {selectedHotelType !== 'All' && (
                   <button
                     onClick={() => setSelectedHotelType('All')}
                     className="text-emerald-700 hover:text-emerald-900 font-bold text-xs flex items-center gap-1 cursor-pointer"
                   >
-                    <span>Reset Type</span>
+                    <span>{t('Reset Type')}</span>
                     <X className="w-3 h-3" />
                   </button>
                 )}
@@ -775,7 +777,7 @@ export const HotelsView: React.FC<HotelsViewProps> = ({
                           : 'bg-stone-100 text-stone-700 hover:bg-stone-200 border border-stone-200/60'
                       }`}
                     >
-                      <span>{type}</span>
+                      <span>{t(type)}</span>
                       <span
                         className={`text-[10px] px-1.5 py-0.2 rounded-full ${
                           isSelected ? 'bg-stone-700 text-stone-100 font-bold' : 'bg-white text-stone-500'
@@ -795,17 +797,17 @@ export const HotelsView: React.FC<HotelsViewProps> = ({
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 px-1 py-1 text-xs">
           <div className="flex flex-wrap items-center gap-2">
             <span className="font-bold text-stone-900 text-sm">
-              {filteredHotels.length} {filteredHotels.length === 1 ? 'hotel' : 'hotels'} found
+              {filteredHotels.length} {filteredHotels.length === 1 ? t('hotel') : t('hotels')} {t('found')}
             </span>
             {hasActiveFilters && <span className="text-stone-300">|</span>}
             {/* Active budget filter chip */}
             {budgetFilter !== 'all' && (
               <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-lg bg-emerald-50 text-emerald-900 font-medium border border-emerald-200">
-                <span>Budget: {BUDGET_OPTIONS.find((b) => b.id === budgetFilter)?.label}</span>
+                <span>{t('Budget')}: {t(BUDGET_OPTIONS.find((b) => b.id === budgetFilter)?.label)}</span>
                 <button
                   onClick={() => setBudgetFilter('all')}
                   className="hover:text-emerald-700 cursor-pointer ml-0.5"
-                  title="Remove budget filter"
+                  title={t('Remove budget filter')}
                 >
                   <X className="w-3 h-3" />
                 </button>
@@ -814,11 +816,11 @@ export const HotelsView: React.FC<HotelsViewProps> = ({
             {/* Active hotel type filter chip */}
             {selectedHotelType !== 'All' && (
               <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-lg bg-stone-100 text-stone-800 font-medium border border-stone-200">
-                <span>Type: {selectedHotelType}</span>
+                <span>{t('Type')}: {t(selectedHotelType)}</span>
                 <button
                   onClick={() => setSelectedHotelType('All')}
                   className="hover:text-stone-900 cursor-pointer ml-0.5"
-                  title="Remove hotel type filter"
+                  title={t('Remove hotel type filter')}
                 >
                   <X className="w-3 h-3" />
                 </button>
@@ -827,11 +829,11 @@ export const HotelsView: React.FC<HotelsViewProps> = ({
             {/* Active region filter chip */}
             {selectedRegion !== 'All' && (
               <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-lg bg-stone-100 text-stone-800 font-medium border border-stone-200">
-                <span>Region: {selectedRegion}</span>
+                <span>{t('Region')}: {selectedRegion}</span>
                 <button
                   onClick={() => setSelectedRegion('All')}
                   className="hover:text-stone-900 cursor-pointer ml-0.5"
-                  title="Remove region filter"
+                  title={t('Remove region filter')}
                 >
                   <X className="w-3 h-3" />
                 </button>
@@ -840,11 +842,11 @@ export const HotelsView: React.FC<HotelsViewProps> = ({
             {/* Active city filter chip */}
             {!activeLocation && selectedLocation !== 'All' && (
               <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-lg bg-amber-50 text-amber-900 font-medium border border-amber-200">
-                <span>City: {selectedLocation}</span>
+                <span>{t('City')}: {selectedLocation}</span>
                 <button
                   onClick={() => setSelectedLocation('All')}
                   className="hover:text-amber-700 cursor-pointer ml-0.5"
-                  title="Remove city filter"
+                  title={t('Remove city filter')}
                 >
                   <X className="w-3 h-3" />
                 </button>
@@ -853,11 +855,11 @@ export const HotelsView: React.FC<HotelsViewProps> = ({
             {/* Active search filter chip */}
             {searchQuery.trim() && (
               <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-lg bg-stone-100 text-stone-800 font-medium border border-stone-200">
-                <span>Search: &ldquo;{searchQuery}&rdquo;</span>
+                <span>{t('Search')}: &ldquo;{searchQuery}&rdquo;</span>
                 <button
                   onClick={() => setSearchQuery('')}
                   className="hover:text-stone-900 cursor-pointer ml-0.5"
-                  title="Clear search"
+                  title={t('Clear search')}
                 >
                   <X className="w-3 h-3" />
                 </button>
@@ -872,7 +874,7 @@ export const HotelsView: React.FC<HotelsViewProps> = ({
               className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-stone-100 hover:bg-stone-200 text-stone-800 text-xs font-bold border border-stone-300 transition-colors cursor-pointer shrink-0 self-start sm:self-auto"
             >
               <RotateCcw className="w-3.5 h-3.5 text-stone-500" />
-              <span>Clear Filters</span>
+              <span>{t('Clear Filters')}</span>
             </button>
           )}
         </div>
@@ -888,30 +890,30 @@ export const HotelsView: React.FC<HotelsViewProps> = ({
               <div className="space-y-1.5">
                 <h3 className="text-xl sm:text-2xl font-black text-stone-900 tracking-tight">
                   {distanceFilter !== 'all'
-                    ? `No accommodation found within ${distanceFilter} km.`
-                    : `No accommodation found matching your filters`}
+                    ? `${t('No accommodation found within')} ${distanceFilter} km.`
+                    : `${t('No accommodation found matching your filters')}`}
                 </h3>
                 <p className="text-xs sm:text-sm text-stone-600 max-w-lg mx-auto leading-relaxed">
                   {budgetFilter !== 'all' ? (
                     <>
-                      No accommodation near <strong className="text-stone-800">{activeLocation.displayName}</strong> match the selected budget of{' '}
-                      <strong className="text-emerald-800">{BUDGET_OPTIONS.find((b) => b.id === budgetFilter)?.label}</strong>.
+                      {t('No accommodation near')} <strong className="text-stone-800">{activeLocation.displayName}</strong> {t('match the selected budget of')}{' '}
+                      <strong className="text-emerald-800">{t(BUDGET_OPTIONS.find((b) => b.id === budgetFilter)?.label)}</strong>.
                     </>
                   ) : distanceFilter !== 'all' ? (
                     <>
-                      No accommodation found within{' '}
-                      <strong className="text-emerald-900">{distanceFilter} km</strong> of{' '}
-                      <strong className="text-stone-800">{activeLocation.displayName}</strong>. Expand the radius to view more accommodations.
+                      {t('No accommodation found within')}{' '}
+                      <strong className="text-emerald-900">{distanceFilter} km</strong> {t('of')}{' '}
+                      <strong className="text-stone-800">{activeLocation.displayName}</strong>. {t('Expand the radius to view more accommodations.')}
                     </>
                   ) : (
                     <>
-                      No accommodation found matching your current filter criteria near{' '}
+                      {t('No accommodation found matching your current filter criteria near')}{' '}
                       <strong className="text-stone-800">{activeLocation.displayName}</strong>.
                     </>
                   )}
                 </p>
                 <p className="text-xs text-stone-500 max-w-md mx-auto">
-                  Try adjusting your budget per night, expanding the distance radius, or clearing applied filters.
+                  {t('Try adjusting your budget per night, expanding the distance radius, or clearing applied filters.')}
                 </p>
               </div>
 
@@ -921,7 +923,7 @@ export const HotelsView: React.FC<HotelsViewProps> = ({
                     onClick={() => setBudgetFilter('all')}
                     className="px-4 py-2.5 bg-emerald-800 text-white rounded-xl text-xs font-bold hover:bg-emerald-900 cursor-pointer transition-colors shadow-2xs"
                   >
-                    Reset Budget Filter
+                    {t('Reset Budget Filter')}
                   </button>
                 )}
                 {hasActiveFilters && (
@@ -929,7 +931,7 @@ export const HotelsView: React.FC<HotelsViewProps> = ({
                     onClick={handleClearFilters}
                     className="px-4 py-2.5 bg-stone-800 text-white rounded-xl text-xs font-bold hover:bg-stone-900 cursor-pointer transition-colors"
                   >
-                    Clear Filters
+                    {t('Clear Filters')}
                   </button>
                 )}
                 {distanceFilter !== 25 && distanceFilter !== 'all' && (
@@ -937,7 +939,7 @@ export const HotelsView: React.FC<HotelsViewProps> = ({
                     onClick={() => setDistanceFilter(25)}
                     className="px-4 py-2.5 bg-emerald-100 text-emerald-900 rounded-xl text-xs font-bold hover:bg-emerald-200 cursor-pointer transition-colors"
                   >
-                    Expand to Within 25 km ({distanceCounts[25]})
+                    {t('Expand to Within 25 km')} ({distanceCounts[25]})
                   </button>
                 )}
                 {distanceFilter !== 'all' && (
@@ -945,14 +947,14 @@ export const HotelsView: React.FC<HotelsViewProps> = ({
                     onClick={() => setDistanceFilter('all')}
                     className="px-4 py-2.5 bg-stone-100 text-stone-800 rounded-xl text-xs font-bold hover:bg-stone-200 border border-stone-200 cursor-pointer transition-colors"
                   >
-                    Show All Distances ({distanceCounts.all})
+                    {t('Show All Distances')} ({distanceCounts.all})
                   </button>
                 )}
                 <button
                   onClick={() => setIsManualSearchOpen(true)}
                   className="px-4 py-2.5 bg-white text-emerald-800 rounded-xl text-xs font-bold border border-emerald-300 hover:bg-emerald-50 cursor-pointer transition-colors"
                 >
-                  Search Another Location
+                  {t('Search Another Location')}
                 </button>
                 <button
                   onClick={() => {
@@ -961,7 +963,7 @@ export const HotelsView: React.FC<HotelsViewProps> = ({
                   }}
                   className="px-4 py-2.5 text-stone-500 hover:text-stone-800 text-xs font-semibold cursor-pointer"
                 >
-                  Reset to All Hotels
+                  {t('Reset to All Hotels')}
                 </button>
               </div>
             </div>
@@ -971,14 +973,14 @@ export const HotelsView: React.FC<HotelsViewProps> = ({
               <div className="w-12 h-12 rounded-full bg-stone-100 text-stone-500 flex items-center justify-center mx-auto">
                 <Search className="w-6 h-6" />
               </div>
-              <h3 className="text-lg font-black text-stone-900">No hotels match your filters</h3>
+              <h3 className="text-lg font-black text-stone-900">{t('No hotels match your filters')}</h3>
               <p className="text-xs text-stone-500 max-w-sm mx-auto">
                 {budgetFilter !== 'all' ? (
                   <>
-                    No hotels match the selected budget ({BUDGET_OPTIONS.find((b) => b.id === budgetFilter)?.label}) with your current filters.
+                    {t('No hotels match the selected budget')} ({t(BUDGET_OPTIONS.find((b) => b.id === budgetFilter)?.label)}) {t('with your current filters')}.
                   </>
                 ) : (
-                  <>We couldn’t find any hotels matching your current city, region, or search criteria.</>
+                  <>{t("We couldn't find any hotels matching your current city, region, or search criteria.")}</>
                 )}
               </p>
               <div className="flex flex-wrap items-center justify-center gap-2 pt-1">
@@ -987,14 +989,14 @@ export const HotelsView: React.FC<HotelsViewProps> = ({
                     onClick={() => setBudgetFilter('all')}
                     className="px-4 py-2 bg-emerald-800 text-white rounded-xl text-xs font-bold hover:bg-emerald-900 cursor-pointer transition-colors"
                   >
-                    Reset Budget Filter
+                    {t('Reset Budget Filter')}
                   </button>
                 )}
                 <button
                   onClick={handleClearFilters}
                   className="px-4 py-2 bg-stone-800 text-white rounded-xl text-xs font-bold hover:bg-stone-900 cursor-pointer transition-colors"
                 >
-                  Clear Filters
+                  {t('Clear Filters')}
                 </button>
               </div>
             </div>
@@ -1023,11 +1025,11 @@ export const HotelsView: React.FC<HotelsViewProps> = ({
                     <div className="absolute top-3 left-3 flex flex-wrap items-center gap-1.5 z-10">
                       <span className="px-2.5 py-0.5 rounded-full bg-emerald-800 text-white text-[11px] font-bold flex items-center gap-1 shadow-xs">
                         <Star className="w-3 h-3 fill-amber-400 text-amber-400" />
-                        <span>{hotel.starRating} Stars</span>
+                        <span>{hotel.starRating} {t('Stars')}</span>
                       </span>
                       {hotel.hotelType && (
                         <span className="px-2 py-0.5 rounded-full bg-stone-900/90 backdrop-blur-xs text-amber-300 border border-stone-700 text-[10px] font-bold shadow-xs">
-                          {hotel.hotelType}
+                          {t(hotel.hotelType)}
                         </span>
                       )}
                       {hotel.badge && (
@@ -1042,11 +1044,11 @@ export const HotelsView: React.FC<HotelsViewProps> = ({
                       <div className="absolute top-10 left-3 flex flex-wrap items-center gap-1.5 z-10 max-w-[85%]">
                         <span className="px-2.5 py-0.5 rounded-full bg-stone-950/90 backdrop-blur-xs text-emerald-300 border border-emerald-500/40 text-[11px] font-bold flex items-center gap-1 shadow-xs">
                           <Navigation className="w-3 h-3 text-emerald-400" />
-                          <span>{hotel.distanceKm < 1 ? '< 1 km away' : `${hotel.distanceKm} km away`}</span>
+                          <span>{hotel.distanceKm < 1 ? t('< 1 km away') : `${hotel.distanceKm} km ${t('away')}`}</span>
                         </span>
                         {hotel.distanceKm <= 35 && activeLocation?.city && (
                           <span className="px-2 py-0.5 rounded-full bg-amber-400 text-stone-950 text-[10px] font-black uppercase tracking-wider shadow-xs">
-                            Near {activeLocation.city}
+                            {t('Near')} {activeLocation.city}
                           </span>
                         )}
                       </div>
@@ -1067,7 +1069,7 @@ export const HotelsView: React.FC<HotelsViewProps> = ({
                         });
                       }}
                       className="absolute top-3 right-3 w-8 h-8 rounded-full bg-white/90 backdrop-blur-md text-stone-800 flex items-center justify-center hover:bg-white transition-colors cursor-pointer"
-                      title="Save hotel to Favourites"
+                      title={t('Save hotel to Favourites')}
                     >
                       <Heart
                         className={`w-3.5 h-3.5 ${
@@ -1107,10 +1109,10 @@ export const HotelsView: React.FC<HotelsViewProps> = ({
                       <div className="bg-emerald-50/90 border border-emerald-200/80 rounded-xl px-3 py-2 flex items-center justify-between text-xs">
                         <span className="flex items-center gap-1.5 text-emerald-800 font-semibold">
                           <Navigation className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
-                          <span>Distance from {activeLocation.city || 'your location'}:</span>
+                          <span>{t('Distance from')} {activeLocation.city || t('your location')}:</span>
                         </span>
                         <span className="font-black text-emerald-950">
-                          {hotel.distanceKm < 1 ? 'Less than 1 km' : `${hotel.distanceKm} km`}
+                          {hotel.distanceKm < 1 ? t('Less than 1 km') : `${hotel.distanceKm} km`}
                         </span>
                       </div>
                     )}
@@ -1130,7 +1132,7 @@ export const HotelsView: React.FC<HotelsViewProps> = ({
                     {/* Reviews summary */}
                     <div className="flex items-center justify-between text-xs text-stone-500 pt-2 border-t border-stone-100">
                       <span className="font-bold text-emerald-900">
-                        ★ {hotel.rating} / 5.0 ({hotel.reviewsCount} reviews)
+                        ★ {hotel.rating} / 5.0 ({hotel.reviewsCount} {t('reviews')})
                       </span>
                       <span className="text-[11px] text-stone-400">{hotel.roomTypes[0]}</span>
                     </div>
@@ -1140,7 +1142,7 @@ export const HotelsView: React.FC<HotelsViewProps> = ({
                 {/* Card Footer: Price & Booking Action */}
                 <div className="p-5 pt-0 border-t border-stone-100/80 mt-2 flex items-center justify-between gap-2">
                   <div>
-                    <span className="text-[10px] text-stone-400 block uppercase font-bold">Per Night</span>
+                    <span className="text-[10px] text-stone-400 block uppercase font-bold">{t('Per Night')}</span>
                     <div className="text-base font-black text-emerald-950">
                       ${hotel.pricePerNightUsd} USD
                     </div>
@@ -1158,7 +1160,7 @@ export const HotelsView: React.FC<HotelsViewProps> = ({
                       }}
                       className="px-3 py-2 bg-stone-900 hover:bg-stone-800 text-white rounded-xl text-xs font-bold transition-colors cursor-pointer flex items-center gap-1 shadow-2xs"
                     >
-                      <span>Book</span>
+                      <span>{t('Book')}</span>
                     </button>
 
                     <button
@@ -1168,10 +1170,10 @@ export const HotelsView: React.FC<HotelsViewProps> = ({
                         setInquiryModalHotel(hotel);
                       }}
                       className="px-3 py-2 bg-emerald-800 hover:bg-emerald-900 text-white rounded-xl text-xs font-bold transition-colors cursor-pointer flex items-center gap-1 shadow-2xs"
-                      title="Send reservation inquiry"
+                      title={t('Send reservation inquiry')}
                     >
                       <Calendar className="w-3.5 h-3.5" />
-                      <span className="hidden sm:inline">Inquire</span>
+                      <span className="hidden sm:inline">{t('Inquire')}</span>
                     </button>
                   </div>
                 </div>
@@ -1202,10 +1204,10 @@ export const HotelsView: React.FC<HotelsViewProps> = ({
                 <div className="absolute bottom-4 left-5 right-5 text-white">
                   <div className="flex items-center gap-1.5 text-xs text-amber-300 font-bold mb-1">
                     <Star className="w-3.5 h-3.5 fill-amber-300 text-amber-300" />
-                    <span>{inquiryModalHotel.starRating} Star Luxury Heritage</span>
+                    <span>{inquiryModalHotel.starRating} {t('Star Luxury Heritage')}</span>
                     {inquiryModalHotel.distanceKm !== undefined && (
                       <span className="text-white bg-emerald-800 px-2 py-0.5 rounded-full text-[10px]">
-                        {inquiryModalHotel.distanceKm < 1 ? '< 1 km away' : `${inquiryModalHotel.distanceKm} km away`}
+                        {inquiryModalHotel.distanceKm < 1 ? t('< 1 km away') : `${inquiryModalHotel.distanceKm} km ${t('away')}`}
                       </span>
                     )}
                   </div>
@@ -1224,40 +1226,40 @@ export const HotelsView: React.FC<HotelsViewProps> = ({
                     <ShieldCheck className="w-8 h-8" />
                   </div>
                   <div className="space-y-1">
-                    <h4 className="text-xl font-black text-emerald-950">Inquiry Received!</h4>
+                    <h4 className="text-xl font-black text-emerald-950">{t('Inquiry Received!')}</h4>
                     <p className="text-xs text-stone-600 max-w-sm mx-auto">
-                      Our LankaMate concierge and the hotel reservations desk will confirm room availability and special rates within 2 hours.
+                      {t("Our LankaMate concierge and the hotel reservations desk will confirm room availability and special rates within 2 hours.")}
                     </p>
                   </div>
                   <div className="bg-stone-50 border border-stone-200 rounded-xl p-3 text-xs text-stone-700">
-                    Reference Code: <span className="font-mono font-bold text-emerald-800">LM-RES-{Math.floor(100000 + Math.random() * 900000)}</span>
+                    {t('Reference Code')}: <span className="font-mono font-bold text-emerald-800">LM-RES-{Math.floor(100000 + Math.random() * 900000)}</span>
                   </div>
                 </div>
               ) : (
                 <form onSubmit={handleBookSubmit} className="p-6 space-y-4">
                   <div className="space-y-1">
                     <h4 className="text-sm font-black text-stone-900 uppercase tracking-wide">
-                      Direct Reservation Inquiry
+                      {t('Direct Reservation Inquiry')}
                     </h4>
                     <p className="text-xs text-stone-500">
-                      Best rate guarantee with complimentary breakfast & free cancellation.
+                      {t('Best rate guarantee with complimentary breakfast & free cancellation.')}
                     </p>
                   </div>
 
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
                     <div>
-                      <label className="block font-bold text-stone-700 mb-1">Your Full Name</label>
+                      <label className="block font-bold text-stone-700 mb-1">{t('Your Full Name')}</label>
                       <input
                         type="text"
                         required
-                        placeholder="e.g. Maya Fernando"
+                        placeholder={t('e.g. Maya Fernando')}
                         value={guestName}
                         onChange={(e) => setGuestName(e.target.value)}
                         className="w-full px-3 py-2 border border-stone-200 rounded-xl focus:outline-none focus:border-emerald-600"
                       />
                     </div>
                     <div>
-                      <label className="block font-bold text-stone-700 mb-1">Email Address</label>
+                      <label className="block font-bold text-stone-700 mb-1">{t('Email Address')}</label>
                       <input
                         type="email"
                         required
@@ -1271,7 +1273,7 @@ export const HotelsView: React.FC<HotelsViewProps> = ({
 
                   <div className="grid grid-cols-3 gap-2 text-xs">
                     <div>
-                      <label className="block font-bold text-stone-700 mb-1">Check-in</label>
+                      <label className="block font-bold text-stone-700 mb-1">{t('Check-in')}</label>
                       <input
                         type="date"
                         value={checkInDate}
@@ -1280,7 +1282,7 @@ export const HotelsView: React.FC<HotelsViewProps> = ({
                       />
                     </div>
                     <div>
-                      <label className="block font-bold text-stone-700 mb-1">Nights</label>
+                      <label className="block font-bold text-stone-700 mb-1">{t('Nights')}</label>
                       <input
                         type="number"
                         min="1"
@@ -1291,7 +1293,7 @@ export const HotelsView: React.FC<HotelsViewProps> = ({
                       />
                     </div>
                     <div>
-                      <label className="block font-bold text-stone-700 mb-1">Guests</label>
+                      <label className="block font-bold text-stone-700 mb-1">{t('Guests')}</label>
                       <input
                         type="number"
                         min="1"
@@ -1306,9 +1308,9 @@ export const HotelsView: React.FC<HotelsViewProps> = ({
                   {/* Pricing estimation */}
                   <div className="bg-emerald-50/70 border border-emerald-200/80 rounded-2xl p-3.5 flex items-center justify-between text-xs">
                     <div>
-                      <span className="text-emerald-900 font-bold block">Estimated Total</span>
+                      <span className="text-emerald-900 font-bold block">{t('Estimated Total')}</span>
                       <span className="text-stone-500 text-[11px]">
-                        ${inquiryModalHotel.pricePerNightUsd} × {nights} nights
+                        ${inquiryModalHotel.pricePerNightUsd} × {nights} {t('nights')}
                       </span>
                     </div>
                     <div className="text-right">
@@ -1324,11 +1326,11 @@ export const HotelsView: React.FC<HotelsViewProps> = ({
                   <div className="text-[11px] text-stone-500 space-y-1">
                     <p className="flex items-center gap-1 text-emerald-800 font-medium">
                       <Check className="w-3 h-3 text-emerald-600" />
-                      Free cancellation up to 48 hours prior to check-in.
+                      {t('Free cancellation up to 48 hours prior to check-in.')}
                     </p>
                     <p className="flex items-center gap-1">
                       <Phone className="w-3 h-3 text-stone-400" />
-                      Hotel desk: {inquiryModalHotel.phone}
+                      {t('Hotel desk')}: {inquiryModalHotel.phone}
                     </p>
                   </div>
 
@@ -1338,13 +1340,13 @@ export const HotelsView: React.FC<HotelsViewProps> = ({
                       onClick={() => setInquiryModalHotel(null)}
                       className="px-4 py-2 text-stone-600 hover:text-stone-900 text-xs font-semibold cursor-pointer"
                     >
-                      Cancel
+                      {t('Cancel')}
                     </button>
                     <button
                       type="submit"
                       className="px-5 py-2.5 bg-emerald-800 hover:bg-emerald-900 text-white rounded-xl text-xs font-bold transition-all shadow-xs cursor-pointer"
                     >
-                      Submit Reservation Inquiry
+                      {t('Submit Reservation Inquiry')}
                     </button>
                   </div>
                 </form>
@@ -1361,9 +1363,9 @@ export const HotelsView: React.FC<HotelsViewProps> = ({
                 <div>
                   <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-emerald-100 text-emerald-900 text-xs font-bold uppercase tracking-wider mb-1">
                     <Calendar className="w-3.5 h-3.5 text-emerald-700" />
-                    <span>Trip Records</span>
+                    <span>{t('Trip Records')}</span>
                   </div>
-                  <h3 className="text-2xl font-black text-emerald-950">My Hotel Bookings</h3>
+                  <h3 className="text-2xl font-black text-emerald-950">{t('My Hotel Bookings')}</h3>
                 </div>
                 <button
                   onClick={() => setShowBookingsModal(false)}
@@ -1376,7 +1378,7 @@ export const HotelsView: React.FC<HotelsViewProps> = ({
               {hotelBookings.length === 0 ? (
                 <div className="text-center py-8 space-y-3">
                   <HotelIcon className="w-12 h-12 text-stone-300 mx-auto" />
-                  <p className="text-stone-600 text-sm">You haven't made any hotel reservations yet.</p>
+                  <p className="text-stone-600 text-sm">{t("You haven't made any hotel reservations yet.")}</p>
                 </div>
               ) : (
                 <div className="space-y-4 max-h-[60vh] overflow-y-auto pr-1">
@@ -1420,23 +1422,23 @@ export const HotelsView: React.FC<HotelsViewProps> = ({
 
                       <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 text-xs">
                         <div>
-                          <span className="text-[10px] text-stone-400 block font-bold uppercase">Dates</span>
+                          <span className="text-[10px] text-stone-400 block font-bold uppercase">{t('Dates')}</span>
                           <span className="font-semibold text-stone-800">
                             {b.checkInDate} → {b.checkOutDate}
                           </span>
                         </div>
                         <div>
-                          <span className="text-[10px] text-stone-400 block font-bold uppercase">Duration</span>
-                          <span className="font-semibold text-stone-800">{b.nights} Nights</span>
+                          <span className="text-[10px] text-stone-400 block font-bold uppercase">{t('Duration')}</span>
+                          <span className="font-semibold text-stone-800">{b.nights} {t('Nights')}</span>
                         </div>
                         <div>
-                          <span className="text-[10px] text-stone-400 block font-bold uppercase">Guests & Rooms</span>
+                          <span className="text-[10px] text-stone-400 block font-bold uppercase">{t('Guests & Rooms')}</span>
                           <span className="font-semibold text-stone-800">
-                            {b.guestsCount} Guests ({b.roomsCount} Rooms)
+                            {b.guestsCount} {t('Guests')} ({b.roomsCount} {t('Rooms')})
                           </span>
                         </div>
                         <div>
-                          <span className="text-[10px] text-stone-400 block font-bold uppercase">Guest Name</span>
+                          <span className="text-[10px] text-stone-400 block font-bold uppercase">{t('Guest Name')}</span>
                           <span className="font-semibold text-stone-800 truncate block">{b.guestName}</span>
                         </div>
                       </div>
@@ -1450,7 +1452,7 @@ export const HotelsView: React.FC<HotelsViewProps> = ({
                   onClick={() => setShowBookingsModal(false)}
                   className="px-5 py-2.5 bg-stone-900 hover:bg-stone-800 text-white rounded-xl text-xs font-bold transition-colors cursor-pointer"
                 >
-                  Close
+                  {t('Close')}
                 </button>
               </div>
             </div>

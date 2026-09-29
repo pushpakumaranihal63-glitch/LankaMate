@@ -30,7 +30,7 @@ export const AIAssistantView: React.FC<AIAssistantViewProps> = ({ onNavigatePage
     {
       id: 'welcome',
       sender: 'assistant',
-      text: `**Ayubowan! 🙏 Welcome to LankaMate AI.**\n\nI am your culturally grounded Sri Lankan travel companion. Ask me anything or tap any topic below:\n\n• **Blue Train Tickets:** Kandy to Ella booking guidance & unreserved seats.\n• **Temple Dress Code:** Sacred site etiquette, shoulders/knees rules & customs.\n• **Best Street Food:** Crispy hoppers, hot kottu, isso wade & food safety.\n• **Yala Safari Guide:** Leopard tracking tips, 4x4 jeeps & park safety.\n• **Weather & Seasons:** Dual monsoon patterns & best regional travel times.\n• **7-Day Itinerary:** Balanced Colombo, Sigiriya, Kandy, Nuwara Eliya, Ella, Yala & Galle route.\n\nAsk me in any language (English, Sinhala, Tamil, Korean, Japanese, Chinese, German, French, Spanish, Russian, Arabic, Hindi, Italian) and I will gladly guide you!`,
+      text: t(`**Ayubowan! 🙏 Welcome to LankaMate AI.**\n\nI am your culturally grounded Sri Lankan travel companion. Ask me anything or tap any topic below:\n\n• **Blue Train Tickets:** Kandy to Ella booking guidance & unreserved seats.\n• **Temple Dress Code:** Sacred site etiquette, shoulders/knees rules & customs.\n• **Best Street Food:** Crispy hoppers, hot kottu, isso wade & food safety.\n• **Yala Safari Guide:** Leopard tracking tips, 4x4 jeeps & park safety.\n• **Weather & Seasons:** Dual monsoon patterns & best regional travel times.\n• **7-Day Itinerary:** Balanced Colombo, Sigiriya, Kandy, Nuwara Eliya, Ella, Yala & Galle route.\n\nAsk me in any language (English, Sinhala, Tamil, Korean, Japanese, Chinese, German, French, Spanish, Russian, Arabic, Hindi, Italian) and I will gladly guide you!`),
       timestamp: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
     },
   ]);
@@ -157,7 +157,7 @@ export const AIAssistantView: React.FC<AIAssistantViewProps> = ({ onNavigatePage
       {
         id: 'welcome',
         sender: 'assistant',
-        text: `**Ayubowan! 🙏 Welcome back to LankaMate AI.**\n\nHow can I help plan your Sri Lanka travels today? Tap any Quick Ask topic above or type a custom question below.`,
+        text: t(`**Ayubowan! 🙏 Welcome back to LankaMate AI.**\n\nHow can I help plan your Sri Lanka travels today? Tap any Quick Ask topic above or type a custom question below.`),
         timestamp: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
       },
     ]);
@@ -178,14 +178,14 @@ export const AIAssistantView: React.FC<AIAssistantViewProps> = ({ onNavigatePage
             <div>
               <div className="flex items-center gap-2">
                 <h1 className="text-base sm:text-lg font-black text-emerald-950">
-                  LankaMate AI Travel Guide
+                  {t('LankaMate AI Travel Guide')}
                 </h1>
                 <span className="px-2 py-0.5 rounded-full bg-emerald-100 text-emerald-900 text-[10px] font-bold">
                   Gemini 3.8
                 </span>
               </div>
               <p className="text-xs text-stone-500">
-                Culturally grounded assistant for Sri Lanka local and tourist travel
+                {t('Culturally grounded assistant for Sri Lanka local and tourist travel')}
               </p>
             </div>
           </div>
@@ -193,16 +193,16 @@ export const AIAssistantView: React.FC<AIAssistantViewProps> = ({ onNavigatePage
           <button
             onClick={handleResetChat}
             className="flex items-center gap-1 px-3 py-1.5 rounded-xl border border-stone-200 text-stone-600 hover:bg-stone-50 text-xs font-semibold cursor-pointer transition-colors"
-            title="Clear Chat Conversation"
+            title={t('Clear Chat Conversation')}
           >
             <RefreshCw className="w-3.5 h-3.5" />
-            <span className="hidden sm:inline">Reset</span>
+            <span className="hidden sm:inline">{t('Reset')}</span>
           </button>
         </div>
 
         {/* Suggested Prompt Chips */}
         <div className="flex items-center gap-1.5 overflow-x-auto pb-1 scrollbar-none">
-          <span className="text-xs font-bold text-stone-400 shrink-0 mr-1">Quick asks:</span>
+          <span className="text-xs font-bold text-stone-400 shrink-0 mr-1">{t('Quick asks:')}</span>
           {QUICK_ASK_ITEMS.map((item, idx) => (
             <button
               key={idx}
@@ -297,17 +297,17 @@ export const AIAssistantView: React.FC<AIAssistantViewProps> = ({ onNavigatePage
                       <button
                         onClick={() => copyToClipboard(msg.text, msg.id)}
                         className="hover:text-stone-700 flex items-center gap-1 cursor-pointer"
-                        title="Copy text"
+                        title={t('Copy text')}
                       >
                         {copiedId === msg.id ? (
                           <>
                             <Check className="w-3 h-3 text-emerald-600" />
-                            <span className="text-emerald-600 font-bold">Copied</span>
+                            <span className="text-emerald-600 font-bold">{t('Copied')}</span>
                           </>
                         ) : (
                           <>
                             <Copy className="w-3 h-3" />
-                            <span>Copy</span>
+                            <span>{t('Copy')}</span>
                           </>
                         )}
                       </button>
@@ -332,7 +332,7 @@ export const AIAssistantView: React.FC<AIAssistantViewProps> = ({ onNavigatePage
               </div>
               <div className="bg-stone-50 border border-stone-200 rounded-2xl p-4 text-xs text-stone-500 flex items-center gap-2">
                 <Sparkles className="w-4 h-4 text-amber-500 animate-spin" />
-                <span>LankaMate AI is consulting Sri Lanka travel knowledge...</span>
+                <span>{t('LankaMate AI is consulting Sri Lanka travel knowledge...')}</span>
               </div>
             </div>
           )}
@@ -357,10 +357,10 @@ export const AIAssistantView: React.FC<AIAssistantViewProps> = ({ onNavigatePage
               type="text"
               value={inputText}
               onChange={(e) => setInputText(e.target.value)}
-              placeholder="Ask anything: blue train tickets, temple dress code, seafood spots, monsoons..."
+              placeholder={t('Ask anything: blue train tickets, temple dress code, seafood spots, monsoons...')}
               autoComplete="off"
               className="flex-1 px-3 py-2.5 text-xs sm:text-sm text-stone-900 placeholder-stone-400 focus:outline-none bg-transparent cursor-text select-text"
-              aria-label="Ask AI travel question"
+              aria-label={t('Ask AI travel question')}
             />
 
             <button
@@ -370,7 +370,7 @@ export const AIAssistantView: React.FC<AIAssistantViewProps> = ({ onNavigatePage
               className="px-4 py-2.5 bg-emerald-800 hover:bg-emerald-900 active:bg-emerald-950 disabled:opacity-40 disabled:hover:bg-emerald-800 text-white rounded-xl text-xs font-bold transition-colors cursor-pointer flex items-center gap-1.5 shadow-2xs shrink-0 select-none"
             >
               <Send className="w-3.5 h-3.5" />
-              <span className="hidden sm:inline">Ask AI</span>
+              <span className="hidden sm:inline">{t('Ask AI')}</span>
             </button>
           </form>
         </div>

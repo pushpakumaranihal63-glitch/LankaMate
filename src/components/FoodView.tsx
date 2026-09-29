@@ -13,6 +13,7 @@ import {
 } from 'lucide-react';
 import { FoodItem, Restaurant, PageId } from '../types';
 import { foodItems, famousRestaurants } from '../data/foodData';
+import { useTranslation } from '../i18n/LanguageContext';
 
 interface FoodViewProps {
   onToggleFavourite: (item: any) => void;
@@ -25,6 +26,7 @@ export const FoodView: React.FC<FoodViewProps> = ({
   isFavourite,
   onNavigatePage,
 }) => {
+  const { t } = useTranslation();
   const [activeTab, setActiveTab] = useState<'dishes' | 'restaurants'>('dishes');
   const [selectedCategory, setSelectedCategory] = useState<string>('All');
   const [dietaryFilter, setDietaryFilter] = useState<string>('All');
@@ -62,13 +64,13 @@ export const FoodView: React.FC<FoodViewProps> = ({
         <div className="border-b border-stone-200 pb-6">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-100 text-amber-900 text-xs font-bold uppercase tracking-wider mb-2">
             <UtensilsCrossed className="w-3.5 h-3.5 text-amber-700" />
-            Culinary Odyssey of Ceylon
+            {t('Culinary Odyssey of Ceylon')}
           </div>
           <h1 className="text-3xl sm:text-4xl font-black text-emerald-950 tracking-tight">
-            Sri Lankan Food & Restaurants
+            {t('Sri Lankan Food & Restaurants')}
           </h1>
           <p className="text-stone-600 text-sm sm:text-base mt-1 max-w-2xl">
-            Savor an explosion of fresh coconut milk, aromatic Ceylon cinnamon, roasted curry powders, and sweet jaggery treacle. Discover what to eat and where to find it.
+            {t('Savor an explosion of fresh coconut milk, aromatic Ceylon cinnamon, roasted curry powders, and sweet jaggery treacle. Discover what to eat and where to find it.')}
           </p>
         </div>
 
@@ -83,7 +85,7 @@ export const FoodView: React.FC<FoodViewProps> = ({
                   : 'bg-white text-stone-700 border border-stone-200 hover:bg-stone-50'
               }`}
             >
-              Iconic Sri Lankan Dishes ({foodItems.length})
+              {t('Iconic Sri Lankan Dishes')} ({foodItems.length})
             </button>
 
             <button
@@ -94,7 +96,7 @@ export const FoodView: React.FC<FoodViewProps> = ({
                   : 'bg-white text-stone-700 border border-stone-200 hover:bg-stone-50'
               }`}
             >
-              Recommended Restaurants & Street Stalls ({famousRestaurants.length})
+              {t('Recommended Restaurants & Street Stalls')} ({famousRestaurants.length})
             </button>
           </div>
 
@@ -105,7 +107,7 @@ export const FoodView: React.FC<FoodViewProps> = ({
               type="text"
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              placeholder="Search food or places..."
+              placeholder={t('Search food or places...')}
               className="w-full pl-9 pr-3 py-1.5 bg-white border border-stone-200 rounded-xl text-xs focus:outline-none focus:border-emerald-700"
             />
           </div>
@@ -116,7 +118,7 @@ export const FoodView: React.FC<FoodViewProps> = ({
           <div className="space-y-6">
             {/* Category and Dietary Filters */}
             <div className="flex flex-wrap items-center gap-2">
-              <span className="text-xs font-bold text-stone-500">Category:</span>
+              <span className="text-xs font-bold text-stone-500">{t('Category:')}</span>
               {categories.map((cat) => (
                 <button
                   key={cat}
@@ -127,13 +129,13 @@ export const FoodView: React.FC<FoodViewProps> = ({
                       : 'bg-white text-stone-700 border border-stone-200 hover:bg-stone-50'
                   }`}
                 >
-                  {cat}
+                  {t(cat)}
                 </button>
               ))}
 
               <div className="h-4 w-px bg-stone-300 mx-1 hidden sm:block" />
 
-              <span className="text-xs font-bold text-stone-500">Dietary:</span>
+              <span className="text-xs font-bold text-stone-500">{t('Dietary:')}</span>
               <button
                 onClick={() => setDietaryFilter(dietaryFilter === 'vegetarian' ? 'All' : 'vegetarian')}
                 className={`px-3 py-1 rounded-full text-xs font-bold cursor-pointer transition-colors ${
@@ -142,7 +144,7 @@ export const FoodView: React.FC<FoodViewProps> = ({
                     : 'bg-white text-stone-700 border border-stone-200'
                 }`}
               >
-                🌱 Vegetarian
+                🌱 {t('Vegetarian')}
               </button>
               <button
                 onClick={() => setDietaryFilter(dietaryFilter === 'vegan' ? 'All' : 'vegan')}
@@ -152,7 +154,7 @@ export const FoodView: React.FC<FoodViewProps> = ({
                     : 'bg-white text-stone-700 border border-stone-200'
                 }`}
               >
-                🥑 100% Vegan
+                🥑 {t('100% Vegan')}
               </button>
             </div>
 
@@ -177,7 +179,7 @@ export const FoodView: React.FC<FoodViewProps> = ({
                       {/* Spice Level Indicator Badge */}
                       <div className="absolute top-3 left-3 flex items-center gap-1 bg-black/70 backdrop-blur-md px-2.5 py-1 rounded-full text-[10px] text-amber-300 font-bold">
                         <Flame className="w-3 h-3 text-red-500 fill-red-500" />
-                        <span>Spice: {food.spiceLevel} / 5</span>
+                        <span>{t('Spice Level')}: {food.spiceLevel} / 5</span>
                       </div>
 
                       {/* Bookmark */}
@@ -194,7 +196,7 @@ export const FoodView: React.FC<FoodViewProps> = ({
                           })
                         }
                         className="absolute top-3 right-3 w-8 h-8 rounded-full bg-white/90 backdrop-blur-md text-stone-800 flex items-center justify-center hover:bg-white transition-colors cursor-pointer"
-                        title="Save to Favourites"
+                        title={t('Save to Favourites')}
                       >
                         <Heart
                           className={`w-3.5 h-3.5 ${
@@ -206,7 +208,7 @@ export const FoodView: React.FC<FoodViewProps> = ({
                       <div className="absolute bottom-3 left-4 right-4 text-white">
                         <h3 className="text-xl font-black tracking-tight">{food.name}</h3>
                         <p className="text-xs text-amber-300 font-medium">
-                          {food.sinhalaName} • {food.category}
+                          {food.sinhalaName} • {t(food.category)}
                         </p>
                       </div>
                     </div>
@@ -220,7 +222,7 @@ export const FoodView: React.FC<FoodViewProps> = ({
                       {/* Ingredients list */}
                       <div className="space-y-1 text-xs">
                         <span className="font-bold text-stone-700 block text-[11px] uppercase tracking-wider">
-                          Key Ingredients:
+                          {t('Key Ingredients:')}
                         </span>
                         <div className="flex flex-wrap gap-1">
                           {food.ingredientsOrSpecialties.map((ing, i) => (
@@ -237,7 +239,7 @@ export const FoodView: React.FC<FoodViewProps> = ({
                       {/* How to eat cultural tip */}
                       {food.culturalNote && (
                         <div className="bg-amber-50/70 p-3 rounded-xl border border-amber-200/60 text-xs text-amber-950 space-y-0.5">
-                          <span className="font-bold block text-[11px]">How to Eat & Savor:</span>
+                          <span className="font-bold block text-[11px]">{t('How to Eat & Savor:')}</span>
                           <p className="text-stone-600 text-[11px] leading-relaxed">{food.culturalNote}</p>
                         </div>
                       )}
@@ -247,13 +249,13 @@ export const FoodView: React.FC<FoodViewProps> = ({
                   {/* Card Footer: Price & Recommended Place */}
                   <div className="p-5 pt-0 border-t border-stone-100 mt-2 flex items-center justify-between text-xs">
                     <div>
-                      <span className="text-[10px] text-stone-400 block font-bold">Price Guide</span>
+                      <span className="text-[10px] text-stone-400 block font-bold">{t('Price Guide')}</span>
                       <span className="font-bold text-emerald-950">{food.priceIndication}</span>
                     </div>
                     <div className="text-right">
-                      <span className="text-[10px] text-stone-400 block font-bold">Best Spot</span>
+                      <span className="text-[10px] text-stone-400 block font-bold">{t('Best Spot')}</span>
                       <span className="font-medium text-stone-700 truncate block max-w-[130px]">
-                        {food.location || 'Islandwide street stalls & tea shops'}
+                        {food.location || t('Islandwide street stalls & tea shops')}
                       </span>
                     </div>
                   </div>
@@ -281,7 +283,7 @@ export const FoodView: React.FC<FoodViewProps> = ({
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/20" />
                     <span className="absolute top-3 left-3 px-3 py-1 rounded-full bg-emerald-800 text-white text-xs font-bold">
-                      {rest.category}
+                      {t(rest.category)}
                     </span>
                     <div className="absolute bottom-3 left-4 right-4 text-white">
                       <div className="flex items-center gap-1 text-[11px] text-amber-300 font-medium">
@@ -299,7 +301,7 @@ export const FoodView: React.FC<FoodViewProps> = ({
 
                     {/* Specialties */}
                     <div className="space-y-1 text-xs">
-                      <span className="font-bold text-stone-800 block">Must-Order Specialties:</span>
+                      <span className="font-bold text-stone-800 block">{t('Must-Order Specialties:')}</span>
                       <div className="flex flex-wrap gap-1">
                         {rest.ingredientsOrSpecialties.map((spec, i) => (
                           <span
@@ -324,7 +326,7 @@ export const FoodView: React.FC<FoodViewProps> = ({
 
                 <div className="p-5 pt-0 border-t border-stone-100 flex items-center justify-between text-xs text-stone-500">
                   <span className="font-bold text-stone-800">{rest.priceIndication}</span>
-                  <span className="text-emerald-800 font-bold">{rest.category}</span>
+                  <span className="text-emerald-800 font-bold">{t(rest.category)}</span>
                 </div>
               </div>
             ))}

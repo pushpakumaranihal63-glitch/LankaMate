@@ -54,6 +54,7 @@ export const BookingView: React.FC<BookingViewProps> = ({
   onToggleFavourite,
   isFavourite,
 }) => {
+  const { t } = useTranslation();
   const [activeCategory, setActiveCategory] = useState<BookingCategory>('all');
   const [searchQuery, setSearchQuery] = useState('');
 
@@ -178,12 +179,12 @@ export const BookingView: React.FC<BookingViewProps> = ({
   const handleSendInquiry = (e: React.FormEvent) => {
     e.preventDefault();
     if (!formContact) {
-      alert('Please enter your WhatsApp number or email address.');
+      alert(t('Please enter your WhatsApp number or email address.'));
       return;
     }
 
-    const title = availabilityModalItem?.title || transportRequestModal?.title || 'Travel Booking';
-    const message = `Ayubowan! We have received your booking inquiry for "${title}". Our verified partner concierge will contact you shortly via ${formContact}. No payment has been charged.`;
+    const title = availabilityModalItem?.title || transportRequestModal?.title || t('Travel Booking');
+    const message = `${t('Ayubowan! We have received your booking inquiry for')} "${title}". ${t('Our verified partner concierge will contact you shortly via')} ${formContact}. ${t('No payment has been charged.')}`;
     
     setInquirySuccessMessage(message);
     setAvailabilityModalItem(null);
@@ -200,26 +201,26 @@ export const BookingView: React.FC<BookingViewProps> = ({
         <div className="max-w-7xl mx-auto space-y-4">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-900/80 border border-emerald-500/40 text-emerald-300 text-xs font-bold uppercase tracking-wider">
             <ShieldCheck className="w-3.5 h-3.5 text-emerald-400" />
-            <span>Verified Sri Lanka Travel Concierge</span>
+            <span>{t('Verified Sri Lanka Travel Concierge')}</span>
           </div>
 
           <h1 className="text-3xl sm:text-5xl font-black tracking-tight text-white flex items-center gap-3">
-            <span>Booking Hub</span>
+            <span>{t('Booking Hub')}</span>
             <span className="text-3xl sm:text-4xl" aria-hidden="true">🎫</span>
           </h1>
 
           <p className="text-stone-300 text-sm sm:text-base max-w-3xl leading-relaxed">
-            Reserve authentic Sri Lankan heritage resorts, welcoming family-run homestays, licensed wildlife safaris, and island-wide airport & chauffeur transfers with transparent pricing and direct partner assurance.
+            {t('Reserve authentic Sri Lankan heritage resorts, welcoming family-run homestays, licensed wildlife safaris, and island-wide airport & chauffeur transfers with transparent pricing and direct partner assurance.')}
           </p>
 
           {/* Quick Category Tabs */}
           <div className="pt-2 flex flex-wrap items-center gap-2 sm:gap-3">
             {[
-              { id: 'all', label: 'All Bookings', icon: <Compass className="w-4 h-4" /> },
-              { id: 'hotels', label: '🏨 Hotels & Resorts', count: bookingHotels.length },
-              { id: 'homestays', label: '🏠 Guest Houses & Homestays', count: bookingHomestays.length },
-              { id: 'tours', label: '🧭 Tours & Activities', count: bookingTours.length },
-              { id: 'transport', label: '🚐 Transport & Transfers', count: bookingTransports.length },
+              { id: 'all', label: t('All Bookings'), icon: <Compass className="w-4 h-4" /> },
+              { id: 'hotels', label: '🏨 ' + t('Hotels & Resorts'), count: bookingHotels.length },
+              { id: 'homestays', label: '🏠 ' + t('Guest Houses & Homestays'), count: bookingHomestays.length },
+              { id: 'tours', label: '🧭 ' + t('Tours & Activities'), count: bookingTours.length },
+              { id: 'transport', label: '🚐 ' + t('Transport & Transfers'), count: bookingTransports.length },
             ].map((cat) => {
               const active = activeCategory === cat.id;
               return (
@@ -264,7 +265,7 @@ export const BookingView: React.FC<BookingViewProps> = ({
               type="text"
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              placeholder="Search by hotel, homestay, tour, or region..."
+              placeholder={t('Search by hotel, homestay, tour, or region...')}
               className="w-full pl-10 pr-4 py-2.5 bg-white border border-stone-200 rounded-xl text-xs sm:text-sm focus:outline-none focus:border-emerald-600 focus:ring-1 focus:ring-emerald-600 shadow-2xs text-stone-800"
             />
             {searchQuery && (
@@ -272,7 +273,7 @@ export const BookingView: React.FC<BookingViewProps> = ({
                 onClick={() => setSearchQuery('')}
                 className="absolute right-3 top-1/2 -translate-y-1/2 text-xs font-bold text-stone-400 hover:text-stone-700"
               >
-                Clear
+                {t('Clear')}
               </button>
             )}
           </div>
@@ -282,7 +283,7 @@ export const BookingView: React.FC<BookingViewProps> = ({
             <div className="flex items-center gap-2 p-2.5 rounded-xl bg-blue-50/80 border border-blue-200/70 text-xs text-blue-900 font-medium">
               <Info className="w-4 h-4 text-blue-700 shrink-0" />
               <span>
-                Direct partner links & transparent concierge inquiries. No markups.
+                {t('Direct partner links & transparent concierge inquiries. No markups.')}
               </span>
             </div>
 
@@ -290,14 +291,14 @@ export const BookingView: React.FC<BookingViewProps> = ({
               type="button"
               onClick={() =>
                 setPaymentCheckoutModal({
-                  title: 'Sri Lanka Travel & Tour Reservation',
+                  title: t('Sri Lanka Travel & Tour Reservation'),
                   amountUsd: 145,
                 })
               }
               className="flex items-center gap-1.5 px-3.5 py-2.5 bg-emerald-800 hover:bg-emerald-900 text-white rounded-xl text-xs font-bold shadow-xs cursor-pointer transition-all active:scale-98"
             >
               <ShieldCheck className="w-4 h-4 text-amber-300" />
-              <span>Payment Methods & Checkout</span>
+              <span>{t('Payment Methods & Checkout')}</span>
             </button>
           </div>
         </div>
@@ -308,7 +309,7 @@ export const BookingView: React.FC<BookingViewProps> = ({
             <div className="flex items-start gap-2.5">
               <Check className="w-5 h-5 text-emerald-700 mt-0.5 shrink-0" />
               <div>
-                <h4 className="text-sm font-bold">Booking Inquiry Dispatched</h4>
+                <h4 className="text-sm font-bold">{t('Booking Inquiry Dispatched')}</h4>
                 <p className="text-xs mt-0.5 leading-relaxed">{inquirySuccessMessage}</p>
               </div>
             </div>
@@ -330,24 +331,24 @@ export const BookingView: React.FC<BookingViewProps> = ({
               <div>
                 <div className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-blue-900 mb-1">
                   <HotelIcon className="w-3.5 h-3.5 text-blue-700" />
-                  <span>Category 1 • Luxury & Heritage Lodging</span>
+                  <span>{t('Category 1 • Luxury & Heritage Lodging')}</span>
                 </div>
                 <h2 className="text-2xl sm:text-3xl font-black text-stone-900 tracking-tight flex items-center gap-2">
-                  <span>Hotels & Resorts</span>
+                  <span>{t('Hotels & Resorts')}</span>
                   <span className="text-2xl" aria-hidden="true">🏨</span>
                 </h2>
                 <p className="text-stone-600 text-xs sm:text-sm mt-0.5">
-                  Handpicked 5-star properties, architectural icons by Geoffrey Bawa, tea estate bungalows, and coastal sanctuaries.
+                  {t('Handpicked 5-star properties, architectural icons by Geoffrey Bawa, tea estate bungalows, and coastal sanctuaries.')}
                 </p>
               </div>
               <span className="text-xs font-bold text-stone-500">
-                Showing {filteredHotels.length} Luxury Resorts
+                {t('Showing')} {filteredHotels.length} {t('Luxury Resorts')}
               </span>
             </div>
 
             {filteredHotels.length === 0 ? (
               <div className="p-8 bg-white rounded-2xl border border-stone-200 text-center text-xs text-stone-500">
-                No hotels found matching "{searchQuery}".
+                {t('No hotels found matching')} "{searchQuery}".
               </div>
             ) : (
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -393,7 +394,7 @@ export const BookingView: React.FC<BookingViewProps> = ({
                           });
                         }}
                         className="absolute top-3 right-3 w-8 h-8 rounded-full bg-white/90 backdrop-blur-xs text-stone-800 flex items-center justify-center hover:bg-white active:scale-95 transition-all cursor-pointer shadow-xs"
-                        title={isFavourite(hotel.id) ? 'Remove from Favourites' : 'Save to Favourites'}
+                        title={isFavourite(hotel.id) ? t('Remove from Favourites') : t('Save to Favourites')}
                       >
                         <Heart
                           className={`w-4 h-4 ${
@@ -455,7 +456,7 @@ export const BookingView: React.FC<BookingViewProps> = ({
                             className="flex items-center justify-center gap-1.5 py-2.5 px-3 rounded-xl bg-stone-100 hover:bg-stone-200 active:bg-stone-300 text-stone-900 text-xs font-bold transition-colors cursor-pointer touch-manipulation"
                           >
                             <Calendar className="w-3.5 h-3.5 text-stone-700" />
-                            <span>Check Availability</span>
+                            <span>{t('Check Availability')}</span>
                           </button>
 
                           <button
@@ -464,7 +465,7 @@ export const BookingView: React.FC<BookingViewProps> = ({
                             onClick={() => handleBookNow(hotel, 'hotel')}
                             className="flex items-center justify-center gap-1.5 py-2.5 px-3 rounded-xl bg-blue-900 hover:bg-blue-950 active:bg-blue-900 text-white text-xs font-bold transition-colors cursor-pointer touch-manipulation shadow-2xs"
                           >
-                            <span>Book Now</span>
+                            <span>{t('Book Now')}</span>
                             <ExternalLink className="w-3.5 h-3.5 text-amber-300" />
                           </button>
                         </div>
@@ -472,7 +473,7 @@ export const BookingView: React.FC<BookingViewProps> = ({
                         {/* Partner Link Notice & Map Pin */}
                         <div className="flex items-center justify-between text-[10px] text-stone-400 font-medium px-0.5">
                           <span className="truncate max-w-[180px]">
-                            {hotel.status === 'partner_ready' ? 'Partner Booking' : 'Coming Soon'} • {hotel.partnerName}
+                            {hotel.status === 'partner_ready' ? t('Partner Booking') : t('Coming Soon')} • {hotel.partnerName}
                           </span>
                           <a
                             href={`https://www.google.com/maps/dir/?api=1&destination=${hotel.coordinates.lat},${hotel.coordinates.lng}`}
@@ -481,7 +482,7 @@ export const BookingView: React.FC<BookingViewProps> = ({
                             className="text-emerald-700 hover:underline flex items-center gap-0.5 shrink-0"
                           >
                             <Navigation className="w-3 h-3" />
-                            <span>Map</span>
+                            <span>{t('Map')}</span>
                           </a>
                         </div>
                       </div>
@@ -502,24 +503,24 @@ export const BookingView: React.FC<BookingViewProps> = ({
               <div>
                 <div className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-emerald-800 mb-1">
                   <HomeIcon className="w-3.5 h-3.5 text-emerald-600" />
-                  <span>Category 2 • Authentic Local Hospitality</span>
+                  <span>{t('Category 2 • Authentic Local Hospitality')}</span>
                 </div>
                 <h2 className="text-2xl sm:text-3xl font-black text-stone-900 tracking-tight flex items-center gap-2">
-                  <span>Guest Houses & Homestays</span>
+                  <span>{t('Guest Houses & Homestays')}</span>
                   <span className="text-2xl" aria-hidden="true">🏠</span>
                 </h2>
                 <p className="text-stone-600 text-xs sm:text-sm mt-0.5">
-                  Stay with warm Sri Lankan host families, enjoy homecooked coconut curries, and discover hidden neighborhood tranquility.
+                  {t('Stay with warm Sri Lankan host families, enjoy homecooked coconut curries, and discover hidden neighborhood tranquility.')}
                 </p>
               </div>
               <span className="text-xs font-bold text-stone-500">
-                Showing {filteredHomestays.length} Homestays
+                {t('Showing')} {filteredHomestays.length} {t('Homestays')}
               </span>
             </div>
 
             {filteredHomestays.length === 0 ? (
               <div className="p-8 bg-white rounded-2xl border border-stone-200 text-center text-xs text-stone-500">
-                No homestays found matching "{searchQuery}".
+                {t('No homestays found matching')} "{searchQuery}".
               </div>
             ) : (
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -542,7 +543,7 @@ export const BookingView: React.FC<BookingViewProps> = ({
                       {/* Region & Host Pill */}
                       <div className="absolute top-3 left-3 flex items-center gap-1.5">
                         <span className="px-2.5 py-0.5 rounded-full bg-emerald-800/95 backdrop-blur-xs text-white text-[10px] font-bold shadow-xs">
-                          Host: {home.hostName}
+                          {t('Host')}: {home.hostName}
                         </span>
                         <span className="px-2 py-0.5 rounded-full bg-black/60 backdrop-blur-xs text-stone-200 text-[10px]">
                           {home.region}
@@ -565,7 +566,7 @@ export const BookingView: React.FC<BookingViewProps> = ({
                           });
                         }}
                         className="absolute top-3 right-3 w-8 h-8 rounded-full bg-white/90 backdrop-blur-xs text-stone-800 flex items-center justify-center hover:bg-white active:scale-95 transition-all cursor-pointer shadow-xs"
-                        title={isFavourite(home.id) ? 'Remove from Favourites' : 'Save to Favourites'}
+                        title={isFavourite(home.id) ? t('Remove from Favourites') : t('Save to Favourites')}
                       >
                         <Heart
                           className={`w-4 h-4 ${
@@ -595,7 +596,7 @@ export const BookingView: React.FC<BookingViewProps> = ({
                             <span>{home.priceIndicator}</span>
                           </div>
                           <span className="text-[11px] text-stone-600 font-bold">
-                            ★ {home.rating} (Local Host)
+                            ★ {home.rating} ({t('Local Host')})
                           </span>
                         </div>
 
@@ -627,7 +628,7 @@ export const BookingView: React.FC<BookingViewProps> = ({
                             className="flex items-center justify-center gap-1.5 py-2.5 px-3 rounded-xl bg-stone-100 hover:bg-stone-200 active:bg-stone-300 text-stone-900 text-xs font-bold transition-colors cursor-pointer touch-manipulation"
                           >
                             <Calendar className="w-3.5 h-3.5 text-stone-700" />
-                            <span>Check Availability</span>
+                            <span>{t('Check Availability')}</span>
                           </button>
 
                           <button
@@ -636,7 +637,7 @@ export const BookingView: React.FC<BookingViewProps> = ({
                             onClick={() => handleBookNow(home, 'homestay')}
                             className="flex items-center justify-center gap-1.5 py-2.5 px-3 rounded-xl bg-emerald-800 hover:bg-emerald-900 active:bg-emerald-950 text-white text-xs font-bold transition-colors cursor-pointer touch-manipulation shadow-2xs"
                           >
-                            <span>Book Now</span>
+                            <span>{t('Book Now')}</span>
                             <Check className="w-3.5 h-3.5 text-amber-300" />
                           </button>
                         </div>
@@ -644,7 +645,7 @@ export const BookingView: React.FC<BookingViewProps> = ({
                         {/* Partner Link Notice & Map Pin */}
                         <div className="flex items-center justify-between text-[10px] text-stone-400 font-medium px-0.5">
                           <span className="truncate max-w-[180px]">
-                            {home.status === 'partner_ready' ? 'Partner Booking' : 'Coming Soon'} • {home.partnerName}
+                            {home.status === 'partner_ready' ? t('Partner Booking') : t('Coming Soon')} • {home.partnerName}
                           </span>
                           <a
                             href={`https://www.google.com/maps/dir/?api=1&destination=${home.coordinates.lat},${home.coordinates.lng}`}
@@ -653,7 +654,7 @@ export const BookingView: React.FC<BookingViewProps> = ({
                             className="text-emerald-700 hover:underline flex items-center gap-0.5 shrink-0"
                           >
                             <Navigation className="w-3 h-3" />
-                            <span>Map</span>
+                            <span>{t('Map')}</span>
                           </a>
                         </div>
                       </div>
@@ -674,24 +675,24 @@ export const BookingView: React.FC<BookingViewProps> = ({
               <div>
                 <div className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-amber-700 mb-1">
                   <Compass className="w-3.5 h-3.5 text-amber-600" />
-                  <span>Category 3 • Certified Guided Excursions</span>
+                  <span>{t('Category 3 • Certified Guided Excursions')}</span>
                 </div>
                 <h2 className="text-2xl sm:text-3xl font-black text-stone-900 tracking-tight flex items-center gap-2">
-                  <span>Tours & Activities</span>
+                  <span>{t('Tours & Activities')}</span>
                   <span className="text-2xl" aria-hidden="true">🧭</span>
                 </h2>
                 <p className="text-stone-600 text-xs sm:text-sm mt-0.5">
-                  Wildlife 4x4 safaris, deep ocean whale cruises, ancient fortress sunrise treks, and scenic tea train passes.
+                  {t('Wildlife 4x4 safaris, deep ocean whale cruises, ancient fortress sunrise treks, and scenic tea train passes.')}
                 </p>
               </div>
               <span className="text-xs font-bold text-stone-500">
-                Showing {filteredTours.length} Curated Tours
+                {t('Showing')} {filteredTours.length} {t('Curated Tours')}
               </span>
             </div>
 
             {filteredTours.length === 0 ? (
               <div className="p-8 bg-white rounded-2xl border border-stone-200 text-center text-xs text-stone-500">
-                No tours found matching "{searchQuery}".
+                {t('No tours found matching')} "{searchQuery}".
               </div>
             ) : (
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -751,7 +752,7 @@ export const BookingView: React.FC<BookingViewProps> = ({
                         {/* Highlights snippet */}
                         <div className="space-y-1 pt-1">
                           <span className="text-[10px] font-bold text-stone-500 uppercase tracking-wider block">
-                            Key Highlights
+                            {t('Key Highlights')}
                           </span>
                           <ul className="text-xs text-stone-700 space-y-0.5">
                             {tour.highlights.slice(0, 2).map((h, i) => (
@@ -774,7 +775,7 @@ export const BookingView: React.FC<BookingViewProps> = ({
                             className="flex items-center justify-center gap-1.5 py-2.5 px-3 rounded-xl bg-stone-100 hover:bg-stone-200 active:bg-stone-300 text-stone-900 text-xs font-bold transition-colors cursor-pointer touch-manipulation"
                           >
                             <Info className="w-3.5 h-3.5 text-stone-700" />
-                            <span>View Details</span>
+                            <span>{t('View Details')}</span>
                           </button>
 
                           <button
@@ -783,7 +784,7 @@ export const BookingView: React.FC<BookingViewProps> = ({
                             onClick={() => handleBookNow(tour, 'tour')}
                             className="flex items-center justify-center gap-1.5 py-2.5 px-3 rounded-xl bg-emerald-800 hover:bg-emerald-900 active:bg-emerald-950 text-white text-xs font-bold transition-colors cursor-pointer touch-manipulation shadow-2xs"
                           >
-                            <span>Book Now</span>
+                            <span>{t('Book Now')}</span>
                             <ExternalLink className="w-3.5 h-3.5 text-amber-300" />
                           </button>
                         </div>
@@ -791,7 +792,7 @@ export const BookingView: React.FC<BookingViewProps> = ({
                         {/* Partner Link Notice & Map Pin */}
                         <div className="flex items-center justify-between text-[10px] text-stone-400 font-medium px-0.5">
                           <span className="truncate max-w-[180px]">
-                            {tour.status === 'partner_ready' ? 'Partner Booking' : 'Coming Soon'} • {tour.partnerName}
+                            {tour.status === 'partner_ready' ? t('Partner Booking') : t('Coming Soon')} • {tour.partnerName}
                           </span>
                           <a
                             href={`https://www.google.com/maps/dir/?api=1&destination=${tour.coordinates.lat},${tour.coordinates.lng}`}
@@ -800,7 +801,7 @@ export const BookingView: React.FC<BookingViewProps> = ({
                             className="text-emerald-700 hover:underline flex items-center gap-0.5 shrink-0"
                           >
                             <Navigation className="w-3 h-3" />
-                            <span>Meeting Pin</span>
+                            <span>{t('Meeting Pin')}</span>
                           </a>
                         </div>
                       </div>
@@ -821,18 +822,18 @@ export const BookingView: React.FC<BookingViewProps> = ({
               <div>
                 <div className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-sky-800 mb-1">
                   <Car className="w-3.5 h-3.5 text-sky-600" />
-                  <span>Category 4 • Island-Wide Mobility</span>
+                  <span>{t('Category 4 • Island-Wide Mobility')}</span>
                 </div>
                 <h2 className="text-2xl sm:text-3xl font-black text-stone-900 tracking-tight flex items-center gap-2">
-                  <span>Transport & Transfers</span>
+                  <span>{t('Transport & Transfers')}</span>
                   <span className="text-2xl" aria-hidden="true">🚐</span>
                 </h2>
                 <p className="text-stone-600 text-xs sm:text-sm mt-0.5">
-                  Airport transfers, private chauffeur tourist guides, and verified car & tuk-tuk rentals.
+                  {t('Airport transfers, private chauffeur tourist guides, and verified car & tuk-tuk rentals.')}
                 </p>
               </div>
               <span className="text-xs font-bold text-stone-500">
-                3 Key Transit Services
+                {t('3 Key Transit Services')}
               </span>
             </div>
 
@@ -856,10 +857,10 @@ export const BookingView: React.FC<BookingViewProps> = ({
                     <div className="absolute top-3 left-3">
                       <span className="px-2.5 py-0.5 rounded-full bg-blue-900/90 backdrop-blur-xs text-white text-[10px] font-bold shadow-xs">
                         {trans.type === 'airport'
-                          ? 'Airport Transfers'
+                          ? t('Airport Transfers')
                           : trans.type === 'chauffeur'
-                          ? 'Private Chauffeur'
-                          : 'Car & Tuk-Tuk Rental'}
+                          ? t('Private Chauffeur')
+                          : t('Car & Tuk-Tuk Rental')}
                       </span>
                     </div>
 
@@ -881,14 +882,14 @@ export const BookingView: React.FC<BookingViewProps> = ({
 
                       {/* Pricing Guide */}
                       <div className="p-2.5 rounded-xl bg-blue-50/80 border border-blue-100 text-xs text-blue-950 font-medium">
-                        <span className="font-bold block text-[11px] text-blue-900">Rates Guide:</span>
+                        <span className="font-bold block text-[11px] text-blue-900">{t('Rates Guide:')}</span>
                         <span>{trans.pricingGuide}</span>
                       </div>
 
                       {/* Vehicle Options */}
                       <div className="space-y-1">
                         <span className="text-[10px] font-bold text-stone-500 uppercase tracking-wider block">
-                          Available Fleets
+                          {t('Available Fleets')}
                         </span>
                         <div className="flex flex-wrap gap-1">
                           {trans.vehicleOptions.map((v, i) => (
@@ -914,13 +915,13 @@ export const BookingView: React.FC<BookingViewProps> = ({
                         }}
                         className="w-full flex items-center justify-center gap-2 py-3 px-4 rounded-xl bg-blue-900 hover:bg-blue-950 active:bg-blue-900 text-white text-xs sm:text-sm font-bold transition-colors cursor-pointer touch-manipulation shadow-2xs group"
                       >
-                        <span>Request Booking</span>
+                        <span>{t('Request Booking')}</span>
                         <ChevronRight className="w-4 h-4 text-amber-300 group-hover:translate-x-0.5 transition-transform" />
                       </button>
 
                       <div className="flex items-center justify-between text-[10px] text-stone-400 font-medium px-0.5">
-                        <span>Partner Booking • {trans.partnerName}</span>
-                        <span className="text-emerald-700 font-semibold">Fixed & Transparent</span>
+                        <span>{t('Partner Booking')} • {trans.partnerName}</span>
+                        <span className="text-emerald-700 font-semibold">{t('Fixed & Transparent')}</span>
                       </div>
                     </div>
                   </div>
@@ -934,13 +935,13 @@ export const BookingView: React.FC<BookingViewProps> = ({
                 <div className="space-y-1">
                   <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-emerald-100 text-emerald-900 text-[10px] font-bold uppercase tracking-wider">
                     <Smartphone className="w-3 h-3 text-emerald-700" />
-                    <span>Instant City Rides & Tuk-Tuks</span>
+                    <span>{t('Instant City Rides & Tuk-Tuks')}</span>
                   </div>
                   <h3 className="text-xl font-black text-stone-900 tracking-tight">
-                    On-Demand Ride-Hailing Apps in Sri Lanka
+                    {t('On-Demand Ride-Hailing Apps in Sri Lanka')}
                   </h3>
                   <p className="text-stone-600 text-xs sm:text-sm">
-                    For immediate street pickups in Colombo, Kandy, Galle, and major coastal hubs, use Sri Lanka’s two official ride-hailing networks.
+                    {t('For immediate street pickups in Colombo, Kandy, Galle, and major coastal hubs, use Sri Lanka’s two official ride-hailing networks.')}
                   </p>
                 </div>
               </div>
@@ -955,15 +956,15 @@ export const BookingView: React.FC<BookingViewProps> = ({
                       </div>
                       <div>
                         <h4 className="text-sm font-black text-stone-900">PickMe Sri Lanka</h4>
-                        <p className="text-[11px] text-stone-500">Homegrown #1 Tuk-Tuk & Taxi App</p>
+                        <p className="text-[11px] text-stone-500">{t('Homegrown #1 Tuk-Tuk & Taxi App')}</p>
                       </div>
                     </div>
                     <span className="px-2 py-0.5 rounded-md bg-emerald-50 text-emerald-900 font-bold text-[10px]">
-                      Island-Wide
+                      {t('Island-Wide')}
                     </span>
                   </div>
                   <p className="text-stone-600 text-xs leading-relaxed">
-                    Widely available for metered Tuk-Tuks, compact cars, large passenger vans, and express deliveries.
+                    {t('Widely available for metered Tuk-Tuks, compact cars, large passenger vans, and express deliveries.')}
                   </p>
                   <a
                     href="https://pickme.lk/"
@@ -971,7 +972,7 @@ export const BookingView: React.FC<BookingViewProps> = ({
                     rel="noopener noreferrer"
                     className="flex items-center justify-center gap-2 py-2.5 rounded-xl bg-amber-400 hover:bg-amber-500 text-stone-950 font-black text-xs transition-colors cursor-pointer shadow-2xs"
                   >
-                    <span>Launch PickMe Official</span>
+                    <span>{t('Launch PickMe Official')}</span>
                     <ExternalLink className="w-3.5 h-3.5" />
                   </a>
                 </div>
@@ -985,15 +986,15 @@ export const BookingView: React.FC<BookingViewProps> = ({
                       </div>
                       <div>
                         <h4 className="text-sm font-black text-stone-900">Uber Sri Lanka</h4>
-                        <p className="text-[11px] text-stone-500">Global Reliability in Sri Lanka</p>
+                        <p className="text-[11px] text-stone-500">{t('Global Reliability in Sri Lanka')}</p>
                       </div>
                     </div>
                     <span className="px-2 py-0.5 rounded-md bg-stone-100 text-stone-800 font-bold text-[10px]">
-                      Urban & Airport
+                      {t('Urban & Airport')}
                     </span>
                   </div>
                   <p className="text-stone-600 text-xs leading-relaxed">
-                    Ideal for international credit cards, airport runs, Uber Auto (tuk-tuk), and Uber Premier sedans.
+                    {t('Ideal for international credit cards, airport runs, Uber Auto (tuk-tuk), and Uber Premier sedans.')}
                   </p>
                   <a
                     href="https://m.uber.com/looking"
@@ -1001,7 +1002,7 @@ export const BookingView: React.FC<BookingViewProps> = ({
                     rel="noopener noreferrer"
                     className="flex items-center justify-center gap-2 py-2.5 rounded-xl bg-black hover:bg-stone-900 text-white font-black text-xs transition-colors cursor-pointer shadow-2xs"
                   >
-                    <span>Launch Uber Sri Lanka</span>
+                    <span>{t('Launch Uber Sri Lanka')}</span>
                     <ExternalLink className="w-3.5 h-3.5" />
                   </a>
                 </div>
@@ -1028,7 +1029,7 @@ export const BookingView: React.FC<BookingViewProps> = ({
             <div className="p-4 sm:p-5 bg-gradient-to-r from-stone-900 to-blue-950 text-white flex items-start justify-between">
               <div className="space-y-1">
                 <span className="px-2 py-0.5 rounded-md bg-emerald-500/20 text-emerald-300 text-[10px] font-bold uppercase tracking-wider">
-                  {availabilityModalItem.type === 'hotel' ? 'Hotel / Resort Reservation' : 'Homestay Inquiry'}
+                  {availabilityModalItem.type === 'hotel' ? t('Hotel / Resort Reservation') : t('Homestay Inquiry')}
                 </span>
                 <h3 className="text-lg sm:text-xl font-black text-white leading-tight">
                   {availabilityModalItem.title}
@@ -1051,14 +1052,14 @@ export const BookingView: React.FC<BookingViewProps> = ({
             {/* Form Body */}
             <form onSubmit={handleSendInquiry} className="p-5 space-y-4 overflow-y-auto flex-1">
               <div className="p-3 rounded-xl bg-stone-50 border border-stone-200/80 flex items-center justify-between text-xs">
-                <span className="text-stone-600 font-medium">Estimated Seasonal Guide:</span>
+                <span className="text-stone-600 font-medium">{t('Estimated Seasonal Guide:')}</span>
                 <span className="font-black text-stone-900">{availabilityModalItem.priceIndicator}</span>
               </div>
 
               {/* Check-In / Out Dates */}
               <div className="grid grid-cols-2 gap-3">
                 <div className="space-y-1">
-                  <label className="text-xs font-bold text-stone-700 block">Check-in Date</label>
+                  <label className="text-xs font-bold text-stone-700 block">{t('Check-in Date')}</label>
                   <input
                     type="date"
                     value={formCheckIn}
@@ -1068,7 +1069,7 @@ export const BookingView: React.FC<BookingViewProps> = ({
                   />
                 </div>
                 <div className="space-y-1">
-                  <label className="text-xs font-bold text-stone-700 block">Check-out Date</label>
+                  <label className="text-xs font-bold text-stone-700 block">{t('Check-out Date')}</label>
                   <input
                     type="date"
                     value={formCheckOut}
@@ -1081,44 +1082,44 @@ export const BookingView: React.FC<BookingViewProps> = ({
 
               {/* Number of Guests */}
               <div className="space-y-1">
-                <label className="text-xs font-bold text-stone-700 block">Travelers / Guests</label>
+                <label className="text-xs font-bold text-stone-700 block">{t('Travelers / Guests')}</label>
                 <select
                   value={formGuests}
                   onChange={(e) => setFormGuests(e.target.value)}
                   className="w-full p-2.5 bg-stone-50 border border-stone-200 rounded-xl text-xs font-medium text-stone-900 focus:outline-none focus:border-blue-800"
                 >
-                  <option value="1 Solo Traveler">1 Solo Traveler</option>
-                  <option value="2 Guests (1 Room)">2 Guests (1 Double/Twin Room)</option>
-                  <option value="3 Guests (Triple)">3 Guests (1 Triple Room)</option>
-                  <option value="4+ Family / Group">4+ Family / Group (2+ Rooms)</option>
+                  <option value="1 Solo Traveler">{t('1 Solo Traveler')}</option>
+                  <option value="2 Guests (1 Room)">{t('2 Guests (1 Double/Twin Room)')}</option>
+                  <option value="3 Guests (Triple)">{t('3 Guests (1 Triple Room)')}</option>
+                  <option value="4+ Family / Group">{t('4+ Family / Group (2+ Rooms)')}</option>
                 </select>
               </div>
 
               {/* Traveler Contact */}
               <div className="space-y-1">
                 <label className="text-xs font-bold text-stone-700 block">
-                  Your WhatsApp Number or Email <span className="text-red-500">*</span>
+                  {t('Your WhatsApp Number or Email')} <span className="text-red-500">*</span>
                 </label>
                 <input
                   type="text"
                   value={formContact}
                   onChange={(e) => setFormContact(e.target.value)}
-                  placeholder="+94 77 123 4567 or yourname@gmail.com"
+                  placeholder={t('+94 77 123 4567 or yourname@gmail.com')}
                   className="w-full p-2.5 bg-stone-50 border border-stone-200 rounded-xl text-xs font-medium text-stone-900 focus:outline-none focus:border-blue-800"
                   required
                 />
                 <span className="text-[10px] text-stone-400 block">
-                  Used strictly to send your reservation confirmation & partner verification.
+                  {t('Used strictly to send your reservation confirmation & partner verification.')}
                 </span>
               </div>
 
               {/* Special Requests */}
               <div className="space-y-1">
-                <label className="text-xs font-bold text-stone-700 block">Special Requests (Optional)</label>
+                <label className="text-xs font-bold text-stone-700 block">{t('Special Requests (Optional)')}</label>
                 <textarea
                   value={formNotes}
                   onChange={(e) => setFormNotes(e.target.value)}
-                  placeholder="e.g. Airport pickup required, king bed, vegetarian meals, early arrival..."
+                  placeholder={t('e.g. Airport pickup required, king bed, vegetarian meals, early arrival...')}
                   rows={2}
                   className="w-full p-2.5 bg-stone-50 border border-stone-200 rounded-xl text-xs font-medium text-stone-900 focus:outline-none focus:border-blue-800"
                 />
@@ -1130,7 +1131,7 @@ export const BookingView: React.FC<BookingViewProps> = ({
                   type="submit"
                   className="w-full py-3 rounded-xl bg-blue-900 hover:bg-blue-950 text-white font-bold text-xs sm:text-sm shadow-md transition-colors cursor-pointer"
                 >
-                  Send Reservation Request to Host / Partner
+                  {t('Send Reservation Request to Host / Partner')}
                 </button>
 
                 {availabilityModalItem.partnerUrl && (
@@ -1140,7 +1141,7 @@ export const BookingView: React.FC<BookingViewProps> = ({
                     rel="noopener noreferrer"
                     className="w-full flex items-center justify-center gap-1.5 py-2.5 rounded-xl border border-stone-300 hover:bg-stone-50 text-stone-800 font-bold text-xs transition-colors cursor-pointer"
                   >
-                    <span>Open Official Partner Portal Directly</span>
+                    <span>{t('Open Official Partner Portal Directly')}</span>
                     <ExternalLink className="w-3.5 h-3.5 text-stone-500" />
                   </a>
                 )}
@@ -1201,13 +1202,13 @@ export const BookingView: React.FC<BookingViewProps> = ({
             {/* Tour Details Body */}
             <div className="p-5 space-y-4 overflow-y-auto flex-1 text-xs">
               <div className="p-3 rounded-xl bg-amber-50 border border-amber-200/80 text-amber-950 font-medium">
-                <span className="font-bold block text-[11px] text-amber-900">Pricing & Capacity:</span>
+                <span className="font-bold block text-[11px] text-amber-900">{t('Pricing & Capacity:')}</span>
                 <span>{selectedTourModal.priceIndicator} • {selectedTourModal.groupSize}</span>
               </div>
 
               <div className="space-y-1.5">
                 <h4 className="font-black text-stone-900 uppercase tracking-wider text-[11px]">
-                  Experience Overview
+                  {t('Experience Overview')}
                 </h4>
                 <p className="text-stone-600 leading-relaxed">
                   {selectedTourModal.shortDescription}
@@ -1218,7 +1219,7 @@ export const BookingView: React.FC<BookingViewProps> = ({
               <div className="space-y-1.5">
                 <h4 className="font-black text-stone-900 uppercase tracking-wider text-[11px] flex items-center gap-1">
                   <Sparkles className="w-3.5 h-3.5 text-amber-500" />
-                  <span>Tour Highlights</span>
+                  <span>{t('Tour Highlights')}</span>
                 </h4>
                 <ul className="space-y-1 text-stone-700">
                   {selectedTourModal.highlights.map((h, i) => (
@@ -1233,7 +1234,7 @@ export const BookingView: React.FC<BookingViewProps> = ({
               {/* What is Included & What to Bring */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-1">
                 <div className="p-3 rounded-xl bg-stone-50 border border-stone-200/80 space-y-1">
-                  <span className="font-bold text-stone-900 block text-[11px]">Included:</span>
+                  <span className="font-bold text-stone-900 block text-[11px]">{t('Included:')}</span>
                   <ul className="space-y-1 text-stone-600">
                     {selectedTourModal.includes.map((inc, i) => (
                       <li key={i}>• {inc}</li>
@@ -1242,7 +1243,7 @@ export const BookingView: React.FC<BookingViewProps> = ({
                 </div>
 
                 <div className="p-3 rounded-xl bg-stone-50 border border-stone-200/80 space-y-1">
-                  <span className="font-bold text-stone-900 block text-[11px]">What to Bring:</span>
+                  <span className="font-bold text-stone-900 block text-[11px]">{t('What to Bring:')}</span>
                   <ul className="space-y-1 text-stone-600">
                     {selectedTourModal.whatToBring.map((b, i) => (
                       <li key={i}>• {b}</li>
@@ -1254,7 +1255,7 @@ export const BookingView: React.FC<BookingViewProps> = ({
               {/* Meeting Point & Navigation */}
               <div className="p-3 rounded-xl bg-emerald-50 border border-emerald-100 flex items-center justify-between">
                 <div>
-                  <span className="font-bold text-emerald-950 block text-[11px]">Meeting Point:</span>
+                  <span className="font-bold text-emerald-950 block text-[11px]">{t('Meeting Point:')}</span>
                   <span className="text-emerald-900">{selectedTourModal.meetingPoint}</span>
                 </div>
                 <a
@@ -1264,7 +1265,7 @@ export const BookingView: React.FC<BookingViewProps> = ({
                   className="px-3 py-1.5 rounded-lg bg-emerald-800 hover:bg-emerald-900 text-white font-bold text-[11px] flex items-center gap-1 shrink-0"
                 >
                   <Navigation className="w-3 h-3 text-amber-300" />
-                  <span>Navigate</span>
+                  <span>{t('Navigate')}</span>
                 </a>
               </div>
 
@@ -1287,7 +1288,7 @@ export const BookingView: React.FC<BookingViewProps> = ({
                   }}
                   className="w-full py-3 rounded-xl bg-emerald-800 hover:bg-emerald-900 text-white font-bold text-xs sm:text-sm shadow-md transition-colors cursor-pointer flex items-center justify-center gap-1.5"
                 >
-                  <span>Book This Tour Experience</span>
+                  <span>{t('Book This Tour Experience')}</span>
                   <ChevronRight className="w-4 h-4 text-emerald-200" />
                 </button>
               </div>
@@ -1313,7 +1314,7 @@ export const BookingView: React.FC<BookingViewProps> = ({
             <div className="p-4 sm:p-5 bg-gradient-to-r from-stone-900 to-sky-950 text-white flex items-start justify-between">
               <div className="space-y-1">
                 <span className="px-2 py-0.5 rounded-md bg-sky-500/20 text-sky-300 text-[10px] font-bold uppercase tracking-wider">
-                  Transport Booking Concierge
+                  {t('Transport Booking Concierge')}
                 </span>
                 <h3 className="text-lg sm:text-xl font-black text-white leading-tight">
                   {transportRequestModal.title}
@@ -1333,30 +1334,30 @@ export const BookingView: React.FC<BookingViewProps> = ({
             {/* Transport Request Form */}
             <form onSubmit={handleSendInquiry} className="p-5 space-y-4 overflow-y-auto flex-1">
               <div className="p-3 rounded-xl bg-blue-50 border border-blue-100 text-xs text-blue-950 font-medium">
-                <span className="font-bold block text-[11px] text-blue-900">Standard Pricing:</span>
+                <span className="font-bold block text-[11px] text-blue-900">{t('Standard Pricing:')}</span>
                 <span>{transportRequestModal.pricingGuide}</span>
               </div>
 
               {/* Pickup & Destination */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 <div className="space-y-1">
-                  <label className="text-xs font-bold text-stone-700 block">Pickup Location</label>
+                  <label className="text-xs font-bold text-stone-700 block">{t('Pickup Location')}</label>
                   <input
                     type="text"
                     value={transPickup}
                     onChange={(e) => setTransPickup(e.target.value)}
-                    placeholder="e.g. BIA Colombo Airport or Hotel"
+                    placeholder={t('e.g. BIA Colombo Airport or Hotel')}
                     className="w-full p-2.5 bg-stone-50 border border-stone-200 rounded-xl text-xs font-medium text-stone-900 focus:outline-none focus:border-blue-800"
                     required
                   />
                 </div>
                 <div className="space-y-1">
-                  <label className="text-xs font-bold text-stone-700 block">Destination</label>
+                  <label className="text-xs font-bold text-stone-700 block">{t('Destination')}</label>
                   <input
                     type="text"
                     value={transDropoff}
                     onChange={(e) => setTransDropoff(e.target.value)}
-                    placeholder="e.g. Kandy, Galle, Sigiriya..."
+                    placeholder={t('e.g. Kandy, Galle, Sigiriya...')}
                     className="w-full p-2.5 bg-stone-50 border border-stone-200 rounded-xl text-xs font-medium text-stone-900 focus:outline-none focus:border-blue-800"
                     required
                   />
@@ -1366,7 +1367,7 @@ export const BookingView: React.FC<BookingViewProps> = ({
               {/* Date & Time */}
               <div className="grid grid-cols-2 gap-3">
                 <div className="space-y-1">
-                  <label className="text-xs font-bold text-stone-700 block">Date of Transit</label>
+                  <label className="text-xs font-bold text-stone-700 block">{t('Date of Transit')}</label>
                   <input
                     type="date"
                     value={transDate}
@@ -1376,12 +1377,12 @@ export const BookingView: React.FC<BookingViewProps> = ({
                   />
                 </div>
                 <div className="space-y-1">
-                  <label className="text-xs font-bold text-stone-700 block">Pickup Time / Flight #</label>
+                  <label className="text-xs font-bold text-stone-700 block">{t('Pickup Time / Flight #')}</label>
                   <input
                     type="text"
                     value={transTime}
                     onChange={(e) => setTransTime(e.target.value)}
-                    placeholder="e.g. 10:30 AM or UL 504"
+                    placeholder={t('e.g. 10:30 AM or UL 504')}
                     className="w-full p-2.5 bg-stone-50 border border-stone-200 rounded-xl text-xs font-medium text-stone-900 focus:outline-none focus:border-blue-800"
                     required
                   />
@@ -1391,7 +1392,7 @@ export const BookingView: React.FC<BookingViewProps> = ({
               {/* Vehicle Selection & Passengers */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 <div className="space-y-1">
-                  <label className="text-xs font-bold text-stone-700 block">Preferred Fleet</label>
+                  <label className="text-xs font-bold text-stone-700 block">{t('Preferred Fleet')}</label>
                   <select
                     value={transVehicle}
                     onChange={(e) => setTransVehicle(e.target.value)}
@@ -1405,16 +1406,16 @@ export const BookingView: React.FC<BookingViewProps> = ({
                   </select>
                 </div>
                 <div className="space-y-1">
-                  <label className="text-xs font-bold text-stone-700 block">Passengers & Luggage</label>
+                  <label className="text-xs font-bold text-stone-700 block">{t('Passengers & Luggage')}</label>
                   <select
                     value={transPassengers}
                     onChange={(e) => setTransPassengers(e.target.value)}
                     className="w-full p-2.5 bg-stone-50 border border-stone-200 rounded-xl text-xs font-medium text-stone-900 focus:outline-none focus:border-blue-800"
                   >
-                    <option value="1 Passenger, 1 Luggage">1 Pax, 1 Suitcase</option>
-                    <option value="2 Passengers, 2 Luggage">2 Pax, 2 Suitcases</option>
-                    <option value="3-4 Passengers, 3-4 Luggage">3-4 Pax, Family Bags</option>
-                    <option value="5-8 Group, Large Luggage">5-8 Group, Large Luggage</option>
+                    <option value="1 Passenger, 1 Luggage">{t('1 Pax, 1 Suitcase')}</option>
+                    <option value="2 Passengers, 2 Luggage">{t('2 Pax, 2 Suitcases')}</option>
+                    <option value="3-4 Passengers, 3-4 Luggage">{t('3-4 Pax, Family Bags')}</option>
+                    <option value="5-8 Group, Large Luggage">{t('5-8 Group, Large Luggage')}</option>
                   </select>
                 </div>
               </div>
@@ -1422,18 +1423,18 @@ export const BookingView: React.FC<BookingViewProps> = ({
               {/* Contact Details */}
               <div className="space-y-1">
                 <label className="text-xs font-bold text-stone-700 block">
-                  Your WhatsApp or Phone <span className="text-red-500">*</span>
+                  {t('Your WhatsApp or Phone')} <span className="text-red-500">*</span>
                 </label>
                 <input
                   type="text"
                   value={formContact}
                   onChange={(e) => setFormContact(e.target.value)}
-                  placeholder="+94 77 123 4567 or international number"
+                  placeholder={t('+94 77 123 4567 or international number')}
                   className="w-full p-2.5 bg-stone-50 border border-stone-200 rounded-xl text-xs font-medium text-stone-900 focus:outline-none focus:border-blue-800"
                   required
                 />
                 <span className="text-[10px] text-stone-400 block">
-                  Our chauffeur dispatch coordinator will verify the flight & driver details via WhatsApp.
+                  {t('Our chauffeur dispatch coordinator will verify the flight & driver details via WhatsApp.')}
                 </span>
               </div>
 
@@ -1443,7 +1444,7 @@ export const BookingView: React.FC<BookingViewProps> = ({
                   type="submit"
                   className="w-full py-3 rounded-xl bg-blue-900 hover:bg-blue-950 text-white font-bold text-xs sm:text-sm shadow-md transition-colors cursor-pointer"
                 >
-                  Submit Transport Booking Request
+                  {t('Submit Transport Booking Request')}
                 </button>
               </div>
             </form>
@@ -1459,10 +1460,10 @@ export const BookingView: React.FC<BookingViewProps> = ({
           onClose={() => setPaymentCheckoutModal(null)}
           bookingTitle={paymentCheckoutModal.title}
           amountUsd={paymentCheckoutModal.amountUsd}
-          customerName={paymentCheckoutModal.customerName || 'Valued Traveler'}
+          customerName={paymentCheckoutModal.customerName || t('Valued Traveler')}
           onPaymentComplete={(tx) => {
             setInquirySuccessMessage(
-              `Payment confirmed for ${paymentCheckoutModal.title}. Reference: ${tx.id}. Official receipt generated.`
+              `${t('Payment confirmed for')} ${paymentCheckoutModal.title}. ${t('Reference:')} ${tx.id}. ${t('Official receipt generated.')}`
             );
           }}
         />

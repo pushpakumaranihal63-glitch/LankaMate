@@ -23,6 +23,7 @@ import {
   Sparkles,
 } from 'lucide-react';
 import { PageId } from '../types';
+import { useTranslation } from '../i18n/LanguageContext';
 
 interface AllGuidesViewProps {
   onNavigatePage: (page: PageId) => void;
@@ -57,6 +58,7 @@ interface TravelGuideItem {
 }
 
 export const AllGuidesView: React.FC<AllGuidesViewProps> = ({ onNavigatePage }) => {
+  const { t } = useTranslation();
   const [searchQuery, setSearchQuery] = useState('');
   const [activeCategory, setActiveCategory] = useState<string>('All');
   const [expandedGuideId, setExpandedGuideId] = useState<GuideId | null>(null);
@@ -402,13 +404,13 @@ export const AllGuidesView: React.FC<AllGuidesViewProps> = ({ onNavigatePage }) 
           <div>
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-100 text-emerald-900 text-xs font-bold uppercase tracking-wider mb-2">
               <BookOpen className="w-3.5 h-3.5 text-emerald-700" />
-              <span>Official LankaMate Travel Guides</span>
+              <span>{t('Official LankaMate Travel Guides')}</span>
             </div>
             <h1 className="text-3xl sm:text-4xl font-black text-emerald-950 tracking-tight">
-              All Sri Lanka Travel Guides
+              {t('All Sri Lanka Travel Guides')}
             </h1>
             <p className="text-stone-600 text-sm sm:text-base mt-1 max-w-3xl leading-relaxed">
-              Essential practical handbooks, official transit guides, cultural etiquette protocols, authentic street food highlights, wildlife safari strategies, and curated itineraries.
+              {t('Essential practical handbooks, official transit guides, cultural etiquette protocols, authentic street food highlights, wildlife safari strategies, and curated itineraries.')}
             </p>
           </div>
           <button
@@ -416,7 +418,7 @@ export const AllGuidesView: React.FC<AllGuidesViewProps> = ({ onNavigatePage }) 
             onClick={() => onNavigatePage('home')}
             className="hidden sm:inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-white hover:bg-stone-100 text-stone-700 border border-stone-200 text-xs font-bold shadow-xs transition-colors cursor-pointer"
           >
-            <span>Back to Home</span>
+            <span>{t('Back to Home')}</span>
           </button>
         </div>
 
@@ -428,7 +430,7 @@ export const AllGuidesView: React.FC<AllGuidesViewProps> = ({ onNavigatePage }) 
               type="text"
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              placeholder="Search guides (e.g., train ticket, temple dress code, street food, yala, weather, 7-day)..."
+              placeholder={t('Search guides (e.g., train ticket, temple dress code, street food, yala, weather, 7-day)...')}
               className="w-full pl-10 pr-4 py-2.5 bg-stone-50 border border-stone-200 rounded-xl text-xs sm:text-sm text-stone-800 placeholder-stone-400 focus:outline-hidden focus:ring-2 focus:ring-emerald-600 focus:bg-white transition-all"
             />
           </div>
@@ -446,7 +448,7 @@ export const AllGuidesView: React.FC<AllGuidesViewProps> = ({ onNavigatePage }) 
                       : 'bg-stone-100 hover:bg-stone-200 text-stone-700'
                   }`}
                 >
-                  {cat}
+                  {t(cat)}
                 </button>
               );
             })}
@@ -488,7 +490,7 @@ export const AllGuidesView: React.FC<AllGuidesViewProps> = ({ onNavigatePage }) 
                   </span>
                 </div>
                 <div className={`text-xs font-black tracking-tight ${isSelected ? 'text-white' : 'text-stone-900'}`}>
-                  {g.id === '7-day-itinerary' ? '7-Day Itinerary' : g.title.split('&')[0].trim()}
+                  {g.id === '7-day-itinerary' ? t('7-Day Itinerary') : g.title.split('&')[0].trim()}
                 </div>
               </button>
             );
@@ -500,9 +502,9 @@ export const AllGuidesView: React.FC<AllGuidesViewProps> = ({ onNavigatePage }) 
           {filteredGuides.length === 0 ? (
             <div className="bg-white rounded-2xl p-10 text-center border border-stone-200 space-y-3">
               <BookOpen className="w-10 h-10 text-stone-300 mx-auto" />
-              <div className="font-bold text-stone-800 text-base">No guides found matching your query</div>
+              <div className="font-bold text-stone-800 text-base">{t('No guides found matching your query')}</div>
               <p className="text-xs text-stone-500 max-w-sm mx-auto">
-                Try clearing your search or selecting &ldquo;All&rdquo; to browse all travel guides.
+                {t('Try clearing your search or selecting "All" to browse all travel guides.')}
               </p>
               <button
                 onClick={() => {
@@ -511,7 +513,7 @@ export const AllGuidesView: React.FC<AllGuidesViewProps> = ({ onNavigatePage }) 
                 }}
                 className="px-4 py-2 bg-emerald-700 text-white rounded-xl text-xs font-bold hover:bg-emerald-800 transition-colors"
               >
-                Reset Filters
+                {t('Reset Filters')}
               </button>
             </div>
           ) : (
@@ -532,7 +534,7 @@ export const AllGuidesView: React.FC<AllGuidesViewProps> = ({ onNavigatePage }) 
                         </span>
                         <div>
                           <span className="text-[11px] font-bold text-emerald-700 uppercase tracking-wider block">
-                            {guide.category}
+                            {t(guide.category)}
                           </span>
                           <span className={`text-[10px] font-extrabold px-2 py-0.5 rounded-full border ${guide.badgeColor}`}>
                             {guide.badge}
@@ -582,7 +584,7 @@ export const AllGuidesView: React.FC<AllGuidesViewProps> = ({ onNavigatePage }) 
                         <div className="absolute inset-0 bg-linear-to-t from-black/60 via-transparent to-transparent flex items-end p-4">
                           <span className="text-white text-xs font-bold drop-shadow-md flex items-center gap-1.5">
                             <Sparkles className="w-4 h-4 text-amber-300" />
-                            Authentic Sri Lankan Wildlife Sanctuary
+                            {t('Authentic Sri Lankan Wildlife Sanctuary')}
                           </span>
                         </div>
                       </div>
@@ -592,7 +594,7 @@ export const AllGuidesView: React.FC<AllGuidesViewProps> = ({ onNavigatePage }) 
                     <div className="bg-stone-50 rounded-xl p-4 border border-stone-100 space-y-2">
                       <div className="text-xs font-black text-emerald-950 uppercase tracking-wider flex items-center gap-1.5">
                         <CheckCircle2 className="w-4 h-4 text-emerald-600" />
-                        <span>Core Takeaways & Guidelines</span>
+                        <span>{t('Core Takeaways & Guidelines')}</span>
                       </div>
                       <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs text-stone-700">
                         {guide.highlights.map((highlight, idx) => (
@@ -608,7 +610,7 @@ export const AllGuidesView: React.FC<AllGuidesViewProps> = ({ onNavigatePage }) 
                     <div className="bg-amber-50/80 border-l-4 border-amber-500 p-3.5 rounded-r-xl text-xs text-amber-950 space-y-1">
                       <span className="font-bold flex items-center gap-1 text-amber-900 uppercase tracking-wide text-[10px]">
                         <Sparkles className="w-3.5 h-3.5 text-amber-600" />
-                        LankaMate Local Insider Tip
+                        {t('LankaMate Local Insider Tip')}
                       </span>
                       <p className="leading-relaxed font-medium">{guide.keyAdvice}</p>
                     </div>
@@ -644,12 +646,12 @@ export const AllGuidesView: React.FC<AllGuidesViewProps> = ({ onNavigatePage }) 
                         {isExpanded ? (
                           <>
                             <ChevronUp className="w-4 h-4 text-stone-500" />
-                            <span>Collapse Full Details</span>
+                            <span>{t('Collapse Full Details')}</span>
                           </>
                         ) : (
                           <>
                             <ChevronDown className="w-4 h-4 text-stone-500" />
-                            <span>Read Complete Detailed Guide</span>
+                            <span>{t('Read Complete Detailed Guide')}</span>
                           </>
                         )}
                       </button>
@@ -677,13 +679,13 @@ export const AllGuidesView: React.FC<AllGuidesViewProps> = ({ onNavigatePage }) 
         <div className="bg-linear-to-r from-emerald-900 via-emerald-950 to-stone-900 rounded-3xl p-6 sm:p-8 text-white shadow-xl flex flex-col md:flex-row items-center justify-between gap-6">
           <div className="space-y-2 text-center md:text-left">
             <span className="px-2.5 py-1 rounded-full bg-emerald-800/80 text-emerald-200 text-[10px] font-extrabold uppercase tracking-wider">
-              24/7 AI Travel Concierge
+              {t('24/7 AI Travel Concierge')}
             </span>
             <h3 className="text-xl sm:text-2xl font-black tracking-tight">
-              Have questions about Sri Lanka tickets, permits, or etiquette?
+              {t('Have questions about Sri Lanka tickets, permits, or etiquette?')}
             </h3>
             <p className="text-emerald-100/80 text-xs sm:text-sm max-w-xl leading-relaxed">
-              Ask our intelligent assistant for customized train schedules, temple guidelines, kottu recommendations, or personalized itinerary modifications.
+              {t('Ask our intelligent assistant for customized train schedules, temple guidelines, kottu recommendations, or personalized itinerary modifications.')}
             </p>
           </div>
           <button
@@ -694,7 +696,7 @@ export const AllGuidesView: React.FC<AllGuidesViewProps> = ({ onNavigatePage }) 
             }}
             className="px-5 py-3 rounded-xl bg-amber-500 hover:bg-amber-600 active:bg-amber-700 text-stone-950 font-black text-xs sm:text-sm shadow-md transition-all cursor-pointer shrink-0 flex items-center gap-2"
           >
-            <span>Ask AI Travel Guide</span>
+            <span>{t('Ask AI Travel Guide')}</span>
             <ArrowRight className="w-4 h-4" />
           </button>
         </div>

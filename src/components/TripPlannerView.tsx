@@ -32,6 +32,7 @@ import { prebuiltItineraries, generateCustomItinerary } from '../data/plannerDat
 import { transportData, cityDistanceMatrix } from '../data/transportData';
 import { hotelsData } from '../data/hotelsData';
 import { foodData } from '../data/foodData';
+import { useTranslation } from '../i18n/LanguageContext';
 
 interface TripPlannerViewProps {
   onNavigatePage: (page: PageId) => void;
@@ -44,6 +45,7 @@ export const TripPlannerView: React.FC<TripPlannerViewProps> = ({
   onSaveItinerary,
   savedItineraries,
 }) => {
+  const { t } = useTranslation();
   const [activeTab, setActiveTab] = useState<'custom' | 'templates' | 'transport' | 'saved'>(() => {
     try {
       const savedTab = sessionStorage.getItem('lankamate_active_planner_tab');
@@ -266,8 +268,8 @@ export const TripPlannerView: React.FC<TripPlannerViewProps> = ({
   };
 
   const handleCopy = () => {
-    const text = `${currentItinerary.name}\n${currentItinerary.daysCount} Days across Sri Lanka\nEstimated Cost: ~$${currentItinerary.estimatedTotalUsd} USD (~${(currentItinerary.estimatedTotalUsd * 310).toLocaleString()} LKR)\n\n` +
-      currentItinerary.days.map((d) => `Day ${d.dayNumber}: ${d.title} (${d.destination})\n• Morning: ${d.morning}\n• Afternoon: ${d.afternoon}\n• Evening: ${d.evening}\n• Transport: ${d.transportInfo}\n`).join('\n');
+    const text = `${t(currentItinerary.name)}\n${currentItinerary.daysCount} ${t('Days across Sri Lanka')}\n${t('Estimated Cost:')} ~${currentItinerary.estimatedTotalUsd} USD (~${(currentItinerary.estimatedTotalUsd * 310).toLocaleString()} LKR)\n\n` +
+      currentItinerary.days.map((d) => `${t('Day')} ${d.dayNumber}: ${t(d.title)} (${d.destination})\n• ${t('Morning:')} ${t(d.morning)}\n• ${t('Afternoon:')} ${t(d.afternoon)}\n• ${t('Evening:')} ${t(d.evening)}\n• ${t('Transport:')} ${t(d.transportInfo)}\n`).join('\n');
     navigator.clipboard.writeText(text);
     setCopyToast(true);
     setTimeout(() => setCopyToast(false), 2500);
@@ -286,13 +288,13 @@ export const TripPlannerView: React.FC<TripPlannerViewProps> = ({
         <div className="border-b border-stone-200 pb-6">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-100 text-emerald-900 text-xs font-bold uppercase tracking-wider mb-2">
             <Calendar className="w-3.5 h-3.5 text-emerald-700" />
-            Smart Itinerary Generator
+            {t('Smart Itinerary Generator')}
           </div>
           <h1 className="text-3xl sm:text-4xl font-black text-emerald-950 tracking-tight">
-            Sri Lanka Trip Planner
+            {t('Sri Lanka Trip Planner')}
           </h1>
           <p className="text-stone-600 text-sm sm:text-base mt-1 max-w-2xl">
-            Design your personalized island journey with realistic travel timings, authentic meal recommendations, and day-by-day itineraries.
+            {t('Design your personalized island journey with realistic travel timings, authentic meal recommendations, and day-by-day itineraries.')}
           </p>
         </div>
 
@@ -307,7 +309,7 @@ export const TripPlannerView: React.FC<TripPlannerViewProps> = ({
                 : 'bg-white text-stone-700 border border-stone-200 hover:bg-stone-50'
             }`}
           >
-            Custom Plan Builder
+            {t('Custom Plan Builder')}
           </button>
 
           <button
@@ -319,7 +321,7 @@ export const TripPlannerView: React.FC<TripPlannerViewProps> = ({
                 : 'bg-white text-stone-700 border border-stone-200 hover:bg-stone-50'
             }`}
           >
-            Featured Signature Routes
+            {t('Featured Signature Routes')}
           </button>
 
           <button
@@ -332,7 +334,7 @@ export const TripPlannerView: React.FC<TripPlannerViewProps> = ({
             }`}
           >
             <Train className="w-3.5 h-3.5" />
-            <span>Transport</span>
+            <span>{t('Transport')}</span>
           </button>
 
           <button
@@ -349,7 +351,7 @@ export const TripPlannerView: React.FC<TripPlannerViewProps> = ({
           >
             <Bookmark className="w-3.5 h-3.5 text-amber-500" />
             <span>
-              My Trips & Bookings ({hotelBookings.length + savedItineraries.length})
+              {t('My Trips & Bookings')} ({hotelBookings.length + savedItineraries.length})
             </span>
           </button>
         </div>
@@ -361,14 +363,14 @@ export const TripPlannerView: React.FC<TripPlannerViewProps> = ({
             <div className="lg:col-span-5 bg-white rounded-2xl shadow-xs border border-stone-200 p-6 space-y-6">
               <h2 className="text-lg font-black text-emerald-950 flex items-center gap-2">
                 <Sparkles className="w-4 h-4 text-amber-500" />
-                Customize Your Trip
+                {t('Customize Your Trip')}
               </h2>
 
               {/* Number of Days */}
               <div className="space-y-2">
                 <div className="flex items-center justify-between text-xs font-bold text-stone-700">
-                  <span>Duration:</span>
-                  <span className="text-emerald-800 text-sm font-black">{daysCount} Days</span>
+                  <span>{t('Duration:')}</span>
+                  <span className="text-emerald-800 text-sm font-black">{daysCount} {t('Days')}</span>
                 </div>
                 <input
                   type="range"
@@ -379,16 +381,16 @@ export const TripPlannerView: React.FC<TripPlannerViewProps> = ({
                   className="w-full accent-emerald-800 cursor-pointer"
                 />
                 <div className="flex justify-between text-[10px] text-stone-400 font-medium">
-                  <span>3 Days (Weekend)</span>
-                  <span>7 Days (Highlights)</span>
-                  <span>14 Days (Grand Tour)</span>
+                  <span>{t('3 Days (Weekend)')}</span>
+                  <span>{t('7 Days (Highlights)')}</span>
+                  <span>{t('14 Days (Grand Tour)')}</span>
                 </div>
               </div>
 
               {/* Select Focus Destinations */}
               <div className="space-y-2">
                 <span className="text-xs font-bold text-stone-700 block">
-                  Select Focus Destinations (Min 1):
+                  {t('Select Focus Destinations (Min 1):')}
                 </span>
                 <div className="flex flex-wrap gap-1.5">
                   {availableDestinations.map((dest) => {
@@ -413,12 +415,12 @@ export const TripPlannerView: React.FC<TripPlannerViewProps> = ({
 
               {/* Travel Style */}
               <div className="space-y-2">
-                <span className="text-xs font-bold text-stone-700 block">Travel Style & Budget:</span>
+                <span className="text-xs font-bold text-stone-700 block">{t('Travel Style & Budget:')}</span>
                 <div className="grid grid-cols-3 gap-2">
                   {[
-                    { id: 'budget', label: 'Budget', est: '~$45/day' },
-                    { id: 'balanced', label: 'Balanced', est: '~$110/day' },
-                    { id: 'luxury', label: 'Luxury', est: '~$280/day' },
+                    { id: 'budget', label: t('Budget'), est: t('~$45/day') },
+                    { id: 'balanced', label: t('Balanced'), est: t('~$110/day') },
+                    { id: 'luxury', label: t('Luxury'), est: t('~$280/day') },
                   ].map((style) => (
                     <button
                       key={style.id}
@@ -438,7 +440,7 @@ export const TripPlannerView: React.FC<TripPlannerViewProps> = ({
 
               {/* Travel Pace */}
               <div className="space-y-2">
-                <span className="text-xs font-bold text-stone-700 block">Trip Pace:</span>
+                <span className="text-xs font-bold text-stone-700 block">{t('Trip Pace:')}</span>
                 <div className="grid grid-cols-2 gap-2">
                   <button
                     onClick={() => setPace('active')}
@@ -448,7 +450,7 @@ export const TripPlannerView: React.FC<TripPlannerViewProps> = ({
                         : 'border-stone-200 text-stone-600'
                     }`}
                   >
-                    ⚡ Active & Action-Packed
+                    ⚡ {t('Active & Action-Packed')}
                   </button>
                   <button
                     onClick={() => setPace('relaxed')}
@@ -458,14 +460,14 @@ export const TripPlannerView: React.FC<TripPlannerViewProps> = ({
                         : 'border-stone-200 text-stone-600'
                     }`}
                   >
-                    🌴 Relaxed & Leisurely
+                    🌴 {t('Relaxed & Leisurely')}
                   </button>
                 </div>
               </div>
 
               {/* Activity Preferences */}
               <div className="space-y-2">
-                <span className="text-xs font-bold text-stone-700 block">Favorite Activities:</span>
+                <span className="text-xs font-bold text-stone-700 block">{t('Favorite Activities:')}</span>
                 <div className="flex flex-wrap gap-1.5">
                   {availableActivities.map((act) => {
                     const active = selectedActivities.includes(act);
@@ -494,7 +496,7 @@ export const TripPlannerView: React.FC<TripPlannerViewProps> = ({
                 className="w-full py-3.5 bg-gradient-to-r from-emerald-800 to-teal-900 hover:from-emerald-900 hover:to-teal-950 text-white rounded-xl text-xs font-black tracking-wider uppercase shadow-md hover:shadow-lg transition-all cursor-pointer flex items-center justify-center gap-2"
               >
                 <Sparkles className="w-4 h-4 text-amber-400" />
-                <span>Generate Itinerary Plan</span>
+                <span>{t('Generate Itinerary Plan')}</span>
               </button>
             </div>
 
@@ -505,20 +507,20 @@ export const TripPlannerView: React.FC<TripPlannerViewProps> = ({
                 <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-stone-100 pb-4">
                   <div>
                     <span className="text-xs font-bold text-emerald-800 bg-emerald-50 px-2.5 py-1 rounded-full uppercase tracking-wider">
-                      {currentItinerary.daysCount} Days • {currentItinerary.travelStyle} • {currentItinerary.pace}
+                      {currentItinerary.daysCount} {t('Days')} • {currentItinerary.travelStyle} • {currentItinerary.pace}
                     </span>
                     <h2 className="text-2xl font-black text-emerald-950 mt-2 tracking-tight">
-                      {currentItinerary.name}
+                      {t(currentItinerary.name)}
                     </h2>
                     <p className="text-xs text-stone-500 mt-1">
-                      Destinations: {currentItinerary.destinations.join(' → ')}
+                      {t('Destinations:')} {currentItinerary.destinations.join(' → ')}
                     </p>
                   </div>
 
                   {/* Estimated Cost Badge */}
                   <div className="bg-amber-50 border border-amber-200 rounded-xl p-3 text-right shrink-0">
                     <span className="text-[10px] uppercase font-bold text-amber-800 block">
-                      Estimated Cost (per person)
+                      {t('Estimated Cost (per person)')}
                     </span>
                     <div className="text-xl font-black text-amber-950">
                       ${currentItinerary.estimatedTotalUsd} USD
@@ -536,7 +538,7 @@ export const TripPlannerView: React.FC<TripPlannerViewProps> = ({
                     className="flex items-center gap-1.5 px-3.5 py-2 bg-emerald-800 hover:bg-emerald-900 text-white rounded-xl text-xs font-bold cursor-pointer transition-colors shadow-2xs"
                   >
                     <Bookmark className="w-3.5 h-3.5" />
-                    <span>Save Plan</span>
+                    <span>{t('Save Plan')}</span>
                   </button>
 
                   <button
@@ -544,7 +546,7 @@ export const TripPlannerView: React.FC<TripPlannerViewProps> = ({
                     className="flex items-center gap-1.5 px-3.5 py-2 bg-stone-100 hover:bg-stone-200 text-stone-800 rounded-xl text-xs font-bold cursor-pointer transition-colors"
                   >
                     <Share2 className="w-3.5 h-3.5" />
-                    <span>Copy Summary</span>
+                    <span>{t('Copy Summary')}</span>
                   </button>
 
                   <button
@@ -552,17 +554,17 @@ export const TripPlannerView: React.FC<TripPlannerViewProps> = ({
                     className="flex items-center gap-1.5 px-3.5 py-2 bg-stone-100 hover:bg-stone-200 text-stone-800 rounded-xl text-xs font-bold cursor-pointer transition-colors"
                   >
                     <Printer className="w-3.5 h-3.5" />
-                    <span>Print Itinerary</span>
+                    <span>{t('Print Itinerary')}</span>
                   </button>
 
                   {saveToast && (
                     <span className="text-xs font-bold text-emerald-700 bg-emerald-50 px-3 py-1 rounded-lg animate-in fade-in">
-                      ✓ Saved to Saved Plans!
+                      ✓ {t('Saved to Saved Plans!')}
                     </span>
                   )}
                   {copyToast && (
                     <span className="text-xs font-bold text-emerald-700 bg-emerald-50 px-3 py-1 rounded-lg animate-in fade-in">
-                      ✓ Copied to Clipboard!
+                      ✓ {t('Copied to Clipboard!')}
                     </span>
                   )}
                 </div>
@@ -593,7 +595,7 @@ export const TripPlannerView: React.FC<TripPlannerViewProps> = ({
                               </span>
                             </div>
                             <h3 className="text-base sm:text-lg font-black text-stone-900 tracking-tight">
-                              {day.title}
+                              {t(day.title)}
                             </h3>
                           </div>
                         </div>
@@ -611,7 +613,7 @@ export const TripPlannerView: React.FC<TripPlannerViewProps> = ({
                             <div className="h-40 w-full rounded-xl overflow-hidden bg-stone-900">
                               <img
                                 src={day.image}
-                                alt={day.title}
+                                alt={t(day.title)}
                                 className="w-full h-full object-cover"
                                 referrerPolicy="no-referrer"
                               />
@@ -622,23 +624,23 @@ export const TripPlannerView: React.FC<TripPlannerViewProps> = ({
                           <div className="space-y-3">
                             <div className="flex items-start gap-3">
                               <span className="px-2 py-1 rounded-md bg-amber-100 text-amber-900 font-bold text-[11px] shrink-0 w-20 text-center">
-                                Morning
+                                {t('Morning')}
                               </span>
-                              <p className="text-stone-700 leading-relaxed pt-0.5">{day.morning}</p>
+                              <p className="text-stone-700 leading-relaxed pt-0.5">{t(day.morning)}</p>
                             </div>
 
                             <div className="flex items-start gap-3">
                               <span className="px-2 py-1 rounded-md bg-sky-100 text-sky-900 font-bold text-[11px] shrink-0 w-20 text-center">
-                                Afternoon
+                                {t('Afternoon')}
                               </span>
-                              <p className="text-stone-700 leading-relaxed pt-0.5">{day.afternoon}</p>
+                              <p className="text-stone-700 leading-relaxed pt-0.5">{t(day.afternoon)}</p>
                             </div>
 
                             <div className="flex items-start gap-3">
                               <span className="px-2 py-1 rounded-md bg-purple-100 text-purple-900 font-bold text-[11px] shrink-0 w-20 text-center">
-                                Evening
+                                {t('Evening')}
                               </span>
-                              <p className="text-stone-700 leading-relaxed pt-0.5">{day.evening}</p>
+                              <p className="text-stone-700 leading-relaxed pt-0.5">{t(day.evening)}</p>
                             </div>
                           </div>
 
@@ -651,17 +653,17 @@ export const TripPlannerView: React.FC<TripPlannerViewProps> = ({
                                 window.scrollTo({ top: 120, behavior: 'smooth' });
                               }}
                               className="flex items-start gap-2 bg-stone-50 hover:bg-emerald-50/80 p-3 rounded-xl border border-stone-200/80 hover:border-emerald-300 transition-all text-left cursor-pointer group w-full"
-                              title="Click to view transport details & route options"
+                              title={t('Click to view transport details & route options')}
                             >
                               <Train className="w-4 h-4 text-emerald-700 shrink-0 mt-0.5 group-hover:scale-110 transition-transform" />
                               <div className="flex-1 min-w-0">
                                 <div className="flex items-center justify-between">
-                                  <span className="font-bold text-stone-900 block">Transport:</span>
+                                  <span className="font-bold text-stone-900 block">{t('Transport:')}</span>
                                   <span className="text-[10px] text-emerald-700 font-bold group-hover:underline flex items-center gap-0.5">
-                                    Options <ArrowRight className="w-2.5 h-2.5" />
+                                    {t('Options')} <ArrowRight className="w-2.5 h-2.5" />
                                   </span>
                                 </div>
-                                <span className="text-stone-600 block mt-0.5">{day.transportInfo}</span>
+                                <span className="text-stone-600 block mt-0.5">{t(day.transportInfo)}</span>
                               </div>
                             </button>
 
@@ -671,17 +673,17 @@ export const TripPlannerView: React.FC<TripPlannerViewProps> = ({
                               id={`btn-plan-stay-day-${day.dayNumber}`}
                               onClick={() => handleOpenStayModal(day)}
                               className="flex items-start gap-2.5 bg-stone-50 hover:bg-emerald-50/90 active:bg-emerald-100 p-3.5 rounded-xl border border-stone-200/90 hover:border-emerald-300 active:border-emerald-400 transition-all text-left cursor-pointer group w-full touch-manipulation"
-                              title="Tap to view stay recommendations & accommodation details"
+                              title={t('Tap to view stay recommendations & accommodation details')}
                             >
                               <Hotel className="w-4 h-4 text-emerald-700 shrink-0 mt-0.5 group-hover:scale-110 transition-transform" />
                               <div className="flex-1 min-w-0">
                                 <div className="flex items-center justify-between">
-                                  <span className="font-bold text-stone-900 block text-xs">Stay Option:</span>
+                                  <span className="font-bold text-stone-900 block text-xs">{t('Stay Option:')}</span>
                                   <span className="text-[10px] sm:text-[11px] text-emerald-700 font-bold group-hover:underline flex items-center gap-0.5">
-                                    View Stay <ArrowRight className="w-2.5 h-2.5" />
+                                    {t('View Stay')} <ArrowRight className="w-2.5 h-2.5" />
                                   </span>
                                 </div>
-                                <span className="text-stone-600 block mt-0.5 text-xs leading-snug">{day.stayRecommendation}</span>
+                                <span className="text-stone-600 block mt-0.5 text-xs leading-snug">{t(day.stayRecommendation)}</span>
                               </div>
                             </button>
                           </div>
@@ -693,18 +695,18 @@ export const TripPlannerView: React.FC<TripPlannerViewProps> = ({
                               id={`btn-plan-culinary-day-${day.dayNumber}`}
                               onClick={() => handleOpenCulinaryModal(day)}
                               className="flex items-start gap-2.5 text-xs bg-amber-50/70 hover:bg-amber-100/90 active:bg-amber-200/90 p-3.5 rounded-xl border border-amber-200/70 hover:border-amber-300 active:border-amber-400 transition-all text-left cursor-pointer group w-full touch-manipulation"
-                              title="Tap to view culinary tips, regional dishes & food guide"
+                              title={t('Tap to view culinary tips, regional dishes & food guide')}
                             >
                               <UtensilsCrossed className="w-4 h-4 text-amber-700 shrink-0 mt-0.5 group-hover:scale-110 transition-transform" />
                               <div className="flex-1 min-w-0">
                                 <div className="flex items-center justify-between">
-                                  <span className="font-bold text-amber-950 block text-xs">Culinary Tip:</span>
+                                  <span className="font-bold text-amber-950 block text-xs">{t('Culinary Tip:')}</span>
                                   <span className="text-[10px] sm:text-[11px] text-amber-800 font-bold group-hover:underline flex items-center gap-0.5">
-                                    View Tips <ArrowRight className="w-2.5 h-2.5" />
+                                    {t('View Tips')} <ArrowRight className="w-2.5 h-2.5" />
                                   </span>
                                 </div>
                                 <span className="text-amber-900 block mt-0.5 text-xs leading-snug">
-                                  {day.mealHighlights.join(' • ')}
+                                  {day.mealHighlights.map((h) => t(h)).join(' • ')}
                                 </span>
                               </div>
                             </button>
@@ -724,10 +726,10 @@ export const TripPlannerView: React.FC<TripPlannerViewProps> = ({
           <div className="space-y-6">
             <div className="max-w-2xl space-y-1">
               <h2 className="text-xl font-black text-emerald-950">
-                Signature Sri Lankan Itineraries
+                {t('Signature Sri Lankan Itineraries')}
               </h2>
               <p className="text-sm text-stone-600">
-                Carefully timed and field-tested routes covering iconic archaeological wonders, high tea country, wildlife parks, and pristine southern beaches.
+                {t('Carefully timed and field-tested routes covering iconic archaeological wonders, high tea country, wildlife parks, and pristine southern beaches.')}
               </p>
             </div>
 
@@ -747,23 +749,23 @@ export const TripPlannerView: React.FC<TripPlannerViewProps> = ({
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/20" />
                       <span className="absolute top-3 left-3 px-3 py-1 rounded-full bg-emerald-800 text-white text-xs font-bold">
-                        {template.durationDays} Days Route
+                        {template.durationDays} {t('Days Route')}
                       </span>
                       <span className="absolute top-3 right-3 px-2.5 py-1 rounded-full bg-amber-500 text-stone-950 text-xs font-bold">
-                        {template.badge}
+                        {t(template.badge)}
                       </span>
                       <div className="absolute bottom-3 left-4 right-4 text-white">
-                        <h3 className="text-xl font-black">{template.name}</h3>
+                        <h3 className="text-xl font-black">{t(template.name)}</h3>
                       </div>
                     </div>
 
                     <div className="p-5 space-y-3">
                       <p className="text-xs sm:text-sm text-stone-600 leading-relaxed">
-                        {template.description}
+                        {t(template.description)}
                       </p>
 
                       <div className="space-y-1 text-xs">
-                        <span className="font-bold text-stone-800 block">Stops included:</span>
+                        <span className="font-bold text-stone-800 block">{t('Stops included:')}</span>
                         <div className="flex flex-wrap gap-1">
                           {template.destinations.map((d) => (
                             <span key={d} className="px-2 py-0.5 rounded-md bg-stone-100 text-stone-700 text-[11px]">
@@ -774,7 +776,7 @@ export const TripPlannerView: React.FC<TripPlannerViewProps> = ({
                       </div>
 
                       <div className="pt-2 text-xs text-stone-500 flex items-center justify-between border-t border-stone-100">
-                        <span>Pace: {template.pace}</span>
+                        <span>{t('Pace:')} {t(template.pace)}</span>
                         <span className="font-bold text-emerald-800 text-sm">
                           ~${template.estimatedCostUsd} USD
                         </span>
@@ -802,7 +804,7 @@ export const TripPlannerView: React.FC<TripPlannerViewProps> = ({
                       }}
                       className="w-full py-2.5 bg-emerald-800 hover:bg-emerald-900 text-white rounded-xl text-xs font-bold transition-colors cursor-pointer flex items-center justify-center gap-1.5"
                     >
-                      <span>Load & Customize This Itinerary</span>
+                      <span>{t('Load & Customize This Itinerary')}</span>
                       <ArrowRight className="w-3.5 h-3.5" />
                     </button>
                   </div>
@@ -819,10 +821,10 @@ export const TripPlannerView: React.FC<TripPlannerViewProps> = ({
               <div className="space-y-1">
                 <h2 className="text-xl font-black text-emerald-950 flex items-center gap-2">
                   <Train className="w-5 h-5 text-emerald-700" />
-                  Sri Lanka Island Transport & Mobility Guide
+                  {t('Sri Lanka Island Transport & Mobility Guide')}
                 </h2>
                 <p className="text-xs sm:text-sm text-stone-600">
-                  Plan your transfers between tour destinations: distance calculations, scenic trains, chauffeur hires, and metered ride-hailing.
+                  {t('Plan your transfers between tour destinations: distance calculations, scenic trains, chauffeur hires, and metered ride-hailing.')}
                 </p>
               </div>
               <div className="flex items-center gap-2">
@@ -831,7 +833,7 @@ export const TripPlannerView: React.FC<TripPlannerViewProps> = ({
                   className="px-4 py-2 bg-emerald-800 hover:bg-emerald-900 text-white rounded-xl text-xs font-bold transition-colors cursor-pointer flex items-center gap-1.5 shadow-xs shrink-0"
                 >
                   <Compass className="w-3.5 h-3.5" />
-                  <span>Open Full Transit Guide</span>
+                  <span>{t('Open Full Transit Guide')}</span>
                 </button>
               </div>
             </div>
@@ -841,14 +843,14 @@ export const TripPlannerView: React.FC<TripPlannerViewProps> = ({
               <div className="flex items-center justify-between">
                 <div className="flex items-center gap-2 text-xs font-bold text-emerald-900 uppercase tracking-wider">
                   <Calculator className="w-4 h-4 text-amber-500" />
-                  <span>Intercity Distance & Travel Timing Lookup</span>
+                  <span>{t('Intercity Distance & Travel Timing Lookup')}</span>
                 </div>
-                <span className="text-[10px] text-stone-400 font-medium">Approximate reference estimates</span>
+                <span className="text-[10px] text-stone-400 font-medium">{t('Approximate reference estimates')}</span>
               </div>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
                 <div>
-                  <label className="text-xs font-bold text-stone-700 block mb-1">Departure Origin</label>
+                  <label className="text-xs font-bold text-stone-700 block mb-1">{t('Departure Origin')}</label>
                   <select
                     value={transportOrigin}
                     onChange={(e) => setTransportOrigin(e.target.value)}
@@ -863,7 +865,7 @@ export const TripPlannerView: React.FC<TripPlannerViewProps> = ({
                 </div>
 
                 <div>
-                  <label className="text-xs font-bold text-stone-700 block mb-1">Destination</label>
+                  <label className="text-xs font-bold text-stone-700 block mb-1">{t('Destination')}</label>
                   <select
                     value={transportDest}
                     onChange={(e) => setTransportDest(e.target.value)}
@@ -890,26 +892,26 @@ export const TripPlannerView: React.FC<TripPlannerViewProps> = ({
                     <>
                       <div className="p-3 rounded-xl bg-emerald-50 border border-emerald-100 flex flex-col justify-center">
                         <span className="text-[10px] uppercase font-bold text-emerald-800 block">
-                          Road Distance & Car Time
+                          {t('Road Distance & Car Time')}
                         </span>
                         <div className="flex items-baseline gap-2 mt-0.5">
                           <span className="text-lg font-black text-emerald-950">
                             {foundRoute ? foundRoute.distanceKm : '~140'} km
                           </span>
                           <span className="text-xs font-bold text-emerald-700">
-                            ({foundRoute ? `${foundRoute.carHours} hrs drive` : '3.5 - 4 Hours'})
+                            ({foundRoute ? `${foundRoute.carHours} ${t('hrs drive')}` : t('3.5 - 4 Hours')})
                           </span>
                         </div>
                       </div>
 
                       <div className="p-3 rounded-xl bg-sky-50 border border-sky-100 flex flex-col justify-center">
                         <span className="text-[10px] uppercase font-bold text-sky-800 block">
-                          Recommended Transit
+                          {t('Recommended Transit')}
                         </span>
                         <span className="text-xs font-bold text-sky-950 mt-0.5 line-clamp-1">
                           {foundRoute?.bestWay
                             ? `${foundRoute.bestWay}${foundRoute.trainHours ? ` (~${foundRoute.trainHours}h)` : ''}`
-                            : 'Scenic rail or road coach available'}
+                            : t('Scenic rail or road coach available')}
                         </span>
                       </div>
                     </>
@@ -921,11 +923,11 @@ export const TripPlannerView: React.FC<TripPlannerViewProps> = ({
                 <div className="flex items-center gap-2">
                   <Navigation className="w-4 h-4 text-emerald-700 shrink-0" />
                   <span>
-                    <strong>Travel Tip:</strong> Mountain roads (Kandy, Nuwara Eliya, Ella) average 25–35 km/h due to winding elevation climbs. Southern Expressway averages 80–100 km/h.
+                    <strong>{t('Travel Tip:')}</strong> {t('Mountain roads (Kandy, Nuwara Eliya, Ella) average 25–35 km/h due to winding elevation climbs. Southern Expressway averages 80–100 km/h.')}
                   </span>
                 </div>
                 <span className="text-[11px] text-stone-500 shrink-0">
-                  Rate examples are indicative reference rates
+                  {t('Rate examples are indicative reference rates')}
                 </span>
               </div>
             </div>
@@ -940,25 +942,25 @@ export const TripPlannerView: React.FC<TripPlannerViewProps> = ({
                       <Train className="w-5 h-5" />
                     </div>
                     <div>
-                      <h3 className="font-bold text-stone-900 text-sm">Scenic Blue Train Network</h3>
-                      <span className="text-[11px] text-stone-500">Sri Lanka Railways (Main Line & Coastal)</span>
+                      <h3 className="font-bold text-stone-900 text-sm">{t('Scenic Blue Train Network')}</h3>
+                      <span className="text-[11px] text-stone-500">{t('Sri Lanka Railways (Main Line & Coastal)')}</span>
                     </div>
                   </div>
                   <span className="px-2 py-0.5 rounded-md bg-emerald-50 text-emerald-800 text-xs font-bold border border-emerald-200">
-                    Most Iconic
+                    {t('Most Iconic')}
                   </span>
                 </div>
                 <p className="text-xs text-stone-600 leading-relaxed">
-                  World-famous Kandy → Ella hill country route across tea hills, mist-veiled valleys, and Nine Arch Bridge. Coastal train links Colombo Fort to Galle alongside ocean surf.
+                  {t('World-famous Kandy → Ella hill country route across tea hills, mist-veiled valleys, and Nine Arch Bridge. Coastal train links Colombo Fort to Galle alongside ocean surf.')}
                 </p>
                 <div className="pt-2 border-t border-stone-100 grid grid-cols-2 gap-2 text-xs">
                   <div>
-                    <span className="text-[10px] text-stone-400 block font-bold">Approximate Cost:</span>
-                    <span className="font-bold text-stone-800">~3,000–5,000 LKR ($10–$16 USD)</span>
+                    <span className="text-[10px] text-stone-400 block font-bold">{t('Approximate Cost:')}</span>
+                    <span className="font-bold text-stone-800">{t('~3,000–5,000 LKR ($10–$16 USD)')}</span>
                   </div>
                   <div>
-                    <span className="text-[10px] text-stone-400 block font-bold">Booking Rule:</span>
-                    <span className="font-bold text-stone-800">Opens 30 days prior (10:00 AM)</span>
+                    <span className="text-[10px] text-stone-400 block font-bold">{t('Booking Rule:')}</span>
+                    <span className="font-bold text-stone-800">{t('Opens 30 days prior (10:00 AM)')}</span>
                   </div>
                 </div>
               </div>
@@ -971,25 +973,25 @@ export const TripPlannerView: React.FC<TripPlannerViewProps> = ({
                       <Car className="w-5 h-5" />
                     </div>
                     <div>
-                      <h3 className="font-bold text-stone-900 text-sm">Private Chauffeur & Vehicle</h3>
-                      <span className="text-[11px] text-stone-500">Air-Conditioned Sedan, SUV or Van</span>
+                      <h3 className="font-bold text-stone-900 text-sm">{t('Private Chauffeur & Vehicle')}</h3>
+                      <span className="text-[11px] text-stone-500">{t('Air-Conditioned Sedan, SUV or Van')}</span>
                     </div>
                   </div>
                   <span className="px-2 py-0.5 rounded-md bg-sky-50 text-sky-800 text-xs font-bold border border-sky-200">
-                    Most Flexible
+                    {t('Most Flexible')}
                   </span>
                 </div>
                 <p className="text-xs text-stone-600 leading-relaxed">
-                  The most convenient choice for multi-stop tours with luggage. Drivers are certified, handle mountain driving expertly, and can make spontaneous viewpoint and tea stopovers.
+                  {t('The most convenient choice for multi-stop tours with luggage. Drivers are certified, handle mountain driving expertly, and can make spontaneous viewpoint and tea stopovers.')}
                 </p>
                 <div className="pt-2 border-t border-stone-100 grid grid-cols-2 gap-2 text-xs">
                   <div>
-                    <span className="text-[10px] text-stone-400 block font-bold">Reference Daily Rate:</span>
-                    <span className="font-bold text-stone-800">~20,000–26,000 LKR ($65–$85 USD/day)</span>
+                    <span className="text-[10px] text-stone-400 block font-bold">{t('Reference Daily Rate:')}</span>
+                    <span className="font-bold text-stone-800">{t('~20,000–26,000 LKR ($65–$85 USD/day)')}</span>
                   </div>
                   <div>
-                    <span className="text-[10px] text-stone-400 block font-bold">Includes:</span>
-                    <span className="font-bold text-stone-800">Fuel, insurance & highway tolls</span>
+                    <span className="text-[10px] text-stone-400 block font-bold">{t('Includes:')}</span>
+                    <span className="font-bold text-stone-800">{t('Fuel, insurance & highway tolls')}</span>
                   </div>
                 </div>
               </div>
@@ -1002,25 +1004,25 @@ export const TripPlannerView: React.FC<TripPlannerViewProps> = ({
                       <Compass className="w-5 h-5" />
                     </div>
                     <div>
-                      <h3 className="font-bold text-stone-900 text-sm">Tuk-Tuk & PickMe Ride-Hailing</h3>
-                      <span className="text-[11px] text-stone-500">Local Three-Wheelers & City Cabs</span>
+                      <h3 className="font-bold text-stone-900 text-sm">{t('Tuk-Tuk & PickMe Ride-Hailing')}</h3>
+                      <span className="text-[11px] text-stone-500">{t('Local Three-Wheelers & City Cabs')}</span>
                     </div>
                   </div>
                   <span className="px-2 py-0.5 rounded-md bg-amber-50 text-amber-900 text-xs font-bold border border-amber-200">
-                    Short Hops
+                    {t('Short Hops')}
                   </span>
                 </div>
                 <p className="text-xs text-stone-600 leading-relaxed">
-                  Essential for city exploring, beach hops in Mirissa/Weligama, and reaching trailheads. Install the local <strong>PickMe</strong> app in Colombo, Kandy, and Galle for metered fair rates.
+                  {t('Essential for city exploring, beach hops in Mirissa/Weligama, and reaching trailheads. Install the local ')}<strong>{t('PickMe')}</strong>{t(' app in Colombo, Kandy, and Galle for metered fair rates.')}
                 </p>
                 <div className="pt-2 border-t border-stone-100 grid grid-cols-2 gap-2 text-xs">
                   <div>
-                    <span className="text-[10px] text-stone-400 block font-bold">Reference Meter Rate:</span>
-                    <span className="font-bold text-stone-800">~100 LKR base + ~100 LKR/km</span>
+                    <span className="text-[10px] text-stone-400 block font-bold">{t('Reference Meter Rate:')}</span>
+                    <span className="font-bold text-stone-800">{t('~100 LKR base + ~100 LKR/km')}</span>
                   </div>
                   <div>
-                    <span className="text-[10px] text-stone-400 block font-bold">Best App:</span>
-                    <span className="font-bold text-stone-800">PickMe (or Uber in Colombo)</span>
+                    <span className="text-[10px] text-stone-400 block font-bold">{t('Best App:')}</span>
+                    <span className="font-bold text-stone-800">{t('PickMe (or Uber in Colombo)')}</span>
                   </div>
                 </div>
               </div>
@@ -1033,25 +1035,25 @@ export const TripPlannerView: React.FC<TripPlannerViewProps> = ({
                       <Bus className="w-5 h-5" />
                     </div>
                     <div>
-                      <h3 className="font-bold text-stone-900 text-sm">Expressway & Intercity Buses</h3>
-                      <span className="text-[11px] text-stone-500">Southern Expressway AC Coaches & CTB</span>
+                      <h3 className="font-bold text-stone-900 text-sm">{t('Expressway & Intercity Buses')}</h3>
+                      <span className="text-[11px] text-stone-500">{t('Southern Expressway AC Coaches & CTB')}</span>
                     </div>
                   </div>
                   <span className="px-2 py-0.5 rounded-md bg-purple-50 text-purple-800 text-xs font-bold border border-purple-200">
-                    Budget Fast
+                    {t('Budget Fast')}
                   </span>
                 </div>
                 <p className="text-xs text-stone-600 leading-relaxed">
-                  Southern Expressway AC buses connect Colombo to Galle/Matara in ~1 hour for under $3 USD. Red CTB state buses serve every village, offering high frequency at ultra-low fares.
+                  {t('Southern Expressway AC buses connect Colombo to Galle/Matara in ~1 hour for under $3 USD. Red CTB state buses serve every village, offering high frequency at ultra-low fares.')}
                 </p>
                 <div className="pt-2 border-t border-stone-100 grid grid-cols-2 gap-2 text-xs">
                   <div>
-                    <span className="text-[10px] text-stone-400 block font-bold">Expressway Cost:</span>
-                    <span className="font-bold text-stone-800">~800–1,200 LKR ($2.50–$4 USD)</span>
+                    <span className="text-[10px] text-stone-400 block font-bold">{t('Expressway Cost:')}</span>
+                    <span className="font-bold text-stone-800">{t('~800–1,200 LKR ($2.50–$4 USD)')}</span>
                   </div>
                   <div>
-                    <span className="text-[10px] text-stone-400 block font-bold">Departure Hub:</span>
-                    <span className="font-bold text-stone-800">Makumbura Multi-Modal Center</span>
+                    <span className="text-[10px] text-stone-400 block font-bold">{t('Departure Hub:')}</span>
+                    <span className="font-bold text-stone-800">{t('Makumbura Multi-Modal Center')}</span>
                   </div>
                 </div>
               </div>
@@ -1063,13 +1065,13 @@ export const TripPlannerView: React.FC<TripPlannerViewProps> = ({
                 onClick={() => setActiveTab('custom')}
                 className="px-4 py-2 bg-stone-100 hover:bg-stone-200 text-stone-800 rounded-xl text-xs font-bold transition-colors cursor-pointer"
               >
-                ← Back to Custom Plan Builder
+                ← {t('Back to Custom Plan Builder')}
               </button>
               <button
                 onClick={() => onNavigatePage('transport')}
                 className="px-4 py-2 bg-emerald-800 hover:bg-emerald-900 text-white rounded-xl text-xs font-bold transition-colors cursor-pointer flex items-center gap-1.5"
               >
-                <span>Explore Full Sri Lanka Transit & Mobility Page</span>
+                <span>{t('Explore Full Sri Lanka Transit & Mobility Page')}</span>
                 <ArrowRight className="w-3.5 h-3.5" />
               </button>
             </div>
@@ -1108,12 +1110,12 @@ export const TripPlannerView: React.FC<TripPlannerViewProps> = ({
                       {selectedBookingForDetails.status === 'Cancelled' ? (
                         <>
                           <X className="w-3.5 h-3.5 text-rose-700" />
-                          <span>Status: Cancelled</span>
+                          <span>{t('Status: Cancelled')}</span>
                         </>
                       ) : (
                         <>
                           <CheckCircle2 className="w-3.5 h-3.5 text-emerald-700" />
-                          <span>Status: Confirmed</span>
+                          <span>{t('Status: Confirmed')}</span>
                         </>
                       )}
                     </span>
@@ -1125,7 +1127,7 @@ export const TripPlannerView: React.FC<TripPlannerViewProps> = ({
                         onClick={() => setBookingToCancel(selectedBookingForDetails)}
                         className="px-3.5 py-1.5 rounded-xl bg-rose-50 hover:bg-rose-100 active:bg-rose-200 border border-rose-200 text-rose-700 text-xs font-bold transition-colors cursor-pointer"
                       >
-                        Cancel Booking
+                        {t('Cancel Booking')}
                       </button>
                     )}
                   </div>
@@ -1168,7 +1170,7 @@ export const TripPlannerView: React.FC<TripPlannerViewProps> = ({
                     <div className="flex items-center justify-between flex-wrap gap-3 bg-stone-50 rounded-2xl p-4 border border-stone-200">
                       <div>
                         <span className="text-[10px] font-bold text-stone-400 block uppercase tracking-wider">
-                          🔖 Booking Reference Number
+                          🔖 {t('Booking Reference Number')}
                         </span>
                         <span className="text-base sm:text-lg font-mono font-black text-emerald-950 tracking-wider">
                           {selectedBookingForDetails.referenceNumber}
@@ -1188,12 +1190,12 @@ export const TripPlannerView: React.FC<TripPlannerViewProps> = ({
                         {copiedRefId === selectedBookingForDetails.id ? (
                           <>
                             <Check className="w-3.5 h-3.5 text-emerald-700" />
-                            <span className="text-emerald-700">Copied!</span>
+                            <span className="text-emerald-700">{t('Copied!')}</span>
                           </>
                         ) : (
                           <>
                             <Copy className="w-3.5 h-3.5 text-stone-500" />
-                            <span>Copy Ref</span>
+                            <span>{t('Copy Ref')}</span>
                           </>
                         )}
                       </button>
@@ -1204,20 +1206,20 @@ export const TripPlannerView: React.FC<TripPlannerViewProps> = ({
                       <div className="p-4 rounded-2xl bg-rose-50 border border-rose-200 text-xs text-rose-900 space-y-1">
                         <div className="flex items-center gap-2 font-black text-rose-950 text-sm">
                           <AlertTriangle className="w-4 h-4 text-rose-600" />
-                          <span>Reservation Status: Cancelled</span>
+                          <span>{t('Reservation Status: Cancelled')}</span>
                         </div>
                         <p className="text-stone-600 leading-relaxed">
-                          This demo booking was marked as <strong>Cancelled</strong> in your local LankaMate record. No fees were charged, and no real hotel was contacted.
+                          {t('This demo booking was marked as ')}<strong>{t('Cancelled')}</strong>{t(' in your local LankaMate record. No fees were charged, and no real hotel was contacted.')}
                         </p>
                       </div>
                     ) : (
                       <div className="p-4 rounded-2xl bg-emerald-50 border border-emerald-200 text-xs text-emerald-950 space-y-1">
                         <div className="flex items-center gap-2 font-black text-emerald-950 text-sm">
                           <CheckCircle2 className="w-4 h-4 text-emerald-700" />
-                          <span>Reservation Status: Confirmed</span>
+                          <span>{t('Reservation Status: Confirmed')}</span>
                         </div>
                         <p className="text-stone-600 leading-relaxed">
-                          Your stay is saved in your LankaMate trips profile. Present your booking reference upon demo arrival.
+                          {t('Your stay is saved in your LankaMate trips profile. Present your booking reference upon demo arrival.')}
                         </p>
                       </div>
                     )}
@@ -1226,52 +1228,52 @@ export const TripPlannerView: React.FC<TripPlannerViewProps> = ({
                     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
                       <div className="bg-stone-50 p-4 rounded-2xl border border-stone-200/80 space-y-1">
                         <span className="text-[11px] font-bold text-stone-500 block uppercase">
-                          📅 Check-in Date
+                          📅 {t('Check-in Date')}
                         </span>
                         <span className="text-base font-black text-stone-900 block">
                           {selectedBookingForDetails.checkInDate}
                         </span>
                         <span className="text-[11px] text-stone-500 font-medium block">
-                          Standard Check-in: 2:00 PM
+                          {t('Standard Check-in: 2:00 PM')}
                         </span>
                       </div>
 
                       <div className="bg-stone-50 p-4 rounded-2xl border border-stone-200/80 space-y-1">
                         <span className="text-[11px] font-bold text-stone-500 block uppercase">
-                          📅 Check-out Date
+                          📅 {t('Check-out Date')}
                         </span>
                         <span className="text-base font-black text-stone-900 block">
                           {selectedBookingForDetails.checkOutDate}
                         </span>
                         <span className="text-[11px] text-stone-500 font-medium block">
-                          Standard Check-out: 11:00 AM
+                          {t('Standard Check-out: 11:00 AM')}
                         </span>
                       </div>
 
                       <div className="bg-stone-50 p-4 rounded-2xl border border-stone-200/80 space-y-1">
                         <span className="text-[11px] font-bold text-stone-500 block uppercase">
-                          🌙 Duration of Stay
+                          🌙 {t('Duration of Stay')}
                         </span>
                         <span className="text-base font-black text-stone-900 block">
                           {selectedBookingForDetails.nights}{' '}
-                          {selectedBookingForDetails.nights === 1 ? 'Night' : 'Nights'}
+                          {selectedBookingForDetails.nights === 1 ? t('Night') : t('Nights')}
                         </span>
                         <span className="text-[11px] text-stone-500 font-medium block">
                           {selectedBookingForDetails.roomsCount}{' '}
-                          {selectedBookingForDetails.roomsCount === 1 ? 'Room' : 'Rooms'}
+                          {selectedBookingForDetails.roomsCount === 1 ? t('Room') : t('Rooms')}
                         </span>
                       </div>
 
                       <div className="bg-stone-50 p-4 rounded-2xl border border-stone-200/80 space-y-1">
                         <span className="text-[11px] font-bold text-stone-500 block uppercase">
-                          👥 Guests
+                          👥 {t('Guests')}
                         </span>
                         <span className="text-base font-black text-stone-900 block">
                           {selectedBookingForDetails.guestsCount}{' '}
-                          {selectedBookingForDetails.guestsCount === 1 ? 'Guest' : 'Guests'}
+                          {selectedBookingForDetails.guestsCount === 1 ? t('Guest') : t('Guests')}
                         </span>
                         <span className="text-[11px] text-stone-500 font-medium block">
-                          Party capacity allocated
+                          {t('Party capacity allocated')}
                         </span>
                       </div>
                     </div>
@@ -1280,23 +1282,23 @@ export const TripPlannerView: React.FC<TripPlannerViewProps> = ({
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6 pt-2">
                       <div className="bg-stone-50 p-5 rounded-2xl border border-stone-200 space-y-3">
                         <h4 className="text-xs font-black text-stone-900 uppercase tracking-wider">
-                          🛏️ Selected Room & Property
+                          🛏️ {t('Selected Room & Property')}
                         </h4>
                         <div className="text-xs space-y-1.5 text-stone-700">
                           <div className="flex justify-between">
-                            <span className="text-stone-500">Property:</span>
+                            <span className="text-stone-500">{t('Property:')}</span>
                             <span className="font-bold text-stone-900">{selectedBookingForDetails.hotelName}</span>
                           </div>
                           <div className="flex justify-between">
-                            <span className="text-stone-500">Room Category:</span>
+                            <span className="text-stone-500">{t('Room Category:')}</span>
                             <span className="font-bold text-stone-900">{selectedBookingForDetails.roomType}</span>
                           </div>
                           <div className="flex justify-between">
-                            <span className="text-stone-500">Destination:</span>
+                            <span className="text-stone-500">{t('Destination:')}</span>
                             <span className="font-bold text-stone-900">{selectedBookingForDetails.destinationName}</span>
                           </div>
                           <div className="flex justify-between">
-                            <span className="text-stone-500">Booked On:</span>
+                            <span className="text-stone-500">{t('Booked On:')}</span>
                             <span className="font-semibold text-stone-700">{selectedBookingForDetails.createdAt}</span>
                           </div>
                         </div>
@@ -1304,29 +1306,29 @@ export const TripPlannerView: React.FC<TripPlannerViewProps> = ({
 
                       <div className="bg-emerald-50/70 p-5 rounded-2xl border border-emerald-200/80 space-y-3">
                         <h4 className="text-xs font-black text-emerald-950 uppercase tracking-wider">
-                          💰 Price Calculation & Payment
+                          💰 {t('Price Calculation & Payment')}
                         </h4>
                         <div className="text-xs space-y-1.5 text-stone-700">
                           <div className="flex justify-between">
-                            <span className="text-stone-600">Rate per Night:</span>
+                            <span className="text-stone-600">{t('Rate per Night:')}</span>
                             <span className="font-bold text-stone-900">
                               ${selectedBookingForDetails.pricePerNightUsd} USD (~{selectedBookingForDetails.pricePerNightLkr.toLocaleString()} LKR)
                             </span>
                           </div>
                           <div className="flex justify-between">
-                            <span className="text-stone-600">Total Nights & Rooms:</span>
+                            <span className="text-stone-600">{t('Total Nights & Rooms:')}</span>
                             <span className="font-bold text-stone-900">
-                              {selectedBookingForDetails.nights} nights × {selectedBookingForDetails.roomsCount} room(s)
+                              {selectedBookingForDetails.nights} {t('nights')} × {selectedBookingForDetails.roomsCount} {t('room(s)')}
                             </span>
                           </div>
                           <div className="flex justify-between">
-                            <span className="text-stone-600">Payment Status:</span>
+                            <span className="text-stone-600">{t('Payment Status:')}</span>
                             <span className="font-bold text-emerald-800">
-                              {selectedBookingForDetails.paymentMethod || 'Demo Sandbox Payment'}
+                              {selectedBookingForDetails.paymentMethod || t('Demo Sandbox Payment')}
                             </span>
                           </div>
                           <div className="flex justify-between pt-2 border-t border-emerald-200/80 text-sm">
-                            <span className="font-bold text-emerald-950">Estimated Total:</span>
+                            <span className="font-bold text-emerald-950">{t('Estimated Total:')}</span>
                             <span className="font-black text-emerald-950">
                               {selectedBookingForDetails.paidAmountFormatted ||
                                 `$${selectedBookingForDetails.totalUsd} USD (~${selectedBookingForDetails.totalLkr.toLocaleString()} LKR)`}
@@ -1339,25 +1341,25 @@ export const TripPlannerView: React.FC<TripPlannerViewProps> = ({
                     {/* Guest Information */}
                     <div className="bg-stone-50 p-5 rounded-2xl border border-stone-200 space-y-3">
                       <h4 className="text-xs font-black text-stone-900 uppercase tracking-wider">
-                        Primary Guest Details
+                        {t('Primary Guest Details')}
                       </h4>
                       <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 text-xs">
                         <div>
-                          <span className="text-[10px] text-stone-400 font-bold block uppercase">Full Name</span>
+                          <span className="text-[10px] text-stone-400 font-bold block uppercase">{t('Full Name')}</span>
                           <span className="font-black text-stone-900">{selectedBookingForDetails.guestName}</span>
                         </div>
                         <div>
-                          <span className="text-[10px] text-stone-400 font-bold block uppercase">Email Address</span>
+                          <span className="text-[10px] text-stone-400 font-bold block uppercase">{t('Email Address')}</span>
                           <span className="font-medium text-stone-900">{selectedBookingForDetails.guestEmail}</span>
                         </div>
                         <div>
-                          <span className="text-[10px] text-stone-400 font-bold block uppercase">Phone Number</span>
+                          <span className="text-[10px] text-stone-400 font-bold block uppercase">{t('Phone Number')}</span>
                           <span className="font-medium text-stone-900">{selectedBookingForDetails.guestPhone}</span>
                         </div>
                       </div>
                       {selectedBookingForDetails.specialRequests && (
                         <div className="pt-2 border-t border-stone-200 text-xs">
-                          <span className="text-[10px] text-stone-400 font-bold block uppercase">Special Requests</span>
+                          <span className="text-[10px] text-stone-400 font-bold block uppercase">{t('Special Requests')}</span>
                           <p className="text-stone-700 italic mt-0.5">"{selectedBookingForDetails.specialRequests}"</p>
                         </div>
                       )}
@@ -1367,10 +1369,10 @@ export const TripPlannerView: React.FC<TripPlannerViewProps> = ({
                     <div className="p-4 bg-amber-50/90 rounded-2xl border border-amber-200 text-xs text-amber-950 space-y-1">
                       <div className="font-black text-amber-950 flex items-center gap-1.5">
                         <span>ℹ️</span>
-                        <span>LankaMate Demo Booking Information</span>
+                        <span>{t('LankaMate Demo Booking Information')}</span>
                       </div>
                       <p className="text-stone-700 leading-relaxed">
-                        This is a simulated demo booking stored in your browser's local profile. No real credit card was charged and no external reservation was booked with hotel properties.
+                        {t("This is a simulated demo booking stored in your browser's local profile. No real credit card was charged and no external reservation was booked with hotel properties.")}
                       </p>
                     </div>
 
@@ -1386,7 +1388,7 @@ export const TripPlannerView: React.FC<TripPlannerViewProps> = ({
                         className="w-full sm:w-auto px-6 py-3 rounded-xl bg-stone-100 hover:bg-stone-200 active:bg-stone-300 text-stone-800 text-xs font-black transition-colors cursor-pointer flex items-center justify-center gap-2"
                       >
                         <ArrowLeft className="w-4 h-4" />
-                        <span>Back to My Trips</span>
+                        <span>{t('Back to My Trips')}</span>
                       </button>
 
                       {selectedBookingForDetails.status === 'Confirmed' ? (
@@ -1397,11 +1399,11 @@ export const TripPlannerView: React.FC<TripPlannerViewProps> = ({
                           className="w-full sm:w-auto px-6 py-3 rounded-xl bg-rose-50 hover:bg-rose-100 active:bg-rose-200 border border-rose-300 text-rose-700 text-xs font-black transition-colors cursor-pointer flex items-center justify-center gap-2 shadow-2xs"
                         >
                           <X className="w-4 h-4 text-rose-700" />
-                          <span>Cancel Booking</span>
+                          <span>{t('Cancel Booking')}</span>
                         </button>
                       ) : (
                         <span className="w-full sm:w-auto px-4 py-2.5 rounded-xl bg-rose-50 border border-rose-200 text-rose-700 text-xs font-bold text-center">
-                          ✕ This Booking is Cancelled
+                          ✕ {t('This Booking is Cancelled')}
                         </span>
                       )}
                     </div>
@@ -1416,15 +1418,15 @@ export const TripPlannerView: React.FC<TripPlannerViewProps> = ({
                   <div>
                     <h2 className="text-2xl font-black text-emerald-950 tracking-tight flex items-center gap-2">
                       <span>🏨</span>
-                      <span>Hotel Bookings & Reservations</span>
+                      <span>{t('Hotel Bookings & Reservations')}</span>
                     </h2>
                     <p className="text-xs sm:text-sm text-stone-500 mt-0.5">
-                      View all your confirmed hotel stays, reservation vouchers, and manage your bookings.
+                      {t('View all your confirmed hotel stays, reservation vouchers, and manage your bookings.')}
                     </p>
                   </div>
                   <div className="flex items-center gap-2 self-start sm:self-auto">
                     <span className="text-xs font-bold text-stone-700 bg-stone-100 px-3 py-1 rounded-full">
-                      {hotelBookings.length} {hotelBookings.length === 1 ? 'Stay' : 'Stays'}
+                      {hotelBookings.length} {hotelBookings.length === 1 ? t('Stay') : t('Stays')}
                     </span>
                     <button
                       id="btn-book-more-hotels"
@@ -1432,7 +1434,7 @@ export const TripPlannerView: React.FC<TripPlannerViewProps> = ({
                       onClick={() => onNavigatePage('hotels')}
                       className="px-3.5 py-1.5 bg-emerald-800 hover:bg-emerald-900 text-white rounded-xl text-xs font-bold cursor-pointer transition-colors shadow-2xs"
                     >
-                      + Book Another Hotel
+                      + {t('Book Another Hotel')}
                     </button>
                   </div>
                 </div>
@@ -1444,9 +1446,9 @@ export const TripPlannerView: React.FC<TripPlannerViewProps> = ({
                       <Hotel className="w-8 h-8" />
                     </div>
                     <div className="max-w-md mx-auto space-y-1">
-                      <h3 className="text-base font-black text-stone-900">No Hotel Bookings Yet</h3>
+                      <h3 className="text-base font-black text-stone-900">{t('No Hotel Bookings Yet')}</h3>
                       <p className="text-xs text-stone-500 leading-relaxed">
-                        Explore our curated Sri Lankan hotels and resorts catalog across Sigiriya, Kandy, Galle, Bentota, and more. Tapping "Book Now" will save your demo reservation here!
+                        {t('Explore our curated Sri Lankan hotels and resorts catalog across Sigiriya, Kandy, Galle, Bentota, and more. Tapping "Book Now" will save your demo reservation here!')}
                       </p>
                     </div>
                     <button
@@ -1458,7 +1460,7 @@ export const TripPlannerView: React.FC<TripPlannerViewProps> = ({
                       }}
                       className="px-5 py-2.5 bg-emerald-800 hover:bg-emerald-900 text-white rounded-xl text-xs font-bold cursor-pointer transition-colors shadow-xs"
                     >
-                      Browse All Hotels & Homestays
+                      {t('Browse All Hotels & Homestays')}
                     </button>
                   </div>
                 ) : (
@@ -1499,7 +1501,7 @@ export const TripPlannerView: React.FC<TripPlannerViewProps> = ({
                                       : 'bg-emerald-100 text-emerald-900 border-emerald-200'
                                   }`}
                                 >
-                                  {b.status === 'Cancelled' ? '✕ Cancelled' : '✓ Confirmed'}
+                                  {b.status === 'Cancelled' ? `✕ ${t('Cancelled')}` : `✓ ${t('Confirmed')}`}
                                 </span>
                               </div>
 
@@ -1520,7 +1522,7 @@ export const TripPlannerView: React.FC<TripPlannerViewProps> = ({
                           <div className="flex items-center justify-between bg-stone-50 rounded-xl px-3 py-2 border border-stone-200/70 text-xs">
                             <span className="text-stone-500 font-bold flex items-center gap-1 text-[11px]">
                               <span>🔖</span>
-                              <span>Reference:</span>
+                              <span>{t('Reference:')}</span>
                             </span>
                             <span className="font-mono font-black text-emerald-950 text-xs tracking-wider">
                               {b.referenceNumber}
@@ -1532,7 +1534,7 @@ export const TripPlannerView: React.FC<TripPlannerViewProps> = ({
                             {/* 📅 Check-in date */}
                             <div className="space-y-0.5">
                               <span className="text-[10px] text-stone-400 font-bold block uppercase tracking-wider">
-                                📅 Check-in
+                                📅 {t('Check-in')}
                               </span>
                               <span className="font-black text-stone-900 text-xs block truncate">
                                 {b.checkInDate}
@@ -1542,7 +1544,7 @@ export const TripPlannerView: React.FC<TripPlannerViewProps> = ({
                             {/* 📅 Check-out date */}
                             <div className="space-y-0.5">
                               <span className="text-[10px] text-stone-400 font-bold block uppercase tracking-wider">
-                                📅 Check-out
+                                📅 {t('Check-out')}
                               </span>
                               <span className="font-black text-stone-900 text-xs block truncate">
                                 {b.checkOutDate}
@@ -1552,20 +1554,20 @@ export const TripPlannerView: React.FC<TripPlannerViewProps> = ({
                             {/* 🌙 Number of nights */}
                             <div className="space-y-0.5">
                               <span className="text-[10px] text-stone-400 font-bold block uppercase tracking-wider">
-                                🌙 Nights
+                                🌙 {t('Nights')}
                               </span>
                               <span className="font-black text-stone-900 text-xs block">
-                                {b.nights} {b.nights === 1 ? 'Night' : 'Nights'}
+                                {b.nights} {b.nights === 1 ? t('Night') : t('Nights')}
                               </span>
                             </div>
 
                             {/* 👥 Number of guests */}
                             <div className="space-y-0.5">
                               <span className="text-[10px] text-stone-400 font-bold block uppercase tracking-wider">
-                                👥 Guests
+                                👥 {t('Guests')}
                               </span>
                               <span className="font-black text-stone-900 text-xs block truncate">
-                                {b.guestsCount} {b.guestsCount === 1 ? 'Guest' : 'Guests'}
+                                {b.guestsCount} {b.guestsCount === 1 ? t('Guest') : t('Guests')}
                               </span>
                             </div>
                           </div>
@@ -1575,7 +1577,7 @@ export const TripPlannerView: React.FC<TripPlannerViewProps> = ({
                         <div className="flex items-center justify-between gap-3 pt-3 border-t border-stone-100 mt-1">
                           <div>
                             <span className="text-[10px] text-stone-400 font-bold uppercase tracking-wider block">
-                              💰 Estimated Total
+                              💰 {t('Estimated Total')}
                             </span>
                             <span className="font-black text-emerald-950 text-sm sm:text-base">
                               {b.paidAmountFormatted || `$${b.totalUsd} USD`}
@@ -1592,7 +1594,7 @@ export const TripPlannerView: React.FC<TripPlannerViewProps> = ({
                             }}
                             className="px-4 py-2.5 bg-emerald-800 hover:bg-emerald-900 active:bg-emerald-950 text-white rounded-xl text-xs font-black transition-all cursor-pointer shadow-2xs flex items-center gap-1.5"
                           >
-                            <span>View Booking Details</span>
+                            <span>{t('View Booking Details')}</span>
                             <ArrowRight className="w-3.5 h-3.5 text-emerald-300" />
                           </button>
                         </div>
@@ -1605,13 +1607,13 @@ export const TripPlannerView: React.FC<TripPlannerViewProps> = ({
                 <div className="space-y-4 pt-6 border-t border-stone-200">
                   <div className="flex items-center justify-between">
                     <div>
-                      <h2 className="text-xl font-black text-emerald-950">Your Saved Trip Plans</h2>
+                      <h2 className="text-xl font-black text-emerald-950">{t('Your Saved Trip Plans')}</h2>
                       <p className="text-xs text-stone-500">
-                        Custom itineraries and multi-day signature routes you have saved.
+                        {t('Custom itineraries and multi-day signature routes you have saved.')}
                       </p>
                     </div>
                     <span className="text-xs font-bold text-stone-600 bg-stone-100 px-3 py-1 rounded-full">
-                      {savedItineraries.length} {savedItineraries.length === 1 ? 'Plan' : 'Plans'}
+                      {savedItineraries.length} {savedItineraries.length === 1 ? t('Plan') : t('Plans')}
                     </span>
                   </div>
 
@@ -1619,13 +1621,13 @@ export const TripPlannerView: React.FC<TripPlannerViewProps> = ({
                     <div className="bg-white rounded-2xl p-6 border border-stone-200 text-center space-y-2">
                       <Bookmark className="w-7 h-7 text-stone-300 mx-auto" />
                       <p className="text-xs text-stone-500 font-medium">
-                        No saved custom itineraries yet. Use the Custom Plan Builder to create and save itineraries.
+                        {t('No saved custom itineraries yet. Use the Custom Plan Builder to create and save itineraries.')}
                       </p>
                       <button
                         onClick={() => setActiveTab('custom')}
                         className="px-4 py-2 bg-emerald-800 text-white rounded-xl text-xs font-bold hover:bg-emerald-900 cursor-pointer"
                       >
-                        Create a Custom Plan
+                        {t('Create a Custom Plan')}
                       </button>
                     </div>
                   ) : (
@@ -1634,9 +1636,9 @@ export const TripPlannerView: React.FC<TripPlannerViewProps> = ({
                         <div key={item.id} className="bg-white rounded-2xl p-5 border border-stone-200 space-y-3 shadow-2xs">
                           <div className="flex justify-between items-start">
                             <div>
-                              <h3 className="font-black text-stone-900 text-base">{item.name}</h3>
+                              <h3 className="font-black text-stone-900 text-base">{t(item.name)}</h3>
                               <p className="text-xs text-stone-500">
-                                {item.daysCount} Days • Saved on {item.createdAt}
+                                {item.daysCount} {t('Days')} • {t('Saved on')} {item.createdAt}
                               </p>
                             </div>
                             <span className="px-2.5 py-1 rounded-full bg-emerald-100 text-emerald-900 font-bold text-xs">
@@ -1645,7 +1647,7 @@ export const TripPlannerView: React.FC<TripPlannerViewProps> = ({
                           </div>
 
                           <div className="text-xs text-stone-600">
-                            Destinations: {item.destinations.join(' → ')}
+                            {t('Destinations:')} {item.destinations.join(' → ')}
                           </div>
 
                           <button
@@ -1655,7 +1657,7 @@ export const TripPlannerView: React.FC<TripPlannerViewProps> = ({
                             }}
                             className="w-full py-2 bg-emerald-800 text-white rounded-xl text-xs font-bold cursor-pointer hover:bg-emerald-900"
                           >
-                            Open Itinerary
+                            {t('Open Itinerary')}
                           </button>
                         </div>
                       ))}
@@ -1680,10 +1682,10 @@ export const TripPlannerView: React.FC<TripPlannerViewProps> = ({
 
               <div className="text-center space-y-1">
                 <h3 className="text-lg sm:text-xl font-black text-stone-950">
-                  Cancel Hotel Reservation?
+                  {t('Cancel Hotel Reservation?')}
                 </h3>
                 <p className="text-xs text-stone-600 leading-relaxed">
-                  Are you sure you want to cancel your demo reservation for{' '}
+                  {t("Are you sure you want to cancel your demo reservation for ")}{' '}
                   <strong className="text-stone-900">{bookingToCancel.hotelName}</strong>?
                 </p>
               </div>
@@ -1691,24 +1693,24 @@ export const TripPlannerView: React.FC<TripPlannerViewProps> = ({
               {/* Reservation Snapshot */}
               <div className="bg-stone-50 rounded-2xl p-3.5 border border-stone-200 text-xs space-y-1.5">
                 <div className="flex justify-between">
-                  <span className="text-stone-500">Booking Reference:</span>
+                  <span className="text-stone-500">{t('Booking Reference:')}</span>
                   <span className="font-mono font-bold text-emerald-950">{bookingToCancel.referenceNumber}</span>
                 </div>
                 <div className="flex justify-between">
-                  <span className="text-stone-500">Dates:</span>
+                  <span className="text-stone-500">{t('Dates:')}</span>
                   <span className="font-semibold text-stone-900">
                     {bookingToCancel.checkInDate} → {bookingToCancel.checkOutDate}
                   </span>
                 </div>
                 <div className="flex justify-between">
-                  <span className="text-stone-500">Room Type:</span>
+                  <span className="text-stone-500">{t('Room Type:')}</span>
                   <span className="font-semibold text-stone-900">{bookingToCancel.roomType}</span>
                 </div>
               </div>
 
               {/* Explicit Demo Disclaimer */}
               <div className="p-3 bg-amber-50 rounded-xl border border-amber-200/80 text-[11px] text-amber-950 leading-relaxed">
-                <strong>Demo Cancellation Notice:</strong> This action updates your local reservation status to <em>Cancelled</em>. In accordance with demo mode, no real hotel cancellation or fee was processed with external properties.
+                <strong>{t('Demo Cancellation Notice:')}</strong> {t('This action updates your local reservation status to ')}<em>{t('Cancelled')}</em>{t('. In accordance with demo mode, no real hotel cancellation or fee was processed with external properties.')}
               </div>
 
               {/* Action Buttons */}
@@ -1719,7 +1721,7 @@ export const TripPlannerView: React.FC<TripPlannerViewProps> = ({
                   onClick={() => setBookingToCancel(null)}
                   className="flex-1 py-3 bg-stone-100 hover:bg-stone-200 active:bg-stone-300 text-stone-700 rounded-xl text-xs font-bold transition-colors cursor-pointer"
                 >
-                  Keep Reservation
+                  {t('Keep Reservation')}
                 </button>
                 <button
                   id="btn-cancel-modal-confirm"
@@ -1727,7 +1729,7 @@ export const TripPlannerView: React.FC<TripPlannerViewProps> = ({
                   onClick={() => handleConfirmCancelBooking(bookingToCancel.id)}
                   className="flex-1 py-3 bg-rose-600 hover:bg-rose-700 active:bg-rose-800 text-white rounded-xl text-xs font-black transition-colors cursor-pointer shadow-xs"
                 >
-                  Yes, Cancel Booking
+                  {t('Yes, Cancel Booking')}
                 </button>
               </div>
             </div>
@@ -1773,10 +1775,10 @@ export const TripPlannerView: React.FC<TripPlannerViewProps> = ({
                     </div>
                     <div>
                       <span className="text-[11px] font-bold text-emerald-700 uppercase tracking-wider block">
-                        Day {selectedStayDay.dayNumber} Accommodation • {selectedStayDay.destination}
+                        {t('Day')} {selectedStayDay.dayNumber} {t('Accommodation')} • {selectedStayDay.destination}
                       </span>
                       <h3 className="text-lg font-black text-stone-900 leading-snug">
-                        Stay Recommendations
+                        {t('Stay Recommendations')}
                       </h3>
                     </div>
                   </div>
@@ -1795,7 +1797,7 @@ export const TripPlannerView: React.FC<TripPlannerViewProps> = ({
                   {/* Curated Lodging for this day */}
                   <div className="bg-emerald-50/80 border border-emerald-200/80 rounded-xl p-3.5 space-y-1">
                     <span className="text-[11px] font-bold text-emerald-900 uppercase tracking-wide block">
-                      Curated Option for {selectedStayDay.destination}:
+                      {t('Curated Option for')} {selectedStayDay.destination}:
                     </span>
                     <p className="font-bold text-emerald-950 text-sm sm:text-base">
                       {selectedStayDay.stayRecommendation}
@@ -1806,7 +1808,7 @@ export const TripPlannerView: React.FC<TripPlannerViewProps> = ({
                   {matchingHotels.length > 0 && (
                     <div className="space-y-2">
                       <span className="text-[11px] font-bold text-stone-600 uppercase tracking-wide block">
-                        Featured Stays in {selectedStayDay.destination}
+                        {t('Featured Stays in')} {selectedStayDay.destination}
                       </span>
                       <div className="space-y-2">
                         {matchingHotels.map((hotel) => (
@@ -1848,10 +1850,10 @@ export const TripPlannerView: React.FC<TripPlannerViewProps> = ({
                   <div className="bg-stone-50 rounded-xl p-3.5 border border-stone-100 space-y-1.5 text-stone-600 text-xs">
                     <div className="font-bold text-stone-900 flex items-center gap-1.5">
                       <Sparkles className="w-3.5 h-3.5 text-amber-500" />
-                      <span>Sri Lankan Accommodation Tip</span>
+                      <span>{t('Sri Lankan Accommodation Tip')}</span>
                     </div>
                     <p className="leading-relaxed">
-                      Accommodations in {selectedStayDay.destination} range from heritage colonial boutique hotels to scenic hill lodges. High season (December to April) books out quickly—reserve top-rated stays in advance.
+                      {t('Accommodations in')} {selectedStayDay.destination} {t('range from heritage colonial boutique hotels to scenic hill lodges. High season (December to April) books out quickly—reserve top-rated stays in advance.')}
                     </p>
                   </div>
                 </div>
@@ -1868,7 +1870,7 @@ export const TripPlannerView: React.FC<TripPlannerViewProps> = ({
                     className="w-full py-3 bg-emerald-800 hover:bg-emerald-900 active:bg-emerald-950 text-white rounded-xl text-xs sm:text-sm font-bold transition-colors cursor-pointer flex items-center justify-center gap-2 shadow-sm touch-manipulation"
                   >
                     <Hotel className="w-4 h-4" />
-                    <span>Browse All Hotels & Homestays</span>
+                    <span>{t('Browse All Hotels & Homestays')}</span>
                     <ArrowRight className="w-3.5 h-3.5 ml-0.5" />
                   </button>
                   <button
@@ -1876,7 +1878,7 @@ export const TripPlannerView: React.FC<TripPlannerViewProps> = ({
                     onClick={handleCloseStayModal}
                     className="w-full sm:w-auto px-5 py-3 bg-stone-100 hover:bg-stone-200 active:bg-stone-300 text-stone-700 rounded-xl text-xs sm:text-sm font-bold transition-colors cursor-pointer touch-manipulation"
                   >
-                    Close
+                    {t('Close')}
                   </button>
                 </div>
               </div>
@@ -1909,10 +1911,10 @@ export const TripPlannerView: React.FC<TripPlannerViewProps> = ({
                     </div>
                     <div>
                       <span className="text-[11px] font-bold text-amber-800 uppercase tracking-wider block">
-                        Day {selectedCulinaryDay.dayNumber} Dining • {selectedCulinaryDay.destination}
+                        {t('Day')} {selectedCulinaryDay.dayNumber} {t('Dining')} • {selectedCulinaryDay.destination}
                       </span>
                       <h3 className="text-lg font-black text-stone-900 leading-snug">
-                        Authentic Culinary Tips & Flavors
+                        {t('Authentic Culinary Tips & Flavors')}
                       </h3>
                     </div>
                   </div>
@@ -1931,7 +1933,7 @@ export const TripPlannerView: React.FC<TripPlannerViewProps> = ({
                   {/* Curated highlights for this day */}
                   <div className="bg-amber-50/80 border border-amber-200/80 rounded-xl p-3.5 space-y-2">
                     <span className="text-[11px] font-bold text-amber-950 uppercase tracking-wide block">
-                      Recommended Dishes for {selectedCulinaryDay.destination}:
+                      {t('Recommended Dishes for')} {selectedCulinaryDay.destination}:
                     </span>
                     <div className="space-y-1.5">
                       {selectedCulinaryDay.mealHighlights.map((dish, i) => (
@@ -1946,7 +1948,7 @@ export const TripPlannerView: React.FC<TripPlannerViewProps> = ({
                   {/* Connected Real Food Specialties from LankaMate Food Guide */}
                   <div className="space-y-2">
                     <span className="text-[11px] font-bold text-stone-600 uppercase tracking-wide block">
-                      Must-Try Sri Lankan Specialties
+                      {t('Must-Try Sri Lankan Specialties')}
                     </span>
                     <div className="space-y-2">
                       {featuredDishes.map((dish) => (
@@ -1982,10 +1984,10 @@ export const TripPlannerView: React.FC<TripPlannerViewProps> = ({
                   <div className="bg-stone-50 rounded-xl p-3.5 border border-stone-100 space-y-1.5 text-stone-600 text-xs">
                     <div className="font-bold text-stone-900 flex items-center gap-1.5">
                       <Sparkles className="w-3.5 h-3.5 text-amber-500" />
-                      <span>Sri Lankan Flavor Guide</span>
+                      <span>{t('Sri Lankan Flavor Guide')}</span>
                     </div>
                     <p className="leading-relaxed">
-                      Sri Lankan dishes celebrate Ceylon spices, freshly grated coconut, aromatic curry leaves, and fragrant pandan. You can always ask local eateries for "tourist mild" if you prefer gentler heat.
+                      {t('Sri Lankan dishes celebrate Ceylon spices, freshly grated coconut, aromatic curry leaves, and fragrant pandan. You can always ask local eateries for "tourist mild" if you prefer gentler heat.')}
                     </p>
                   </div>
                 </div>
@@ -2002,7 +2004,7 @@ export const TripPlannerView: React.FC<TripPlannerViewProps> = ({
                     className="w-full py-3 bg-amber-600 hover:bg-amber-700 active:bg-amber-800 text-white rounded-xl text-xs sm:text-sm font-bold transition-colors cursor-pointer flex items-center justify-center gap-2 shadow-sm touch-manipulation"
                   >
                     <UtensilsCrossed className="w-4 h-4" />
-                    <span>Explore Full Sri Lankan Food Guide</span>
+                    <span>{t('Explore Full Sri Lankan Food Guide')}</span>
                     <ArrowRight className="w-3.5 h-3.5 ml-0.5" />
                   </button>
                   <button
@@ -2010,7 +2012,7 @@ export const TripPlannerView: React.FC<TripPlannerViewProps> = ({
                     onClick={handleCloseCulinaryModal}
                     className="w-full sm:w-auto px-5 py-3 bg-stone-100 hover:bg-stone-200 active:bg-stone-300 text-stone-700 rounded-xl text-xs sm:text-sm font-bold transition-colors cursor-pointer touch-manipulation"
                   >
-                    Close
+                    {t('Close')}
                   </button>
                 </div>
               </div>

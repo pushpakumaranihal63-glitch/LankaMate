@@ -34,6 +34,7 @@ import {
 } from 'lucide-react';
 import { Hotel, HotelBooking, PageId } from '../types';
 import { DetectedLocationInfo } from '../utils/locationHelper';
+import { useTranslation } from '../i18n/LanguageContext';
 
 export type SupportedCurrency = 'USD' | 'LKR' | 'EUR' | 'GBP';
 
@@ -76,6 +77,7 @@ export const HotelDetailPage: React.FC<HotelDetailPageProps> = ({
   onNavigatePage,
   onOpenMyBookings,
 }) => {
+  const { t } = useTranslation();
   // Tomorrow's date as default check-in
   const defaultCheckIn = useMemo(() => {
     const d = new Date();
@@ -166,15 +168,15 @@ export const HotelDetailPage: React.FC<HotelDetailPageProps> = ({
   const handleProceedToPayment = (e: React.FormEvent) => {
     e.preventDefault();
     if (!fullName.trim()) {
-      setFormError('Please enter your full name.');
+      setFormError(t('Please enter your full name.'));
       return;
     }
     if (!email.trim() || !email.includes('@')) {
-      setFormError('Please enter a valid email address.');
+      setFormError(t('Please enter a valid email address.'));
       return;
     }
     if (!phone.trim()) {
-      setFormError('Please enter a contact phone number.');
+      setFormError(t('Please enter a contact phone number.'));
       return;
     }
 
@@ -266,7 +268,7 @@ export const HotelDetailPage: React.FC<HotelDetailPageProps> = ({
             className="flex items-center gap-2 text-stone-700 hover:text-emerald-900 text-xs sm:text-sm font-bold transition-colors cursor-pointer py-1 px-2.5 -ml-2.5 rounded-xl hover:bg-stone-100"
           >
             <ArrowLeft className="w-4 h-4" />
-            <span>Back to Hotels Catalog</span>
+            <span>{t('Back to Hotels Catalog')}</span>
           </button>
 
           <div className="flex items-center gap-2">
@@ -287,13 +289,13 @@ export const HotelDetailPage: React.FC<HotelDetailPageProps> = ({
                   ? 'bg-red-50 border-red-200 text-red-600'
                   : 'bg-stone-50 border-stone-200 text-stone-600 hover:bg-stone-100'
               }`}
-              title="Save to Favourites"
+              title={t('Save to Favourites')}
             >
               <Heart
                 className={`w-4 h-4 ${isFavourite(hotel.id) ? 'fill-red-500 text-red-500' : ''}`}
               />
               <span className="hidden sm:inline">
-                {isFavourite(hotel.id) ? 'Saved' : 'Save'}
+                {isFavourite(hotel.id) ? t('Saved') : t('Save')}
               </span>
             </button>
 
@@ -301,7 +303,7 @@ export const HotelDetailPage: React.FC<HotelDetailPageProps> = ({
               onClick={() => onOpenInquiry(hotel)}
               className="px-3 py-1.5 rounded-xl border border-stone-200 hover:border-emerald-600 text-stone-700 hover:text-emerald-800 text-xs font-bold transition-colors cursor-pointer"
             >
-              Inquire Only
+              {t('Inquire Only')}
             </button>
           </div>
         </div>
@@ -328,7 +330,7 @@ export const HotelDetailPage: React.FC<HotelDetailPageProps> = ({
                 <div className="absolute top-4 left-4 flex flex-wrap items-center gap-2">
                   <span className="px-3 py-1 rounded-full bg-emerald-800/90 backdrop-blur-md text-white text-xs font-black flex items-center gap-1.5 shadow-md">
                     <Star className="w-3.5 h-3.5 fill-amber-400 text-amber-400" />
-                    <span>{hotel.starRating} Star Heritage</span>
+                    <span>{hotel.starRating} {t('Star Heritage')}</span>
                   </span>
                   {hotel.badge && (
                     <span className="px-3 py-1 rounded-full bg-black/70 backdrop-blur-md text-amber-300 text-xs font-bold border border-amber-400/30">
@@ -341,7 +343,7 @@ export const HotelDetailPage: React.FC<HotelDetailPageProps> = ({
                 {hotel.distanceKm !== undefined && (
                   <div className="absolute top-4 right-4 flex items-center gap-1.5 bg-stone-950/85 backdrop-blur-md border border-emerald-500/50 text-emerald-300 px-3 py-1 rounded-full text-xs font-black shadow-md">
                     <Navigation className="w-3.5 h-3.5 text-emerald-400" />
-                    <span>{hotel.distanceKm < 1 ? '< 1 km away' : `${hotel.distanceKm} km away`}</span>
+                    <span>{hotel.distanceKm < 1 ? t('Less than 1 km away') : `${hotel.distanceKm} km ${t('away')}`}</span>
                   </div>
                 )}
 
@@ -359,7 +361,7 @@ export const HotelDetailPage: React.FC<HotelDetailPageProps> = ({
                       ★ {hotel.rating} / 5.0
                     </span>
                     <span>•</span>
-                    <span>{hotel.reviewsCount} verified guest reviews</span>
+                    <span>{hotel.reviewsCount} {t('verified guest reviews')}</span>
                   </div>
                 </div>
               </div>
@@ -374,19 +376,19 @@ export const HotelDetailPage: React.FC<HotelDetailPageProps> = ({
                   </div>
                   <div>
                     <span className="text-[11px] font-bold text-emerald-800 uppercase tracking-wider block">
-                      Distance from Your Search Location
+                      {t('Distance from Your Search Location')}
                     </span>
                     <p className="text-stone-800 text-xs sm:text-sm font-medium">
-                      Calculated from <strong>{activeLocation.city || 'Detected Location'}</strong>
+                      {t('Calculated from')} <strong>{activeLocation.city || t('Detected Location')}</strong>
                     </p>
                   </div>
                 </div>
                 <div className="bg-white border border-emerald-200 px-4 py-2 rounded-xl text-emerald-950 font-black text-sm sm:text-base shrink-0 shadow-2xs">
                   {hotel.distanceKm !== undefined
                     ? hotel.distanceKm < 1
-                      ? 'Less than 1 km away'
-                      : `${hotel.distanceKm} km away`
-                    : 'Distance calculated via GPS'}
+                      ? t('Less than 1 km away')
+                      : `${hotel.distanceKm} km ${t('away')}`
+                    : t('Distance calculated via GPS')}
                 </div>
               </div>
             )}
@@ -399,7 +401,7 @@ export const HotelDetailPage: React.FC<HotelDetailPageProps> = ({
                 <div className="bg-white rounded-2xl p-6 border border-stone-200 shadow-xs space-y-3">
                   <h2 className="text-lg font-black text-emerald-950 flex items-center gap-2">
                     <Sparkles className="w-4 h-4 text-emerald-600" />
-                    <span>About {hotel.name}</span>
+                    <span>{t('About')} {hotel.name}</span>
                   </h2>
                   <p className="text-stone-700 text-sm leading-relaxed whitespace-pre-line">
                     {hotel.description}
@@ -407,15 +409,15 @@ export const HotelDetailPage: React.FC<HotelDetailPageProps> = ({
 
                   <div className="pt-3 border-t border-stone-100 grid grid-cols-2 sm:grid-cols-3 gap-3 text-xs text-stone-600">
                     <div className="bg-stone-50 rounded-xl p-2.5">
-                      <span className="text-[10px] text-stone-400 block font-bold uppercase">Region</span>
-                      <span className="font-bold text-stone-800">{hotel.region}</span>
+                      <span className="text-[10px] text-stone-400 block font-bold uppercase">{t('Region')}</span>
+                      <span className="font-bold text-stone-800">{t(hotel.region)}</span>
                     </div>
                     <div className="bg-stone-50 rounded-xl p-2.5">
-                      <span className="text-[10px] text-stone-400 block font-bold uppercase">Heritage Class</span>
-                      <span className="font-bold text-stone-800">{hotel.starRating} Stars Luxury</span>
+                      <span className="text-[10px] text-stone-400 block font-bold uppercase">{t('Heritage Class')}</span>
+                      <span className="font-bold text-stone-800">{hotel.starRating} {t('Stars Luxury')}</span>
                     </div>
                     <div className="bg-stone-50 rounded-xl p-2.5 col-span-2 sm:col-span-1">
-                      <span className="text-[10px] text-stone-400 block font-bold uppercase">Pricing Tier</span>
+                      <span className="text-[10px] text-stone-400 block font-bold uppercase">{t('Pricing Tier')}</span>
                       <span className="font-bold text-emerald-800">${hotel.pricePerNightUsd} USD / night</span>
                     </div>
                   </div>
@@ -426,9 +428,9 @@ export const HotelDetailPage: React.FC<HotelDetailPageProps> = ({
                   <div className="flex items-center justify-between">
                     <h2 className="text-lg font-black text-emerald-950 flex items-center gap-2">
                       <Bed className="w-4 h-4 text-emerald-600" />
-                      <span>Available Room Types</span>
+                      <span>{t('Available Room Types')}</span>
                     </h2>
-                    <span className="text-xs text-stone-500 font-medium">Select your preferred room</span>
+                    <span className="text-xs text-stone-500 font-medium">{t('Select your preferred room')}</span>
                   </div>
 
                   <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
@@ -446,7 +448,7 @@ export const HotelDetailPage: React.FC<HotelDetailPageProps> = ({
                         >
                           <div className="flex items-center justify-between mb-2">
                             <span className="text-[11px] font-black uppercase tracking-wider text-emerald-800">
-                              Option {idx + 1}
+                              {t('Option')} {idx + 1}
                             </span>
                             <div
                               className={`w-4 h-4 rounded-full border flex items-center justify-center ${
@@ -460,10 +462,10 @@ export const HotelDetailPage: React.FC<HotelDetailPageProps> = ({
                           </div>
                           <h4 className="font-black text-stone-900 text-sm">{room}</h4>
                           <p className="text-[11px] text-stone-500 mt-1">
-                            Air-conditioned, private bath, balcony view
+                            {t('Air-conditioned, private bath, balcony view')}
                           </p>
                           <div className="mt-3 pt-2 border-t border-stone-200/60 flex items-center justify-between text-xs">
-                            <span className="text-stone-500">Base rate:</span>
+                            <span className="text-stone-500">{t('Base rate:')}</span>
                             <span className="font-bold text-emerald-950">
                               ${hotel.pricePerNightUsd} USD
                             </span>
@@ -478,7 +480,7 @@ export const HotelDetailPage: React.FC<HotelDetailPageProps> = ({
                 <div className="bg-white rounded-2xl p-6 border border-stone-200 shadow-xs space-y-4">
                   <h2 className="text-lg font-black text-emerald-950 flex items-center gap-2">
                     <Wifi className="w-4 h-4 text-emerald-600" />
-                    <span>Amenities & Services</span>
+                    <span>{t('Amenities & Services')}</span>
                   </h2>
 
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
@@ -496,7 +498,7 @@ export const HotelDetailPage: React.FC<HotelDetailPageProps> = ({
                   <div className="p-3 bg-amber-50/70 border border-amber-200/70 rounded-xl text-xs text-amber-900 flex items-start gap-2">
                     <Info className="w-4 h-4 text-amber-700 shrink-0 mt-0.5" />
                     <p>
-                      <strong>Authentic Hospitality Guarantee:</strong> Welcome king coconut drink upon arrival, daily complimentary Ceylon tea tastings, and on-site safari/trekking concierge assistance.
+                      <strong>{t('Authentic Hospitality Guarantee:')}</strong> {t('Welcome king coconut drink upon arrival, daily complimentary Ceylon tea tastings, and on-site safari/trekking concierge assistance.')}
                     </p>
                   </div>
                 </div>
@@ -509,7 +511,7 @@ export const HotelDetailPage: React.FC<HotelDetailPageProps> = ({
                     <div className="flex items-baseline justify-between">
                       <div>
                         <span className="text-[11px] text-stone-500 block uppercase font-bold">
-                          Starting From
+                          {t('Starting From')}
                         </span>
                         <div className="text-2xl font-black text-emerald-950">
                           ${hotel.pricePerNightUsd} <span className="text-xs font-semibold text-stone-500">USD / night</span>
@@ -520,7 +522,7 @@ export const HotelDetailPage: React.FC<HotelDetailPageProps> = ({
                       </span>
                     </div>
                     <span className="inline-block mt-1 text-[10px] text-amber-800 bg-amber-100/70 font-semibold px-2 py-0.5 rounded-md">
-                      ★ Demo Rate • No Immediate Payment Required
+                      ★ {t('Demo Rate')} • {t('No Immediate Payment Required')}
                     </span>
                   </div>
 
@@ -531,7 +533,7 @@ export const HotelDetailPage: React.FC<HotelDetailPageProps> = ({
                       <div>
                         <label className="block font-bold text-stone-700 mb-1 flex items-center gap-1">
                           <Calendar className="w-3.5 h-3.5 text-emerald-700" />
-                          <span>Check-in</span>
+                          <span>{t('Check-in')}</span>
                         </label>
                         <input
                           type="date"
@@ -544,7 +546,7 @@ export const HotelDetailPage: React.FC<HotelDetailPageProps> = ({
                       <div>
                         <label className="block font-bold text-stone-700 mb-1 flex items-center gap-1">
                           <Calendar className="w-3.5 h-3.5 text-emerald-700" />
-                          <span>Check-out</span>
+                          <span>{t('Check-out')}</span>
                         </label>
                         <input
                           type="date"
@@ -570,7 +572,7 @@ export const HotelDetailPage: React.FC<HotelDetailPageProps> = ({
                         >
                           {[1, 2, 3, 4, 5, 6, 8].map((n) => (
                             <option key={n} value={n}>
-                              {n} {n === 1 ? 'Guest' : 'Guests'}
+                              {n} {n === 1 ? t('Guest') : t('Guests')}
                             </option>
                           ))}
                         </select>
@@ -579,7 +581,7 @@ export const HotelDetailPage: React.FC<HotelDetailPageProps> = ({
                       <div>
                         <label className="block font-bold text-stone-700 mb-1 flex items-center gap-1">
                           <Bed className="w-3.5 h-3.5 text-emerald-700" />
-                          <span>Rooms</span>
+                          <span>{t('Rooms')}</span>
                         </label>
                         <select
                           value={roomsCount}
@@ -588,7 +590,7 @@ export const HotelDetailPage: React.FC<HotelDetailPageProps> = ({
                         >
                           {[1, 2, 3, 4, 5].map((n) => (
                             <option key={n} value={n}>
-                              {n} {n === 1 ? 'Room' : 'Rooms'}
+                              {n} {n === 1 ? t('Room') : t('Rooms')}
                             </option>
                           ))}
                         </select>
@@ -598,7 +600,7 @@ export const HotelDetailPage: React.FC<HotelDetailPageProps> = ({
                     {/* Selected Room Type Reminder */}
                     <div className="bg-stone-50 rounded-xl p-2.5 border border-stone-200 text-stone-600">
                       <span className="text-[10px] text-stone-400 uppercase font-bold block">
-                        Selected Room Option
+                        {t('Selected Room Option')}
                       </span>
                       <span className="font-bold text-stone-900 text-xs">{selectedRoomType}</span>
                     </div>
@@ -607,32 +609,32 @@ export const HotelDetailPage: React.FC<HotelDetailPageProps> = ({
                   {/* Clear Price Calculation Breakdown */}
                   <div className="bg-emerald-50/80 border border-emerald-200 rounded-2xl p-4 space-y-2.5 text-xs">
                     <span className="text-[11px] font-black uppercase tracking-wider text-emerald-900 block">
-                      Price Calculation
+                      {t('Price Calculation')}
                     </span>
 
                     <div className="flex items-center justify-between text-stone-700">
-                      <span>Price per night:</span>
+                      <span>{t('Price per night:')}</span>
                       <span className="font-bold">${hotel.pricePerNightUsd} USD</span>
                     </div>
 
                     <div className="flex items-center justify-between text-stone-700">
-                      <span>Stay duration:</span>
-                      <span className="font-bold">{nightsCount} {nightsCount === 1 ? 'night' : 'nights'}</span>
+                      <span>{t('Stay duration:')}</span>
+                      <span className="font-bold">{nightsCount} {nightsCount === 1 ? t('night') : t('nights')}</span>
                     </div>
 
                     <div className="flex items-center justify-between text-stone-700">
-                      <span>Number of rooms:</span>
-                      <span className="font-bold">{roomsCount} {roomsCount === 1 ? 'room' : 'rooms'}</span>
+                      <span>{t('Number of rooms:')}</span>
+                      <span className="font-bold">{roomsCount} {roomsCount === 1 ? t('room') : t('rooms')}</span>
                     </div>
 
                     <div className="text-[11px] text-stone-500 pt-1 border-t border-emerald-200/60 font-mono">
-                      ${hotel.pricePerNightUsd} × {nightsCount} nights × {roomsCount} {roomsCount === 1 ? 'room' : 'rooms'}
+                      ${hotel.pricePerNightUsd} × {nightsCount} {t('nights')} × {roomsCount} {roomsCount === 1 ? t('room') : t('rooms')}
                     </div>
 
                     <div className="pt-2 border-t border-emerald-200 flex items-baseline justify-between">
                       <div>
-                        <span className="font-black text-emerald-950 text-sm block">Estimated Total</span>
-                        <span className="text-[10px] text-stone-500 block">Taxes & breakfast included</span>
+                        <span className="font-black text-emerald-950 text-sm block">{t('Estimated Total')}</span>
+                        <span className="text-[10px] text-stone-500 block">{t('Taxes & breakfast included')}</span>
                       </div>
                       <div className="text-right">
                         <div className="text-xl font-black text-emerald-950">
@@ -652,7 +654,7 @@ export const HotelDetailPage: React.FC<HotelDetailPageProps> = ({
                     className="w-full py-3.5 bg-emerald-800 hover:bg-emerald-900 active:bg-emerald-950 text-white rounded-2xl text-sm font-black transition-all shadow-md hover:shadow-lg cursor-pointer flex items-center justify-center gap-2"
                   >
                     <HotelIcon className="w-4 h-4" />
-                    <span>Book Now • View Summary (${totalUsd} USD)</span>
+                    <span>{t('Book Now')} • {t('View Summary')} (${totalUsd} USD)</span>
                   </button>
 
                   <div className="text-center">
@@ -660,7 +662,7 @@ export const HotelDetailPage: React.FC<HotelDetailPageProps> = ({
                       onClick={() => onOpenInquiry(hotel)}
                       className="text-stone-500 hover:text-stone-800 text-xs font-semibold cursor-pointer underline"
                     >
-                      Need custom dates or special safari group? Inquire here
+                      {t('Need custom dates or special safari group? Inquire here')}
                     </button>
                   </div>
                 </div>
@@ -683,13 +685,13 @@ export const HotelDetailPage: React.FC<HotelDetailPageProps> = ({
                   className="text-xs font-bold text-emerald-800 hover:underline flex items-center gap-1 mb-1 cursor-pointer"
                 >
                   <ArrowLeft className="w-3.5 h-3.5" />
-                  <span>Modify Dates & Room Selection</span>
+                  <span>{t('Modify Dates & Room Selection')}</span>
                 </button>
                 <h2 className="text-2xl sm:text-3xl font-black text-emerald-950 tracking-tight">
-                  Final Booking Summary
+                  {t('Final Booking Summary')}
                 </h2>
                 <p className="text-xs text-stone-500 mt-0.5">
-                  Review your reservation details and select your preferred currency before payment.
+                  {t('Review your reservation details and select your preferred currency before payment.')}
                 </p>
               </div>
             </div>
@@ -698,10 +700,10 @@ export const HotelDetailPage: React.FC<HotelDetailPageProps> = ({
             <div className="bg-white rounded-2xl p-4 sm:p-5 border border-stone-200 shadow-xs flex flex-col sm:flex-row sm:items-center justify-between gap-3">
               <div>
                 <span className="text-[11px] font-black uppercase tracking-wider text-stone-400 block">
-                  Select Currency
+                  {t('Select Currency')}
                 </span>
                 <p className="text-xs font-semibold text-stone-800">
-                  Currently Viewing in <strong>{CURRENCY_RATES[selectedCurrency].name} ({selectedCurrency})</strong>
+                  {t('Currently Viewing in')} <strong>{CURRENCY_RATES[selectedCurrency].name} ({selectedCurrency})</strong>
                 </p>
               </div>
 
@@ -744,7 +746,7 @@ export const HotelDetailPage: React.FC<HotelDetailPageProps> = ({
                 <div className="flex-1 min-w-0 space-y-1">
                   <div className="flex items-center gap-2">
                     <span className="px-2.5 py-0.5 rounded-full bg-emerald-100 text-emerald-900 text-[10px] font-black uppercase tracking-wider">
-                      ★ {hotel.starRating} Stars Luxury
+                      ★ {hotel.starRating} {t('Stars Luxury')}
                     </span>
                     <span className="text-[11px] font-semibold text-stone-500">
                       {hotel.region}
@@ -757,12 +759,12 @@ export const HotelDetailPage: React.FC<HotelDetailPageProps> = ({
                   {/* Hotel Location */}
                   <div className="flex items-center gap-1.5 text-xs text-stone-600 font-medium">
                     <MapPin className="w-3.5 h-3.5 text-emerald-700 shrink-0" />
-                    <span>Location: <strong>{hotel.destinationName}, Sri Lanka</strong></span>
+                    <span>{t('Location:')} <strong>{hotel.destinationName}, Sri Lanka</strong></span>
                   </div>
                   {hotel.distanceKm !== undefined && (
                     <div className="flex items-center gap-1.5 text-[11px] text-emerald-800 font-semibold pt-0.5">
                       <Navigation className="w-3 h-3 text-emerald-600 shrink-0" />
-                      <span>{hotel.distanceKm < 1 ? '< 1 km away' : `${hotel.distanceKm} km from search location`}</span>
+                      <span>{hotel.distanceKm < 1 ? t('Less than 1 km away') : `${hotel.distanceKm} km ${t('from search location')}`}</span>
                     </div>
                   )}
                 </div>
@@ -773,67 +775,67 @@ export const HotelDetailPage: React.FC<HotelDetailPageProps> = ({
                 {/* Room Type */}
                 <div className="bg-stone-50 rounded-2xl p-3.5 border border-stone-200/80">
                   <span className="text-[10px] text-stone-400 block font-black uppercase tracking-wider mb-1">
-                    Room Type
+                    {t('Room Type')}
                   </span>
                   <span className="font-black text-stone-900 text-sm block">
                     {selectedRoomType}
                   </span>
-                  <span className="text-[11px] text-stone-500">Balcony & En-suite</span>
+                  <span className="text-[11px] text-stone-500">{t('Balcony & En-suite')}</span>
                 </div>
 
                 {/* Check-in Date */}
                 <div className="bg-stone-50 rounded-2xl p-3.5 border border-stone-200/80">
                   <span className="text-[10px] text-stone-400 block font-black uppercase tracking-wider mb-1">
-                    Check-in Date
+                    {t('Check-in Date')}
                   </span>
                   <span className="font-black text-stone-900 text-sm block">
                     {checkInDate}
                   </span>
-                  <span className="text-[11px] text-stone-500">Standard 2:00 PM</span>
+                  <span className="text-[11px] text-stone-500">{t('Standard 2:00 PM')}</span>
                 </div>
 
                 {/* Check-out Date */}
                 <div className="bg-stone-50 rounded-2xl p-3.5 border border-stone-200/80">
                   <span className="text-[10px] text-stone-400 block font-black uppercase tracking-wider mb-1">
-                    Check-out Date
+                    {t('Check-out Date')}
                   </span>
                   <span className="font-black text-stone-900 text-sm block">
                     {checkOutDate}
                   </span>
-                  <span className="text-[11px] text-stone-500">Standard 11:00 AM</span>
+                  <span className="text-[11px] text-stone-500">{t('Standard 11:00 AM')}</span>
                 </div>
 
                 {/* Number of Nights */}
                 <div className="bg-stone-50 rounded-2xl p-3.5 border border-stone-200/80">
                   <span className="text-[10px] text-stone-400 block font-black uppercase tracking-wider mb-1">
-                    Number of Nights
+                    {t('Number of Nights')}
                   </span>
                   <span className="font-black text-stone-900 text-sm block">
-                    {nightsCount} {nightsCount === 1 ? 'Night' : 'Nights'}
+                    {nightsCount} {nightsCount === 1 ? t('Night') : t('Nights')}
                   </span>
-                  <span className="text-[11px] text-stone-500">Duration</span>
+                  <span className="text-[11px] text-stone-500">{t('Duration')}</span>
                 </div>
 
                 {/* Guests */}
                 <div className="bg-stone-50 rounded-2xl p-3.5 border border-stone-200/80">
                   <span className="text-[10px] text-stone-400 block font-black uppercase tracking-wider mb-1">
-                    Guests
+                    {t('Guests')}
                   </span>
                   <span className="font-black text-stone-900 text-sm block">
-                    {guestsCount} {guestsCount === 1 ? 'Guest' : 'Guests'}
+                    {guestsCount} {guestsCount === 1 ? t('Guest') : t('Guests')}
                   </span>
-                  <span className="text-[11px] text-stone-500">Adults / Family</span>
+                  <span className="text-[11px] text-stone-500">{t('Adults / Family')}</span>
                 </div>
 
                 {/* Number of Rooms */}
                 <div className="bg-stone-50 rounded-2xl p-3.5 border border-stone-200/80">
                   <span className="text-[10px] text-stone-400 block font-black uppercase tracking-wider mb-1">
-                    Number of Rooms
+                    {t('Number of Rooms')}
                   </span>
                   <span className="font-black text-stone-900 text-sm block">
-                    {roomsCount} {roomsCount === 1 ? 'Room' : 'Rooms'}
+                    {roomsCount} {roomsCount === 1 ? t('Room') : t('Rooms')}
                   </span>
-                  <span className="text-[11px] text-stone-500">Reserved Units</span>
+                  <span className="text-[11px] text-stone-500">{t('Reserved Units')}</span>
                 </div>
               </div>
 
@@ -843,7 +845,7 @@ export const HotelDetailPage: React.FC<HotelDetailPageProps> = ({
                   <div>
                     {/* Price per night */}
                     <span className="text-[11px] text-stone-500 font-bold uppercase tracking-wider block">
-                      Price Per Night ({selectedCurrency})
+                      {t('Price Per Night')} ({selectedCurrency})
                     </span>
                     <span className="text-lg font-black text-emerald-950">
                       {formatAmount(pricePerNightConverted, selectedCurrency)}
@@ -852,10 +854,10 @@ export const HotelDetailPage: React.FC<HotelDetailPageProps> = ({
 
                   <div className="text-left sm:text-right">
                     <span className="text-[11px] text-stone-500 block font-medium">
-                      Stay Formula
+                      {t('Stay Formula')}
                     </span>
                     <span className="text-xs font-mono font-semibold text-emerald-900">
-                      {formatAmount(pricePerNightConverted, selectedCurrency)} × {nightsCount} nights × {roomsCount} {roomsCount === 1 ? 'room' : 'rooms'}
+                      {formatAmount(pricePerNightConverted, selectedCurrency)} × {nightsCount} {t('nights')} × {roomsCount} {roomsCount === 1 ? t('room') : t('rooms')}
                     </span>
                   </div>
                 </div>
@@ -864,10 +866,10 @@ export const HotelDetailPage: React.FC<HotelDetailPageProps> = ({
                 <div className="flex items-baseline justify-between pt-1">
                   <div>
                     <span className="text-xs font-black uppercase tracking-wider text-emerald-900 block">
-                      Estimated Total Price
+                      {t('Estimated Total Price')}
                     </span>
                     <span className="text-[11px] text-stone-500">
-                      Includes service charge, heritage preservation fee & Sri Lankan taxes
+                      {t('Includes service charge, heritage preservation fee & Sri Lankan taxes')}
                     </span>
                   </div>
                   <div className="text-right">
@@ -879,7 +881,7 @@ export const HotelDetailPage: React.FC<HotelDetailPageProps> = ({
                     </div>
                     {selectedCurrency !== 'USD' && (
                       <span className="text-[11px] text-stone-500 block">
-                        Equivalent to approx. ${totalUsd} USD
+                        {t('Equivalent to approx.')} ${totalUsd} USD
                       </span>
                     )}
                   </div>
@@ -892,9 +894,9 @@ export const HotelDetailPage: React.FC<HotelDetailPageProps> = ({
               <div className="flex items-center justify-between border-b border-stone-100 pb-3">
                 <h3 className="text-base font-black text-emerald-950 flex items-center gap-2">
                   <User className="w-4 h-4 text-emerald-700" />
-                  <span>Guest Details for Reservation Voucher</span>
+                  <span>{t('Guest Details for Reservation Voucher')}</span>
                 </h3>
-                <span className="text-[11px] text-stone-400">Required before payment</span>
+                <span className="text-[11px] text-stone-400">{t('Required before payment')}</span>
               </div>
 
               {formError && (
@@ -907,7 +909,7 @@ export const HotelDetailPage: React.FC<HotelDetailPageProps> = ({
               <div className="space-y-3 text-xs">
                 <div>
                   <label className="font-bold text-stone-700 block mb-1">
-                    Primary Guest Full Name <span className="text-red-500">*</span>
+                    {t('Primary Guest Full Name')} <span className="text-red-500">*</span>
                   </label>
                   <input
                     id="input-guest-name"
@@ -915,7 +917,7 @@ export const HotelDetailPage: React.FC<HotelDetailPageProps> = ({
                     required
                     value={fullName}
                     onChange={(e) => setFullName(e.target.value)}
-                    placeholder="e.g. Kasun Silva / Sarah Jenkins"
+                    placeholder={t('e.g. Kasun Silva / Sarah Jenkins')}
                     className="w-full px-3.5 py-2.5 bg-stone-50 border border-stone-200 rounded-xl text-xs font-medium text-stone-900 focus:outline-none focus:border-emerald-700"
                   />
                 </div>
@@ -923,7 +925,7 @@ export const HotelDetailPage: React.FC<HotelDetailPageProps> = ({
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                   <div>
                     <label className="font-bold text-stone-700 block mb-1">
-                      Email Address <span className="text-red-500">*</span>
+                      {t('Email Address')} <span className="text-red-500">*</span>
                     </label>
                     <input
                       id="input-guest-email"
@@ -931,14 +933,14 @@ export const HotelDetailPage: React.FC<HotelDetailPageProps> = ({
                       required
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
-                      placeholder="e.g. guest@example.com"
+                      placeholder={t('e.g. guest@example.com')}
                       className="w-full px-3.5 py-2.5 bg-stone-50 border border-stone-200 rounded-xl text-xs font-medium text-stone-900 focus:outline-none focus:border-emerald-700"
                     />
                   </div>
 
                   <div>
                     <label className="font-bold text-stone-700 block mb-1">
-                      Contact Phone / WhatsApp <span className="text-red-500">*</span>
+                      {t('Contact Phone / WhatsApp')} <span className="text-red-500">*</span>
                     </label>
                     <input
                       id="input-guest-phone"
@@ -946,7 +948,7 @@ export const HotelDetailPage: React.FC<HotelDetailPageProps> = ({
                       required
                       value={phone}
                       onChange={(e) => setPhone(e.target.value)}
-                      placeholder="e.g. +94 77 123 4567 / +44 7911 123456"
+                      placeholder={t('e.g. +94 77 123 4567 / +44 7911 123456')}
                       className="w-full px-3.5 py-2.5 bg-stone-50 border border-stone-200 rounded-xl text-xs font-medium text-stone-900 focus:outline-none focus:border-emerald-700"
                     />
                   </div>
@@ -954,13 +956,14 @@ export const HotelDetailPage: React.FC<HotelDetailPageProps> = ({
 
                 <div>
                   <label className="font-bold text-stone-700 block mb-1">
-                    Special Requests or Arrival Notes (Optional)
+                    {t('Special Requests or Arrival Notes (Optional)')}
                   </label>
                   <input
                     type="text"
                     value={specialRequests}
                     onChange={(e) => setSpecialRequests(e.target.value)}
-                    placeholder="e.g. Late check-in after 6 PM, quiet room, honeymoon arrangement..."
+                    placeholder={t('e.g. Late check-in after 6 PM, quiet room, honeymoon arrangement...')}
+
                     className="w-full px-3.5 py-2 bg-stone-50 border border-stone-200 rounded-xl text-xs font-medium text-stone-900 focus:outline-none focus:border-emerald-700"
                   />
                 </div>
@@ -973,7 +976,7 @@ export const HotelDetailPage: React.FC<HotelDetailPageProps> = ({
                   onClick={() => setFlowStep('details')}
                   className="w-full sm:w-auto px-4 py-2.5 text-xs font-bold text-stone-600 hover:text-stone-900 cursor-pointer"
                 >
-                  ← Edit Room & Dates
+                  ← {t('Edit Room & Dates')}
                 </button>
 
                 <button
@@ -981,7 +984,7 @@ export const HotelDetailPage: React.FC<HotelDetailPageProps> = ({
                   type="submit"
                   className="w-full sm:w-auto px-8 py-3.5 bg-emerald-800 hover:bg-emerald-900 active:bg-emerald-950 text-white rounded-2xl text-xs sm:text-sm font-black transition-all shadow-md hover:shadow-lg cursor-pointer flex items-center justify-center gap-2"
                 >
-                  <span>Continue to Payment</span>
+                  <span>{t('Continue to Payment')}</span>
                   <ArrowRight className="w-4 h-4" />
                 </button>
               </div>
@@ -1003,13 +1006,13 @@ export const HotelDetailPage: React.FC<HotelDetailPageProps> = ({
                   className="text-xs font-bold text-emerald-800 hover:underline flex items-center gap-1 mb-1 cursor-pointer"
                 >
                   <ArrowLeft className="w-3.5 h-3.5" />
-                  <span>Back to Booking Summary</span>
+                  <span>{t('Back to Booking Summary')}</span>
                 </button>
                 <h2 className="text-2xl sm:text-3xl font-black text-emerald-950 tracking-tight">
-                  Checkout & Payment
+                  {t('Checkout & Payment')}
                 </h2>
                 <p className="text-xs text-stone-500">
-                  Select your payment method and complete your reservation.
+                  {t('Select your payment method and complete your reservation.')}
                 </p>
               </div>
             </div>
@@ -1019,10 +1022,10 @@ export const HotelDetailPage: React.FC<HotelDetailPageProps> = ({
               <ShieldAlert className="w-5 h-5 text-amber-700 shrink-0 mt-0.5" />
               <div>
                 <span className="font-black text-amber-900 block uppercase tracking-wider text-[11px]">
-                  ★ Sandbox Demo Payment Flow
+                  {t('Sandbox Demo Payment Flow')}
                 </span>
                 <p className="mt-0.5 text-stone-700 leading-relaxed">
-                  This checkout is running in <strong>Demo Mode</strong>. No real credit card or bank payments will be processed, and no real financial information is collected or stored.
+                  {t('This checkout is running in')} <strong>{t('Demo Mode')}</strong>. {t('No real credit card or bank payments will be processed, and no real financial information is collected or stored.')}
                 </p>
               </div>
             </div>
@@ -1034,10 +1037,10 @@ export const HotelDetailPage: React.FC<HotelDetailPageProps> = ({
                   <div className="flex items-center justify-between">
                     <h3 className="text-base font-black text-emerald-950 flex items-center gap-2">
                       <CreditCard className="w-4 h-4 text-emerald-700" />
-                      <span>Select Payment Method</span>
+                      <span>{t('Select Payment Method')}</span>
                     </h3>
                     <span className="text-[10px] font-bold bg-stone-100 text-stone-600 px-2 py-0.5 rounded-md">
-                      4 Options Available
+                      4 {t('Options Available')}
                     </span>
                   </div>
 
@@ -1060,10 +1063,10 @@ export const HotelDetailPage: React.FC<HotelDetailPageProps> = ({
                           </div>
                           <div>
                             <span className="font-black text-stone-900 text-sm block">
-                              Credit or Debit Card (Demo Test Card)
+                              {t('Credit or Debit Card (Demo Test Card)')}
                             </span>
                             <span className="text-[11px] text-stone-500 block">
-                              Visa, Mastercard, Amex • Sandbox Simulated
+                              {t('Visa, Mastercard, Amex • Sandbox Simulated')}
                             </span>
                           </div>
                         </div>
@@ -1085,12 +1088,12 @@ export const HotelDetailPage: React.FC<HotelDetailPageProps> = ({
                         <div className="mt-4 pt-3 border-t border-emerald-200/80 space-y-3 animate-in fade-in duration-150 text-xs">
                           <div>
                             <label className="text-[10px] font-bold text-stone-600 uppercase block mb-1">
-                              Simulated Test Card Number
+                              {t('Simulated Test Card Number')}
                             </label>
                             <div className="w-full px-3 py-2 bg-white border border-emerald-300 rounded-xl font-mono text-stone-800 flex items-center justify-between text-xs">
                               <span>4242 •••• •••• 4242</span>
                               <span className="text-[10px] font-bold text-emerald-800 bg-emerald-100 px-2 py-0.5 rounded-md">
-                                Test Ready
+                                {t('Test Ready')}
                               </span>
                             </div>
                           </div>
@@ -1098,7 +1101,7 @@ export const HotelDetailPage: React.FC<HotelDetailPageProps> = ({
                           <div className="grid grid-cols-2 gap-3">
                             <div>
                               <label className="text-[10px] font-bold text-stone-600 uppercase block mb-1">
-                                Expiry Date
+                                {t('Expiry Date')}
                               </label>
                               <div className="px-3 py-2 bg-white border border-emerald-300 rounded-xl font-mono text-stone-800 text-xs">
                                 12 / 28
@@ -1106,7 +1109,7 @@ export const HotelDetailPage: React.FC<HotelDetailPageProps> = ({
                             </div>
                             <div>
                               <label className="text-[10px] font-bold text-stone-600 uppercase block mb-1">
-                                CVC Code
+                                {t('CVC Code')}
                               </label>
                               <div className="px-3 py-2 bg-white border border-emerald-300 rounded-xl font-mono text-stone-800 text-xs">
                                 ••• (888)
@@ -1115,7 +1118,7 @@ export const HotelDetailPage: React.FC<HotelDetailPageProps> = ({
                           </div>
 
                           <p className="text-[10px] text-stone-500 italic">
-                            🔒 Pre-configured for sandbox testing. No real card verification or storage.
+                            {t('Pre-configured for sandbox testing. No real card verification or storage.')}
                           </p>
                         </div>
                       )}
@@ -1138,10 +1141,10 @@ export const HotelDetailPage: React.FC<HotelDetailPageProps> = ({
                           </div>
                           <div>
                             <span className="font-black text-stone-900 text-sm block">
-                              LankaPay QR / FriMi / Genie (Demo)
+                              {t('LankaPay QR / FriMi / Genie (Demo)')}
                             </span>
                             <span className="text-[11px] text-stone-500 block">
-                              National Payment Network & Mobile Wallets
+                              {t('National Payment Network & Mobile Wallets')}
                             </span>
                           </div>
                         </div>
@@ -1161,7 +1164,7 @@ export const HotelDetailPage: React.FC<HotelDetailPageProps> = ({
                       {selectedPaymentMethod === 'lankapay' && (
                         <div className="mt-3 pt-3 border-t border-emerald-200/80 text-xs text-stone-600 animate-in fade-in duration-150">
                           <p className="text-[11px] bg-white p-2.5 rounded-xl border border-stone-200">
-                            <strong>Simulated LankaPay Flow:</strong> A demo QR authorization will automatically approve upon tapping Pay Now.
+                            <strong>{t('Simulated LankaPay Flow:')}</strong> {t('A demo QR authorization will automatically approve upon tapping Pay Now.')}
                           </p>
                         </div>
                       )}
@@ -1184,10 +1187,10 @@ export const HotelDetailPage: React.FC<HotelDetailPageProps> = ({
                           </div>
                           <div>
                             <span className="font-black text-stone-900 text-sm block">
-                              Direct Bank Transfer / Deposit (Demo)
+                              {t('Direct Bank Transfer / Deposit (Demo)')}
                             </span>
                             <span className="text-[11px] text-stone-500 block">
-                              Commercial Bank of Ceylon / Hatton National Bank
+                              {t('Commercial Bank of Ceylon / Hatton National Bank')}
                             </span>
                           </div>
                         </div>
@@ -1207,7 +1210,7 @@ export const HotelDetailPage: React.FC<HotelDetailPageProps> = ({
                       {selectedPaymentMethod === 'bank-transfer' && (
                         <div className="mt-3 pt-3 border-t border-emerald-200/80 text-xs text-stone-600 animate-in fade-in duration-150">
                           <p className="text-[11px] bg-white p-2.5 rounded-xl border border-stone-200">
-                            <strong>Bank Transfer Notice:</strong> Demo booking reference will act as your deposit voucher. No physical slip upload required.
+                            <strong>{t('Bank Transfer Notice:')}</strong> {t('Demo booking reference will act as your deposit voucher. No physical slip upload required.')}
                           </p>
                         </div>
                       )}
@@ -1230,10 +1233,10 @@ export const HotelDetailPage: React.FC<HotelDetailPageProps> = ({
                           </div>
                           <div>
                             <span className="font-black text-stone-900 text-sm block">
-                              Pay on Arrival at Hotel
+                              {t('Pay on Arrival at Hotel')}
                             </span>
                             <span className="text-[11px] text-stone-500 block">
-                              Zero pre-payment • Settle at front reception desk
+                              {t('Zero pre-payment • Settle at front reception desk')}
                             </span>
                           </div>
                         </div>
@@ -1253,7 +1256,7 @@ export const HotelDetailPage: React.FC<HotelDetailPageProps> = ({
                       {selectedPaymentMethod === 'pay-on-arrival' && (
                         <div className="mt-3 pt-3 border-t border-emerald-200/80 text-xs text-stone-600 animate-in fade-in duration-150">
                           <p className="text-[11px] bg-white p-2.5 rounded-xl border border-stone-200">
-                            <strong>Arrival Guarantee:</strong> Your room is reserved. Payment will be collected in person upon arrival via Cash or Card.
+                            <strong>{t('Arrival Guarantee:')}</strong> {t('Your room is reserved. Payment will be collected in person upon arrival via Cash or Card.')}
                           </p>
                         </div>
                       )}
@@ -1266,54 +1269,54 @@ export const HotelDetailPage: React.FC<HotelDetailPageProps> = ({
               <div className="space-y-4">
                 <div className="bg-white rounded-3xl p-5 sm:p-6 border border-stone-200 shadow-md space-y-4">
                   <h3 className="text-sm font-black text-emerald-950 uppercase tracking-wider pb-2 border-b border-stone-100">
-                    Booking Summary
+                    {t('Booking Summary')}
                   </h3>
 
                   {/* Summary Details */}
                   <div className="space-y-2 text-xs text-stone-600">
                     <div>
-                      <span className="text-[10px] text-stone-400 uppercase font-bold block">Hotel</span>
+                      <span className="text-[10px] text-stone-400 uppercase font-bold block">{t('Hotel')}</span>
                       <strong className="text-stone-900 font-black">{hotel.name}</strong>
                     </div>
 
                     <div>
-                      <span className="text-[10px] text-stone-400 uppercase font-bold block">Location</span>
+                      <span className="text-[10px] text-stone-400 uppercase font-bold block">{t('Location')}</span>
                       <span className="text-stone-800">{hotel.destinationName}, Sri Lanka</span>
                     </div>
 
                     <div>
-                      <span className="text-[10px] text-stone-400 uppercase font-bold block">Room Type</span>
+                      <span className="text-[10px] text-stone-400 uppercase font-bold block">{t('Room Type')}</span>
                       <span className="text-stone-800">{selectedRoomType}</span>
                     </div>
 
                     <div className="grid grid-cols-2 gap-2 pt-1">
                       <div>
-                        <span className="text-[10px] text-stone-400 uppercase font-bold block">Check-in</span>
+                        <span className="text-[10px] text-stone-400 uppercase font-bold block">{t('Check-in')}</span>
                         <span className="text-stone-800 font-semibold">{checkInDate}</span>
                       </div>
                       <div>
-                        <span className="text-[10px] text-stone-400 uppercase font-bold block">Check-out</span>
+                        <span className="text-[10px] text-stone-400 uppercase font-bold block">{t('Check-out')}</span>
                         <span className="text-stone-800 font-semibold">{checkOutDate}</span>
                       </div>
                     </div>
 
                     <div className="pt-1">
-                      <span className="text-[10px] text-stone-400 uppercase font-bold block">Duration & Units</span>
+                      <span className="text-[10px] text-stone-400 uppercase font-bold block">{t('Duration & Units')}</span>
                       <span className="text-stone-800 font-semibold">
-                        {nightsCount} Nights • {roomsCount} {roomsCount === 1 ? 'Room' : 'Rooms'} • {guestsCount} Guests
+                        {nightsCount} {t('Nights')} • {roomsCount} {roomsCount === 1 ? t('Room') : t('Rooms')} • {guestsCount} {t('Guests')}
                       </span>
                     </div>
 
                     <div className="pt-1 border-t border-stone-100">
-                      <span className="text-[10px] text-stone-400 uppercase font-bold block">Guest Name</span>
-                      <span className="text-stone-800 font-semibold truncate block">{fullName || 'Guest'}</span>
+                      <span className="text-[10px] text-stone-400 uppercase font-bold block">{t('Guest Name')}</span>
+                      <span className="text-stone-800 font-semibold truncate block">{fullName || t('Guest')}</span>
                     </div>
                   </div>
 
                   {/* Total Amount Box */}
                   <div className="bg-emerald-50 border border-emerald-200 rounded-2xl p-4 space-y-1">
                     <span className="text-[10px] font-black uppercase tracking-wider text-emerald-900 block">
-                      Total Amount ({selectedCurrency})
+                      {t('Total Amount')} ({selectedCurrency})
                     </span>
                     <div
                       id="payment-screen-total-amount"
@@ -1323,7 +1326,7 @@ export const HotelDetailPage: React.FC<HotelDetailPageProps> = ({
                     </div>
                     {selectedCurrency !== 'USD' && (
                       <span className="text-[11px] text-stone-500 block">
-                        Approx. ${totalUsd} USD
+                        {t('Approx.')} ${totalUsd} USD
                       </span>
                     )}
                   </div>
@@ -1339,12 +1342,12 @@ export const HotelDetailPage: React.FC<HotelDetailPageProps> = ({
                     {isProcessingPayment ? (
                       <>
                         <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin" />
-                        <span>Processing Booking…</span>
+                        <span>{t('Processing Booking…')}</span>
                       </>
                     ) : (
                       <>
                         <Lock className="w-4 h-4 text-emerald-300" />
-                        <span>Pay Now • {formatAmount(totalConverted, selectedCurrency)}</span>
+                        <span>{t('Pay Now')} • {formatAmount(totalConverted, selectedCurrency)}</span>
                       </>
                     )}
                   </button>
@@ -1354,7 +1357,7 @@ export const HotelDetailPage: React.FC<HotelDetailPageProps> = ({
                       onClick={() => setFlowStep('summary')}
                       className="text-stone-500 hover:text-stone-800 text-xs font-semibold cursor-pointer underline"
                     >
-                      Change currency or edit details
+                      {t('Change currency or edit details')}
                     </button>
                   </div>
                 </div>
@@ -1371,14 +1374,14 @@ export const HotelDetailPage: React.FC<HotelDetailPageProps> = ({
                 <div className="w-8 h-8 border-3 border-emerald-700 border-t-transparent rounded-full animate-spin" />
               </div>
               <div className="space-y-1">
-                <h3 className="text-xl font-black text-emerald-950">Processing Booking…</h3>
+                <h3 className="text-xl font-black text-emerald-950">{t('Processing Booking…')}</h3>
                 <p className="text-xs text-stone-600 leading-relaxed">
-                  Completing demo reservation for <strong>{hotel.name}</strong>.
+                  {t('Completing demo reservation for')} <strong>{hotel.name}</strong>.
                 </p>
               </div>
               <div className="p-3 bg-stone-50 rounded-xl border border-stone-200 text-xs text-stone-600 flex items-center justify-center gap-2">
                 <Lock className="w-4 h-4 text-emerald-700 shrink-0" />
-                <span>Demo Sandbox Mode • No real money or card details processed</span>
+                <span>{t('Demo Sandbox Mode')} • {t('No real money or card details processed')}</span>
               </div>
             </div>
           </div>
@@ -1399,14 +1402,14 @@ export const HotelDetailPage: React.FC<HotelDetailPageProps> = ({
                 <div className="space-y-1.5">
                   <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-100 text-emerald-900 text-xs font-black uppercase tracking-wider">
                     <Check className="w-3.5 h-3.5 text-emerald-700" />
-                    <span>✅ Booking Confirmed</span>
+                    <span>✅ {t('Booking Confirmed')}</span>
                   </div>
                   <h2 className="text-2xl sm:text-3xl font-black text-emerald-950 tracking-tight">
-                    Booking Confirmed!
+                    {t('Booking Confirmed!')}
                   </h2>
                   <p className="text-xs sm:text-sm text-stone-600 max-w-lg mx-auto leading-relaxed">
-                    Thank you, <strong>{confirmedBooking.guestName}</strong>. Your demo reservation for{' '}
-                    <strong>{confirmedBooking.hotelName}</strong> has been logged in your LankaMate trip records.
+                    {t('Thank you,')} <strong>{confirmedBooking.guestName}</strong>. {t('Your demo reservation for')}{' '}
+                    <strong>{confirmedBooking.hotelName}</strong> {t('has been logged in your LankaMate trip records.')}
                   </p>
                 </div>
 
@@ -1414,7 +1417,7 @@ export const HotelDetailPage: React.FC<HotelDetailPageProps> = ({
                 <div className="bg-emerald-50/70 border border-emerald-200 rounded-2xl p-4 max-w-md mx-auto flex items-center justify-between gap-4 mt-2">
                   <div className="text-left">
                     <span className="text-[10px] text-emerald-800 uppercase font-black tracking-wider block">
-                      Unique Booking Reference Number
+                      {t('Unique Booking Reference Number')}
                     </span>
                     <span className="text-lg sm:text-xl font-mono font-black text-emerald-950 tracking-wider">
                       {confirmedBooking.referenceNumber}
@@ -1424,17 +1427,17 @@ export const HotelDetailPage: React.FC<HotelDetailPageProps> = ({
                     id="btn-copy-booking-ref"
                     onClick={() => handleCopyReference(confirmedBooking.referenceNumber)}
                     className="px-3 py-2 rounded-xl bg-white border border-emerald-300 hover:bg-emerald-50 text-emerald-900 text-xs font-bold transition-colors cursor-pointer flex items-center gap-1.5 shrink-0 shadow-2xs"
-                    title="Copy Reference Number"
+                    title={t('Copy Reference Number')}
                   >
                     {isCopied ? (
                       <>
                         <Check className="w-3.5 h-3.5 text-emerald-600" />
-                        <span className="text-emerald-700 text-xs">Copied!</span>
+                        <span className="text-emerald-700 text-xs">{t('Copied!')}</span>
                       </>
                     ) : (
                       <>
                         <Copy className="w-3.5 h-3.5 text-emerald-700" />
-                        <span className="text-xs">Copy Ref</span>
+                        <span className="text-xs">{t('Copy Ref')}</span>
                       </>
                     )}
                   </button>
@@ -1447,11 +1450,11 @@ export const HotelDetailPage: React.FC<HotelDetailPageProps> = ({
                   <div className="flex items-center gap-2">
                     <HotelIcon className="w-4 h-4 text-emerald-700" />
                     <span className="text-xs font-black uppercase tracking-wider text-stone-700">
-                      Confirmed Reservation Summary
+                      {t('Confirmed Reservation Summary')}
                     </span>
                   </div>
                   <span className="text-xs font-black text-emerald-800 bg-emerald-100 border border-emerald-200 px-3 py-0.5 rounded-full">
-                    ★ {confirmedBooking.status} (Demo)
+                    ★ {confirmedBooking.status} ({t('Demo')})
                   </span>
                 </div>
 
@@ -1459,7 +1462,7 @@ export const HotelDetailPage: React.FC<HotelDetailPageProps> = ({
                 <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-3 border-b border-stone-200/70">
                   <div>
                     <span className="text-[10px] text-stone-400 block font-black uppercase tracking-wider">
-                      Hotel Name
+                      {t('Hotel Name')}
                     </span>
                     <h3 className="font-black text-stone-900 text-base sm:text-lg">
                       {confirmedBooking.hotelName}
@@ -1467,7 +1470,7 @@ export const HotelDetailPage: React.FC<HotelDetailPageProps> = ({
                   </div>
                   <div className="sm:text-right">
                     <span className="text-[10px] text-stone-400 block font-black uppercase tracking-wider">
-                      Location
+                      {t('Location')}
                     </span>
                     <span className="font-bold text-stone-800 text-xs sm:text-sm flex sm:justify-end items-center gap-1">
                       <MapPin className="w-3.5 h-3.5 text-emerald-700 shrink-0" />
@@ -1481,70 +1484,70 @@ export const HotelDetailPage: React.FC<HotelDetailPageProps> = ({
                   {/* Room type */}
                   <div className="bg-white p-3.5 rounded-xl border border-stone-200/80">
                     <span className="text-[10px] text-stone-400 block font-black uppercase tracking-wider mb-0.5">
-                      Room Type
+                      {t('Room Type')}
                     </span>
                     <span className="font-black text-stone-900 text-sm block">
                       {confirmedBooking.roomType}
                     </span>
-                    <span className="text-[11px] text-stone-500">Reserved Suite</span>
+                    <span className="text-[11px] text-stone-500">{t('Reserved Suite')}</span>
                   </div>
 
                   {/* Check-in date */}
                   <div className="bg-white p-3.5 rounded-xl border border-stone-200/80">
                     <span className="text-[10px] text-stone-400 block font-black uppercase tracking-wider mb-0.5">
-                      Check-in Date
+                      {t('Check-in Date')}
                     </span>
                     <span className="font-black text-stone-900 text-sm block">
                       {confirmedBooking.checkInDate}
                     </span>
-                    <span className="text-[11px] text-stone-500">From 2:00 PM</span>
+                    <span className="text-[11px] text-stone-500">{t('From 2:00 PM')}</span>
                   </div>
 
                   {/* Check-out date */}
                   <div className="bg-white p-3.5 rounded-xl border border-stone-200/80">
                     <span className="text-[10px] text-stone-400 block font-black uppercase tracking-wider mb-0.5">
-                      Check-out Date
+                      {t('Check-out Date')}
                     </span>
                     <span className="font-black text-stone-900 text-sm block">
                       {confirmedBooking.checkOutDate}
                     </span>
-                    <span className="text-[11px] text-stone-500">Until 11:00 AM</span>
+                    <span className="text-[11px] text-stone-500">{t('Until 11:00 AM')}</span>
                   </div>
 
                   {/* Number of nights */}
                   <div className="bg-white p-3.5 rounded-xl border border-stone-200/80">
                     <span className="text-[10px] text-stone-400 block font-black uppercase tracking-wider mb-0.5">
-                      Number of Nights
+                      {t('Number of Nights')}
                     </span>
                     <span className="font-black text-stone-900 text-sm block">
-                      {confirmedBooking.nights} {confirmedBooking.nights === 1 ? 'Night' : 'Nights'}
+                      {confirmedBooking.nights} {confirmedBooking.nights === 1 ? t('Night') : t('Nights')}
                     </span>
-                    <span className="text-[11px] text-stone-500">Stay Duration</span>
+                    <span className="text-[11px] text-stone-500">{t('Stay Duration')}</span>
                   </div>
 
                   {/* Guests */}
                   <div className="bg-white p-3.5 rounded-xl border border-stone-200/80">
                     <span className="text-[10px] text-stone-400 block font-black uppercase tracking-wider mb-0.5">
-                      Guests
+                      {t('Guests')}
                     </span>
                     <span className="font-black text-stone-900 text-sm block">
-                      {confirmedBooking.guestsCount} {confirmedBooking.guestsCount === 1 ? 'Guest' : 'Guests'}
+                      {confirmedBooking.guestsCount} {confirmedBooking.guestsCount === 1 ? t('Guest') : t('Guests')}
                     </span>
                     <span className="text-[11px] text-stone-500">
-                      {confirmedBooking.roomsCount} {confirmedBooking.roomsCount === 1 ? 'Room' : 'Rooms'}
+                      {confirmedBooking.roomsCount} {confirmedBooking.roomsCount === 1 ? t('Room') : t('Rooms')}
                     </span>
                   </div>
 
                   {/* Total estimated amount */}
                   <div className="bg-emerald-50/90 p-3.5 rounded-xl border border-emerald-200">
                     <span className="text-[10px] text-emerald-800 block font-black uppercase tracking-wider mb-0.5">
-                      Total Estimated Amount
+                      {t('Total Estimated Amount')}
                     </span>
                     <span className="font-black text-emerald-950 text-base sm:text-lg block">
                       {confirmedBooking.paidAmountFormatted || `$${confirmedBooking.totalUsd} USD`}
                     </span>
                     <span className="text-[10px] text-emerald-700 font-semibold block truncate">
-                      {confirmedBooking.paymentMethod || 'Demo Payment'}
+                      {confirmedBooking.paymentMethod || t('Demo Payment')}
                     </span>
                   </div>
                 </div>
@@ -1553,7 +1556,7 @@ export const HotelDetailPage: React.FC<HotelDetailPageProps> = ({
                 <div className="pt-2 border-t border-stone-200 text-xs flex flex-col sm:flex-row sm:items-center justify-between gap-2 text-stone-600">
                   <div>
                     <span className="text-[10px] text-stone-400 uppercase font-black block">
-                      Primary Guest
+                      {t('Primary Guest')}
                     </span>
                     <span className="font-semibold text-stone-800">
                       {confirmedBooking.guestName} ({confirmedBooking.guestEmail})
@@ -1562,7 +1565,7 @@ export const HotelDetailPage: React.FC<HotelDetailPageProps> = ({
                   {confirmedBooking.specialRequests && (
                     <div className="text-left sm:text-right">
                       <span className="text-[10px] text-stone-400 uppercase font-black block">
-                        Special Requests
+                        {t('Special Requests')}
                       </span>
                       <span className="italic text-stone-700">
                         {confirmedBooking.specialRequests}
@@ -1576,9 +1579,9 @@ export const HotelDetailPage: React.FC<HotelDetailPageProps> = ({
               <div className="p-3.5 bg-amber-50 rounded-2xl border border-amber-200 text-xs text-amber-900 flex items-start gap-2.5">
                 <Info className="w-4 h-4 text-amber-700 shrink-0 mt-0.5" />
                 <div className="space-y-0.5">
-                  <span className="font-bold block">Demo / Test Payment Completed</span>
+                  <span className="font-bold block">{t('Demo / Test Payment Completed')}</span>
                   <p className="text-[11px] text-amber-800 leading-relaxed">
-                    This reservation was processed in sandbox test mode. No real credit or debit card details were collected, and no real money was charged. This confirmed booking is stored in your LankaMate local storage and accessible under <strong>My Trips</strong>.
+                    {t('This reservation was processed in sandbox test mode. No real credit or debit card details were collected, and no real money was charged. This confirmed booking is stored in your LankaMate local storage and accessible under')} <strong>{t('My Trips')}</strong>.
                   </p>
                 </div>
               </div>
@@ -1593,7 +1596,7 @@ export const HotelDetailPage: React.FC<HotelDetailPageProps> = ({
                   className="w-full sm:w-auto px-5 py-3.5 bg-white border border-emerald-600 text-emerald-800 hover:bg-emerald-50 active:bg-emerald-100 rounded-xl text-xs sm:text-sm font-black transition-all cursor-pointer shadow-xs flex items-center justify-center gap-2"
                 >
                   <FileText className="w-4 h-4 text-emerald-700" />
-                  <span>View My Booking</span>
+                  <span>{t('View My Booking')}</span>
                 </button>
 
                 {/* 2. Back to Hotels */}
@@ -1604,7 +1607,7 @@ export const HotelDetailPage: React.FC<HotelDetailPageProps> = ({
                   className="w-full sm:w-auto px-5 py-3.5 bg-stone-100 hover:bg-stone-200 active:bg-stone-300 text-stone-800 rounded-xl text-xs sm:text-sm font-black transition-all cursor-pointer shadow-xs flex items-center justify-center gap-2"
                 >
                   <HotelIcon className="w-4 h-4 text-stone-600" />
-                  <span>Back to Hotels</span>
+                  <span>{t('Back to Hotels')}</span>
                 </button>
 
                 {/* 3. Go to My Trips */}
@@ -1624,7 +1627,7 @@ export const HotelDetailPage: React.FC<HotelDetailPageProps> = ({
                   className="w-full sm:w-auto px-6 py-3.5 bg-emerald-800 hover:bg-emerald-900 active:bg-emerald-950 text-white rounded-xl text-xs sm:text-sm font-black transition-all cursor-pointer shadow-md hover:shadow-lg flex items-center justify-center gap-2"
                 >
                   <Compass className="w-4 h-4 text-emerald-300" />
-                  <span>Go to My Trips</span>
+                  <span>{t('Go to My Trips')}</span>
                 </button>
               </div>
             </div>
@@ -1639,16 +1642,16 @@ export const HotelDetailPage: React.FC<HotelDetailPageProps> = ({
                 <div>
                   <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-emerald-100 text-emerald-900 text-xs font-bold uppercase tracking-wider mb-1">
                     <FileText className="w-3.5 h-3.5 text-emerald-700" />
-                    <span>Official Demo Voucher</span>
+                    <span>{t('Official Demo Voucher')}</span>
                   </div>
                   <h3 className="text-xl font-black text-emerald-950">
-                    LankaMate Reservation Voucher
+                    {t('LankaMate Reservation Voucher')}
                   </h3>
                 </div>
                 <button
                   onClick={() => setShowVoucherModal(false)}
                   className="p-2 rounded-xl text-stone-400 hover:text-stone-700 hover:bg-stone-100 transition-colors cursor-pointer"
-                  title="Close Voucher"
+                  title={t('Close Voucher')}
                 >
                   <X className="w-5 h-5" />
                 </button>
@@ -1658,17 +1661,17 @@ export const HotelDetailPage: React.FC<HotelDetailPageProps> = ({
               <div className="bg-stone-50 rounded-2xl p-5 border border-stone-200 space-y-4 text-xs text-stone-700">
                 <div className="flex items-center justify-between border-b border-stone-200 pb-3">
                   <div>
-                    <span className="text-[10px] text-stone-400 uppercase font-black block">Reference Code</span>
+                    <span className="text-[10px] text-stone-400 uppercase font-black block">{t('Reference Code')}</span>
                     <span className="text-base font-mono font-black text-emerald-900">{confirmedBooking.referenceNumber}</span>
                   </div>
                   <div className="text-right">
-                    <span className="text-[10px] text-stone-400 uppercase font-black block">Issued On</span>
+                    <span className="text-[10px] text-stone-400 uppercase font-black block">{t('Issued On')}</span>
                     <span className="font-semibold text-stone-800">{confirmedBooking.createdAt}</span>
                   </div>
                 </div>
 
                 <div className="space-y-1">
-                  <span className="text-[10px] text-stone-400 uppercase font-black block">Reserved Property</span>
+                  <span className="text-[10px] text-stone-400 uppercase font-black block">{t('Reserved Property')}</span>
                   <div className="text-base font-black text-stone-900">{confirmedBooking.hotelName}</div>
                   <div className="text-stone-600 flex items-center gap-1">
                     <MapPin className="w-3 h-3 text-emerald-700" />
@@ -1676,45 +1679,45 @@ export const HotelDetailPage: React.FC<HotelDetailPageProps> = ({
                   </div>
                   <div className="text-stone-500 flex items-center gap-1 pt-0.5">
                     <Phone className="w-3 h-3 text-stone-400" />
-                    <span>Front Desk: {hotel.phone}</span>
+                    <span>{t('Front Desk:')} {hotel.phone}</span>
                   </div>
                 </div>
 
                 <div className="grid grid-cols-2 gap-3 bg-white p-3.5 rounded-xl border border-stone-200">
                   <div>
-                    <span className="text-[10px] text-stone-400 uppercase font-black block">Room Type</span>
+                    <span className="text-[10px] text-stone-400 uppercase font-black block">{t('Room Type')}</span>
                     <span className="font-bold text-stone-900">{confirmedBooking.roomType}</span>
                   </div>
                   <div>
-                    <span className="text-[10px] text-stone-400 uppercase font-black block">Duration</span>
-                    <span className="font-bold text-stone-900">{confirmedBooking.nights} Nights ({confirmedBooking.checkInDate} to {confirmedBooking.checkOutDate})</span>
+                    <span className="text-[10px] text-stone-400 uppercase font-black block">{t('Duration')}</span>
+                    <span className="font-bold text-stone-900">{confirmedBooking.nights} {t('Nights')} ({confirmedBooking.checkInDate} {t('to')} {confirmedBooking.checkOutDate})</span>
                   </div>
                   <div>
-                    <span className="text-[10px] text-stone-400 uppercase font-black block">Party</span>
-                    <span className="font-bold text-stone-900">{confirmedBooking.guestsCount} Guests • {confirmedBooking.roomsCount} Rooms</span>
+                    <span className="text-[10px] text-stone-400 uppercase font-black block">{t('Party')}</span>
+                    <span className="font-bold text-stone-900">{confirmedBooking.guestsCount} {t('Guests')} • {confirmedBooking.roomsCount} {t('Rooms')}</span>
                   </div>
                   <div>
-                    <span className="text-[10px] text-stone-400 uppercase font-black block">Total Amount</span>
+                    <span className="text-[10px] text-stone-400 uppercase font-black block">{t('Total Amount')}</span>
                     <span className="font-black text-emerald-950">{confirmedBooking.paidAmountFormatted || `$${confirmedBooking.totalUsd} USD`}</span>
                   </div>
                 </div>
 
                 <div>
-                  <span className="text-[10px] text-stone-400 uppercase font-black block">Primary Guest</span>
+                  <span className="text-[10px] text-stone-400 uppercase font-black block">{t('Primary Guest')}</span>
                   <span className="font-bold text-stone-900">{confirmedBooking.guestName}</span>
                   <span className="text-stone-500 block">{confirmedBooking.guestEmail} • {confirmedBooking.guestPhone}</span>
                 </div>
 
                 {confirmedBooking.specialRequests && (
                   <div>
-                    <span className="text-[10px] text-stone-400 uppercase font-black block">Special Requests</span>
+                    <span className="text-[10px] text-stone-400 uppercase font-black block">{t('Special Requests')}</span>
                     <span className="italic text-stone-700">{confirmedBooking.specialRequests}</span>
                   </div>
                 )}
 
                 <div className="pt-2 border-t border-stone-200 flex items-center justify-between text-[11px] text-stone-500">
-                  <span>Policy: Standard Check-in 2:00 PM • Free cancellation up to 48h</span>
-                  <span className="font-bold text-emerald-800">Status: {confirmedBooking.status}</span>
+                  <span>{t('Policy: Standard Check-in 2:00 PM • Free cancellation up to 48h')}</span>
+                  <span className="font-bold text-emerald-800">{t('Status:')} {confirmedBooking.status}</span>
                 </div>
               </div>
 
@@ -1726,7 +1729,7 @@ export const HotelDetailPage: React.FC<HotelDetailPageProps> = ({
                   className="w-full sm:w-auto px-4 py-2.5 bg-stone-100 hover:bg-stone-200 text-stone-700 rounded-xl text-xs font-bold transition-colors cursor-pointer flex items-center justify-center gap-1.5"
                 >
                   <Printer className="w-4 h-4" />
-                  <span>Print Voucher</span>
+                  <span>{t('Print Voucher')}</span>
                 </button>
 
                 <div className="flex items-center gap-2 w-full sm:w-auto">
@@ -1739,7 +1742,7 @@ export const HotelDetailPage: React.FC<HotelDetailPageProps> = ({
                       }}
                       className="w-full sm:w-auto px-4 py-2.5 border border-emerald-300 text-emerald-800 hover:bg-emerald-50 rounded-xl text-xs font-bold transition-colors cursor-pointer"
                     >
-                      View All Saved Bookings
+                      {t('View All Saved Bookings')}
                     </button>
                   )}
                   <button
@@ -1747,7 +1750,7 @@ export const HotelDetailPage: React.FC<HotelDetailPageProps> = ({
                     onClick={() => setShowVoucherModal(false)}
                     className="w-full sm:w-auto px-5 py-2.5 bg-emerald-800 hover:bg-emerald-900 text-white rounded-xl text-xs font-bold transition-colors cursor-pointer"
                   >
-                    Done
+                    {t('Done')}
                   </button>
                 </div>
               </div>

@@ -16,12 +16,14 @@ import {
 import { handbookTopics } from '../data/handbookData';
 import { PageId } from '../types';
 import { handleEmergencyCall } from '../utils/emergencyCall';
+import { useTranslation } from '../i18n/LanguageContext';
 
 interface HandbookViewProps {
   onNavigatePage: (page: PageId) => void;
 }
 
 export const HandbookView: React.FC<HandbookViewProps> = ({ onNavigatePage }) => {
+  const { t } = useTranslation();
   const [selectedCategory, setSelectedCategory] = useState<string>('All');
   const [searchQuery, setSearchQuery] = useState('');
 
@@ -54,13 +56,13 @@ export const HandbookView: React.FC<HandbookViewProps> = ({ onNavigatePage }) =>
         <div className="border-b border-stone-200 pb-6">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-100 text-emerald-900 text-xs font-bold uppercase tracking-wider mb-2">
             <BookOpen className="w-3.5 h-3.5 text-emerald-700" />
-            Official Traveler Dossier
+            {t('Official Traveler Dossier')}
           </div>
           <h1 className="text-3xl sm:text-4xl font-black text-emerald-950 tracking-tight">
-            Sri Lanka Travel Handbook
+            {t('Sri Lanka Travel Handbook')}
           </h1>
           <p className="text-stone-600 text-sm sm:text-base mt-1 max-w-2xl">
-            Critical island knowledge: weather seasons, currency handling, emergency speed-dials, temple etiquette, and health safety tips for first-timers and seasoned visitors.
+            {t('Critical island knowledge: weather seasons, currency handling, emergency speed-dials, temple etiquette, and health safety tips for first-timers and seasoned visitors.')}
           </p>
         </div>
 
@@ -71,7 +73,7 @@ export const HandbookView: React.FC<HandbookViewProps> = ({ onNavigatePage }) =>
             id="card-emergency-1990"
             onClick={(e) => handleEmergencyCall(e, '1990')}
             className="w-full text-left bg-red-50 hover:bg-red-100 active:bg-red-200 border border-red-200 rounded-2xl p-4 flex items-center justify-between shadow-2xs hover:shadow-xs transition-all cursor-pointer touch-manipulation group"
-            title="Call Free Ambulance 1990"
+            title={t('Call Free Ambulance 1990')}
           >
             <div className="flex items-center gap-3">
               <div className="w-10 h-10 rounded-xl bg-red-600 text-white flex items-center justify-center font-bold shadow-xs group-hover:scale-105 transition-transform">
@@ -79,10 +81,10 @@ export const HandbookView: React.FC<HandbookViewProps> = ({ onNavigatePage }) =>
               </div>
               <div>
                 <span className="text-[11px] font-bold text-red-700 uppercase tracking-wider block">
-                  Free Ambulance
+                  {t('Free Ambulance')}
                 </span>
                 <span className="text-2xl font-black text-red-950">1990</span>
-                <span className="text-[10px] text-stone-500 block">Suwa Seriya Pre-Hospital</span>
+                <span className="text-[10px] text-stone-500 block">{t('Suwa Seriya Pre-Hospital')}</span>
               </div>
             </div>
             <span
@@ -90,7 +92,7 @@ export const HandbookView: React.FC<HandbookViewProps> = ({ onNavigatePage }) =>
               className="px-3 py-2 bg-red-600 group-hover:bg-red-700 active:bg-red-800 text-white text-xs font-bold rounded-xl transition-colors flex items-center gap-1 shrink-0 shadow-xs"
             >
               <Phone className="w-3.5 h-3.5" />
-              <span>Call 1990</span>
+              <span>{t('Call 1990')}</span>
             </span>
           </button>
 
@@ -99,7 +101,7 @@ export const HandbookView: React.FC<HandbookViewProps> = ({ onNavigatePage }) =>
             id="card-emergency-1912"
             onClick={(e) => handleEmergencyCall(e, '1912')}
             className="w-full text-left bg-sky-50 hover:bg-sky-100 active:bg-sky-200 border border-sky-200 rounded-2xl p-4 flex items-center justify-between shadow-2xs hover:shadow-xs transition-all cursor-pointer touch-manipulation group"
-            title="Call Tourist Police 1912"
+            title={t('Call Tourist Police 1912')}
           >
             <div className="flex items-center gap-3">
               <div className="w-10 h-10 rounded-xl bg-sky-700 text-white flex items-center justify-center font-bold shadow-xs group-hover:scale-105 transition-transform">
@@ -107,10 +109,10 @@ export const HandbookView: React.FC<HandbookViewProps> = ({ onNavigatePage }) =>
               </div>
               <div>
                 <span className="text-[11px] font-bold text-sky-800 uppercase tracking-wider block">
-                  Tourist Police
+                  {t('Tourist Police')}
                 </span>
                 <span className="text-2xl font-black text-sky-950">1912</span>
-                <span className="text-[10px] text-stone-500 block">24/7 Multilingual Support</span>
+                <span className="text-[10px] text-stone-500 block">{t('24/7 Multilingual Support')}</span>
               </div>
             </div>
             <span
@@ -118,7 +120,7 @@ export const HandbookView: React.FC<HandbookViewProps> = ({ onNavigatePage }) =>
               className="px-3 py-2 bg-sky-700 group-hover:bg-sky-800 active:bg-sky-900 text-white text-xs font-bold rounded-xl transition-colors flex items-center gap-1 shrink-0 shadow-xs"
             >
               <Phone className="w-3.5 h-3.5" />
-              <span>Call 1912</span>
+              <span>{t('Call 1912')}</span>
             </span>
           </button>
 
@@ -127,7 +129,7 @@ export const HandbookView: React.FC<HandbookViewProps> = ({ onNavigatePage }) =>
             id="card-emergency-119"
             onClick={(e) => handleEmergencyCall(e, '119')}
             className="w-full text-left bg-amber-50 hover:bg-amber-100 active:bg-amber-200 border border-amber-200 rounded-2xl p-4 flex items-center justify-between shadow-2xs hover:shadow-xs transition-all cursor-pointer touch-manipulation group"
-            title="Call Police Dispatch 119"
+            title={t('Call Police Dispatch 119')}
           >
             <div className="flex items-center gap-3">
               <div className="w-10 h-10 rounded-xl bg-amber-600 text-white flex items-center justify-center font-bold shadow-xs group-hover:scale-105 transition-transform">
@@ -135,10 +137,10 @@ export const HandbookView: React.FC<HandbookViewProps> = ({ onNavigatePage }) =>
               </div>
               <div>
                 <span className="text-[11px] font-bold text-amber-800 uppercase tracking-wider block">
-                  Police Dispatch
+                  {t('Police Dispatch')}
                 </span>
                 <span className="text-2xl font-black text-amber-950">119</span>
-                <span className="text-[10px] text-stone-500 block">National Police Emergency</span>
+                <span className="text-[10px] text-stone-500 block">{t('National Police Emergency')}</span>
               </div>
             </div>
             <span
@@ -146,7 +148,7 @@ export const HandbookView: React.FC<HandbookViewProps> = ({ onNavigatePage }) =>
               className="px-3 py-2 bg-amber-600 group-hover:bg-amber-700 active:bg-amber-800 text-white text-xs font-bold rounded-xl transition-colors flex items-center gap-1 shrink-0 shadow-xs"
             >
               <Phone className="w-3.5 h-3.5" />
-              <span>Call 119</span>
+              <span>{t('Call 119')}</span>
             </span>
           </button>
 
@@ -155,7 +157,7 @@ export const HandbookView: React.FC<HandbookViewProps> = ({ onNavigatePage }) =>
             id="card-emergency-110"
             onClick={(e) => handleEmergencyCall(e, '110')}
             className="w-full text-left bg-orange-50 hover:bg-orange-100 active:bg-orange-200 border border-orange-200 rounded-2xl p-4 flex items-center justify-between shadow-2xs hover:shadow-xs transition-all cursor-pointer touch-manipulation group"
-            title="Call Fire & Rescue 110"
+            title={t('Call Fire & Rescue 110')}
           >
             <div className="flex items-center gap-3">
               <div className="w-10 h-10 rounded-xl bg-orange-600 text-white flex items-center justify-center font-bold shadow-xs group-hover:scale-105 transition-transform">
@@ -163,10 +165,10 @@ export const HandbookView: React.FC<HandbookViewProps> = ({ onNavigatePage }) =>
               </div>
               <div>
                 <span className="text-[11px] font-bold text-orange-800 uppercase tracking-wider block">
-                  Fire & Rescue
+                  {t('Fire & Rescue')}
                 </span>
                 <span className="text-2xl font-black text-orange-950">110</span>
-                <span className="text-[10px] text-stone-500 block">Emergency Fire Brigade</span>
+                <span className="text-[10px] text-stone-500 block">{t('Emergency Fire Brigade')}</span>
               </div>
             </div>
             <span
@@ -174,7 +176,7 @@ export const HandbookView: React.FC<HandbookViewProps> = ({ onNavigatePage }) =>
               className="px-3 py-2 bg-orange-600 group-hover:bg-orange-700 active:bg-orange-800 text-white text-xs font-bold rounded-xl transition-colors flex items-center gap-1 shrink-0 shadow-xs"
             >
               <Phone className="w-3.5 h-3.5" />
-              <span>Call 110</span>
+              <span>{t('Call 110')}</span>
             </span>
           </button>
         </div>
@@ -192,7 +194,7 @@ export const HandbookView: React.FC<HandbookViewProps> = ({ onNavigatePage }) =>
                     : 'bg-white text-stone-700 border border-stone-200 hover:bg-stone-50'
                 }`}
               >
-                {cat}
+                {t(cat)}
               </button>
             ))}
           </div>
@@ -203,7 +205,7 @@ export const HandbookView: React.FC<HandbookViewProps> = ({ onNavigatePage }) =>
               type="text"
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              placeholder="Search handbook tips..."
+              placeholder={t('Search handbook tips...')}
               className="w-full pl-9 pr-3 py-1.5 bg-white border border-stone-200 rounded-xl text-xs focus:outline-none focus:border-emerald-700"
             />
           </div>
@@ -219,26 +221,26 @@ export const HandbookView: React.FC<HandbookViewProps> = ({ onNavigatePage }) =>
               <div className="space-y-3">
                 <div className="flex items-center justify-between">
                   <span className="px-2.5 py-0.5 rounded-full bg-emerald-50 text-emerald-900 border border-emerald-200 text-[10px] font-bold uppercase tracking-wider">
-                    {topic.category}
+                    {t(topic.category)}
                   </span>
                   <span className="text-[11px] font-bold text-amber-700 bg-amber-50 px-2 py-0.5 rounded-md">
-                    {topic.badge}
+                    {t(topic.badge)}
                   </span>
                 </div>
 
                 <h3 className="text-xl font-black text-emerald-950 tracking-tight">
-                  {topic.title}
+                  {t(topic.title)}
                 </h3>
 
                 <p className="text-xs sm:text-sm text-stone-600 leading-relaxed">
-                  {topic.summary}
+                  {t(topic.summary)}
                 </p>
 
                 <div className="space-y-2 pt-2 border-t border-stone-100">
                   {topic.content.map((point, idx) => (
                     <div key={idx} className="flex items-start gap-2 text-xs text-stone-700">
                       <span className="text-emerald-700 font-bold shrink-0 mt-0.5">•</span>
-                      <span className="leading-relaxed">{point}</span>
+                      <span className="leading-relaxed">{t(point)}</span>
                     </div>
                   ))}
                 </div>
@@ -250,11 +252,11 @@ export const HandbookView: React.FC<HandbookViewProps> = ({ onNavigatePage }) =>
                       id="btn-topic-call-1990"
                       onClick={(e) => handleEmergencyCall(e, '1990')}
                       className="p-2.5 bg-red-100 hover:bg-red-200 active:bg-red-300 text-red-900 rounded-xl text-xs font-bold flex items-center justify-between transition-colors cursor-pointer shadow-2xs touch-manipulation w-full text-left"
-                      title="Call Free Ambulance 1990"
+                      title={t('Call Free Ambulance 1990')}
                     >
                       <span className="flex items-center gap-1.5">
                         <PhoneCall className="w-3.5 h-3.5 text-red-600" />
-                        <span>Free Ambulance</span>
+                        <span>{t('Free Ambulance')}</span>
                       </span>
                       <span className="font-black text-red-700">1990</span>
                     </button>
@@ -263,11 +265,11 @@ export const HandbookView: React.FC<HandbookViewProps> = ({ onNavigatePage }) =>
                       id="btn-topic-call-1912"
                       onClick={(e) => handleEmergencyCall(e, '1912')}
                       className="p-2.5 bg-sky-100 hover:bg-sky-200 active:bg-sky-300 text-sky-900 rounded-xl text-xs font-bold flex items-center justify-between transition-colors cursor-pointer shadow-2xs touch-manipulation w-full text-left"
-                      title="Call Tourist Police 1912"
+                      title={t('Call Tourist Police 1912')}
                     >
                       <span className="flex items-center gap-1.5">
                         <ShieldCheck className="w-3.5 h-3.5 text-sky-600" />
-                        <span>Tourist Police</span>
+                        <span>{t('Tourist Police')}</span>
                       </span>
                       <span className="font-black text-sky-700">1912</span>
                     </button>
@@ -276,11 +278,11 @@ export const HandbookView: React.FC<HandbookViewProps> = ({ onNavigatePage }) =>
                       id="btn-topic-call-119"
                       onClick={(e) => handleEmergencyCall(e, '119')}
                       className="p-2.5 bg-amber-100 hover:bg-amber-200 active:bg-amber-300 text-amber-900 rounded-xl text-xs font-bold flex items-center justify-between transition-colors cursor-pointer shadow-2xs touch-manipulation w-full text-left"
-                      title="Call Police Dispatch 119"
+                      title={t('Call Police Dispatch 119')}
                     >
                       <span className="flex items-center gap-1.5">
                         <Phone className="w-3.5 h-3.5 text-amber-600" />
-                        <span>Police Dispatch</span>
+                        <span>{t('Police Dispatch')}</span>
                       </span>
                       <span className="font-black text-amber-700">119</span>
                     </button>
@@ -289,11 +291,11 @@ export const HandbookView: React.FC<HandbookViewProps> = ({ onNavigatePage }) =>
                       id="btn-topic-call-110"
                       onClick={(e) => handleEmergencyCall(e, '110')}
                       className="p-2.5 bg-orange-100 hover:bg-orange-200 active:bg-orange-300 text-orange-900 rounded-xl text-xs font-bold flex items-center justify-between transition-colors cursor-pointer shadow-2xs touch-manipulation w-full text-left"
-                      title="Call Fire & Rescue 110"
+                      title={t('Call Fire & Rescue 110')}
                     >
                       <span className="flex items-center gap-1.5">
                         <PhoneCall className="w-3.5 h-3.5 text-orange-600" />
-                        <span>Fire & Rescue</span>
+                        <span>{t('Fire & Rescue')}</span>
                       </span>
                       <span className="font-black text-orange-700">110</span>
                     </button>
@@ -305,8 +307,8 @@ export const HandbookView: React.FC<HandbookViewProps> = ({ onNavigatePage }) =>
               <div className="bg-emerald-50/70 p-3.5 rounded-xl border border-emerald-200/60 text-xs text-emerald-950 flex items-start gap-2">
                 <Sparkles className="w-4 h-4 text-amber-600 shrink-0 mt-0.5" />
                 <div>
-                  <span className="font-bold block text-[11px] text-emerald-900">Key Takeaway:</span>
-                  <p className="text-emerald-950 font-medium leading-relaxed">{topic.keyAdvice}</p>
+                  <span className="font-bold block text-[11px] text-emerald-900">{t('Key Takeaway:')}</span>
+                  <p className="text-emerald-950 font-medium leading-relaxed">{t(topic.keyAdvice)}</p>
                 </div>
               </div>
             </div>
@@ -317,20 +319,20 @@ export const HandbookView: React.FC<HandbookViewProps> = ({ onNavigatePage }) =>
         <div className="bg-white rounded-2xl shadow-xs border border-stone-200 p-6 space-y-4">
           <div className="flex items-center gap-2 text-xs font-bold text-emerald-800 uppercase tracking-wider">
             <HeartHandshake className="w-4 h-4 text-emerald-700" />
-            <span>Essential Island Greetings & Phrases</span>
+            <span>{t('Essential Island Greetings & Phrases')}</span>
           </div>
 
           <p className="text-xs text-stone-500">
-            Speaking a few words of Sinhala and Tamil brings warm smiles across the island:
+            {t('Speaking a few words of Sinhala and Tamil brings warm smiles across the island:')}
           </p>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
             {phrases.map((p, idx) => (
               <div key={idx} className="p-3 bg-stone-50 rounded-xl border border-stone-100 space-y-1">
                 <div className="text-xs font-bold text-emerald-950">{p.phrase}</div>
-                <div className="text-[11px] text-stone-600">{p.meaning}</div>
+                <div className="text-[11px] text-stone-600">{t(p.meaning)}</div>
                 <span className="text-[9px] uppercase font-bold text-stone-400 bg-white px-1.5 py-0.5 rounded-sm inline-block">
-                  {p.lang}
+                  {t(p.lang)}
                 </span>
               </div>
             ))}

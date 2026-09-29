@@ -22,6 +22,7 @@ import {
   BookOpen,
 } from 'lucide-react';
 import { PageId } from '../types';
+import { useTranslation } from '../i18n/LanguageContext';
 
 interface SevenDayItineraryViewProps {
   onNavigatePage: (page: PageId) => void;
@@ -45,6 +46,7 @@ interface ItineraryDayDetail {
 export const SevenDayItineraryView: React.FC<SevenDayItineraryViewProps> = ({
   onNavigatePage,
 }) => {
+  const { t } = useTranslation();
   const [selectedDayTab, setSelectedDayTab] = useState<number | 'all'>('all');
   const [copiedSuccess, setCopiedSuccess] = useState(false);
 
@@ -214,11 +216,11 @@ export const SevenDayItineraryView: React.FC<SevenDayItineraryViewProps> = ({
   ];
 
   const handleShare = async () => {
-    const shareText = `7-Day Sri Lanka Itinerary:\nDay 1 - Colombo\nDay 2 - Sigiriya & Dambulla\nDay 3 - Kandy\nDay 4 - Nuwara Eliya\nDay 5 - Ella\nDay 6 - Yala\nDay 7 - Galle & Southern Coast\n\nPlanned with LankaMate!`;
+    const shareText = `${t('7-Day Sri Lanka Itinerary:')}\n${t('Day')} 1 - Colombo\n${t('Day')} 2 - Sigiriya & Dambulla\n${t('Day')} 3 - Kandy\n${t('Day')} 4 - Nuwara Eliya\n${t('Day')} 5 - Ella\n${t('Day')} 6 - Yala\n${t('Day')} 7 - Galle & Southern Coast\n\n${t('Planned with LankaMate!')}`;
     if (navigator.share) {
       try {
         await navigator.share({
-          title: '7-Day Sri Lanka Itinerary - LankaMate',
+          title: t('7-Day Sri Lanka Itinerary - LankaMate'),
           text: shareText,
           url: window.location.href,
         });
@@ -249,10 +251,10 @@ export const SevenDayItineraryView: React.FC<SevenDayItineraryViewProps> = ({
               className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-white hover:bg-stone-100 text-stone-700 border border-stone-200 text-xs font-bold shadow-xs transition-colors cursor-pointer"
             >
               <ArrowLeft className="w-3.5 h-3.5" />
-              <span>Back to All Guides</span>
+              <span>{t('Back to All Guides')}</span>
             </button>
             <span className="text-stone-300">/</span>
-            <span className="text-xs font-bold text-emerald-800">7-Day Itinerary Guide</span>
+            <span className="text-xs font-bold text-emerald-800">{t('7-Day Itinerary Guide')}</span>
           </div>
 
           <div className="flex items-center gap-2">
@@ -262,7 +264,7 @@ export const SevenDayItineraryView: React.FC<SevenDayItineraryViewProps> = ({
               className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-white hover:bg-stone-100 text-stone-700 border border-stone-200 text-xs font-bold shadow-xs transition-colors cursor-pointer"
             >
               <Share2 className="w-3.5 h-3.5 text-stone-500" />
-              <span>{copiedSuccess ? 'Copied Link!' : 'Share'}</span>
+              <span>{copiedSuccess ? t('Copied Link!') : t('Share')}</span>
             </button>
             <button
               type="button"
@@ -270,7 +272,7 @@ export const SevenDayItineraryView: React.FC<SevenDayItineraryViewProps> = ({
               className="hidden sm:inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-white hover:bg-stone-100 text-stone-700 border border-stone-200 text-xs font-bold shadow-xs transition-colors cursor-pointer"
             >
               <Printer className="w-3.5 h-3.5 text-stone-500" />
-              <span>Print</span>
+              <span>{t('Print')}</span>
             </button>
           </div>
         </div>
@@ -280,13 +282,13 @@ export const SevenDayItineraryView: React.FC<SevenDayItineraryViewProps> = ({
           <div className="relative z-10 max-w-3xl space-y-3">
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-400/20 text-amber-300 border border-amber-400/30 text-xs font-black uppercase tracking-wider">
               <Calendar className="w-3.5 h-3.5 text-amber-400" />
-              <span>Classic Island Circuit • 7 Days / 6 Nights</span>
+              <span>{t('Classic Island Circuit • 7 Days / 6 Nights')}</span>
             </div>
             <h1 className="text-3xl sm:text-5xl font-black tracking-tight leading-tight">
-              7-Day Sri Lanka Itinerary
+              {t('7-Day Sri Lanka Itinerary')}
             </h1>
             <p className="text-emerald-100/90 text-sm sm:text-base leading-relaxed">
-              The premier first-time route connecting Sri Lanka’s ancient UNESCO rock fortresses, sacred Buddhist capitals, misty Ceylon tea hills, world-famous blue train, big-game leopard safari, and 400-year-old ocean ramparts.
+              {t("The premier first-time route connecting Sri Lanka’s ancient UNESCO rock fortresses, sacred Buddhist capitals, misty Ceylon tea hills, world-famous blue train, big-game leopard safari, and 400-year-old ocean ramparts.")}
             </p>
 
             {/* Circuit Route Summary Pill */}
@@ -312,27 +314,27 @@ export const SevenDayItineraryView: React.FC<SevenDayItineraryViewProps> = ({
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
           <div className="bg-white p-4 rounded-2xl border border-stone-200 shadow-xs space-y-1">
             <span className="text-[10px] font-extrabold uppercase text-stone-400 tracking-wider block">
-              Total Duration
+              {t('Total Duration')}
             </span>
-            <span className="text-sm sm:text-base font-black text-emerald-950">7 Days / 6 Nights</span>
+            <span className="text-sm sm:text-base font-black text-emerald-950">{t('7 Days / 6 Nights')}</span>
           </div>
           <div className="bg-white p-4 rounded-2xl border border-stone-200 shadow-xs space-y-1">
             <span className="text-[10px] font-extrabold uppercase text-stone-400 tracking-wider block">
-              Travel Pace
+              {t('Travel Pace')}
             </span>
-            <span className="text-sm sm:text-base font-black text-emerald-950">Balanced & Scenic</span>
+            <span className="text-sm sm:text-base font-black text-emerald-950">{t('Balanced & Scenic')}</span>
           </div>
           <div className="bg-white p-4 rounded-2xl border border-stone-200 shadow-xs space-y-1">
             <span className="text-[10px] font-extrabold uppercase text-stone-400 tracking-wider block">
-              Primary Transit
+              {t('Primary Transit')}
             </span>
-            <span className="text-sm sm:text-base font-black text-emerald-950">Train + Car/Expressway</span>
+            <span className="text-sm sm:text-base font-black text-emerald-950">{t('Train + Car/Expressway')}</span>
           </div>
           <div className="bg-white p-4 rounded-2xl border border-stone-200 shadow-xs space-y-1">
             <span className="text-[10px] font-extrabold uppercase text-stone-400 tracking-wider block">
-              Key Focus
+              {t('Key Focus')}
             </span>
-            <span className="text-sm sm:text-base font-black text-emerald-950">Heritage, Safari, Tea & Sea</span>
+            <span className="text-sm sm:text-base font-black text-emerald-950">{t('Heritage, Safari, Tea & Sea')}</span>
           </div>
         </div>
 
@@ -347,7 +349,7 @@ export const SevenDayItineraryView: React.FC<SevenDayItineraryViewProps> = ({
                 : 'bg-stone-100 hover:bg-stone-200 text-stone-700'
             }`}
           >
-            All 7 Days View
+            {t('All 7 Days View')}
           </button>
           {itineraryDays.map((d) => {
             const active = selectedDayTab === d.dayNumber;
@@ -362,7 +364,7 @@ export const SevenDayItineraryView: React.FC<SevenDayItineraryViewProps> = ({
                     : 'bg-stone-100 hover:bg-stone-200 text-stone-700'
                 }`}
               >
-                <span className="text-[10px] font-black uppercase tracking-wider">{d.dayLabel}</span>
+                <span className="text-[10px] font-black uppercase tracking-wider">{t(d.dayLabel)}</span>
                 <span className="text-xs font-medium">({d.destination})</span>
               </button>
             );
@@ -381,7 +383,7 @@ export const SevenDayItineraryView: React.FC<SevenDayItineraryViewProps> = ({
               <div className="p-5 sm:p-6 border-b border-stone-100 bg-stone-50/50 flex flex-wrap items-center justify-between gap-3">
                 <div className="flex items-center gap-3">
                   <div className="w-12 h-12 rounded-2xl bg-emerald-900 text-white flex flex-col items-center justify-center font-black shadow-xs shrink-0">
-                    <span className="text-[9px] uppercase tracking-wider text-emerald-300">DAY</span>
+                    <span className="text-[9px] uppercase tracking-wider text-emerald-300">{t('DAY')}</span>
                     <span className="text-lg leading-none">{day.dayNumber}</span>
                   </div>
                   <div>
@@ -390,17 +392,17 @@ export const SevenDayItineraryView: React.FC<SevenDayItineraryViewProps> = ({
                         {day.destination}
                       </span>
                       <span className="text-stone-300">•</span>
-                      <span className="text-xs text-stone-500 font-medium">Day {day.dayNumber} Plan</span>
+                      <span className="text-xs text-stone-500 font-medium">{t('Day')} {day.dayNumber} {t('Plan')}</span>
                     </div>
                     <h2 className="text-xl sm:text-2xl font-black text-stone-900 tracking-tight">
-                      Day {day.dayNumber} - {day.destination}: {day.title}
+                      {t('Day')} {day.dayNumber} - {day.destination}: {t(day.title)}
                     </h2>
                   </div>
                 </div>
 
                 <div className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-stone-100 text-stone-700 text-xs font-bold">
                   <Car className="w-3.5 h-3.5 text-emerald-700" />
-                  <span>{day.transitTime}</span>
+                  <span>{t(day.transitTime)}</span>
                 </div>
               </div>
 
@@ -411,16 +413,16 @@ export const SevenDayItineraryView: React.FC<SevenDayItineraryViewProps> = ({
                   <div className="relative rounded-2xl overflow-hidden h-60 sm:h-72 border border-stone-100 shadow-inner">
                     <img
                       src={day.image}
-                      alt={`Day ${day.dayNumber} ${day.destination}`}
+                      alt={`${t('Day')} ${day.dayNumber} ${day.destination}`}
                       className="w-full h-full object-cover"
                       loading="lazy"
                     />
                     <div className="absolute inset-0 bg-linear-to-t from-black/70 via-black/20 to-transparent flex flex-col justify-end p-4 text-white">
                       <span className="text-[10px] font-black uppercase tracking-wider text-amber-300">
-                        Route Corridor
+                        {t('Route Corridor')}
                       </span>
                       <span className="text-xs font-bold leading-snug drop-shadow-md">
-                        {day.routeHighlight}
+                        {t(day.routeHighlight)}
                       </span>
                     </div>
                   </div>
@@ -429,13 +431,13 @@ export const SevenDayItineraryView: React.FC<SevenDayItineraryViewProps> = ({
                   <div className="bg-stone-50 rounded-2xl p-4 border border-stone-100 space-y-2">
                     <span className="text-xs font-black text-emerald-950 uppercase tracking-wider flex items-center gap-1.5">
                       <CheckCircle2 className="w-4 h-4 text-emerald-600" />
-                      Key Day Highlights
+                      {t('Key Day Highlights')}
                     </span>
                     <ul className="space-y-1.5 text-xs text-stone-700">
                       {day.highlights.map((h, idx) => (
                         <li key={idx} className="flex items-start gap-2">
                           <span className="text-emerald-700 font-bold shrink-0">•</span>
-                          <span>{h}</span>
+                          <span>{t(h)}</span>
                         </li>
                       ))}
                     </ul>
@@ -448,12 +450,12 @@ export const SevenDayItineraryView: React.FC<SevenDayItineraryViewProps> = ({
                   <div className="space-y-1.5">
                     <div className="flex items-center gap-2">
                       <span className="px-2 py-0.5 rounded-lg bg-amber-100 text-amber-900 text-[10px] font-extrabold uppercase tracking-wider">
-                        Morning
+                        {t('Morning')}
                       </span>
-                      <span className="text-xs font-bold text-stone-800">Commence & Explore</span>
+                      <span className="text-xs font-bold text-stone-800">{t('Commence & Explore')}</span>
                     </div>
                     <p className="text-stone-600 text-xs sm:text-sm leading-relaxed pl-1">
-                      {day.morning}
+                      {t(day.morning)}
                     </p>
                   </div>
 
@@ -461,12 +463,12 @@ export const SevenDayItineraryView: React.FC<SevenDayItineraryViewProps> = ({
                   <div className="space-y-1.5">
                     <div className="flex items-center gap-2">
                       <span className="px-2 py-0.5 rounded-lg bg-emerald-100 text-emerald-900 text-[10px] font-extrabold uppercase tracking-wider">
-                        Afternoon
+                        {t('Afternoon')}
                       </span>
-                      <span className="text-xs font-bold text-stone-800">Sightseeing & Culture</span>
+                      <span className="text-xs font-bold text-stone-800">{t('Sightseeing & Culture')}</span>
                     </div>
                     <p className="text-stone-600 text-xs sm:text-sm leading-relaxed pl-1">
-                      {day.afternoon}
+                      {t(day.afternoon)}
                     </p>
                   </div>
 
@@ -474,12 +476,12 @@ export const SevenDayItineraryView: React.FC<SevenDayItineraryViewProps> = ({
                   <div className="space-y-1.5">
                     <div className="flex items-center gap-2">
                       <span className="px-2 py-0.5 rounded-lg bg-indigo-100 text-indigo-900 text-[10px] font-extrabold uppercase tracking-wider">
-                        Evening
+                        {t('Evening')}
                       </span>
-                      <span className="text-xs font-bold text-stone-800">Sunset, Dinner & Relaxation</span>
+                      <span className="text-xs font-bold text-stone-800">{t('Sunset, Dinner & Relaxation')}</span>
                     </div>
                     <p className="text-stone-600 text-xs sm:text-sm leading-relaxed pl-1">
-                      {day.evening}
+                      {t(day.evening)}
                     </p>
                   </div>
 
@@ -487,10 +489,10 @@ export const SevenDayItineraryView: React.FC<SevenDayItineraryViewProps> = ({
                   <div className="bg-amber-50/80 border-l-4 border-amber-500 p-4 rounded-r-2xl space-y-1 text-xs">
                     <span className="font-extrabold text-amber-950 uppercase tracking-wider flex items-center gap-1 text-[10px]">
                       <Sparkles className="w-3.5 h-3.5 text-amber-600" />
-                      LankaMate Local Insider Tip
+                      {t('LankaMate Local Insider Tip')}
                     </span>
                     <p className="text-amber-950 font-medium leading-relaxed">
-                      {day.insiderTip}
+                      {t(day.insiderTip)}
                     </p>
                   </div>
                 </div>
@@ -503,13 +505,13 @@ export const SevenDayItineraryView: React.FC<SevenDayItineraryViewProps> = ({
         <div className="bg-linear-to-r from-emerald-900 via-emerald-950 to-stone-900 rounded-3xl p-6 sm:p-8 text-white shadow-xl flex flex-col md:flex-row items-center justify-between gap-6">
           <div className="space-y-2 text-center md:text-left">
             <span className="px-2.5 py-1 rounded-full bg-emerald-800/80 text-emerald-200 text-[10px] font-extrabold uppercase tracking-wider">
-              Ready to Customize Your Journey?
+              {t('Ready to Customize Your Journey?')}
             </span>
             <h3 className="text-xl sm:text-2xl font-black tracking-tight">
-              Customize or adapt this 7-day plan in our Planner
+              {t('Customize or adapt this 7-day plan in our Planner')}
             </h3>
             <p className="text-emerald-100/80 text-xs sm:text-sm max-w-xl leading-relaxed">
-              Adjust your daily pace, calculate estimated budgets in USD/LKR, explore hand-picked heritage hotels, and generate a printable personal travel itinerary.
+              {t('Adjust your daily pace, calculate estimated budgets in USD/LKR, explore hand-picked heritage hotels, and generate a printable personal travel itinerary.')}
             </p>
           </div>
 
@@ -522,7 +524,7 @@ export const SevenDayItineraryView: React.FC<SevenDayItineraryViewProps> = ({
               }}
               className="px-5 py-3 rounded-xl bg-amber-400 hover:bg-amber-300 text-stone-950 font-black text-xs sm:text-sm shadow-md transition-all cursor-pointer flex items-center gap-2"
             >
-              <span>Open in Trip Planner</span>
+              <span>{t('Open in Trip Planner')}</span>
               <ArrowRight className="w-4 h-4" />
             </button>
             <button
@@ -533,7 +535,7 @@ export const SevenDayItineraryView: React.FC<SevenDayItineraryViewProps> = ({
               }}
               className="px-4 py-3 rounded-xl bg-white/10 hover:bg-white/20 text-white font-bold text-xs sm:text-sm transition-all cursor-pointer"
             >
-              <span>All Guides</span>
+              <span>{t('All Guides')}</span>
             </button>
           </div>
         </div>
