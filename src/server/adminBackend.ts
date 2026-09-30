@@ -49,16 +49,35 @@ interface RateLimitRecord {
 }
 
 // Password Hashing via Node.js Scrypt (Strong, constant-time verification)
+// Falls back to pbkdf2Sync if scryptSync is unavailable (Node v22.22.x bug).
+const SCRYPT_PREFIX = 'scrypt:';
+const PBKDF2_PREFIX = 'pbkdf2:';
+const PBKDF2_ITERATIONS = 100000;
+
 function hashPassword(password: string, existingSalt?: string): { hash: string; salt: string } {
   const salt = existingSalt || crypto.randomBytes(16).toString('hex');
-  const hash = crypto.scryptSync(password, salt, 64).toString('hex');
-  return { hash, salt };
+  try {
+    const hash = crypto.scryptSync(password, salt, 64).toString('hex');
+    return { hash: SCRYPT_PREFIX + hash, salt };
+  } catch {
+    const hash = crypto.pbkdf2Sync(password, salt, PBKDF2_ITERATIONS, 64, 'sha512').toString('hex');
+    return { hash: PBKDF2_PREFIX + hash, salt };
+  }
 }
 
-function verifyPassword(password: string, hash: string, salt: string): boolean {
+function verifyPassword(password: string, storedHash: string, salt: string): boolean {
   try {
-    const derived = crypto.scryptSync(password, salt, 64).toString('hex');
-    return crypto.timingSafeEqual(Buffer.from(derived, 'hex'), Buffer.from(hash, 'hex'));
+    if (storedHash.startsWith(SCRYPT_PREFIX)) {
+      const expected = storedHash.slice(SCRYPT_PREFIX.length);
+      const derived = crypto.scryptSync(password, salt, 64).toString('hex');
+      return crypto.timingSafeEqual(Buffer.from(derived, 'hex'), Buffer.from(expected, 'hex'));
+    }
+    if (storedHash.startsWith(PBKDF2_PREFIX)) {
+      const expected = storedHash.slice(PBKDF2_PREFIX.length);
+      const derived = crypto.pbkdf2Sync(password, salt, PBKDF2_ITERATIONS, 64, 'sha512').toString('hex');
+      return crypto.timingSafeEqual(Buffer.from(derived, 'hex'), Buffer.from(expected, 'hex'));
+    }
+    return false;
   } catch {
     return false;
   }
