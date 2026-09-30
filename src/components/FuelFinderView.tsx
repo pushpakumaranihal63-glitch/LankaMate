@@ -361,7 +361,7 @@ export const FuelFinderView: React.FC<FuelFinderViewProps> = ({ onNavigatePage }
             rel="noopener noreferrer"
             class="inline-flex items-center gap-1 px-2.5 py-1 bg-blue-900 hover:bg-blue-950 text-white rounded-lg text-[10px] font-bold shadow-2xs no-underline"
           >
-            <span>Navigate</span>
+            <span>${t('Navigate')}</span>
             <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="3 11 22 2 13 21 11 13 3 11"/></svg>
           </a>
         </div>

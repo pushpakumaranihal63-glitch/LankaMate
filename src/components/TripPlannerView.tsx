@@ -1096,7 +1096,7 @@ export const TripPlannerView: React.FC<TripPlannerViewProps> = ({
                     className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-white border border-stone-200 hover:bg-stone-50 active:bg-stone-100 text-stone-800 text-xs font-black transition-colors cursor-pointer shadow-2xs"
                   >
                     <ArrowLeft className="w-4 h-4 text-emerald-800" />
-                    <span>Back to My Trips</span>
+                    <span>{t('Back to My Trips')}</span>
                   </button>
 
                   <div className="flex items-center gap-2">
@@ -1787,7 +1787,7 @@ export const TripPlannerView: React.FC<TripPlannerViewProps> = ({
                     type="button"
                     onClick={handleCloseStayModal}
                     className="p-2 -mr-1 rounded-full text-stone-400 hover:text-stone-700 hover:bg-stone-100 transition-colors cursor-pointer touch-manipulation"
-                    aria-label="Close modal"
+                    aria-label={t('Close modal')}
                   >
                     <X className="w-5 h-5" />
                   </button>
@@ -1923,7 +1923,7 @@ export const TripPlannerView: React.FC<TripPlannerViewProps> = ({
                     type="button"
                     onClick={handleCloseCulinaryModal}
                     className="p-2 -mr-1 rounded-full text-stone-400 hover:text-stone-700 hover:bg-stone-100 transition-colors cursor-pointer touch-manipulation"
-                    aria-label="Close modal"
+                    aria-label={t('Close modal')}
                   >
                     <X className="w-5 h-5" />
                   </button>

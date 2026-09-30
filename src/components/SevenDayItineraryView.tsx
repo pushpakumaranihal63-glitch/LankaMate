@@ -305,7 +305,7 @@ export const SevenDayItineraryView: React.FC<SevenDayItineraryViewProps> = ({
               <ChevronRight className="w-3.5 h-3.5 opacity-60" />
               <span>Yala</span>
               <ChevronRight className="w-3.5 h-3.5 opacity-60" />
-              <span>Galle & Coast</span>
+              <span>Galle & {t('Coast')}</span>
             </div>
           </div>
         </div>

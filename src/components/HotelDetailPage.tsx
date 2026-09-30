@@ -514,7 +514,7 @@ export const HotelDetailPage: React.FC<HotelDetailPageProps> = ({
                           {t('Starting From')}
                         </span>
                         <div className="text-2xl font-black text-emerald-950">
-                          ${hotel.pricePerNightUsd} <span className="text-xs font-semibold text-stone-500">USD / night</span>
+                          ${hotel.pricePerNightUsd} <span className="text-xs font-semibold text-stone-500">{t('USD / night')}</span>
                         </div>
                       </div>
                       <span className="text-xs text-stone-500">
@@ -563,7 +563,7 @@ export const HotelDetailPage: React.FC<HotelDetailPageProps> = ({
                       <div>
                         <label className="block font-bold text-stone-700 mb-1 flex items-center gap-1">
                           <Users className="w-3.5 h-3.5 text-emerald-700" />
-                          <span>Guests</span>
+                          <span>{t('Guests')}</span>
                         </label>
                         <select
                           value={guestsCount}

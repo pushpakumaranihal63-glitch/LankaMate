@@ -235,7 +235,7 @@ export const HotelLocationSearch: React.FC<HotelLocationSearchProps> = ({
               id="clear-location-filter-btn"
               onClick={onClearLocation}
               className="px-3 py-2.5 rounded-xl text-xs font-semibold text-stone-600 hover:text-stone-900 hover:bg-stone-100 border border-stone-200 flex items-center gap-1.5 transition-colors cursor-pointer"
-              title="Reset location filter and show all hotels"
+              title={t('Reset location filter and show all hotels')}
             >
               <RotateCcw className="w-3.5 h-3.5 text-stone-500" />
               <span>{t('Reset')}</span>
@@ -288,7 +288,7 @@ export const HotelLocationSearch: React.FC<HotelLocationSearchProps> = ({
                   </>
                 ) : (
                   <>
-                    <span className="font-semibold">Note:</span> Detected coordinates ({activeLocation.coordinates.lat.toFixed(3)}°, {activeLocation.coordinates.lng.toFixed(3)}°) are outside Sri Lanka. Stays are ordered by distance from your location towards Sri Lankan destinations.
+                    <span className="font-semibold">{t('Note:')}</span> Detected coordinates ({activeLocation.coordinates.lat.toFixed(3)}°, {activeLocation.coordinates.lng.toFixed(3)}°) are outside Sri Lanka. Stays are ordered by distance from your location towards Sri Lankan destinations.
                   </>
                 )}
               </p>
@@ -338,7 +338,7 @@ export const HotelLocationSearch: React.FC<HotelLocationSearchProps> = ({
               type="text"
               value={manualQuery}
               onChange={(e) => setManualQuery(e.target.value)}
-              placeholder="Type city or region name (e.g. Galle, Ella, Kandy, Colombo, Sigiriya)..."
+              placeholder={t('Type city or region name (e.g. Galle, Ella, Kandy, Colombo, Sigiriya)...')}
               className="w-full pl-10 pr-4 py-2.5 bg-white border border-stone-300 rounded-xl text-xs sm:text-sm focus:outline-none focus:border-emerald-600 focus:ring-1 focus:ring-emerald-600 shadow-2xs"
               autoFocus
             />
