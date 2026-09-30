@@ -793,9 +793,9 @@ export const attractionsWesternSouthern: Destination[] = [
     tagline: 'Secluded Turquoise Cove Hidden Beneath Rumassala Forest Sanctuary',
     category: 'Beach',
     photoStatus: 'VERIFIED_REAL',
-    heroImage: 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/83/Unawatuna.jpg/1280px-Unawatuna.jpg',
+    heroImage: 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/ef/Jungle_Beach%2C_Unawatuna%2C_Sri_Lanka.jpg/1280px-Jungle_Beach%2C_Unawatuna%2C_Sri_Lanka.jpg',
     gallery: [
-      'https://upload.wikimedia.org/wikipedia/commons/thumb/8/83/Unawatuna.jpg/1280px-Unawatuna.jpg',
+      'https://upload.wikimedia.org/wikipedia/commons/thumb/e/ef/Jungle_Beach%2C_Unawatuna%2C_Sri_Lanka.jpg/1280px-Jungle_Beach%2C_Unawatuna%2C_Sri_Lanka.jpg',
     ],
     description:
       'Tucked away on the forested slopes of legendary Rumassala Hill (associated with the Ramayana epic), Jungle Beach is a pristine, hidden double-cove with mirror-flat aquamarine water and living coral gardens right off the sand. Surrounded by tropical jungle canopy, it is one of the Galle coastline’s most serene and photogenic snorkeling escapes.',
@@ -827,9 +827,9 @@ export const attractionsWesternSouthern: Destination[] = [
     tagline: 'Iconic Ocean Palm Rope Swing, Frog Rock & Calm Swimming Reef Lagoon',
     category: 'Beach',
     photoStatus: 'VERIFIED_REAL',
-    heroImage: 'https://images.unsplash.com/photo-1544735716-392fe2489ffa?auto=format&fit=crop&w=1200&q=80',
+    heroImage: 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d0/White_sands_of_Dalawella.jpg/1280px-White_sands_of_Dalawella.jpg',
     gallery: [
-      'https://images.unsplash.com/photo-1544735716-392fe2489ffa?auto=format&fit=crop&w=1200&q=80',
+      'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d0/White_sands_of_Dalawella.jpg/1280px-White_sands_of_Dalawella.jpg',
     ],
     description:
       'Famous worldwide for the iconic bent coconut palm tree rope swing soaring over the Indian Ocean surf, Dalawella Beach is also cherished for its natural coral barrier that breaks incoming waves, creating a calm, safe saltwater lagoon where wild giant green sea turtles regularly swim near shore.',
@@ -861,9 +861,9 @@ export const attractionsWesternSouthern: Destination[] = [
     tagline: 'Natural Protective Coral Pool, Sea Turtles & Beachfront Dining',
     category: 'Beach',
     photoStatus: 'VERIFIED_REAL',
-    heroImage: 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/83/Unawatuna.jpg/1280px-Unawatuna.jpg',
+    heroImage: 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/2b/Wijaya_beach_Unawatuna_Sri_Lanka.jpg/1280px-Wijaya_beach_Unawatuna_Sri_Lanka.jpg',
     gallery: [
-      'https://upload.wikimedia.org/wikipedia/commons/thumb/8/83/Unawatuna.jpg/1280px-Unawatuna.jpg',
+      'https://upload.wikimedia.org/wikipedia/commons/thumb/2/2b/Wijaya_beach_Unawatuna_Sri_Lanka.jpg/1280px-Wijaya_beach_Unawatuna_Sri_Lanka.jpg',
     ],
     description:
       'A picture-perfect strip of golden sand directly south of Unawatuna, Wijaya Beach features a substantial offshore coral reef that blocks all major ocean waves, forming a natural swimming pool that remains calm year-round. Giant green turtles feed peacefully in waist-deep water, making it a favorite for families and sea lovers.',
