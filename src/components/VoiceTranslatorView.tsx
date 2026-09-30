@@ -440,7 +440,7 @@ export const VoiceTranslatorView: React.FC<VoiceTranslatorViewProps> = ({
               <div className="flex flex-wrap items-center justify-between gap-3 pt-2">
                 <button
                   onClick={() => toggleRecording(sourceLang)}
-                  className={`flex-1 sm:flex-none flex items-center justify-center gap-3 px-6 py-4 rounded-2xl font-bold text-base transition-all cursor-pointer shadow-md ${
+                  className={`flex items-center justify-center gap-3 px-6 py-4 rounded-2xl font-bold text-base transition-all cursor-pointer shadow-md ${
                     isListening
                       ? 'bg-rose-600 text-white animate-pulse ring-4 ring-rose-300'
                       : 'bg-emerald-800 hover:bg-emerald-900 text-white active:scale-98'
