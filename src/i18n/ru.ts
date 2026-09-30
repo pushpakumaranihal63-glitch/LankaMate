@@ -99,6 +99,11 @@ export const ru: TranslationDict = {
     whereTaxi: 'Где найти такси или тук-тук?',
     spicy: 'Это блюдо острое?',
     help: 'Пожалуйста, помогите мне.',
+    translating: 'Точный перевод с учётом культурных нюансов...',
+    activeSpeaker: 'Активный говорящий:',
+    send: 'Отправить',
+    quickInputPlaceholder: 'Введите текст для мгновенного перевода...',
+    quickOutputPlaceholder: 'Здесь появится перевод...',
   },
   payment: {
     title: 'Способы оплаты и бронирование',

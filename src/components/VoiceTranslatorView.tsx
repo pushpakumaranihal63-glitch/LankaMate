@@ -510,7 +510,7 @@ export const VoiceTranslatorView: React.FC<VoiceTranslatorViewProps> = ({
                 {isTranslating ? (
                   <div className="py-6 flex items-center justify-center gap-3 text-emerald-800 font-bold text-sm">
                     <Sparkles className="w-5 h-5 animate-spin text-emerald-600" />
-                    <span>Translating accurately with cultural nuances...</span>
+                    <span>{t('translator.translating')}</span>
                   </div>
                 ) : (
                   <div className="text-xl sm:text-2xl font-black text-stone-900 leading-relaxed">
@@ -565,7 +565,7 @@ export const VoiceTranslatorView: React.FC<VoiceTranslatorViewProps> = ({
                 </div>
 
                 <div className="flex items-center gap-2">
-                  <span className="text-xs font-bold text-stone-600">Active Speaker:</span>
+                  <span className="text-xs font-bold text-stone-600">{t('translator.activeSpeaker')}</span>
                   <div className="inline-flex bg-stone-100 p-1 rounded-xl">
                     <button
                       onClick={() => setActiveSpeaker('tourist')}
@@ -690,7 +690,7 @@ export const VoiceTranslatorView: React.FC<VoiceTranslatorViewProps> = ({
                     ) : (
                       <Send className="w-4 h-4" />
                     )}
-                    <span>Send</span>
+                    <span>{t('translator.send')}</span>
                   </button>
                 </div>
               </div>
@@ -715,7 +715,7 @@ export const VoiceTranslatorView: React.FC<VoiceTranslatorViewProps> = ({
                   onChange={(e) => {
                     setInputText(e.target.value);
                   }}
-                  placeholder="Enter text to instantly translate..."
+                  placeholder={t('translator.quickInputPlaceholder')}
                   rows={4}
                   className="w-full bg-stone-50 border border-stone-200 rounded-2xl p-4 text-sm font-medium text-stone-900 focus:outline-hidden focus:ring-2 focus:ring-emerald-500 resize-none"
                 />
@@ -735,7 +735,7 @@ export const VoiceTranslatorView: React.FC<VoiceTranslatorViewProps> = ({
                   )}
                 </div>
                 <div className="w-full bg-emerald-50/50 border border-emerald-200/80 rounded-2xl p-4 text-sm font-bold text-stone-900 min-h-[105px]">
-                  {translatedResult || <span className="text-stone-600 font-normal italic">Translation will appear here...</span>}
+                  {translatedResult || <span className="text-stone-600 font-normal italic">{t('translator.quickOutputPlaceholder')}</span>}
                 </div>
               </div>
             </div>

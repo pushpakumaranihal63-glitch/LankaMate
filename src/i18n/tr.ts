@@ -99,6 +99,11 @@ export const tr: TranslationDict = {
     whereTaxi: 'Nerede taksi / tuk-tuk bulabilirim?',
     spicy: 'Bu yemek acı mı?',
     help: 'Bana yardım edebilir misiniz?',
+    translating: 'Kültürel nüansları dikkate alarak doğru şekilde çevriliyor...',
+    activeSpeaker: 'Aktif Konuşmacı:',
+    send: 'Gönder',
+    quickInputPlaceholder: 'Anında çevirmek için metin girin...',
+    quickOutputPlaceholder: 'Çeviri burada görünecek...',
   },
   payment: {
     title: 'Ödeme Yöntemleri ve Çıkış',

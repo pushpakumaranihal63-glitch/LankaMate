@@ -99,6 +99,11 @@ export const zh: TranslationDict = {
     whereTaxi: '请问在哪里可以找到出租车或突突车？',
     spicy: '这道菜辣吗？',
     help: '您可以帮我一下吗？',
+    translating: '正在准确翻译并融入文化细节...',
+    activeSpeaker: '当前发言人：',
+    send: '发送',
+    quickInputPlaceholder: '输入文字即时翻译...',
+    quickOutputPlaceholder: '翻译结果将显示在这里...',
   },
   payment: {
     title: '支付方式与结算',

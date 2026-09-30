@@ -99,6 +99,11 @@ export const hi: TranslationDict = {
     whereTaxi: 'टैक्सी या टुक-टुक कहाँ मिलेगा?',
     spicy: 'क्या यह भोजन तीखा है?',
     help: 'क्या आप मेरी मदद कर सकते हैं?',
+    translating: 'सांस्कृतिक बारीकियों के साथ सटीक अनुवाद किया जा रहा है...',
+    activeSpeaker: 'सक्रिय वक्ता:',
+    send: 'भेजें',
+    quickInputPlaceholder: 'तत्काल अनुवाद के लिए पाठ दर्ज करें...',
+    quickOutputPlaceholder: 'अनुवाद यहाँ दिखाई देगा...',
   },
   payment: {
     title: 'भुगतान के तरीके और चेकआउट',

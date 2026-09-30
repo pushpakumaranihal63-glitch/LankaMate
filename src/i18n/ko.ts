@@ -99,6 +99,11 @@ export const ko: TranslationDict = {
     whereTaxi: '택시나 뚝뚝은 어디서 탈 수 있나요?',
     spicy: '이 음식이 매운가요?',
     help: '도와주실 수 있나요?',
+    translating: '문화적 뉘앙스를 반영하여 정확하게 번역 중...',
+    activeSpeaker: '현재 발언자:',
+    send: '보내기',
+    quickInputPlaceholder: '즉시 번역할 텍스트를 입력하세요...',
+    quickOutputPlaceholder: '번역 결과가 여기에 표시됩니다...',
   },
   payment: {
     title: '결제 수단 및 체크아웃',

@@ -99,6 +99,11 @@ export const si: TranslationDict = {
     whereTaxi: 'ටැක්සියක් හෝ ත්‍රිරෝද රථයක් හොයාගන්නේ කොහොමද?',
     spicy: 'මේ කෑම සැරද?',
     help: 'මට උදව්වක් කළ හැකිද?',
+    translating: 'සංස්කෘතික සියුම් ලක්ෂණ සමඟ නිවැරදිව පරිවර්තනය කරමින්...',
+    activeSpeaker: 'සක්‍රීය කථිකයා:',
+    send: 'යවන්න',
+    quickInputPlaceholder: 'ක්ෂණිකව පරිවර්තනය කිරීමට පෙළ ඇතුළත් කරන්න...',
+    quickOutputPlaceholder: 'පරිවර්තනය මෙහි දිස්වනු ඇත...',
   },
   payment: {
     title: 'ගෙවීම් ක්‍රම සහ වෙන්කිරීම්',

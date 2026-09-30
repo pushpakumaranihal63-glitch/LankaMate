@@ -97,6 +97,11 @@ export const en = {
     whereTaxi: 'Where can I find a taxi / tuk-tuk?',
     spicy: 'Is this food spicy?',
     help: 'Can you please help me?',
+    translating: 'Translating accurately with cultural nuances...',
+    activeSpeaker: 'Active Speaker:',
+    send: 'Send',
+    quickInputPlaceholder: 'Enter text to instantly translate...',
+    quickOutputPlaceholder: 'Translation will appear here...',
   },
   payment: {
     title: 'Payment Methods & Checkout',

@@ -99,6 +99,11 @@ export const de: TranslationDict = {
     whereTaxi: 'Wo finde ich ein Taxi oder Tuk-Tuk?',
     spicy: 'Ist dieses Essen scharf?',
     help: 'Können Sie mir bitte helfen?',
+    translating: 'Genaue Übersetzung mit kulturellen Nuancen...',
+    activeSpeaker: 'Aktiver Sprecher:',
+    send: 'Senden',
+    quickInputPlaceholder: 'Text zum sofortigen Übersetzen eingeben...',
+    quickOutputPlaceholder: 'Übersetzung erscheint hier...',
   },
   payment: {
     title: 'Zahlungsmethoden & Kasse',

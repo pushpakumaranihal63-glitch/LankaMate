@@ -99,6 +99,11 @@ export const ar: TranslationDict = {
     whereTaxi: 'أين يمكنني العثور على سيارة أجرة أو توك توك؟',
     spicy: 'هل هذا الطعام حار؟',
     help: 'هل يمكنك مساعدتي من فضلك؟',
+    translating: 'جارٍ الترجمة بدقة مع مراعاة الفروق الثقافية...',
+    activeSpeaker: 'المتحدث النشط:',
+    send: 'إرسال',
+    quickInputPlaceholder: 'أدخل النص للترجمة الفورية...',
+    quickOutputPlaceholder: 'ستظهر الترجمة هنا...',
   },
   payment: {
     title: 'طرق الدفع وإتمام الحجز',

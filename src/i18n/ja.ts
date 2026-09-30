@@ -99,6 +99,11 @@ export const ja: TranslationDict = {
     whereTaxi: 'トゥクトゥク / タクシーはどこで乗れますか？',
     spicy: 'この料理は辛いですか？',
     help: '助けていただけますか？',
+    translating: '文化的なニュアンスを考慮して正確に翻訳しています...',
+    activeSpeaker: '現在の話者：',
+    send: '送信',
+    quickInputPlaceholder: '翻訳するテキストを入力...',
+    quickOutputPlaceholder: '翻訳結果がここに表示されます...',
   },
   payment: {
     title: 'お支払い方法＆チェックアウト',
