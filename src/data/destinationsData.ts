@@ -248,9 +248,9 @@ const initialDestinations: Destination[] = [
     tagline: 'World’s Highest Leopard Density, Wild Elephants & Coastal Lagoons',
     category: 'Wildlife',
     photoStatus: 'VERIFIED_REAL',
-    heroImage: 'https://images.unsplash.com/photo-1561731216-c3a4d99437d5?q=80&w=1200&auto=format&fit=crop',
+    heroImage: 'https://images.pexels.com/photos/17281950/pexels-photo-17281950.jpeg?auto=compress&cs=tinysrgb&w=1200&h=800&fit=crop',
     gallery: [
-      'https://images.unsplash.com/photo-1561731216-c3a4d99437d5?q=80&w=1200&auto=format&fit=crop',
+      'https://images.pexels.com/photos/17281950/pexels-photo-17281950.jpeg?auto=compress&cs=tinysrgb&w=1200&h=800&fit=crop',
     ],
     description:
       'Spanning 979 square kilometers across dry-zone scrub forests, rocky outcrops, and coastal salt lagoons, Yala National Park boasts the highest density of wild leopards (Panthera pardus kotiya) on the planet. Safaris also regularly encounter Asian elephants, elusive sloth bears, mugger crocodiles, and over 215 bird species.',

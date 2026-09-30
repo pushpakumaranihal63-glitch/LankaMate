@@ -928,9 +928,9 @@ export const attractionsWesternSouthern: Destination[] = [
     tagline: 'Shallow Coral Gardens, Wild Green Sea Turtles & Surf Breaks',
     category: 'Beach',
     photoStatus: 'VERIFIED_REAL',
-    heroImage: 'https://upload.wikimedia.org/wikipedia/commons/thumb/f/f3/Name_board%2C_Hikkaduwa_National_Park.jpg/1280px-Name_board%2C_Hikkaduwa_National_Park.jpg',
+    heroImage: 'https://images.pexels.com/photos/11887209/pexels-photo-11887209.jpeg?auto=compress&cs=tinysrgb&w=1200&h=800&fit=crop',
     gallery: [
-      'https://upload.wikimedia.org/wikipedia/commons/thumb/f/f3/Name_board%2C_Hikkaduwa_National_Park.jpg/1280px-Name_board%2C_Hikkaduwa_National_Park.jpg',
+      'https://images.pexels.com/photos/11887209/pexels-photo-11887209.jpeg?auto=compress&cs=tinysrgb&w=1200&h=800&fit=crop',
     ],
     description:
       'Designated as Sri Lanka’s first marine national park, Hikkaduwa is celebrated for its shallow fringing coral reef harboring over 60 species of hard corals and vibrant tropical fish. Friendly wild green sea turtles swim right up to the shoreline each morning, allowing travelers to stand knee-deep in transparent water to observe these gentle giants.',
