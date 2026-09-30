@@ -454,9 +454,9 @@ export const attractionsWesternSouthern: Destination[] = [
     tagline: 'Colonial Financial Hub, 1857 Clock Tower & Heritage Architecture',
     category: 'City',
     photoStatus: 'VERIFIED_REAL',
-    heroImage: 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/b9/LK-Colombo-altes-parlament.jpg/1280px-LK-Colombo-altes-parlament.jpg',
+    heroImage: 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Colombo_Lighthouse.jpg/1280px-Colombo_Lighthouse.jpg',
     gallery: [
-      'https://upload.wikimedia.org/wikipedia/commons/thumb/b/b9/LK-Colombo-altes-parlament.jpg/1280px-LK-Colombo-altes-parlament.jpg',
+      'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Colombo_Lighthouse.jpg/1280px-Colombo_Lighthouse.jpg',
     ],
     description:
       'Colombo Fort is the historic citadel and primary financial hub of Sri Lanka. Built by the Portuguese, expanded by the Dutch, and remodeled by the British, it is famed for landmark colonial edifices including the 1857 Old Colombo Lighthouse Clock Tower (designed by Lady Ward), the stately General Post Office, Cargills red-brick department store, and the Colombo Port maritime promenade.',
@@ -555,9 +555,9 @@ export const attractionsWesternSouthern: Destination[] = [
     tagline: 'Vibrant Lagoon Seaside Town, Catamaran Fishing & Colonial Canals',
     category: 'Beach',
     photoStatus: 'VERIFIED_REAL',
-    heroImage: 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Negombo_Beach_resort_pool_%28Unsplash%29.jpg/1280px-Negombo_Beach_resort_pool_%28Unsplash%29.jpg',
+    heroImage: 'https://upload.wikimedia.org/wikipedia/commons/9/97/Negombo_Beach%2C_Sri_Lanka.jpg',
     gallery: [
-      'https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Negombo_Beach_resort_pool_%28Unsplash%29.jpg/1280px-Negombo_Beach_resort_pool_%28Unsplash%29.jpg',
+      'https://upload.wikimedia.org/wikipedia/commons/9/97/Negombo_Beach%2C_Sri_Lanka.jpg',
     ],
     description:
       'Located just 15 minutes north of Bandaranaike International Airport, Negombo is a bustling coastal hub with rich Dutch and Portuguese heritage. Known as ‘Little Rome’ for its pastel Catholic cathedrals, it boasts a lively golden beach strip, breezy lagoon boat rides, fresh seafood dining, and the traditional wooden-sailed oruvas (catamarans) returning at dawn.',
@@ -657,9 +657,9 @@ export const attractionsWesternSouthern: Destination[] = [
     tagline: 'World’s Only Hollow Stupa & Revered Bodhi Tree by the Kalu Ganga River',
     category: 'Heritage',
     photoStatus: 'VERIFIED_REAL',
-    heroImage: 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/31/Aerial_view_of_Kalutara_City%2C_Sri_Lanka.jpg/1280px-Aerial_view_of_Kalutara_City%2C_Sri_Lanka.jpg',
+    heroImage: 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Kalautara_Bodhiya_1.jpg/1280px-Kalautara_Bodhiya_1.jpg',
     gallery: [
-      'https://upload.wikimedia.org/wikipedia/commons/thumb/3/31/Aerial_view_of_Kalutara_City%2C_Sri_Lanka.jpg/1280px-Aerial_view_of_Kalutara_City%2C_Sri_Lanka.jpg',
+      'https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Kalautara_Bodhiya_1.jpg/1280px-Kalautara_Bodhiya_1.jpg',
     ],
     description:
       'Commanding the bridge where the Kalu Ganga meets the ocean, Kalutara Bodhiya is one of Sri Lanka’s most revered spiritual landmarks. Its colossal white hemispherical stupa is completely hollow inside, housing 74 vivid murals depicting scenes from the 550 Jataka stories. Drivers traveling down the southern highway traditionally stop here to drop coins into the tills for safe travels.',
