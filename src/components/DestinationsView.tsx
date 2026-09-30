@@ -94,28 +94,37 @@ export const DestinationsView: React.FC<DestinationsViewProps> = ({
     ];
   }, []);
 
-  // Compute count of places per district for quick display
+  // Map each destination id to its raw (English) district for stable filtering
+  const rawDistrictMap = useMemo(() => {
+    const map: Record<string, string> = {};
+    destinationsData.forEach((d) => {
+      map[d.id] = d.district || 'Other';
+    });
+    return map;
+  }, []);
+
+  // Compute count of places per district from raw data so English button names always match
   const districtCounts = useMemo(() => {
     const map: Record<string, number> = {};
-    localizedDestinations.forEach((d) => {
+    destinationsData.forEach((d) => {
       const dist = d.district || 'Other';
       map[dist] = (map[dist] || 0) + 1;
     });
     return map;
-  }, [localizedDestinations]);
+  }, []);
 
   const filteredDestinations = useMemo(() => {
     return localizedDestinations
       .filter((dest) => {
         const matchesRegion = selectedRegion === 'All' || dest.region === selectedRegion;
-        const matchesDistrict = selectedDistrict === 'All' || dest.district === selectedDistrict;
+        const matchesDistrict = selectedDistrict === 'All' || rawDistrictMap[dest.id] === selectedDistrict;
         const matchesCategory = selectedCategory === 'All' || dest.category === selectedCategory;
         const q = searchQuery.toLowerCase().trim();
         const matchesSearch =
           !q ||
           dest.name.toLowerCase().includes(q) ||
           dest.localName.toLowerCase().includes(q) ||
-          (dest.district && dest.district.toLowerCase().includes(q)) ||
+          (rawDistrictMap[dest.id] && rawDistrictMap[dest.id].toLowerCase().includes(q)) ||
           dest.region.toLowerCase().includes(q) ||
           dest.tagline.toLowerCase().includes(q) ||
           dest.description.toLowerCase().includes(q);
@@ -127,11 +136,11 @@ export const DestinationsView: React.FC<DestinationsViewProps> = ({
           return a.name.localeCompare(b.name);
         }
         if (sortBy === 'district') {
-          return (a.district || '').localeCompare(b.district || '');
+          return (rawDistrictMap[a.id] || '').localeCompare(rawDistrictMap[b.id] || '');
         }
         return 0; // Default: maintain curated order
       });
-  }, [localizedDestinations, selectedRegion, selectedDistrict, selectedCategory, searchQuery, sortBy]);
+  }, [localizedDestinations, selectedRegion, selectedDistrict, selectedCategory, searchQuery, sortBy, rawDistrictMap]);
 
   // Handle resetting all filters
   const handleResetFilters = () => {
@@ -376,7 +385,7 @@ export const DestinationsView: React.FC<DestinationsViewProps> = ({
                       .sort()
                       .map((dist) => (
                         <option key={dist} value={dist}>
-                          {dist} ({districtCounts[dist]} {t('places')})
+                          {t(dist)} ({districtCounts[dist]} {t('places')})
                         </option>
                       ))}
                   </select>
