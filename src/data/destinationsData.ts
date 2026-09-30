@@ -107,9 +107,9 @@ const initialDestinations: Destination[] = [
     tagline: 'Last Royal Kingdom of Ceylon & The Sacred Temple of the Tooth',
     category: 'Heritage',
     photoStatus: 'VERIFIED_REAL',
-    heroImage: 'https://images.unsplash.com/photo-1588598050720-3b02a2815e96?q=80&w=1200&auto=format&fit=crop',
+    heroImage: 'https://images.pexels.com/photos/322437/pexels-photo-322437.jpeg?auto=compress&cs=tinysrgb&w=1200&h=800&fit=crop',
     gallery: [
-      'https://images.unsplash.com/photo-1588598050720-3b02a2815e96?q=80&w=1200&auto=format&fit=crop',
+      'https://images.pexels.com/photos/322437/pexels-photo-322437.jpeg?auto=compress&cs=tinysrgb&w=1200&h=800&fit=crop',
     ],
     description:
       'Surrounded by mist-covered mountain ridges and centered around an ornamental lake, Kandy was the last independent royal bastion that resisted European colonial rule until 1815. It houses the venerated Sri Dalada Maligawa (Temple of the Sacred Tooth Relic), where the relic of Lord Buddha is guarded with solemn drumming rituals.',
@@ -479,9 +479,9 @@ const initialDestinations: Destination[] = [
     tagline: 'Vibrant Street Markets, Modern Rooftops & Historic Colonial Mansions',
     category: 'City',
     photoStatus: 'VERIFIED_REAL',
-    heroImage: 'https://images.unsplash.com/photo-1578632767115-351597cf2477?q=80&w=1200&auto=format&fit=crop',
+    heroImage: 'https://images.pexels.com/photos/13722258/pexels-photo-13722258.jpeg?auto=compress&cs=tinysrgb&w=1200&h=800&fit=crop',
     gallery: [
-      'https://images.unsplash.com/photo-1578632767115-351597cf2477?q=80&w=1200&auto=format&fit=crop',
+      'https://images.pexels.com/photos/13722258/pexels-photo-13722258.jpeg?auto=compress&cs=tinysrgb&w=1200&h=800&fit=crop',
     ],
     description:
       'Sri Lanka’s bustling commercial capital offers a dynamic contrast of modern oceanfront skyscrapers, bustling spice bazaars in Pettah, tranquil Buddhist temples like Gangaramaya, and colonial Dutch architecture. Galle Face Green is the communal living room of the city, where kite flyers, families, and street-food lovers gather at sunset.',
