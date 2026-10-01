@@ -318,9 +318,9 @@ export const attractionsCentralHighlands: Destination[] = [
     tagline: 'Manicured 27-Acre Victorian Gardens & Rare Himalayan Bird Haven',
     category: 'Nature',
     photoStatus: 'VERIFIED_REAL',
-    heroImage: 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c6/NuwaraEliya_from_top.jpg/1280px-NuwaraEliya_from_top.jpg',
+    heroImage: 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/Victoria_park%2C_Nuwara_Eliya_-_panoramio.jpg/1280px-Victoria_park%2C_Nuwara_Eliya_-_panoramio.jpg',
     gallery: [
-      'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c6/NuwaraEliya_from_top.jpg/1280px-NuwaraEliya_from_top.jpg',
+      'https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/Victoria_park%2C_Nuwara_Eliya_-_panoramio.jpg/1280px-Victoria_park%2C_Nuwara_Eliya_-_panoramio.jpg',
     ],
     description:
       'Established in 1897 to commemorate the Diamond Jubilee of Queen Victoria, Victoria Park is a 27-acre manicured sanctuary in the center of Nuwara Eliya town. Divided by the Nanu Oya stream, it boasts century-old British oaks, ornamental foreign flowerbeds, weeping willows, and quiet gazebos. It is internationally renowned among ornithologists as one of the best birding spots in Asia for winter migratory species.',
@@ -385,9 +385,9 @@ export const attractionsCentralHighlands: Destination[] = [
     tagline: 'Historic 1885 Estate Producing Delicate Lovers Leap Pure Ceylon Tea',
     category: 'Heritage',
     photoStatus: 'VERIFIED_REAL',
-    heroImage: 'https://images.unsplash.com/photo-1544735716-392fe2489ffa?auto=format&fit=crop&w=1200&q=80',
+    heroImage: 'https://images.pexels.com/photos/26576014/pexels-photo-26576014.jpeg?auto=compress&cs=tinysrgb&w=1200&h=800&fit=crop',
     gallery: [
-      'https://images.unsplash.com/photo-1544735716-392fe2489ffa?auto=format&fit=crop&w=1200&q=80',
+      'https://images.pexels.com/photos/26576014/pexels-photo-26576014.jpeg?auto=compress&cs=tinysrgb&w=1200&h=800&fit=crop',
     ],
     description:
       'Established in 1885 on the scenic foothills of Mount Pidurutalagala, Pedro Tea Estate is one of Sri Lanka’s oldest and most renowned tea factories. Operating original 19th-century British processing machinery, Pedro is world-famous for producing the ultra-light, aromatic "Lovers Leap" high-grown black tea. Guided factory tours take visitors through withering, rolling, fermenting, and grading processes, culminating in a tasting session on a veranda overlooking tea-carpeted slopes.',
@@ -588,9 +588,9 @@ export const attractionsCentralHighlands: Destination[] = [
     tagline: '1894 Iconic Victorian Tudor Red-Brick Landmark & Clock Spire',
     category: 'Heritage',
     photoStatus: 'VERIFIED_REAL',
-    heroImage: 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c6/NuwaraEliya_from_top.jpg/1280px-NuwaraEliya_from_top.jpg',
+    heroImage: 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/df/Nuwara_Eliya_Post_Office.jpg/1280px-Nuwara_Eliya_Post_Office.jpg',
     gallery: [
-      'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c6/NuwaraEliya_from_top.jpg/1280px-NuwaraEliya_from_top.jpg',
+      'https://upload.wikimedia.org/wikipedia/commons/thumb/d/df/Nuwara_Eliya_Post_Office.jpg/1280px-Nuwara_Eliya_Post_Office.jpg',
     ],
     description:
       'Constructed in 1894 by the British colonial administration, the Nuwara Eliya Post Office is one of the oldest operating postal buildings in Sri Lanka and the quintessential architectural symbol of "Little England". Featuring classic Tudor-style half-timbered red brick walls, high-pitched gables, and a charming central clock spire, visitors still queue here today to send handwritten postcards stamped with the historic Nuwara Eliya postmark.',

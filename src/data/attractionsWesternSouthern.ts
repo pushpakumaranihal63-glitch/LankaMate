@@ -8,7 +8,7 @@ export const attractionsWesternSouthern: Destination[] = [
     localName: 'කැළණිය රජ මහා විහාරය',
     region: 'Western & Urban',
     district: 'Gampaha',
-    tagline: 'Sacred River Temple Sanctified by the Buddha’s Third Visit',
+    tagline: "Sacred River Temple Sanctified by the Buddha's Third Visit",
     category: 'Heritage',
     photoStatus: 'VERIFIED_REAL',
     heroImage: 'https://upload.wikimedia.org/wikipedia/commons/2/2c/Kelaniya_AS1.JPG',
@@ -16,7 +16,7 @@ export const attractionsWesternSouthern: Destination[] = [
       'https://upload.wikimedia.org/wikipedia/commons/2/2c/Kelaniya_AS1.JPG',
     ],
     description:
-      'Hallowed by Lord Buddha’s visit to Sri Lanka in the 8th year after enlightenment to reconcile two warring Naga kings over a gem-studded throne, Kelaniya Temple is one of the island’s most sacred Buddhist shrines. Set beside the tranquil Kelani River, it is celebrated for the world-renowned 20th-century wall paintings by master artist Solias Mendis.',
+      "Hallowed by Lord Buddha's visit to Sri Lanka in the 8th year after enlightenment to reconcile two warring Naga kings over a gem-studded throne, Kelaniya Temple is one of the island's most sacred Buddhist shrines. Set beside the tranquil Kelani River, it is celebrated for the world-renowned 20th-century wall paintings by master artist Solias Mendis.",
     bestTimeToVisit: 'January for the grand Duruthu Perahera pageant; year-round for morning or evening puja',
     entryFee: 'Free entry (donations welcome)',
     coordinates: { lat: 6.9535, lng: 79.9189, svgX: 25, svgY: 64 },
@@ -50,7 +50,7 @@ export const attractionsWesternSouthern: Destination[] = [
       'https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Gangaramaya_Temple.JPG/1280px-Gangaramaya_Temple.JPG',
     ],
     description:
-      'Centrally situated by the shores of Beira Lake, Gangaramaya Temple is Colombo’s most prominent Buddhist temple complex. Founded over 120 years ago by Venerable Hikkaduwe Sri Sumangala Nayaka Thera, it features an extraordinary blend of Sri Lankan, Thai, Indian, and Chinese architectural styles, housing an extensive museum of sacred relics, ivory carvings, vintage vehicles, and precious jade statues.',
+      "Centrally situated by the shores of Beira Lake, Gangaramaya Temple is Colombo's most prominent Buddhist temple complex. Founded over 120 years ago by Venerable Hikkaduwe Sri Sumangala Nayaka Thera, it features an extraordinary blend of Sri Lankan, Thai, Indian, and Chinese architectural styles, housing an extensive museum of sacred relics, ivory carvings, vintage vehicles, and precious jade statues.",
     bestTimeToVisit: 'February during the magnificent Navam Maha Perahera street pageant',
     entryFee: '400 LKR for foreign visitors; free for locals (covers Seema Malaka too)',
     coordinates: { lat: 6.9167, lng: 79.8564, svgX: 23, svgY: 66 },
@@ -76,7 +76,7 @@ export const attractionsWesternSouthern: Destination[] = [
     localName: 'සීමා මාලකය',
     region: 'Western & Urban',
     district: 'Colombo',
-    tagline: 'Geoffrey Bawa’s Serene Floating Meditation Pavilions on Beira Lake',
+    tagline: "Geoffrey Bawa's Serene Floating Meditation Pavilions on Beira Lake",
     category: 'Heritage',
     photoStatus: 'VERIFIED_REAL',
     heroImage: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a8/Seema_Malaka_temple.JPG/1280px-Seema_Malaka_temple.JPG',
@@ -84,14 +84,14 @@ export const attractionsWesternSouthern: Destination[] = [
       'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a8/Seema_Malaka_temple.JPG/1280px-Seema_Malaka_temple.JPG',
     ],
     description:
-      'Designed in the late 1970s by Sri Lanka’s revered Tropical Modernist architect Geoffrey Bawa, Seema Malaka is a breathtaking island chapter house floating on the calm waters of Beira Lake. Connected by wooden boardwalks, its three blue-roofed open pavilions are dotted with bronze Thai Buddhas, tranquil seating areas, and a sacred Bodhi tree growing from the water, offering a serene haven in the city center.',
+      "Designed in the late 1970s by Sri Lanka's revered Tropical Modernist architect Geoffrey Bawa, Seema Malaka is a breathtaking island chapter house floating on the calm waters of Beira Lake. Connected by wooden boardwalks, its three blue-roofed open pavilions are dotted with bronze Thai Buddhas, tranquil seating areas, and a sacred Bodhi tree growing from the water, offering a serene haven in the city center.",
     bestTimeToVisit: 'Late afternoon around 5:00 PM for the golden hour reflection on Beira Lake',
     entryFee: 'Included with Gangaramaya Temple ticket (400 LKR for foreign visitors)',
     coordinates: { lat: 6.9175, lng: 79.8550, svgX: 23, svgY: 66 },
     weather: { tempC: 29, condition: 'Tranquil Lake Breeze', icon: 'sun' },
     highlights: [
-      'Sitting peacefully amidst Geoffrey Bawa’s floating minimalist open-air pavilions',
-      'Admiring bronze Dhyana mudra Buddhas against Colombo’s modern high-rise backdrop',
+      "Sitting peacefully amidst Geoffrey Bawa's floating minimalist open-air pavilions",
+      "Admiring bronze Dhyana mudra Buddhas against Colombo's modern high-rise backdrop",
       'Watching evening reflections and flocking pelicans on Beira Lake',
     ],
     activities: [
@@ -135,7 +135,7 @@ export const attractionsWesternSouthern: Destination[] = [
       'People-watching and experiencing genuine local Colombo camaraderie',
     ],
     travelTips: [
-      'Nana’s and adjoining food shacks are famous for authentic Kottu Roti prepared fresh.',
+      "Nana's and adjoining food shacks are famous for authentic Kottu Roti prepared fresh.",
       'Bring cash for street snacks and kite vendors.',
     ],
     travelTimeFromColombo: '5 minutes from Colombo Fort railway station',
@@ -146,7 +146,7 @@ export const attractionsWesternSouthern: Destination[] = [
     localName: 'නෙළුම් කුලුණ (Lotus Tower)',
     region: 'Western & Urban',
     district: 'Colombo',
-    tagline: '350-Meter Iconic Landmark & South Asia’s Tallest Self-Supporting Tower',
+    tagline: "350-Meter Iconic Landmark & South Asia's Tallest Self-Supporting Tower",
     category: 'City',
     photoStatus: 'VERIFIED_REAL',
     heroImage: 'https://upload.wikimedia.org/wikipedia/en/thumb/b/bf/Lotus_tower_and_Beira_lake_at_night_2023.jpg/1280px-Lotus_tower_and_Beira_lake_at_night_2023.jpg',
@@ -162,7 +162,7 @@ export const attractionsWesternSouthern: Destination[] = [
     highlights: [
       'Ascending in high-speed glass elevators to the 245m open-air observation deck',
       'Taking in 360-degree panoramic views of Colombo harbor, Beira Lake, and the coastline',
-      'Admiring the tower’s state-of-the-art dynamic LED illumination dancing at night',
+      "Admiring the tower's state-of-the-art dynamic LED illumination dancing at night",
       'Dining at the revolving Blue Orbit restaurant high above the capital',
     ],
     activities: [
@@ -171,7 +171,7 @@ export const attractionsWesternSouthern: Destination[] = [
     ],
     travelTips: [
       'Book tickets online or at the counter before 5:00 PM on weekends to avoid queues.',
-      'Clear mornings after rain offer views all the way to Adam’s Peak.',
+      "Clear mornings after rain offer views all the way to Adam's Peak.",
     ],
     travelTimeFromColombo: '8 minutes from Colombo Fort',
   },
@@ -216,7 +216,7 @@ export const attractionsWesternSouthern: Destination[] = [
     localName: 'කොළඹ ජාතික කෞතුකාගාරය',
     region: 'Western & Urban',
     district: 'Colombo',
-    tagline: 'Sri Lanka’s Largest Museum Preserving Royal Regalia & Kandyan Throne',
+    tagline: "Sri Lanka's Largest Museum Preserving Royal Regalia & Kandyan Throne",
     category: 'Heritage',
     photoStatus: 'VERIFIED_REAL',
     heroImage: 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/bb/SL_Colombo_asv2020-01_img10_National_Museum.jpg/1280px-SL_Colombo_asv2020-01_img10_National_Museum.jpg',
@@ -224,7 +224,7 @@ export const attractionsWesternSouthern: Destination[] = [
       'https://upload.wikimedia.org/wikipedia/commons/thumb/b/bb/SL_Colombo_asv2020-01_img10_National_Museum.jpg/1280px-SL_Colombo_asv2020-01_img10_National_Museum.jpg',
     ],
     description:
-      'Housed in an Italianate white palace founded in 1877 by British Governor Sir William Gregory, the National Museum is the repository of Sri Lanka’s cultural heritage. Its crown jewel is the 17th-century jewel-encrusted throne and gold regalia of Sri Vikrama Rajasinha, the last King of Kandy, alongside prehistoric fossils, demon masks, and ancient stone carvings.',
+      "Housed in an Italianate white palace founded in 1877 by British Governor Sir William Gregory, the National Museum is the repository of Sri Lanka's cultural heritage. Its crown jewel is the 17th-century jewel-encrusted throne and gold regalia of Sri Vikrama Rajasinha, the last King of Kandy, alongside prehistoric fossils, demon masks, and ancient stone carvings.",
     bestTimeToVisit: 'Tuesday to Sunday; 9:00 AM to 4:00 PM (Closed on public holidays)',
     entryFee: '1,200 LKR for foreign adults; 50 LKR for locals',
     coordinates: { lat: 6.9044, lng: 79.8608, svgX: 23, svgY: 67 },
@@ -257,7 +257,7 @@ export const attractionsWesternSouthern: Destination[] = [
       'https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/Colombo_02.jpg/1280px-Colombo_02.jpg',
     ],
     description:
-      'Pettah (Pitakotuwa) is Colombo’s bustling commercial epicenter, a sensory kaleidoscope of open-air bazaars and narrow historic streets where each lane specializes in distinct wares. From the dazzling jewelers of Sea Street to the aromatic spice vendors of Gabo’s Lane, textiles on Main Street, and the peaceful Pettah Floating Market along Bastian Canal, it offers an electrifying glimpse into Sri Lanka’s commercial soul.',
+      "Pettah (Pitakotuwa) is Colombo's bustling commercial epicenter, a sensory kaleidoscope of open-air bazaars and narrow historic streets where each lane specializes in distinct wares. From the dazzling jewelers of Sea Street to the aromatic spice vendors of Gabo's Lane, textiles on Main Street, and the peaceful Pettah Floating Market along Bastian Canal, it offers an electrifying glimpse into Sri Lanka's commercial soul.",
     bestTimeToVisit: 'Morning from 9:30 AM to 1:00 PM or late afternoon before 6:00 PM',
     entryFee: 'Free public street market',
     coordinates: { lat: 6.9360, lng: 79.8530, svgX: 23, svgY: 64 },
@@ -326,14 +326,14 @@ export const attractionsWesternSouthern: Destination[] = [
       'https://upload.wikimedia.org/wikipedia/commons/thumb/0/0a/Dutch_Hospital.jpg/1280px-Dutch_Hospital.jpg',
     ],
     description:
-      'Dating back to 1681 during the Dutch colonial era, the Old Dutch Hospital is the oldest preserved building in Colombo Fort. Built to care for officers of the Dutch East India Company (VOC), its thick masonry walls, broad verandahs, timber columns, and twin courtyards have been restored into Colombo’s premier lifestyle precinct, home to artisanal tea lounges, Spa Ceylon boutiques, and the famous Ministry of Crab restaurant.',
+      "Dating back to 1681 during the Dutch colonial era, the Old Dutch Hospital is the oldest preserved building in Colombo Fort. Built to care for officers of the Dutch East India Company (VOC), its thick masonry walls, broad verandahs, timber columns, and twin courtyards have been restored into Colombo's premier lifestyle precinct, home to artisanal tea lounges, Spa Ceylon boutiques, and the famous Ministry of Crab restaurant.",
     bestTimeToVisit: 'Evenings from 6:30 PM onward for outdoor courtyard dining and live acoustic music',
     entryFee: 'Free entry to precinct; dining and shopping costs vary',
     coordinates: { lat: 6.9340, lng: 79.8435, svgX: 22, svgY: 64 },
     weather: { tempC: 28, condition: 'Pleasant Courtyard Breeze', icon: 'sun' },
     highlights: [
       'Dining under the stars in the historic cobblestone courtyard flanked by colonial verandas',
-      'Sampling legendary Sri Lankan lagoon crab at Ministry of Crab (Asia’s 50 Best)',
+      "Sampling legendary Sri Lankan lagoon crab at Ministry of Crab (Asia's 50 Best)",
       'Browsing premium Ceylon teas, handmade spices, and natural Ayurvedic cosmetics',
     ],
     activities: [
@@ -342,7 +342,7 @@ export const attractionsWesternSouthern: Destination[] = [
     ],
     travelTips: [
       'Table reservations for Ministry of Crab should be made well in advance.',
-      'Directly adjacent to the World Trade Center twin towers and President’s House.',
+      "Directly adjacent to the World Trade Center twin towers and President's House.",
     ],
     travelTimeFromColombo: 'Located inside Colombo Fort; 3 minutes from Fort Station',
   },
@@ -352,7 +352,7 @@ export const attractionsWesternSouthern: Destination[] = [
     localName: 'කොළඹ ලන්දේසි කෞතුකාගාරය',
     region: 'Western & Urban',
     district: 'Colombo',
-    tagline: 'Historic Prince Street Governor’s Residence & VOC Colonial Artifacts',
+    tagline: "Historic Prince Street Governor's Residence & VOC Colonial Artifacts",
     category: 'Heritage',
     photoStatus: 'VERIFIED_REAL',
     heroImage: 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/Colombo_Dutch_Museum.jpg/1280px-Colombo_Dutch_Museum.jpg',
@@ -372,7 +372,7 @@ export const attractionsWesternSouthern: Destination[] = [
     ],
     activities: [
       'Colonial history immersion and antiquities study',
-      'Exploring the architectural evolution of Colombo’s Dutch colonial period',
+      "Exploring the architectural evolution of Colombo's Dutch colonial period",
     ],
     travelTips: [
       'A quiet hidden oasis in the center of bustling Pettah; easily combined with the Red Mosque.',
@@ -385,7 +385,7 @@ export const attractionsWesternSouthern: Destination[] = [
     localName: 'විහාරමහාදේවී උද්‍යානය (Victoria Park)',
     region: 'Western & Urban',
     district: 'Colombo',
-    tagline: 'Colombo’s Largest Urban Park, Giant Brass Buddha & Flowering Canopies',
+    tagline: "Colombo's Largest Urban Park, Giant Brass Buddha & Flowering Canopies",
     category: 'Nature',
     photoStatus: 'VERIFIED_REAL',
     heroImage: 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/48/Viharamahadevi_Park_incl._Town_Hall.jpg/1280px-Viharamahadevi_Park_incl._Town_Hall.jpg',
@@ -405,7 +405,7 @@ export const attractionsWesternSouthern: Destination[] = [
     ],
     activities: [
       'Leisurely picnics on manicured grass lawns under sprawling fig trees',
-      'Renting kids’ pedal karts and strolling through open-air sculpture walks',
+      "Renting kids' pedal karts and strolling through open-air sculpture walks",
     ],
     travelTips: [
       'Art street vendors line the neighbouring Ananda Coomaraswamy Mawatha with original oil paintings.',
@@ -433,11 +433,11 @@ export const attractionsWesternSouthern: Destination[] = [
     weather: { tempC: 29, condition: 'Tropical Lake Breeze', icon: 'sun' },
     highlights: [
       'Renting two-seater swan pedal boats on the southwestern lake quadrant',
-      'Walking across the pedestrian suspension footbridge to Lovers’ Island',
+      "Walking across the pedestrian suspension footbridge to Lovers' Island",
       'Spotting spot-billed pelicans, cormorants, and water monitors along the banks',
     ],
     activities: [
-      'Lakeside jogging and evening photography of Colombo’s illuminated towers',
+      "Lakeside jogging and evening photography of Colombo's illuminated towers",
       'Dining at trendy waterfront cafes and bistros along the lake edge',
     ],
     travelTips: [
@@ -465,8 +465,8 @@ export const attractionsWesternSouthern: Destination[] = [
     coordinates: { lat: 6.9355, lng: 79.8428, svgX: 22, svgY: 64 },
     weather: { tempC: 29, condition: 'Maritime Ocean Breeze', icon: 'wind' },
     highlights: [
-      'Viewing the 1857 Lighthouse Clock Tower, which predates London’s Big Ben clock mechanism',
-      'Admiring the ornate red-brick Victorian architecture of Cargills Building and Miller’s Store',
+      "Viewing the 1857 Lighthouse Clock Tower, which predates London's Big Ben clock mechanism",
+      "Admiring the ornate red-brick Victorian architecture of Cargills Building and Miller's Store",
       'Walking along the sea wall overlooking the modern Colombo Port City reclamation development',
     ],
     activities: [
@@ -492,14 +492,14 @@ export const attractionsWesternSouthern: Destination[] = [
       'https://upload.wikimedia.org/wikipedia/commons/3/31/Dehiwala-Mount_Lavania.jpg',
     ],
     description:
-      'Located 12 km south of central Colombo, Mount Lavinia is Sri Lanka’s most historic coastal resort suburb. Overlooked by the majestic 1806 Mount Lavinia Hotel—once the romantic mansion of British Governor Sir Thomas Maitland—the wide golden-sand beach is renowned for gentle waves, beach volleyball, romantic candlelit seafood dining directly on the sand, and spectacular sunset views.',
+      "Located 12 km south of central Colombo, Mount Lavinia is Sri Lanka's most historic coastal resort suburb. Overlooked by the majestic 1806 Mount Lavinia Hotel—once the romantic mansion of British Governor Sir Thomas Maitland—the wide golden-sand beach is renowned for gentle waves, beach volleyball, romantic candlelit seafood dining directly on the sand, and spectacular sunset views.",
     bestTimeToVisit: 'November to April for calm seas and evening beach dining',
     entryFee: 'Free public beach',
     coordinates: { lat: 6.8375, lng: 79.8633, svgX: 23, svgY: 69 },
     weather: { tempC: 28, condition: 'Sunny & Coastal Breeze', icon: 'sun' },
     highlights: [
       'Enjoying fresh grilled jumbo prawns and butter-garlic crab at beachfront tables',
-      'Touring the historic 1806 Governor’s mansion at the Mount Lavinia Hotel cliff',
+      "Touring the historic 1806 Governor's mansion at the Mount Lavinia Hotel cliff",
       'Taking a romantic barefoot stroll along the golden sands during Indian Ocean sunsets',
     ],
     activities: [
@@ -527,7 +527,7 @@ export const attractionsWesternSouthern: Destination[] = [
       'https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/Henarathgoda_Botanical_Garden.jpg/1280px-Henarathgoda_Botanical_Garden.jpg',
     ],
     description:
-      'Established in 1876 in Gampaha to test Brazilian rubber seedlings smuggled through Kew Gardens, this peaceful 43-acre botanical haven is where Southeast Asia’s colossal rubber economy was born. Visitors can view the remnants of the historic first rubber tree alongside majestic bamboo groves, an orchid house, and shaded nature walkways.',
+      "Established in 1876 in Gampaha to test Brazilian rubber seedlings smuggled through Kew Gardens, this peaceful 43-acre botanical haven is where Southeast Asia's colossal rubber economy was born. Visitors can view the remnants of the historic first rubber tree alongside majestic bamboo groves, an orchid house, and shaded nature walkways.",
     bestTimeToVisit: 'Year-round; early mornings offer peaceful bird encounters',
     entryFee: '1,500 LKR for foreign adults; 100 LKR for locals',
     coordinates: { lat: 7.0964, lng: 79.9961, svgX: 27, svgY: 60 },
@@ -560,7 +560,7 @@ export const attractionsWesternSouthern: Destination[] = [
       'https://upload.wikimedia.org/wikipedia/commons/9/97/Negombo_Beach%2C_Sri_Lanka.jpg',
     ],
     description:
-      'Located just 15 minutes north of Bandaranaike International Airport, Negombo is a bustling coastal hub with rich Dutch and Portuguese heritage. Known as ‘Little Rome’ for its pastel Catholic cathedrals, it boasts a lively golden beach strip, breezy lagoon boat rides, fresh seafood dining, and the traditional wooden-sailed oruvas (catamarans) returning at dawn.',
+      "Located just 15 minutes north of Bandaranaike International Airport, Negombo is a bustling coastal hub with rich Dutch and Portuguese heritage. Known as 'Little Rome' for its pastel Catholic cathedrals, it boasts a lively golden beach strip, breezy lagoon boat rides, fresh seafood dining, and the traditional wooden-sailed oruvas (catamarans) returning at dawn.",
     bestTimeToVisit: 'November to April for calm seas and spectacular western coastal sunsets',
     entryFee: 'Free beach access',
     coordinates: { lat: 7.2185, lng: 79.8398, svgX: 23, svgY: 57 },
@@ -635,7 +635,7 @@ export const attractionsWesternSouthern: Destination[] = [
     highlights: [
       'Exploring ancient rock caves with drip-ledges carved over 2,100 years ago',
       'Admiring rare 18th-century Kandyan murals with Portuguese soldiers and planetary deities',
-      'Marveling at the enormous ancient ‘Pus Wela’ (giant woody climber) winding through the forest',
+      "Marveling at the enormous ancient 'Pus Wela' (giant woody climber) winding through the forest",
     ],
     activities: [
       'Forest meditation and peaceful nature walks through ancient monastic ruins',
@@ -654,7 +654,7 @@ export const attractionsWesternSouthern: Destination[] = [
     localName: 'කළුතර බෝධිය සහ වටදාගෙය',
     region: 'Western & Urban',
     district: 'Kalutara',
-    tagline: 'World’s Only Hollow Stupa & Revered Bodhi Tree by the Kalu Ganga River',
+    tagline: "World's Only Hollow Stupa & Revered Bodhi Tree by the Kalu Ganga River",
     category: 'Heritage',
     photoStatus: 'VERIFIED_REAL',
     heroImage: 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Kalautara_Bodhiya_1.jpg/1280px-Kalautara_Bodhiya_1.jpg',
@@ -662,7 +662,7 @@ export const attractionsWesternSouthern: Destination[] = [
       'https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Kalautara_Bodhiya_1.jpg/1280px-Kalautara_Bodhiya_1.jpg',
     ],
     description:
-      'Commanding the bridge where the Kalu Ganga meets the ocean, Kalutara Bodhiya is one of Sri Lanka’s most revered spiritual landmarks. Its colossal white hemispherical stupa is completely hollow inside, housing 74 vivid murals depicting scenes from the 550 Jataka stories. Drivers traveling down the southern highway traditionally stop here to drop coins into the tills for safe travels.',
+      "Commanding the bridge where the Kalu Ganga meets the ocean, Kalutara Bodhiya is one of Sri Lanka's most revered spiritual landmarks. Its colossal white hemispherical stupa is completely hollow inside, housing 74 vivid murals depicting scenes from the 550 Jataka stories. Drivers traveling down the southern highway traditionally stop here to drop coins into the tills for safe travels.",
     bestTimeToVisit: 'Year-round; early evening when thousands of oil lamps flicker beneath the Bodhi tree',
     entryFee: 'Free entry',
     coordinates: { lat: 6.5828, lng: 79.9602, svgX: 26, svgY: 73 },
@@ -695,13 +695,13 @@ export const attractionsWesternSouthern: Destination[] = [
       'https://upload.wikimedia.org/wikipedia/commons/thumb/e/e4/Richmond_Castle_Kalutara.jpg/1280px-Richmond_Castle_Kalutara.jpg',
     ],
     description:
-      'Built between 1900 and 1910 by wealthy philanthropist Mudaliyar Don Arthur de Silva Wijesinghe, Richmond Castle is a magnificent two-story Edwardian mansion set on a 42-acre estate near the Kalu Ganga. Modeled after an Indian Maharaja’s palace, it features stained glass from Scotland, Italian marble floorings, teak timber shipped from Burma, and hand-carved cherub statues.',
+      "Built between 1900 and 1910 by wealthy philanthropist Mudaliyar Don Arthur de Silva Wijesinghe, Richmond Castle is a magnificent two-story Edwardian mansion set on a 42-acre estate near the Kalu Ganga. Modeled after an Indian Maharaja's palace, it features stained glass from Scotland, Italian marble floorings, teak timber shipped from Burma, and hand-carved cherub statues.",
     bestTimeToVisit: 'Open daily from 8:30 AM to 4:30 PM; weekdays are unhurried and peaceful',
     entryFee: '500 LKR for foreign tourists; 50 LKR for locals',
     coordinates: { lat: 6.5989, lng: 79.9861, svgX: 27, svgY: 72 },
     weather: { tempC: 29, condition: 'Sunny & Shaded Grounds', icon: 'sun' },
     highlights: [
-      'Admiring the Scottish stained-glass windows depicting the Mudaliyar’s family crest',
+      "Admiring the Scottish stained-glass windows depicting the Mudaliyar's family crest",
       'Walking through the grand ballroom with its natural air-cooling floor vents and Burmese teak paneling',
       'Strolling through the 42-acre estate with tropical fruit orchards and Greek-style garden statues',
     ],
@@ -764,7 +764,7 @@ export const attractionsWesternSouthern: Destination[] = [
       'https://images.unsplash.com/photo-1544735716-392fe2489ffa?auto=format&fit=crop&w=1200&q=80',
     ],
     description:
-      'A world-renowned crescent golden sand bay protected by offshore coral reefs, making it one of Sri Lanka’s safest and most tranquil open-sea swimming destinations. The palm-lined shore is dotted with vibrant seafood restaurants, coconut tree swings, and sunset vantage points overlooking the bay and Japanese Peace Pagoda.',
+      "A world-renowned crescent golden sand bay protected by offshore coral reefs, making it one of Sri Lanka's safest and most tranquil open-sea swimming destinations. The palm-lined shore is dotted with vibrant seafood restaurants, coconut tree swings, and sunset vantage points overlooking the bay and Japanese Peace Pagoda.",
     bestTimeToVisit: 'November to April for crystal-clear turquoise waters and calm swimming conditions',
     entryFee: 'Free beach access',
     coordinates: { lat: 6.0108, lng: 80.2486, svgX: 37, svgY: 85 },
@@ -798,7 +798,7 @@ export const attractionsWesternSouthern: Destination[] = [
       'https://upload.wikimedia.org/wikipedia/commons/thumb/e/ef/Jungle_Beach%2C_Unawatuna%2C_Sri_Lanka.jpg/1280px-Jungle_Beach%2C_Unawatuna%2C_Sri_Lanka.jpg',
     ],
     description:
-      'Tucked away on the forested slopes of legendary Rumassala Hill (associated with the Ramayana epic), Jungle Beach is a pristine, hidden double-cove with mirror-flat aquamarine water and living coral gardens right off the sand. Surrounded by tropical jungle canopy, it is one of the Galle coastline’s most serene and photogenic snorkeling escapes.',
+      "Tucked away on the forested slopes of legendary Rumassala Hill (associated with the Ramayana epic), Jungle Beach is a pristine, hidden double-cove with mirror-flat aquamarine water and living coral gardens right off the sand. Surrounded by tropical jungle canopy, it is one of the Galle coastline's most serene and photogenic snorkeling escapes.",
     bestTimeToVisit: 'November to April for crystal-clear underwater visibility and calm seas',
     entryFee: 'Free beach access',
     coordinates: { lat: 6.0175, lng: 80.2458, svgX: 36, svgY: 86 },
@@ -891,7 +891,7 @@ export const attractionsWesternSouthern: Destination[] = [
     localName: 'දේවට වෙරළ (ක්ලෝසන්බර්ග් බොක්ක)',
     region: 'Southern Coast',
     district: 'Galle',
-    tagline: 'Galle’s Premier Beginner Surf Bay with Gentle Sand-Break Waves',
+    tagline: "Galle's Premier Beginner Surf Bay with Gentle Sand-Break Waves",
     category: 'Beach',
     photoStatus: 'VERIFIED_REAL',
     heroImage: 'https://upload.wikimedia.org/wikipedia/commons/2/2b/Galle_Harbour.JPG',
@@ -899,7 +899,7 @@ export const attractionsWesternSouthern: Destination[] = [
       'https://upload.wikimedia.org/wikipedia/commons/2/2b/Galle_Harbour.JPG',
     ],
     description:
-      'Nestled inside Closenberg Bay just 5 minutes south of Galle Fort, Dewata Beach is Southern Sri Lanka’s most renowned beginner and intermediate surfing haven. With its soft sandy seafloor, absence of sharp coral, and predictable, gentle rolling waves, it is lined with friendly ISA-certified surf schools and chilled beach shacks.',
+      "Nestled inside Closenberg Bay just 5 minutes south of Galle Fort, Dewata Beach is Southern Sri Lanka's most renowned beginner and intermediate surfing haven. With its soft sandy seafloor, absence of sharp coral, and predictable, gentle rolling waves, it is lined with friendly ISA-certified surf schools and chilled beach shacks.",
     bestTimeToVisit: 'October to May for clean rolling swell and offshore morning breezes',
     entryFee: 'Free beach access; surfboard rental ~$3-5 USD/hour',
     coordinates: { lat: 6.0315, lng: 80.2372, svgX: 35, svgY: 87 },
@@ -933,7 +933,7 @@ export const attractionsWesternSouthern: Destination[] = [
       'https://images.pexels.com/photos/11887209/pexels-photo-11887209.jpeg?auto=compress&cs=tinysrgb&w=1200&h=800&fit=crop',
     ],
     description:
-      'Designated as Sri Lanka’s first marine national park, Hikkaduwa is celebrated for its shallow fringing coral reef harboring over 60 species of hard corals and vibrant tropical fish. Friendly wild green sea turtles swim right up to the shoreline each morning, allowing travelers to stand knee-deep in transparent water to observe these gentle giants.',
+      "Designated as Sri Lanka's first marine national park, Hikkaduwa is celebrated for its shallow fringing coral reef harboring over 60 species of hard corals and vibrant tropical fish. Friendly wild green sea turtles swim right up to the shoreline each morning, allowing travelers to stand knee-deep in transparent water to observe these gentle giants.",
     bestTimeToVisit: 'November to April for optimal underwater visibility and surf swells',
     entryFee: 'Beach access is free; glass-bottom boat tour ~$15 USD',
     coordinates: { lat: 6.1394, lng: 80.1008, svgX: 32, svgY: 83 },
@@ -942,7 +942,7 @@ export const attractionsWesternSouthern: Destination[] = [
       'Standing knee-deep in the water beside giant wild green sea turtles',
       'Taking a glass-bottom boat tour across the kaleidoscopic coral sanctuary',
       'Snorkeling among schools of angel fish, butterfly fish, and harmless reef sharks',
-      'Surfing world-class peeling A-frame reef breaks at Benny’s and Main Reef',
+      "Surfing world-class peeling A-frame reef breaks at Benny's and Main Reef",
     ],
     activities: [
       'Snorkeling and PADI scuba certification courses',
@@ -995,7 +995,7 @@ export const attractionsWesternSouthern: Destination[] = [
     localName: 'දෙවිනුවර ප්‍රදීපාගාරය සහ උපුල්වන් දේවාලය',
     region: 'Southern Coast',
     district: 'Matara',
-    tagline: 'Southernmost Tip of Sri Lanka & South Asia’s Tallest Granite Beacon',
+    tagline: "Southernmost Tip of Sri Lanka & South Asia's Tallest Granite Beacon",
     category: 'Heritage',
     photoStatus: 'VERIFIED_REAL',
     heroImage: 'https://upload.wikimedia.org/wikipedia/commons/f/fc/Dondra_Head_Lighthouse_-_ATennakoon.jpg',
@@ -1104,7 +1104,7 @@ export const attractionsWesternSouthern: Destination[] = [
       'https://upload.wikimedia.org/wikipedia/commons/thumb/e/e6/Wildlife_Preserve_Near_Kirinda%2C_Sri_Lanka.jpg/1280px-Wildlife_Preserve_Near_Kirinda%2C_Sri_Lanka.jpg',
     ],
     description:
-      'Designated as Sri Lanka’s first Ramsar wetland and a UNESCO Biosphere Reserve, Bundala comprises five shallow brackish lagoons bordered by sand dunes and thorn scrub. An internationally critical wintering ground for migratory waterbirds, it hosts thousands of greater flamingos, pelicans, painted storks, wild elephants, and both mugger and saltwater crocodiles.',
+      "Designated as Sri Lanka's first Ramsar wetland and a UNESCO Biosphere Reserve, Bundala comprises five shallow brackish lagoons bordered by sand dunes and thorn scrub. An internationally critical wintering ground for migratory waterbirds, it hosts thousands of greater flamingos, pelicans, painted storks, wild elephants, and both mugger and saltwater crocodiles.",
     bestTimeToVisit: 'September to March when thousands of migratory birds flock to the lagoons',
     entryFee: '~$25 USD per foreign adult + 4x4 safari jeep hire',
     coordinates: { lat: 6.1833, lng: 81.2333, svgX: 68, svgY: 83 },
@@ -1130,7 +1130,7 @@ export const attractionsWesternSouthern: Destination[] = [
     localName: 'හුම්මානය ස්වභාවික විස්මිතය',
     region: 'Southern Coast',
     district: 'Hambantota',
-    tagline: 'World’s 2nd Largest Marine Blowhole Shooting Water 30 Meters High',
+    tagline: "World's 2nd Largest Marine Blowhole Shooting Water 30 Meters High",
     category: 'Nature',
     photoStatus: 'VERIFIED_REAL',
     heroImage: 'https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Hummanaya_Blowhole.jpg/1280px-Hummanaya_Blowhole.jpg',
@@ -1138,7 +1138,7 @@ export const attractionsWesternSouthern: Destination[] = [
       'https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Hummanaya_Blowhole.jpg/1280px-Hummanaya_Blowhole.jpg',
     ],
     description:
-      'Located in the coastal fishing village of Kudawella, Hummanaya is the second largest natural marine blowhole in the world and the only one in Sri Lanka. Ocean waves rush into a deep underwater cavern between two sheer granite sea cliffs, compressing air and forcefully shooting sea spray up to 30 meters into the sky with a roaring ‘Hoo-m’ acoustic sound.',
+      "Located in the coastal fishing village of Kudawella, Hummanaya is the second largest natural marine blowhole in the world and the only one in Sri Lanka. Ocean waves rush into a deep underwater cavern between two sheer granite sea cliffs, compressing air and forcefully shooting sea spray up to 30 meters into the sky with a roaring 'Hoo-m' acoustic sound.",
     bestTimeToVisit: 'May to September (during southwest monsoon when ocean swell is highest)',
     entryFee: '250 LKR for foreign tourists; 50 LKR for locals',
     coordinates: { lat: 5.9617, lng: 80.7061, svgX: 52, svgY: 88 },
@@ -1163,7 +1163,7 @@ export const attractionsWesternSouthern: Destination[] = [
     localName: 'රිදියගම සෆාරි උද්‍යානය',
     region: 'Wildlife & Safari',
     district: 'Hambantota',
-    tagline: 'Sri Lanka’s First 500-Acre Open-Range Safari Park with Lions & Tigers',
+    tagline: "Sri Lanka's First 500-Acre Open-Range Safari Park with Lions & Tigers",
     category: 'Wildlife',
     photoStatus: 'VERIFIED_REAL',
     heroImage: 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/36/African_Lions_in_Ridiyagama_Safari_Park.jpg/1280px-African_Lions_in_Ridiyagama_Safari_Park.jpg',
@@ -1171,7 +1171,7 @@ export const attractionsWesternSouthern: Destination[] = [
       'https://upload.wikimedia.org/wikipedia/commons/thumb/3/36/African_Lions_in_Ridiyagama_Safari_Park.jpg/1280px-African_Lions_in_Ridiyagama_Safari_Park.jpg',
     ],
     description:
-      'Spanning 500 acres of open terrain in Ambalantota, Ridiyagama is Sri Lanka’s premier open-range zoological safari park. Visitors board secure air-conditioned safari buses that drive through expansive, cage-free zones where African lions, Asian elephants, Bengal tigers, zebras, and Arabian oryx roam freely in natural landscapes.',
+      "Spanning 500 acres of open terrain in Ambalantota, Ridiyagama is Sri Lanka's premier open-range zoological safari park. Visitors board secure air-conditioned safari buses that drive through expansive, cage-free zones where African lions, Asian elephants, Bengal tigers, zebras, and Arabian oryx roam freely in natural landscapes.",
     bestTimeToVisit: 'Morning hours (8:30 AM to 11:00 AM) or late afternoon when animals are most active',
     entryFee: '3,000 LKR for foreign adults (includes safari bus ride); 500 LKR for locals',
     coordinates: { lat: 6.2236, lng: 81.0119, svgX: 62, svgY: 82 },
@@ -1299,7 +1299,7 @@ export const attractionsWesternSouthern: Destination[] = [
     localName: 'විල්පත්තු ජාතික උද්‍යානය',
     region: 'Wildlife & Safari',
     district: 'Puttalam',
-    tagline: 'Sri Lanka’s Largest Wilderness of 106 Natural Rainwater Lakes & Leopards',
+    tagline: "Sri Lanka's Largest Wilderness of 106 Natural Rainwater Lakes & Leopards",
     category: 'Wildlife',
     photoStatus: 'VERIFIED_REAL',
     heroImage: 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/WilpattuNationalPark-April2014_%283%29.JPG/1280px-WilpattuNationalPark-April2014_%283%29.JPG',
@@ -1307,7 +1307,7 @@ export const attractionsWesternSouthern: Destination[] = [
       'https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/WilpattuNationalPark-April2014_%283%29.JPG/1280px-WilpattuNationalPark-April2014_%283%29.JPG',
     ],
     description:
-      'Sri Lanka’s largest and oldest national park, spanning 1,317 square kilometers along the northwest coast. Characterized by 106 natural sand-rimmed rainwater lakes (‘villus’), Wilpattu is world-renowned for its healthy populations of the elusive Sri Lankan leopard, shaggy sloth bears, Asian elephants, and barking deer roaming through dense dry-zone forest.',
+      "Sri Lanka's largest and oldest national park, spanning 1,317 square kilometers along the northwest coast. Characterized by 106 natural sand-rimmed rainwater lakes ('villus'), Wilpattu is world-renowned for its healthy populations of the elusive Sri Lankan leopard, shaggy sloth bears, Asian elephants, and barking deer roaming through dense dry-zone forest.",
     bestTimeToVisit: 'February to October; dry season concentrates leopards and wildlife around the villu lakes',
     entryFee: '~$35 USD foreign ticket + 4x4 safari jeep hire',
     coordinates: { lat: 8.4467, lng: 80.0056, svgX: 35, svgY: 34 },
@@ -1333,15 +1333,15 @@ export const attractionsWesternSouthern: Destination[] = [
     localName: 'කල්පිටිය කලපුව සහ ඩොල්ෆින් නිරීක්ෂණය',
     region: 'Western & Urban',
     district: 'Puttalam',
-    tagline: 'Asia’s Premier Kite-Surfing Lagoon & Super-Pods of Spinner Dolphins',
+    tagline: "Asia's Premier Kite-Surfing Lagoon & Super-Pods of Spinner Dolphins",
     category: 'Beach',
     photoStatus: 'VERIFIED_REAL',
-    heroImage: 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/SL_Kalpitiya_asv2020-01_img4_Fishery_harbour.jpg/1280px-SL_Kalpitiya_asv2020-01_img4_Fishery_harbour.jpg',
+    heroImage: 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/46/Kalpitiya_Beach.jpg/1280px-Kalpitiya_Beach.jpg',
     gallery: [
-      'https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/SL_Kalpitiya_asv2020-01_img4_Fishery_harbour.jpg/1280px-SL_Kalpitiya_asv2020-01_img4_Fishery_harbour.jpg',
+      'https://upload.wikimedia.org/wikipedia/commons/thumb/4/46/Kalpitiya_Beach.jpg/1280px-Kalpitiya_Beach.jpg',
     ],
     description:
-      'A slender sand peninsula separating the calm Kalpitiya Lagoon from the Indian Ocean, Kalpitiya is renowned as Asia’s top kite-surfing destination with consistent trade winds. From November to April, the offshore waters are home to colossal super-pods of hundreds of acrobatic spinner dolphins and migrating sperm whales.',
+      "A slender sand peninsula separating the calm Kalpitiya Lagoon from the Indian Ocean, Kalpitiya is renowned as Asia's top kite-surfing destination with consistent trade winds. From November to April, the offshore waters are home to colossal super-pods of hundreds of acrobatic spinner dolphins and migrating sperm whales.",
     bestTimeToVisit: 'November to April for dolphin/whale watching; May to September for prime kite-surfing winds',
     entryFee: 'Free beach access; dolphin boat tour ~$20–$30 USD per person',
     coordinates: { lat: 8.2306, lng: 79.7644, svgX: 20, svgY: 38 },
@@ -1396,19 +1396,19 @@ export const attractionsWesternSouthern: Destination[] = [
   },
   {
     id: 'st-annes-talawila',
-    name: 'St. Anne’s National Shrine (Talawila)',
+    name: "St. Anne\u2019s National Shrine (Talawila)",
     localName: 'තලවිල ශාන්ත ආනා ජාතික සිද්ධස්ථානය',
     region: 'Western & Urban',
     district: 'Puttalam',
     tagline: 'Venerated 17th-Century Coastal Pilgrimage Shrine on Wind-Swept Sands',
     category: 'Heritage',
     photoStatus: 'VERIFIED_REAL',
-    heroImage: 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/SL_Kalpitiya_asv2020-01_img4_Fishery_harbour.jpg/1280px-SL_Kalpitiya_asv2020-01_img4_Fishery_harbour.jpg',
+    heroImage: 'https://images.pexels.com/photos/38540119/pexels-photo-38540119.jpeg?auto=compress&cs=tinysrgb&w=1200&h=800&fit=crop',
     gallery: [
-      'https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/SL_Kalpitiya_asv2020-01_img4_Fishery_harbour.jpg/1280px-SL_Kalpitiya_asv2020-01_img4_Fishery_harbour.jpg',
+      'https://images.pexels.com/photos/38540119/pexels-photo-38540119.jpeg?auto=compress&cs=tinysrgb&w=1200&h=800&fit=crop',
     ],
     description:
-      'Founded in the 17th century by a Portuguese traveler shipwrecked on the coastal sands of the Kalpitiya peninsula, St. Anne’s Church at Talawila is one of the most beloved pilgrimage sites in Sri Lanka. Surrounded by coconut groves and crashing ocean waves, the sanctuary welcomes hundreds of thousands of pilgrims of all religions during its annual feast days in March and July.',
+      "Founded in the 17th century by a Portuguese traveler shipwrecked on the coastal sands of the Kalpitiya peninsula, St. Anne's Church at Talawila is one of the most beloved pilgrimage sites in Sri Lanka. Surrounded by coconut groves and crashing ocean waves, the sanctuary welcomes hundreds of thousands of pilgrims of all religions during its annual feast days in March and July.",
     bestTimeToVisit: 'March and July/August for the famous feasts of St. Anne; year-round for quiet ocean prayer',
     entryFee: 'Free entry',
     coordinates: { lat: 8.0125, lng: 79.7214, svgX: 18, svgY: 42 },
