@@ -180,9 +180,9 @@ export const attractionsNorthEastCentral: Destination[] = [
     tagline: 'Poignant Historical Monuments Commemorating Peace and Reconciliation',
     category: 'Heritage',
     photoStatus: 'VERIFIED_REAL',
-    heroImage: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a8/KilinochchiWaterTowerDestroyedByLTTE.JPG/1280px-KilinochchiWaterTowerDestroyedByLTTE.JPG',
+    heroImage: 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/Taking_Photo_Of_Collapsed_Water_Tower.jpg/1280px-Taking_Photo_Of_Collapsed_Water_Tower.jpg',
     gallery: [
-      'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a8/KilinochchiWaterTowerDestroyedByLTTE.JPG/1280px-KilinochchiWaterTowerDestroyedByLTTE.JPG',
+      'https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/Taking_Photo_Of_Collapsed_Water_Tower.jpg/1280px-Taking_Photo_Of_Collapsed_Water_Tower.jpg',
     ],
     description:
       'A memorial tower built in 2010 to commemorate the end of the Sri Lankan civil war, located along the A9 highway in Kilinochchi. The preserved toppled water tower nearby stands as a reminder of the conflict. The site is a sobering stop for visitors travelling between Anuradhapura and Jaffna.',
