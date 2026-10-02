@@ -13,9 +13,9 @@ const initialDestinations: Destination[] = [
     tagline: 'The 5th Century Sky Palace & 8th Wonder of the Ancient World',
     category: 'Heritage',
     photoStatus: 'VERIFIED_REAL',
-    heroImage: 'https://images.unsplash.com/photo-1586861635167-e5223aadc9fe?q=80&w=1200&auto=format&fit=crop',
+    heroImage: 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/8e/Sigiriya_Rock_Fortress_View_from_Pidurangala_Rock.jpg/1280px-Sigiriya_Rock_Fortress_View_from_Pidurangala_Rock.jpg',
     gallery: [
-      'https://images.unsplash.com/photo-1586861635167-e5223aadc9fe?q=80&w=1200&auto=format&fit=crop',
+      'https://upload.wikimedia.org/wikipedia/commons/thumb/8/8e/Sigiriya_Rock_Fortress_View_from_Pidurangala_Rock.jpg/1280px-Sigiriya_Rock_Fortress_View_from_Pidurangala_Rock.jpg',
     ],
     description:
       'Rising dramatically 200 meters above the central plains of Sri Lanka, Sigiriya is an awe-inspiring ancient rock fortress built by King Kashyapa in the 5th century. It features world-famous frescoes of celestial maidens, an astounding mirror wall with ancient graffiti, and colossal sculpted lion paws guarding the final staircase to the palace summit.',

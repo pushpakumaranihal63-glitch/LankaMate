@@ -217,9 +217,9 @@ export const attractionsCentralHighlands: Destination[] = [
     tagline: 'Exact Geographic Center of Sri Lanka & Rare Buddhist-Hindu Stone Fusion',
     category: 'Heritage',
     photoStatus: 'VERIFIED_REAL',
-    heroImage: 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/cf/Nalanda_Gedige.jpg/1280px-Nalanda_Gedige.jpg',
+    heroImage: 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/2d/Nalanda_gedige_matale_3_side_entrance.jpg/1280px-Nalanda_gedige_matale_3_side_entrance.jpg',
     gallery: [
-      'https://upload.wikimedia.org/wikipedia/commons/thumb/c/cf/Nalanda_Gedige.jpg/1280px-Nalanda_Gedige.jpg',
+      'https://upload.wikimedia.org/wikipedia/commons/thumb/2/2d/Nalanda_gedige_matale_3_side_entrance.jpg/1280px-Nalanda_gedige_matale_3_side_entrance.jpg',
     ],
     description:
       'Standing serenely on an elevated terrace beside an idyllic reservoir, Nalanda Gedige marks the exact geographical center of Sri Lanka. Built between the 8th and 10th centuries, this all-granite temple is completely unique for harmoniously blending South Indian Pallava Dravidian architecture with ancient Theravada Buddhist stone motifs.',

@@ -1020,9 +1020,9 @@ export const attractionsNorthEastCentral: Destination[] = [
     tagline: 'Colossal 12-Meter 5th-Century Standing Buddha Carved from Sheer Granite',
     category: 'Heritage',
     photoStatus: 'VERIFIED_REAL',
-    heroImage: 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/Buda_de_Avukana_-_03.jpg/1280px-Buda_de_Avukana_-_03.jpg',
+    heroImage: 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/Avukana_Buddha_Statue_11.JPG/1280px-Avukana_Buddha_Statue_11.JPG',
     gallery: [
-      'https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/Buda_de_Avukana_-_03.jpg/1280px-Buda_de_Avukana_-_03.jpg',
+      'https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/Avukana_Buddha_Statue_11.JPG/1280px-Avukana_Buddha_Statue_11.JPG',
     ],
     description:
       'A standing Buddha statue about 12 metres tall, carved from a granite rock face during the reign of King Dhatusena in the 5th century AD. It is one of Sri Lanka’s finest examples of ancient stone sculpture.',
@@ -1251,9 +1251,9 @@ export const attractionsNorthEastCentral: Destination[] = [
     tagline: '4th-Century Granite Masterpiece of Supreme Meditation in Mahamevnawa Park',
     category: 'Heritage',
     photoStatus: 'VERIFIED_REAL',
-    heroImage: 'https://upload.wikimedia.org/wikipedia/commons/thumb/7/70/SL_Anuradhapura_asv2020-01_img30_Samadhi_Buddha.jpg/1280px-SL_Anuradhapura_asv2020-01_img30_Samadhi_Buddha.jpg',
+    heroImage: 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/00/006_Samadhi_Buddha_%2820256591318%29.jpg/800px-006_Samadhi_Buddha_%2820256591318%29.jpg',
     gallery: [
-      'https://upload.wikimedia.org/wikipedia/commons/thumb/7/70/SL_Anuradhapura_asv2020-01_img30_Samadhi_Buddha.jpg/1280px-SL_Anuradhapura_asv2020-01_img30_Samadhi_Buddha.jpg',
+      'https://upload.wikimedia.org/wikipedia/commons/thumb/0/00/006_Samadhi_Buddha_%2820256591318%29.jpg/800px-006_Samadhi_Buddha_%2820256591318%29.jpg',
     ],
     description:
       'A seated Buddha statue in Anuradhapura, carved in the 4th century AD from crystalline limestone and depicting the Buddha in meditation (Dhyana Mudra). It sits in Mahamevnawa Park and is regarded as one of the finest examples of ancient Sinhalese sculpture.',
