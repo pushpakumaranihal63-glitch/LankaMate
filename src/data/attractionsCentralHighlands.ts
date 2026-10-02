@@ -24,7 +24,7 @@ export const attractionsCentralHighlands: Destination[] = [
     highlights: [
       'Strolling beneath the towering canopy of the Giant Javan Willow Fig',
       'Admiring rare indigenous and hybrid orchids in the Orchid House',
-      'Walking down the iconic Cook’s Pine and Royal Palm avenues',
+      'Walking down the iconic Cook\'s Pine and Royal Palm avenues',
       'Watching flying foxes roosting in the ancient riverbank trees',
     ],
     activities: [
@@ -51,7 +51,7 @@ export const attractionsCentralHighlands: Destination[] = [
       'https://upload.wikimedia.org/wikipedia/commons/0/0e/Torre_d%27Ambuluwawa.jpg',
     ],
     description:
-      'Perched atop an isolated 1,065-meter peak in Gampola, Ambuluwawa is Sri Lanka’s first multi-religious biodiversity sanctuary. Its distinctive white spiral stupa tower rises high above the clouds, rewarding adventurous climbers with staggering 360-degree vistas of Adam’s Peak, the Knuckles Mountain Range, and Hanthana.',
+      'Perched atop an isolated 1,065-meter peak in Gampola, Ambuluwawa is Sri Lanka\'s first multi-religious biodiversity sanctuary. Its distinctive white spiral stupa tower rises high above the clouds, rewarding adventurous climbers with staggering 360-degree vistas of Adam\'s Peak, the Knuckles Mountain Range, and Hanthana.',
     bestTimeToVisit: 'December to April for clear cloudless horizons and sunrise views',
     entryFee: '1,000 LKR for foreign visitors; 100 LKR for locals',
     coordinates: { lat: 7.1895, lng: 80.5517, svgX: 49, svgY: 58 },
@@ -91,7 +91,7 @@ export const attractionsCentralHighlands: Destination[] = [
     coordinates: { lat: 7.2942, lng: 80.6289, svgX: 51, svgY: 54 },
     weather: { tempC: 26, condition: 'Mild & Sunny', icon: 'sun' },
     highlights: [
-      'Bird’s-eye panoramic overview of Kandy City and the Sacred Temple of the Tooth',
+      'Bird\'s-eye panoramic overview of Kandy City and the Sacred Temple of the Tooth',
       'Illuminated white Buddha statue glowing against the evening night sky',
       'Tranquil mountain breeze and prayer flags in the temple courtyard',
     ],
@@ -131,7 +131,7 @@ export const attractionsCentralHighlands: Destination[] = [
     ],
     activities: [
       'Architectural photography and cultural heritage exploration',
-      'Countryside bicycle ride through Gampola’s scenic village backroads',
+      'Countryside bicycle ride through Gampola\'s scenic village backroads',
     ],
     travelTips: [
       'Combine Embekke, Lankatilaka, and Gadaladeniya in a single rewarding half-day cultural excursion.',
@@ -146,7 +146,7 @@ export const attractionsCentralHighlands: Destination[] = [
     localName: 'රිවස්ටන් සහ පිටවල පතන',
     region: 'Cultural Triangle',
     district: 'Matale',
-    tagline: 'Windswept Knuckles Ridge, Mini World’s End & Misty Cloud Forests',
+    tagline: 'Windswept Knuckles Ridge, Mini World\'s End & Misty Cloud Forests',
     category: 'Mountain',
     photoStatus: 'VERIFIED_REAL',
     heroImage: 'https://upload.wikimedia.org/wikipedia/commons/thumb/7/7a/Riverston%2C_Matale.jpg/1280px-Riverston%2C_Matale.jpg',
@@ -154,13 +154,13 @@ export const attractionsCentralHighlands: Destination[] = [
       'https://upload.wikimedia.org/wikipedia/commons/thumb/7/7a/Riverston%2C_Matale.jpg/1280px-Riverston%2C_Matale.jpg',
     ],
     description:
-      'Situated in the northern range of the Knuckles Conservation Forest, Riverston offers some of the most dramatic mountain trekking in Sri Lanka. The trail passes the famous Mini World’s End sheer precipice, the vast pygmy-grassland plateau of Pitawala Pathana, and thunderous waterfalls like Sera Ella and Bambarakiri Ella.',
+      'Situated in the northern range of the Knuckles Conservation Forest, Riverston offers some of the most dramatic mountain trekking in Sri Lanka. The trail passes the famous Mini World\'s End sheer precipice, the vast pygmy-grassland plateau of Pitawala Pathana, and thunderous waterfalls like Sera Ella and Bambarakiri Ella.',
     bestTimeToVisit: 'January to April and July to September for clear skies and dramatic vistas',
     entryFee: 'Pitawala Pathana entrance fee ~500 LKR for foreign adults',
     coordinates: { lat: 7.5283, lng: 80.7328, svgX: 53, svgY: 48 },
     weather: { tempC: 20, condition: 'Misty & High Winds', icon: 'wind' },
     highlights: [
-      'Standing at the terrifying sheer drop of Mini World’s End overlooking the Thelgamu valley',
+      'Standing at the terrifying sheer drop of Mini World\'s End overlooking the Thelgamu valley',
       'Trekking across the unique geological plateau of Pitawala Pathana',
       'Walking behind the cascading water curtain at Sera Ella waterfall cave',
       'Cooling off in the crystal natural pools of Thelgamu Oya river',
@@ -348,7 +348,7 @@ export const attractionsCentralHighlands: Destination[] = [
     localName: 'හක්ගල උද්භිද උද්‍යානය',
     region: 'Hill Country',
     district: 'Nuwara Eliya',
-    tagline: 'Sri Lanka’s Highest Botanic Garden, Rose Pavilions & Fernery',
+    tagline: 'Sri Lanka\'s Highest Botanic Garden, Rose Pavilions & Fernery',
     category: 'Nature',
     photoStatus: 'VERIFIED_REAL',
     heroImage: 'https://upload.wikimedia.org/wikipedia/commons/3/37/Hakgala_Botanical_Garden.jpg',
@@ -356,7 +356,7 @@ export const attractionsCentralHighlands: Destination[] = [
       'https://upload.wikimedia.org/wikipedia/commons/3/37/Hakgala_Botanical_Garden.jpg',
     ],
     description:
-      'Nestled beneath the towering Hakgala Rock cliff at an elevation of 1,745 meters, Hakgala Botanical Garden was founded in 1861 as an experimental Cinchona plantation before evolving into Sri Lanka’s premier subtropical hill garden. Famed for its fragrant Rose Garden, giant tree fernery, rockery, and arboretum of English oaks, cedar, and Australian eucalyptus, it offers sweeping views over the Uva valley.',
+      'Nestled beneath the towering Hakgala Rock cliff at an elevation of 1,745 meters, Hakgala Botanical Garden was founded in 1861 as an experimental Cinchona plantation before evolving into Sri Lanka\'s premier subtropical hill garden. Famed for its fragrant Rose Garden, giant tree fernery, rockery, and arboretum of English oaks, cedar, and Australian eucalyptus, it offers sweeping views over the Uva valley.',
     bestTimeToVisit: 'March to May when the Rose Garden and subtropical flowerbeds reach peak bloom',
     entryFee: '2,000 LKR for foreign adults; 100 LKR for locals',
     coordinates: { lat: 6.9303, lng: 80.8208, svgX: 53, svgY: 66 },
@@ -390,7 +390,7 @@ export const attractionsCentralHighlands: Destination[] = [
       'https://images.pexels.com/photos/26576014/pexels-photo-26576014.jpeg?auto=compress&cs=tinysrgb&w=1200&h=800&fit=crop',
     ],
     description:
-      'Established in 1885 on the scenic foothills of Mount Pidurutalagala, Pedro Tea Estate is one of Sri Lanka’s oldest and most renowned tea factories. Operating original 19th-century British processing machinery, Pedro is world-famous for producing the ultra-light, aromatic "Lovers Leap" high-grown black tea. Guided factory tours take visitors through withering, rolling, fermenting, and grading processes, culminating in a tasting session on a veranda overlooking tea-carpeted slopes.',
+      'Established in 1885 on the scenic foothills of Mount Pidurutalagala, Pedro Tea Estate is one of Sri Lanka\'s oldest and most renowned tea factories. Operating original 19th-century British processing machinery, Pedro is world-famous for producing the ultra-light, aromatic "Lovers Leap" high-grown black tea. Guided factory tours take visitors through withering, rolling, fermenting, and grading processes, culminating in a tasting session on a veranda overlooking tea-carpeted slopes.',
     bestTimeToVisit: 'Morning from 8:00 AM to 12:00 noon when tea pluckers are active on the terraces',
     entryFee: '500 LKR for guided factory tour & tea tasting',
     coordinates: { lat: 6.9744, lng: 80.7964, svgX: 52, svgY: 64 },
@@ -412,11 +412,11 @@ export const attractionsCentralHighlands: Destination[] = [
   },
   {
     id: 'lovers-leap-waterfall',
-    name: 'Lover’s Leap Waterfall',
+    name: 'Lover\'s Leap Waterfall',
     localName: 'ලවර්ස් ලීප් ඇල්ල',
     region: 'Hill Country',
     district: 'Nuwara Eliya',
-    tagline: 'Romantic 30-Meter Cascade Flowing from Sri Lanka’s Highest Peak',
+    tagline: 'Romantic 30-Meter Cascade Flowing from Sri Lanka\'s Highest Peak',
     category: 'Nature',
     photoStatus: 'VERIFIED_REAL',
     heroImage: 'https://upload.wikimedia.org/wikipedia/commons/6/66/Lovers_Leap_023347A4-400F-47B6-9EFC-223180AB125A.jpg',
@@ -424,7 +424,7 @@ export const attractionsCentralHighlands: Destination[] = [
       'https://upload.wikimedia.org/wikipedia/commons/6/66/Lovers_Leap_023347A4-400F-47B6-9EFC-223180AB125A.jpg',
     ],
     description:
-      'Originating from the misty streams of Mount Pidurutalagala (Sri Lanka’s tallest summit at 2,524m), Lover’s Leap is an elegant 30-meter waterfall cascading over a sheer dark granite wall. According to local folklore, a prince and his beloved leap together from the precipice after royal opposition to their romance. Surrounded by Pedro tea estate’s green slopes, it is reached via a scenic 2-kilometer walk through tea pickers’ footpaths.',
+      'Originating from the misty streams of Mount Pidurutalagala (Sri Lanka\'s tallest summit at 2,524m), Lover\'s Leap is an elegant 30-meter waterfall cascading over a sheer dark granite wall. According to local folklore, a prince and his beloved leap together from the precipice after royal opposition to their romance. Surrounded by Pedro tea estate\'s green slopes, it is reached via a scenic 2-kilometer walk through tea pickers\' footpaths.',
     bestTimeToVisit: 'Morning hours for clear light and mountain views before afternoon mist sets in',
     entryFee: 'Free entry (accessible via tea estate footpaths)',
     coordinates: { lat: 6.9722, lng: 80.8042, svgX: 52, svgY: 64 },
@@ -450,7 +450,7 @@ export const attractionsCentralHighlands: Destination[] = [
     localName: 'සීතා අම්මාන් කෝවිල',
     region: 'Hill Country',
     district: 'Nuwara Eliya',
-    tagline: 'The World’s Only Shrine Dedicated to Goddess Seetha from the Ramayana',
+    tagline: 'The World\'s Only Shrine Dedicated to Goddess Seetha from the Ramayana',
     category: 'Heritage',
     photoStatus: 'VERIFIED_REAL',
     heroImage: 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/e9/Seetha_Amman_Temple_Seetha_Eliya.jpg/1280px-Seetha_Amman_Temple_Seetha_Eliya.jpg',
@@ -465,7 +465,7 @@ export const attractionsCentralHighlands: Destination[] = [
     weather: { tempC: 17, condition: 'Misty Highland Air', icon: 'cloud' },
     highlights: [
       'Viewing the colorful sculpted Hindu gopuram set against misty jungle hills',
-      'Examining the ancient rock impressions believed to be Lord Hanuman’s footprints',
+      'Examining the ancient rock impressions believed to be Lord Hanuman\'s footprints',
       'Visiting the neighbouring Hakgala Subtropical Botanic Gardens just 1 km away',
     ],
     activities: [
@@ -483,7 +483,7 @@ export const attractionsCentralHighlands: Destination[] = [
     localName: 'සඳතැන්න (Moon Plains)',
     region: 'Hill Country',
     district: 'Nuwara Eliya',
-    tagline: '360° Highland Plateau with Views of Sri Lanka’s 9 Tallest Mountains',
+    tagline: '360° Highland Plateau with Views of Sri Lanka\'s 9 Tallest Mountains',
     category: 'Nature',
     photoStatus: 'VERIFIED_REAL',
     heroImage: 'https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1200&q=80',
@@ -491,14 +491,14 @@ export const attractionsCentralHighlands: Destination[] = [
       'https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1200&q=80',
     ],
     description:
-      'Opened to the public in 2014, Moon Plains (Sandathanna) is an expansive highland valley and plateau situated at 2,050 meters elevation. The centerpiece is the "Mini World’s End" observation platform, which on clear days presents a spellbinding 360-degree panoramic vista of Sri Lanka’s nine highest peaks—including Pidurutalagala, Kirigalpotha, and Kikilimana—alongside roaming herds of wild buffalo and elk.',
+      'Opened to the public in 2014, Moon Plains (Sandathanna) is an expansive highland valley and plateau situated at 2,050 meters elevation. The centerpiece is the "Mini World\'s End" observation platform, which on clear days presents a spellbinding 360-degree panoramic vista of Sri Lanka\'s nine highest peaks—including Pidurutalagala, Kirigalpotha, and Kikilimana—alongside roaming herds of wild buffalo and elk.',
     bestTimeToVisit: 'Early morning from 7:00 AM to 10:00 AM before highland clouds envelope the peaks',
     entryFee: '400 LKR entry + safari jeep fee (~2,500 LKR per vehicle)',
     coordinates: { lat: 6.9614, lng: 80.8142, svgX: 53, svgY: 65 },
     weather: { tempC: 14, condition: 'High Altitude Mountain Winds', icon: 'wind' },
     highlights: [
-      'Taking in the 360° panoramic horizon featuring 9 of Sri Lanka’s highest summits',
-      'Looking down the sheer Mini World’s End cliff into agricultural valleys far below',
+      'Taking in the 360° panoramic horizon featuring 9 of Sri Lanka\'s highest summits',
+      'Looking down the sheer Mini World\'s End cliff into agricultural valleys far below',
       'Spotting herds of grazing sambar deer, wild buffalo, and birds of prey',
     ],
     activities: [
@@ -532,7 +532,7 @@ export const attractionsCentralHighlands: Destination[] = [
     weather: { tempC: 13, condition: 'Crisp Summit Breeze', icon: 'wind' },
     highlights: [
       'Watching dawn break over Gregory Lake with cloud inversion blanketed across town',
-      'Panoramic bird’s-eye perspective of Nuwara Eliya racecourse, lake, and Victorian cottages',
+      'Panoramic bird\'s-eye perspective of Nuwara Eliya racecourse, lake, and Victorian cottages',
       'Passing by the peaceful Swarnagiri Maha Vihara Buddhist temple halfway up the slope',
     ],
     activities: [
@@ -620,7 +620,7 @@ export const attractionsCentralHighlands: Destination[] = [
     localName: 'දුන්හිඳ ඇල්ල',
     region: 'Hill Country',
     district: 'Badulla',
-    tagline: 'Sri Lanka’s Most Romantic Waterfall with Perpetual Smoky Spray',
+    tagline: 'Sri Lanka\'s Most Romantic Waterfall with Perpetual Smoky Spray',
     category: 'Nature',
     photoStatus: 'VERIFIED_REAL',
     heroImage: 'https://upload.wikimedia.org/wikipedia/commons/f/f8/Dunhinda.jpg',
@@ -628,7 +628,7 @@ export const attractionsCentralHighlands: Destination[] = [
       'https://upload.wikimedia.org/wikipedia/commons/f/f8/Dunhinda.jpg',
     ],
     description:
-      'Plunging 64 meters into a deep jungle amphitheater, Dunhinda Falls gets its name from the dense smoky spray (‘dun’) that perpetually billows from its thunderous cascade. The scenic 1.5 km footpath winds through pristine virgin forest past friendly wild macaques and local herbal tea stalls.',
+      'Plunging 64 meters into a deep jungle amphitheater, Dunhinda Falls gets its name from the dense smoky spray (\'dun\') that perpetually billows from its thunderous cascade. The scenic 1.5 km footpath winds through pristine virgin forest past friendly wild macaques and local herbal tea stalls.',
     bestTimeToVisit: 'November to March when waterfall volume is at its most impressive',
     entryFee: '300 LKR for foreign tourists; 50 LKR for locals',
     coordinates: { lat: 6.9936, lng: 81.0633, svgX: 62, svgY: 64 },
@@ -650,11 +650,11 @@ export const attractionsCentralHighlands: Destination[] = [
   },
   {
     id: 'liptons-seat-haputale',
-    name: 'Lipton’s Seat (Haputale)',
+    name: 'Lipton\'s Seat (Haputale)',
     localName: 'ලිප්ටන් සීට් (හපුතලේ)',
     region: 'Hill Country',
     district: 'Badulla',
-    tagline: 'Sir Thomas Lipton’s Fabled Vantage Point Overlooking 5 Provinces',
+    tagline: 'Sir Thomas Lipton\'s Fabled Vantage Point Overlooking 5 Provinces',
     category: 'Mountain',
     photoStatus: 'VERIFIED_REAL',
     heroImage: 'https://upload.wikimedia.org/wikipedia/commons/6/6b/Haputale_town_01_640.jpg',
@@ -687,7 +687,7 @@ export const attractionsCentralHighlands: Destination[] = [
     localName: 'දියලුම ඇල්ල සහ ස්වභාවික තටාක',
     region: 'Hill Country',
     district: 'Badulla',
-    tagline: 'Sri Lanka’s 2nd Highest Waterfall with Clifftop Swimming Pools',
+    tagline: 'Sri Lanka\'s 2nd Highest Waterfall with Clifftop Swimming Pools',
     category: 'Nature',
     photoStatus: 'VERIFIED_REAL',
     heroImage: 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Diyaluma_Falls_1.jpg/1280px-Diyaluma_Falls_1.jpg',
@@ -695,7 +695,7 @@ export const attractionsCentralHighlands: Destination[] = [
       'https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Diyaluma_Falls_1.jpg/1280px-Diyaluma_Falls_1.jpg',
     ],
     description:
-      'Standing 220 meters high near Koslanda, Diyaluma is Sri Lanka’s second tallest waterfall. A trek to the summit reveals a series of natural rock infinity pools where adventurous travelers swim directly on the edge of the roaring drop, overlooking boundless southern plains.',
+      'Standing 220 meters high near Koslanda, Diyaluma is Sri Lanka\'s second tallest waterfall. A trek to the summit reveals a series of natural rock infinity pools where adventurous travelers swim directly on the edge of the roaring drop, overlooking boundless southern plains.',
     bestTimeToVisit: 'December to April for sunny clifftop swims and clear visibility',
     entryFee: 'Free (local guiding recommended for summit hike ~1,500 LKR)',
     coordinates: { lat: 6.7328, lng: 81.0319, svgX: 60, svgY: 73 },
@@ -720,7 +720,7 @@ export const attractionsCentralHighlands: Destination[] = [
     localName: 'මුතියංගණ රජ මහා විහාරය',
     region: 'Hill Country',
     district: 'Badulla',
-    tagline: 'Ancient Sacred Stupa Hallowed by Lord Buddha’s Third Visit',
+    tagline: 'Ancient Sacred Stupa Hallowed by Lord Buddha\'s Third Visit',
     category: 'Heritage',
     photoStatus: 'VERIFIED_REAL',
     heroImage: 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/SL_Badulla_asv2020-01_img15_Muthiyangana_Temple.jpg/1280px-SL_Badulla_asv2020-01_img15_Muthiyangana_Temple.jpg',
@@ -763,7 +763,7 @@ export const attractionsCentralHighlands: Destination[] = [
       'https://upload.wikimedia.org/wikipedia/commons/thumb/b/be/Kataragama_Maha_Devale.jpg/1280px-Kataragama_Maha_Devale.jpg',
     ],
     description:
-      'Set beside the sacred Menik Ganga river on the edge of Yala wilderness, Kataragama is Sri Lanka’s most revered pilgrimage city. It unites Buddhists worshipping at the ancient 1st-century BC Kiri Vehera stupa, Hindus venerating God Skanda at the Ruhunu Maha Kataragama Devalaya, and Sufi Muslims at the historic mosque.',
+      'Set beside the sacred Menik Ganga river on the edge of Yala wilderness, Kataragama is Sri Lanka\'s most revered pilgrimage city. It unites Buddhists worshipping at the ancient 1st-century BC Kiri Vehera stupa, Hindus venerating God Skanda at the Ruhunu Maha Kataragama Devalaya, and Sufi Muslims at the historic mosque.',
     bestTimeToVisit: 'July to August for the famous Esala Perahera festival, fire-walking, and kavadi dances',
     entryFee: 'Free entry',
     coordinates: { lat: 6.4167, lng: 81.3333, svgX: 72, svgY: 80 },
@@ -802,7 +802,7 @@ export const attractionsCentralHighlands: Destination[] = [
     coordinates: { lat: 6.6908, lng: 81.0806, svgX: 64, svgY: 74 },
     weather: { tempC: 30, condition: 'Warm & Jungle Shade', icon: 'sun' },
     highlights: [
-      'Standing before Sri Lanka’s tallest rock-carved standing Buddha (16 meters)',
+      'Standing before Sri Lanka\'s tallest rock-carved standing Buddha (16 meters)',
       'Examining the rare Mahayana Buddhist sculptures of Bodhisattva Avalokiteshvara and Tara',
       'Spotting painted storks, hornbills, and water monitors around Buduruwagala lotus lake',
     ],
@@ -829,7 +829,7 @@ export const attractionsCentralHighlands: Destination[] = [
       'https://upload.wikimedia.org/wikipedia/commons/6/6e/Standing_Buddha_Statue_Maligawila.jpg',
     ],
     description:
-      'Standing 11.5 meters tall in the heart of dense wilderness near Okkampitiya, Maligawila is the tallest free-standing ancient limestone Buddha statue in Sri Lanka. Carved during the 7th century by Prince Aggabodhi, it lay fallen in the jungle until an astounding archaeological restoration raised the colossal 100-ton monolith back onto its lotus pedestal.',
+      'Standing 11.5 meters tall in the heart of dense wilderness near Okkampitiya, Maligawila is the tallest free-standing ancient limestone Buddha statue in Sri Lanka. Carved during the 7th century by King Aggabodhi I of the Rohana kingdom, it lay fallen in the jungle until an archaeological restoration in 1991 raised the colossal monolith back onto its lotus pedestal.',
     bestTimeToVisit: 'Year-round; mornings are cooler for walking the forest path',
     entryFee: 'Free entry (small ticket may apply at site gate ~300 LKR)',
     coordinates: { lat: 6.7844, lng: 81.3364, svgX: 72, svgY: 71 },
@@ -837,7 +837,7 @@ export const attractionsCentralHighlands: Destination[] = [
     highlights: [
       'Gazing up at the 12-meter high free-standing limestone monolith',
       'Walking 500 meters further through the jungle to the Avalokiteshvara Bodhisattva statue at Dambegoda',
-      'Experiencing the untouched raw beauty of southeastern Sri Lanka’s ancient ruins',
+      'Experiencing the untouched raw beauty of southeastern Sri Lanka\'s ancient ruins',
     ],
     activities: [
       'Archaeological trekking through dry-zone forest',
@@ -852,7 +852,7 @@ export const attractionsCentralHighlands: Destination[] = [
   // --- RATNAPURA DISTRICT ---
   {
     id: 'adams-peak-sri-pada',
-    name: 'Sri Pada / Adam’s Peak',
+    name: 'Sri Pada / Adam\'s Peak',
     localName: 'ශ්‍රී පාදස්ථානය (සමනළ කන්ද)',
     region: 'Hill Country',
     district: 'Ratnapura',
@@ -864,14 +864,14 @@ export const attractionsCentralHighlands: Destination[] = [
       'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/Sri_Pada.JPG/1280px-Sri_Pada.JPG',
     ],
     description:
-      'Soaring 2,243 meters into the clouds, Sri Pada is a mystical pyramid-shaped mountain venerated by all major religions: Buddhists revere the sacred footprint atop the summit as Lord Buddha’s, Hindus as Lord Shiva’s, and Muslims/Christians as Adam’s. Millions undertake the midnight pilgrimage up thousands of illuminated steps to witness the breathtaking sunrise and the mountain’s miraculous triangular shadow cast across the western sky.',
+      'Soaring 2,243 meters into the clouds, Sri Pada is a mystical pyramid-shaped mountain venerated by all major religions: Buddhists revere the sacred footprint atop the summit as Lord Buddha\'s, Hindus as Lord Shiva\'s, and Muslims/Christians as Adam\'s. Millions undertake the midnight pilgrimage up thousands of illuminated steps to witness the breathtaking sunrise and the mountain\'s miraculous triangular shadow cast across the western sky.',
     bestTimeToVisit: 'December to May (Pilgrimage season when trails are illuminated with tea stalls and safety handrails)',
     entryFee: 'Completely free',
     coordinates: { lat: 6.8094, lng: 80.4994, svgX: 47, svgY: 70 },
     weather: { tempC: 10, condition: 'Chilly Summit Breeze', icon: 'wind' },
     highlights: [
       'Ascending the illuminated midnight staircase alongside singing local pilgrims',
-      'Watching the magical ‘Ira Sevaya’ (solar disc dance at dawn) over cloud oceans',
+      'Watching the magical \'Ira Sevaya\' (solar disc dance at dawn) over cloud oceans',
       'Witnessing the perfect triangular shadow of the mountain projected on the western horizon',
       'Ringing the sacred bronze bell at the summit shrine to mark your completed climb',
     ],
@@ -933,13 +933,13 @@ export const attractionsCentralHighlands: Destination[] = [
       'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/Gem_Mining_in_Ratnapura_Sri_Lanka.jpg/1280px-Gem_Mining_in_Ratnapura_Sri_Lanka.jpg',
     ],
     description:
-      'Housed in the historic Ehelepola Walauwa—an authentic 17th-century Kandyan aristocratic mansion that belonged to Ehelepola Disawa—the National Museum of Ratnapura documents Sri Lanka’s legendary 2,500-year history as the gemstone capital of the world. Exhibits showcase precious blue sapphires, rubies, and alexandrites alongside traditional bamboo gem pit mining equipment and prehistoric fossils of mammoths, rhinoceroses, and hippos unearthed from local gem gravels.',
+      'Housed in the historic Ehelepola Walauwa, an authentic Kandyan aristocratic mansion that belonged to Ehelepola Nilame, a prominent courtier of the Kingdom of Kandy. The National Museum of Ratnapura documents Sri Lanka\'s legendary 2,500-year history as the gemstone capital of the world. Exhibits showcase precious blue sapphires, rubies, and alexandrites alongside traditional gem pit mining equipment and prehistoric fossils of mammoths, rhinoceroses, and hippos unearthed from local gem gravels.',
     bestTimeToVisit: 'Year-round; Tuesday to Saturday from 9:00 AM to 4:30 PM',
     entryFee: '500 LKR for foreign tourists; 50 LKR for locals',
     coordinates: { lat: 6.6828, lng: 80.4036, svgX: 44, svgY: 74 },
     weather: { tempC: 29, condition: 'Warm & Tropical', icon: 'sun' },
     highlights: [
-      'Viewing rare Ceylon sapphires, star rubies, cat’s eyes, and precious mineral crystals',
+      'Viewing rare Ceylon sapphires, star rubies, cat\'s eyes, and precious mineral crystals',
       'Examining authentic prehistoric mammal fossils unearthed from Sabaragamuwa gem gravels',
       'Walking through the 300-year-old Kandyan aristocratic mansion of Ehelepola Nilame',
     ],
@@ -966,7 +966,7 @@ export const attractionsCentralHighlands: Destination[] = [
       'https://upload.wikimedia.org/wikipedia/commons/e/e1/Main_Entrance_To_the_temple.jpg',
     ],
     description:
-      'Dating to the 2nd century BC, Sri Sankapala Raja Maha Viharaya is an ancient cave temple built by King Dutugemunu’s foremost warrior giant, Phussadeva, who sounded the royal conch shell during the historic unification of Sri Lanka. Nestled beneath massive granite boulder overhangs in Pallebedda, the temple preserves Brahmi rock inscriptions, reclining rock-hewn Buddhas, Kandyan cave murals, and Phussadeva’s burial tomb (Seyona).',
+      'Dating to the 2nd century BC, Sri Sankapala Raja Maha Viharaya is an ancient cave temple built by King Dutugemunu\'s foremost warrior giant, Phussadeva, who sounded the royal conch shell during the historic unification of Sri Lanka. Nestled beneath massive granite boulder overhangs in Pallebedda, the temple preserves Brahmi rock inscriptions, reclining rock-hewn Buddhas, Kandyan cave murals, and Phussadeva\'s burial tomb (Seyona).',
     bestTimeToVisit: 'Year-round; early morning or late afternoon for cool boulder walks',
     entryFee: 'Free entry (donations welcome)',
     coordinates: { lat: 6.5414, lng: 80.6631, svgX: 50, svgY: 77 },
@@ -1126,7 +1126,7 @@ export const attractionsCentralHighlands: Destination[] = [
     localName: 'සිංහරාජ වැසි වනාන්තරය',
     region: 'Wildlife & Safari',
     district: 'Ratnapura',
-    tagline: 'Sri Lanka’s Last Viable Primary Tropical Rainforest & Bird Wave Eden',
+    tagline: 'Sri Lanka\'s Last Viable Primary Tropical Rainforest & Bird Wave Eden',
     category: 'Nature',
     photoStatus: 'VERIFIED_REAL',
     heroImage: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/58/20160128_Sri_Lanka_4132_Sinharaja_Forest_Preserve_sRGB_%2825674474901%29.jpg/1280px-20160128_Sri_Lanka_4132_Sinharaja_Forest_Preserve_sRGB_%2825674474901%29.jpg',
@@ -1134,13 +1134,13 @@ export const attractionsCentralHighlands: Destination[] = [
       'https://upload.wikimedia.org/wikipedia/commons/thumb/5/58/20160128_Sri_Lanka_4132_Sinharaja_Forest_Preserve_sRGB_%2825674474901%29.jpg/1280px-20160128_Sri_Lanka_4132_Sinharaja_Forest_Preserve_sRGB_%2825674474901%29.jpg',
     ],
     description:
-      'A virgin tropical lowland rainforest recognized by UNESCO as a World Heritage site and Biosphere Reserve. Over 60% of its towering canopy trees are endemic, and 95% of Sri Lanka’s endemic birds reside here. Visitors are enchanted by the famous mixed-species bird feeding flocks that move through the mossy canopy in lively waves.',
+      'A virgin tropical lowland rainforest recognized by UNESCO as a World Heritage site and Biosphere Reserve. Over 60% of its towering canopy trees are endemic, and 95% of Sri Lanka\'s endemic birds reside here. Visitors are enchanted by the famous mixed-species bird feeding flocks that move through the mossy canopy in lively waves.',
     bestTimeToVisit: 'December to April and August to September for drier jungle trails and optimal birding',
     entryFee: '~$10 USD (3,000 LKR) foreign entry ticket + mandatory community guide fee',
     coordinates: { lat: 6.4167, lng: 80.4667, svgX: 46, svgY: 80 },
     weather: { tempC: 25, condition: 'Tropical Rain & High Humidity', icon: 'rain' },
     highlights: [
-      'Tracking the world-famous ‘mixed bird feeding waves’ led by the crested drongo',
+      'Tracking the world-famous \'mixed bird feeding waves\' led by the crested drongo',
       'Spotting rare endemic birds: Sri Lanka blue magpie, red-faced malkoha, and green-billed coucal',
       'Trekking to pristine jungle cascades including Kekuna Ella and Pathan Oya',
       'Walking beneath colossal virgin dipterocarp rainforest trees towering 45 meters high',
@@ -1205,7 +1205,7 @@ export const attractionsCentralHighlands: Destination[] = [
       'https://upload.wikimedia.org/wikipedia/commons/thumb/5/50/Pinnawala_01.jpg/1280px-Pinnawala_01.jpg',
     ],
     description:
-      'Established in 1975 along the picturesque banks of the Ma Oya river, Pinnawala cares for orphaned, injured, and abandoned Asian elephants. It has grown into the world’s largest captive elephant herd, where visitors can observe newborn calves being bottle-fed milk and marvel as dozens of majestic elephants march together across the village street for their twice-daily river bath.',
+      'Established in 1975 along the picturesque banks of the Ma Oya river, Pinnawala cares for orphaned, injured, and abandoned Asian elephants. It has grown into the world\'s largest captive elephant herd, where visitors can observe newborn calves being bottle-fed milk and marvel as dozens of majestic elephants march together across the village street for their twice-daily river bath.',
     bestTimeToVisit: 'Arrive at 10:00 AM or 2:00 PM for the world-famous herd river bath in Ma Oya',
     entryFee: '3,000 LKR for foreign adults; SAARC discount available; 100 LKR for locals',
     coordinates: { lat: 7.3014, lng: 80.3867, svgX: 45, svgY: 53 },
@@ -1272,7 +1272,7 @@ export const attractionsCentralHighlands: Destination[] = [
       'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d1/Belilena_Cave.jpg/1280px-Belilena_Cave.jpg',
     ],
     description:
-      'Perched high in lush rainforest hills near Kitulgala, Belilena is one of the most famous archaeological cave shelters in South Asia. Excavations uncovered skeletal remains of the prehistoric ‘Balangoda Man’ (Homo sapiens balangodensis) dating back 32,000 years, alongside microlithic stone tools, geometric bone implements, and remnants of ancient hearths.',
+      'Perched high in lush rainforest hills near Kitulgala, Belilena is one of the most famous archaeological cave shelters in South Asia. Excavations uncovered skeletal remains of the prehistoric \'Balangoda Man\' (Homo sapiens balangodensis) dating back 32,000 years, alongside microlithic stone tools, geometric bone implements, and remnants of ancient hearths.',
     bestTimeToVisit: 'Year-round; mornings are cooler for the 1 km uphill forest walk',
     entryFee: '300 LKR archaeology department ticket',
     coordinates: { lat: 6.9944, lng: 80.4328, svgX: 45, svgY: 64 },

@@ -482,13 +482,13 @@ export const attractionsNorthEastCentral: Destination[] = [
     district: 'Vavuniya',
     tagline: 'Historic Resting Sanctuary of the Sacred Tooth Relic en Route to Anuradhapura',
     category: 'Heritage',
-    photoStatus: 'PHOTO_REVIEW_REQUIRED',
+    photoStatus: 'VERIFIED_REAL',
     heroImage: 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/b5/Madukanda_Vihara.jpg/1280px-Madukanda_Vihara.jpg',
     gallery: [
       'https://upload.wikimedia.org/wikipedia/commons/thumb/b/b5/Madukanda_Vihara.jpg/1280px-Madukanda_Vihara.jpg',
     ],
     description:
-      'An ancient Buddhist temple in Vavuniya with stone inscriptions and ruins, associated with a legend that the Sacred Tooth Relic rested here on its way to Anuradhapura. Ancient stone pillars, moonstones, and guard stones remain on the site.',
+      'An ancient Buddhist temple in Vavuniya, associated with the legend that the Sacred Tooth Relic rested here during its journey from India to Anuradhapura in the 4th century AD. The site preserves ancient stone pillars, moonstones, and guard stones from the Anuradhapura period.',
     bestTimeToVisit: 'Year-round; early mornings are serene and shaded under ancient trees',
     entryFee: 'Free entry',
     coordinates: { lat: 8.7417, lng: 80.5283, svgX: 47, svgY: 29 },
@@ -853,12 +853,12 @@ export const attractionsNorthEastCentral: Destination[] = [
     tagline: 'Ancient Ocean Dune Temple Where Queen Viharamahadevi Washed Ashore',
     category: 'Heritage',
     photoStatus: 'VERIFIED_REAL',
-    heroImage: 'https://upload.wikimedia.org/wikipedia/commons/6/6d/Magul_viharaya.jpg',
+    heroImage: 'https://upload.wikimedia.org/wikipedia/commons/7/74/Muhudu_Maha_Vihara_1.jpg',
     gallery: [
-      'https://upload.wikimedia.org/wikipedia/commons/6/6d/Magul_viharaya.jpg',
+      'https://upload.wikimedia.org/wikipedia/commons/7/74/Muhudu_Maha_Vihara_1.jpg',
     ],
     description:
-      'Ruins of an ancient coastal Buddhist temple near Pottuvil, with stone Buddha statues partly buried in sand dunes beside the beach. Tradition links the site to the legend of Queen Viharamahadevi. It is a short distance from Arugam Bay.',
+      'An ancient coastal Buddhist temple near Pottuvil, with stone Buddha statues and a stupa partly buried in sand dunes beside the beach. Tradition links the site to the 2nd-century BC legend of Queen Viharamahadevi, who was said to have washed ashore here. It is a short distance from Arugam Bay.',
     bestTimeToVisit: 'Year-round; late afternoon when sea breezes cool the coastal sand dunes',
     entryFee: 'Free entry',
     coordinates: { lat: 6.8717, lng: 81.8419, svgX: 89, svgY: 67 },

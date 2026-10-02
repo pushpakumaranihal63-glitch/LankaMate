@@ -280,7 +280,7 @@ export const attractionsWesternSouthern: Destination[] = [
     localName: 'ජමි උල් අල්ෆාර් රතු පල්ලිය',
     region: 'Western & Urban',
     district: 'Colombo',
-    tagline: 'Striking Red-and-White Candy-Striped Minarets Built in 1908',
+    tagline: 'Striking Red-and-White Candy-Striped Minarets Built in 1909',
     category: 'Heritage',
     photoStatus: 'VERIFIED_REAL',
     heroImage: 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/24/SL_Colombo_asv2020-01_img22_Jami_Ul-Alfar_Mosque.jpg/1280px-SL_Colombo_asv2020-01_img22_Jami_Ul-Alfar_Mosque.jpg',
@@ -322,7 +322,7 @@ export const attractionsWesternSouthern: Destination[] = [
       'https://upload.wikimedia.org/wikipedia/commons/thumb/0/0a/Dutch_Hospital.jpg/1280px-Dutch_Hospital.jpg',
     ],
     description:
-      '17th-century colonial warehouse complex in the Fort precinct, now converted to restaurants, cafes, and shops. Its thick masonry walls and twin courtyards are preserved from the Dutch era.',
+      '17th-century colonial hospital complex built by the Dutch East India Company in the Fort precinct, now converted to restaurants, cafes, and shops. Its thick masonry walls and twin courtyards are preserved from the Dutch era.',
     bestTimeToVisit: 'Evenings from 6:30 PM onward for outdoor courtyard dining and live acoustic music',
     entryFee: 'Free entry to precinct; dining and shopping costs vary',
     coordinates: { lat: 6.9340, lng: 79.8435, svgX: 22, svgY: 64 },
