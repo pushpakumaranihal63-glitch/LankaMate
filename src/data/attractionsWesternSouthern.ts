@@ -1023,9 +1023,9 @@ export const attractionsWesternSouthern: Destination[] = [
     tagline: 'Island Monastery Reached by Cable Suspension Bridge Over the Ocean',
     category: 'Heritage',
     photoStatus: 'VERIFIED_REAL',
-    heroImage: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/Paravi_Duwa_Temple_Matara.jpg/1280px-Paravi_Duwa_Temple_Matara.jpg',
+    heroImage: 'https://upload.wikimedia.org/wikipedia/commons/d/db/%E0%B6%B4%E0%B6%BB%E0%B7%80%E0%B7%92_%E0%B6%AF%E0%B7%96%E0%B7%80_%E0%B7%80%E0%B7%92%E0%B7%84%E0%B7%8F%E0%B6%BB%E0%B7%83%E0%B7%8A%E0%B6%AE%E0%B7%8F%E0%B6%B1%E0%B6%BA_-_Paravi_Duwa_Temple.jpg',
     gallery: [
-      'https://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/Paravi_Duwa_Temple_Matara.jpg/1280px-Paravi_Duwa_Temple_Matara.jpg',
+      'https://upload.wikimedia.org/wikipedia/commons/d/db/%E0%B6%B4%E0%B6%BB%E0%B7%80%E0%B7%92_%E0%B6%AF%E0%B7%96%E0%B7%80_%E0%B7%80%E0%B7%92%E0%B7%84%E0%B7%8F%E0%B6%BB%E0%B7%83%E0%B7%8A%E0%B6%AE%E0%B7%8F%E0%B6%B1%E0%B6%BA_-_Paravi_Duwa_Temple.jpg',
     ],
     description:
       'Small Buddhist temple on a rocky islet off Matara beach, connected to the shore by a suspension bridge. The nearby Dutch Star Fort, built in 1765, is a short walk away.',
@@ -1193,9 +1193,9 @@ export const attractionsWesternSouthern: Destination[] = [
     tagline: '13th-Century Rock Citadel, Majestic Stone Stairway & Chinese Lions',
     category: 'Heritage',
     photoStatus: 'VERIFIED_REAL',
-    heroImage: 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Yapahuwa_Rock_Fortress_Sri_Lanka.jpg/1280px-Yapahuwa_Rock_Fortress_Sri_Lanka.jpg',
+    heroImage: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Yapahuwa_rock_top_2_cdm.jpg/1280px-Yapahuwa_rock_top_2_cdm.jpg',
     gallery: [
-      'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Yapahuwa_Rock_Fortress_Sri_Lanka.jpg/1280px-Yapahuwa_Rock_Fortress_Sri_Lanka.jpg',
+      'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Yapahuwa_rock_top_2_cdm.jpg/1280px-Yapahuwa_rock_top_2_cdm.jpg',
     ],
     description:
       '13th-century rock fortress of King Bhuvanaikabahu I, who kept the Tooth Relic here from 1272 to 1284. A 90-meter ornate staircase leads up the rock to the summit terrace.',

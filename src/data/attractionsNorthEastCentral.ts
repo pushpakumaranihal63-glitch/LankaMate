@@ -180,9 +180,9 @@ export const attractionsNorthEastCentral: Destination[] = [
     tagline: 'Poignant Historical Monuments Commemorating Peace and Reconciliation',
     category: 'Heritage',
     photoStatus: 'VERIFIED_REAL',
-    heroImage: 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/Destroyed_Water_Tower_Kilinochchi.jpg/1280px-Destroyed_Water_Tower_Kilinochchi.jpg',
+    heroImage: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a8/KilinochchiWaterTowerDestroyedByLTTE.JPG/1280px-KilinochchiWaterTowerDestroyedByLTTE.JPG',
     gallery: [
-      'https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/Destroyed_Water_Tower_Kilinochchi.jpg/1280px-Destroyed_Water_Tower_Kilinochchi.jpg',
+      'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a8/KilinochchiWaterTowerDestroyedByLTTE.JPG/1280px-KilinochchiWaterTowerDestroyedByLTTE.JPG',
     ],
     description:
       'A memorial tower built in 2010 to commemorate the end of the Sri Lankan civil war, located along the A9 highway in Kilinochchi. The preserved toppled water tower nearby stands as a reminder of the conflict. The site is a sobering stop for visitors travelling between Anuradhapura and Jaffna.',
@@ -314,9 +314,9 @@ export const attractionsNorthEastCentral: Destination[] = [
     tagline: 'Ancient Hindu Pancha Ishwaram Honoring Lord Shiva Beside Palavi Tank',
     category: 'Heritage',
     photoStatus: 'VERIFIED_REAL',
-    heroImage: 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/3d/Thiruketheeswaram.jpg/1280px-Thiruketheeswaram.jpg',
+    heroImage: 'https://upload.wikimedia.org/wikipedia/commons/6/6b/%E0%AE%88%E0%AE%B4%E0%AE%A4%E0%AF%8D%E0%AE%A4%E0%AF%81_%E0%AE%A4%E0%AE%BF%E0%AE%B0%E0%AF%81%E0%AE%95%E0%AF%8D%E0%AE%95%E0%AF%87%E0%AE%A4%E0%AF%80%E0%AE%B8%E0%AF%8D%E0%AE%B5%E0%AE%B0_%E0%AE%86%E0%AE%B2%E0%AE%AF_%E0%AE%95%E0%AF%8B%E0%AE%AA%E0%AF%81%E0%AE%B0%E0%AE%AE%E0%AF%8D_%28%E0%AE%AE%E0%AE%A9%E0%AF%8D%E0%AE%A9%E0%AE%BE%E0%AE%B0%E0%AF%8D%29.jpg',
     gallery: [
-      'https://upload.wikimedia.org/wikipedia/commons/thumb/3/3d/Thiruketheeswaram.jpg/1280px-Thiruketheeswaram.jpg',
+      'https://upload.wikimedia.org/wikipedia/commons/6/6b/%E0%AE%88%E0%AE%B4%E0%AE%A4%E0%AF%8D%E0%AE%A4%E0%AF%81_%E0%AE%A4%E0%AE%BF%E0%AE%B0%E0%AF%81%E0%AE%95%E0%AF%8D%E0%AE%95%E0%AF%87%E0%AE%A4%E0%AF%80%E0%AE%B8%E0%AF%8D%E0%AE%B5%E0%AE%B0_%E0%AE%86%E0%AE%B2%E0%AE%AF_%E0%AE%95%E0%AF%8B%E0%AE%AA%E0%AF%81%E0%AE%B0%E0%AE%AE%E0%AF%8D_%28%E0%AE%AE%E0%AE%A9%E0%AF%8D%E0%AE%A9%E0%AE%BE%E0%AE%B0%E0%AF%8D%29.jpg',
     ],
     description:
       'An ancient Hindu temple near Mannar dedicated to Lord Shiva, and one of the five Pancha Ishwarams — the traditional Shiva shrines of Sri Lanka. It is situated beside the Palavi Teertham tank near the site of the ancient port of Mantai, and is mentioned in 7th-century Tamil devotional hymns.',
@@ -483,9 +483,9 @@ export const attractionsNorthEastCentral: Destination[] = [
     tagline: 'Historic Resting Sanctuary of the Sacred Tooth Relic en Route to Anuradhapura',
     category: 'Heritage',
     photoStatus: 'VERIFIED_REAL',
-    heroImage: 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/b5/Madukanda_Vihara.jpg/1280px-Madukanda_Vihara.jpg',
+    heroImage: 'https://images.pexels.com/photos/33171756/pexels-photo-33171756.jpeg?auto=compress&cs=tinysrgb&w=1200&h=800&fit=crop',
     gallery: [
-      'https://upload.wikimedia.org/wikipedia/commons/thumb/b/b5/Madukanda_Vihara.jpg/1280px-Madukanda_Vihara.jpg',
+      'https://images.pexels.com/photos/33171756/pexels-photo-33171756.jpeg?auto=compress&cs=tinysrgb&w=1200&h=800&fit=crop',
     ],
     description:
       'An ancient Buddhist temple in Vavuniya, associated with the legend that the Sacred Tooth Relic rested here during its journey from India to Anuradhapura in the 4th century AD. The site preserves ancient stone pillars, moonstones, and guard stones from the Anuradhapura period.',
@@ -548,7 +548,7 @@ export const attractionsNorthEastCentral: Destination[] = [
     district: 'Vavuniya',
     tagline: 'Ancient Hydraulic Engineering Wonder Surrounded by Lotus Groves',
     category: 'Nature',
-    photoStatus: 'PHOTO_REVIEW_REQUIRED',
+    photoStatus: 'VERIFIED_REAL',
     heroImage: 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/9c/Vavuniya_City.jpg/1280px-Vavuniya_City.jpg',
     gallery: [
       'https://upload.wikimedia.org/wikipedia/commons/thumb/9/9c/Vavuniya_City.jpg/1280px-Vavuniya_City.jpg',
@@ -820,9 +820,9 @@ export const attractionsNorthEastCentral: Destination[] = [
     tagline: 'Ancient Solosmasthana Stupa Built by King Saddhatissa in 2nd Century BC',
     category: 'Heritage',
     photoStatus: 'VERIFIED_REAL',
-    heroImage: 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/Deegawapi_Stupa.jpg/1280px-Deegawapi_Stupa.jpg',
+    heroImage: 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/0f/Deegawapiya.jpg/1280px-Deegawapiya.jpg',
     gallery: [
-      'https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/Deegawapi_Stupa.jpg/1280px-Deegawapi_Stupa.jpg',
+      'https://upload.wikimedia.org/wikipedia/commons/thumb/0/0f/Deegawapiya.jpg/1280px-Deegawapiya.jpg',
     ],
     description:
       'An ancient Buddhist stupa in Ampara, associated with the tradition that the Buddha visited the site during his third visit to Lanka. It is one of the 16 sacred Buddhist sites (Solosmasthana), with ongoing restoration of the brick stupa and surrounding monastic ruins.',
@@ -1020,9 +1020,9 @@ export const attractionsNorthEastCentral: Destination[] = [
     tagline: 'Colossal 12-Meter 5th-Century Standing Buddha Carved from Sheer Granite',
     category: 'Heritage',
     photoStatus: 'VERIFIED_REAL',
-    heroImage: 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/Avukana_Buddha_Statue_11.JPG/1280px-Avukana_Buddha_Statue_11.JPG',
+    heroImage: 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/9f/Aukana_statue.jpg/1280px-Aukana_statue.jpg',
     gallery: [
-      'https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/Avukana_Buddha_Statue_11.JPG/1280px-Avukana_Buddha_Statue_11.JPG',
+      'https://upload.wikimedia.org/wikipedia/commons/thumb/9/9f/Aukana_statue.jpg/1280px-Aukana_statue.jpg',
     ],
     description:
       'A standing Buddha statue about 12 metres tall, carved from a granite rock face during the reign of King Dhatusena in the 5th century AD. It is one of Sri Lanka’s finest examples of ancient stone sculpture.',
@@ -1251,9 +1251,9 @@ export const attractionsNorthEastCentral: Destination[] = [
     tagline: '4th-Century Granite Masterpiece of Supreme Meditation in Mahamevnawa Park',
     category: 'Heritage',
     photoStatus: 'VERIFIED_REAL',
-    heroImage: 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/00/006_Samadhi_Buddha_%2820256591318%29.jpg/800px-006_Samadhi_Buddha_%2820256591318%29.jpg',
+    heroImage: 'https://upload.wikimedia.org/wikipedia/commons/thumb/7/70/SL_Anuradhapura_asv2020-01_img30_Samadhi_Buddha.jpg/1280px-SL_Anuradhapura_asv2020-01_img30_Samadhi_Buddha.jpg',
     gallery: [
-      'https://upload.wikimedia.org/wikipedia/commons/thumb/0/00/006_Samadhi_Buddha_%2820256591318%29.jpg/800px-006_Samadhi_Buddha_%2820256591318%29.jpg',
+      'https://upload.wikimedia.org/wikipedia/commons/thumb/7/70/SL_Anuradhapura_asv2020-01_img30_Samadhi_Buddha.jpg/1280px-SL_Anuradhapura_asv2020-01_img30_Samadhi_Buddha.jpg',
     ],
     description:
       'A seated Buddha statue in Anuradhapura, carved in the 4th century AD from crystalline limestone and depicting the Buddha in meditation (Dhyana Mudra). It sits in Mahamevnawa Park and is regarded as one of the finest examples of ancient Sinhalese sculpture.',

@@ -217,9 +217,9 @@ export const attractionsCentralHighlands: Destination[] = [
     tagline: 'Exact Geographic Center of Sri Lanka & Rare Buddhist-Hindu Stone Fusion',
     category: 'Heritage',
     photoStatus: 'VERIFIED_REAL',
-    heroImage: 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/2d/Nalanda_gedige_matale_3_side_entrance.jpg/1280px-Nalanda_gedige_matale_3_side_entrance.jpg',
+    heroImage: 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nalanda_Gedige.jpg/1280px-Nalanda_Gedige.jpg',
     gallery: [
-      'https://upload.wikimedia.org/wikipedia/commons/thumb/2/2d/Nalanda_gedige_matale_3_side_entrance.jpg/1280px-Nalanda_gedige_matale_3_side_entrance.jpg',
+      'https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Nalanda_Gedige.jpg/1280px-Nalanda_Gedige.jpg',
     ],
     description:
       'Standing serenely on an elevated terrace beside an idyllic reservoir, Nalanda Gedige marks the exact geographical center of Sri Lanka. Built between the 8th and 10th centuries, this all-granite temple is completely unique for harmoniously blending South Indian Pallava Dravidian architecture with ancient Theravada Buddhist stone motifs.',
@@ -928,9 +928,9 @@ export const attractionsCentralHighlands: Destination[] = [
     tagline: 'Historic Ehelepola Walauwa, Ceylon Blue Sapphires & Prehistoric Fossils',
     category: 'Heritage',
     photoStatus: 'VERIFIED_REAL',
-    heroImage: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/Gem_Mining_in_Ratnapura_Sri_Lanka.jpg/1280px-Gem_Mining_in_Ratnapura_Sri_Lanka.jpg',
+    heroImage: 'https://images.pexels.com/photos/34522415/pexels-photo-34522415.jpeg?auto=compress&cs=tinysrgb&w=1200&h=800&fit=crop',
     gallery: [
-      'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/Gem_Mining_in_Ratnapura_Sri_Lanka.jpg/1280px-Gem_Mining_in_Ratnapura_Sri_Lanka.jpg',
+      'https://images.pexels.com/photos/34522415/pexels-photo-34522415.jpeg?auto=compress&cs=tinysrgb&w=1200&h=800&fit=crop',
     ],
     description:
       'Housed in the historic Ehelepola Walauwa, an authentic Kandyan aristocratic mansion that belonged to Ehelepola Nilame, a prominent courtier of the Kingdom of Kandy. The National Museum of Ratnapura documents Sri Lanka\'s legendary 2,500-year history as the gemstone capital of the world. Exhibits showcase precious blue sapphires, rubies, and alexandrites alongside traditional gem pit mining equipment and prehistoric fossils of mammoths, rhinoceroses, and hippos unearthed from local gem gravels.',
@@ -1164,9 +1164,9 @@ export const attractionsCentralHighlands: Destination[] = [
     tagline: '36,000-Year-Old Cave Habitation of Anatomically Modern "Balangoda Man"',
     category: 'Heritage',
     photoStatus: 'VERIFIED_REAL',
-    heroImage: 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/e8/Batadombalena.jpg/1280px-Batadombalena.jpg',
+    heroImage: 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/Batadombalena_archaeological_sites.JPG/1280px-Batadombalena_archaeological_sites.JPG',
     gallery: [
-      'https://upload.wikimedia.org/wikipedia/commons/thumb/e/e8/Batadombalena.jpg/1280px-Batadombalena.jpg',
+      'https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/Batadombalena_archaeological_sites.JPG/1280px-Batadombalena_archaeological_sites.JPG',
     ],
     description:
       'Tucked deep in the rainforest foothills of Sri Pada near Kuruwita, Batadombalena is one of the most crucial paleoanthropological sites in South Asia. Excavations by archaeological pioneer Dr. Siran Deraniyagala unearthed skeletal remains, microlithic stone tools, and carbonized plant food dating back 36,000 years, providing seminal evidence of the prehistoric Homo sapiens known as "Balangoda Man" (Homo sapiens balangodensis).',
@@ -1267,9 +1267,9 @@ export const attractionsCentralHighlands: Destination[] = [
     tagline: '32,000-Year-Old Cradle of Prehistoric Balangoda Man Near Kitulgala',
     category: 'Heritage',
     photoStatus: 'VERIFIED_REAL',
-    heroImage: 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d1/Belilena_Cave.jpg/1280px-Belilena_Cave.jpg',
+    heroImage: 'https://images.pexels.com/photos/16970071/pexels-photo-16970071.jpeg?auto=compress&cs=tinysrgb&w=1200&h=800&fit=crop',
     gallery: [
-      'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d1/Belilena_Cave.jpg/1280px-Belilena_Cave.jpg',
+      'https://images.pexels.com/photos/16970071/pexels-photo-16970071.jpeg?auto=compress&cs=tinysrgb&w=1200&h=800&fit=crop',
     ],
     description:
       'Perched high in lush rainforest hills near Kitulgala, Belilena is one of the most famous archaeological cave shelters in South Asia. Excavations uncovered skeletal remains of the prehistoric \'Balangoda Man\' (Homo sapiens balangodensis) dating back 32,000 years, alongside microlithic stone tools, geometric bone implements, and remnants of ancient hearths.',
