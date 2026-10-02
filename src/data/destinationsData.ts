@@ -154,9 +154,9 @@ const initialDestinations: Destination[] = [
     tagline: '17th-Century UNESCO World Heritage Dutch Ramparts, Bastions & Lighthouse',
     category: 'Heritage',
     photoStatus: 'VERIFIED_REAL',
-    heroImage: 'https://images.unsplash.com/photo-1552465011-b4e21bf6e79a?q=80&w=1200&auto=format&fit=crop',
+    heroImage: 'https://upload.wikimedia.org/wikipedia/commons/thumb/7/78/Galle_Lighthouse_at_the_Dutch_Fort.jpg/1280px-Galle_Lighthouse_at_the_Dutch_Fort.jpg',
     gallery: [
-      'https://images.unsplash.com/photo-1552465011-b4e21bf6e79a?q=80&w=1200&auto=format&fit=crop',
+      'https://upload.wikimedia.org/wikipedia/commons/thumb/7/78/Galle_Lighthouse_at_the_Dutch_Fort.jpg/1280px-Galle_Lighthouse_at_the_Dutch_Fort.jpg',
     ],
     description:
       'A UNESCO World Heritage Site on the southwest tip of Sri Lanka, Galle Fort is the largest remaining sea fortress built by European colonial powers in South Asia. Within its sturdy 400-year-old coral-stone ramparts lie cobblestone lanes lined with Dutch and Portuguese colonial villas, jewelers, gelato parlors, art galleries, and the whitewashed Galle Lighthouse.',
@@ -342,9 +342,9 @@ const initialDestinations: Destination[] = [
     tagline: 'Ancient Dravidian Temples, Palmyrah Groves & Vibrant Tamil Culture',
     category: 'Heritage',
     photoStatus: 'VERIFIED_REAL',
-    heroImage: 'https://images.unsplash.com/photo-1625736353003-82759e697843?q=80&w=1200&auto=format&fit=crop',
+    heroImage: 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/Jaffna_Fort_%2831305188248%29.jpg/1280px-Jaffna_Fort_%2831305188248%29.jpg',
     gallery: [
-      'https://images.unsplash.com/photo-1625736353003-82759e697843?q=80&w=1200&auto=format&fit=crop',
+      'https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/Jaffna_Fort_%2831305188248%29.jpg/1280px-Jaffna_Fort_%2831305188248%29.jpg',
     ],
     description:
       'Situated on the sun-baked northern peninsula of Sri Lanka, Jaffna is a culturally unique destination rich in Hindu temples, palmyrah trees, Dutch fortifications, and incredible fiery cuisine. Famous for the ornate golden gopuram of Nallur Kandaswamy Kovil and its peaceful outlying causeway islands, Jaffna offers an authentic cultural perspective distinct from the south.',
