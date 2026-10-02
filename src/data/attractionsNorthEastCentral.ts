@@ -281,9 +281,9 @@ export const attractionsNorthEastCentral: Destination[] = [
     tagline: '700-Year-Old African Giant Tree Planted by Arab Camel Traders in 1477',
     category: 'Nature',
     photoStatus: 'VERIFIED_REAL',
-    heroImage: 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Baobab_tree%2C_Pallimunai%2C_Mannar.jpg/1280px-Baobab_tree%2C_Pallimunai%2C_Mannar.jpg',
+    heroImage: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/50/Baobab_Tree_in_Mannar_2023-05-26-1.jpg/1280px-Baobab_Tree_in_Mannar_2023-05-26-1.jpg',
     gallery: [
-      'https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Baobab_tree%2C_Pallimunai%2C_Mannar.jpg/1280px-Baobab_tree%2C_Pallimunai%2C_Mannar.jpg',
+      'https://upload.wikimedia.org/wikipedia/commons/thumb/5/50/Baobab_Tree_in_Mannar_2023-05-26-1.jpg/1280px-Baobab_Tree_in_Mannar_2023-05-26-1.jpg',
     ],
     description:
       'A large baobab tree (Adansonia digitata) in Pallimunai on Mannar Island, believed to be over 600 years old. The species is native to Africa and was likely brought to Sri Lanka by Arab traders. Its massive trunk measures about 19.5 metres in circumference.',
@@ -382,9 +382,9 @@ export const attractionsNorthEastCentral: Destination[] = [
     tagline: 'Untouched Brackish Lagoon, Mangrove Forests & Waterfowl Haven',
     category: 'Nature',
     photoStatus: 'VERIFIED_REAL',
-    heroImage: 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/Nayaru_bridge.jpg/1280px-Nayaru_bridge.jpg',
+    heroImage: 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/b4/Nayaru_in_Mullaitivu.jpg/1280px-Nayaru_in_Mullaitivu.jpg',
     gallery: [
-      'https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/Nayaru_bridge.jpg/1280px-Nayaru_bridge.jpg',
+      'https://upload.wikimedia.org/wikipedia/commons/thumb/b/b4/Nayaru_in_Mullaitivu.jpg/1280px-Nayaru_in_Mullaitivu.jpg',
     ],
     description:
       'A coastal lagoon on the northeastern shore of Mullaitivu, fringed by scrub and mangroves. It supports populations of waterbirds, crabs, and estuary fish, and is also known for crocodiles. The lagoon opens into the Bay of Bengal at its mouth.',
@@ -415,9 +415,9 @@ export const attractionsNorthEastCentral: Destination[] = [
     tagline: 'Critical Estuarine Wetland for Rare Black-Necked Storks & Pelicans',
     category: 'Wildlife',
     photoStatus: 'VERIFIED_REAL',
-    heroImage: 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/87/Kokkilai_Lagoon.jpg/1280px-Kokkilai_Lagoon.jpg',
+    heroImage: 'https://upload.wikimedia.org/wikipedia/commons/thumb/7/77/Sunset_in_Kokkilai_sanctuary.jpg/1280px-Sunset_in_Kokkilai_sanctuary.jpg',
     gallery: [
-      'https://upload.wikimedia.org/wikipedia/commons/thumb/8/87/Kokkilai_Lagoon.jpg/1280px-Kokkilai_Lagoon.jpg',
+      'https://upload.wikimedia.org/wikipedia/commons/thumb/7/77/Sunset_in_Kokkilai_sanctuary.jpg/1280px-Sunset_in_Kokkilai_sanctuary.jpg',
     ],
     description:
       'A large, shallow coastal lagoon straddling the border of Mullaitivu and Trincomalee districts, designated as a bird sanctuary. Fringed by mangroves and mudflats, it is an important wintering habitat for migratory waterbirds including storks, pelicans, and egrets.',
@@ -448,9 +448,9 @@ export const attractionsNorthEastCentral: Destination[] = [
     tagline: 'Wide Golden Shores Facing the Bay of Bengal & Historic Shipwrecks',
     category: 'Beach',
     photoStatus: 'VERIFIED_REAL',
-    heroImage: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/5a/Mullaitivu_coast.jpg/1280px-Mullaitivu_coast.jpg',
+    heroImage: 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/63/Semmalai_beach_of_mullaitheevu.jpg/1280px-Semmalai_beach_of_mullaitheevu.jpg',
     gallery: [
-      'https://upload.wikimedia.org/wikipedia/commons/thumb/5/5a/Mullaitivu_coast.jpg/1280px-Mullaitivu_coast.jpg',
+      'https://upload.wikimedia.org/wikipedia/commons/thumb/6/63/Semmalai_beach_of_mullaitheevu.jpg/1280px-Semmalai_beach_of_mullaitheevu.jpg',
     ],
     description:
       'A long, open beach on the northeastern coast of Mullaitivu facing the Bay of Bengal. The area is quiet and largely undeveloped, with nearby sites related to the civil war. It is suitable for walks and sunrise viewing.',
@@ -1053,9 +1053,9 @@ export const attractionsNorthEastCentral: Destination[] = [
     tagline: 'South Asia’s Largest Ironwood Forest & 500-Million-Year-Old Pink Quartz Mountain',
     category: 'Nature',
     photoStatus: 'VERIFIED_REAL',
-    heroImage: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/52/Jathika_Namal_Uyana.jpg/1280px-Jathika_Namal_Uyana.jpg',
+    heroImage: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/Namal_Uyana_pink_quartz_mountain.jpg/1280px-Namal_Uyana_pink_quartz_mountain.jpg',
     gallery: [
-      'https://upload.wikimedia.org/wikipedia/commons/thumb/5/52/Jathika_Namal_Uyana.jpg/1280px-Jathika_Namal_Uyana.jpg',
+      'https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/Namal_Uyana_pink_quartz_mountain.jpg/1280px-Namal_Uyana_pink_quartz_mountain.jpg',
     ],
     description:
       'A forest reserve in Galkiriyagama featuring a rose quartz mountain and an ironwood (Na) tree forest. It contains the largest known rose quartz deposit in Asia and also has ruins of an ancient monastic site. The reserve was used as a monastic retreat from at least the 3rd century BC.',

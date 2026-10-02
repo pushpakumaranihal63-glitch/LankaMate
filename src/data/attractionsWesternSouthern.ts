@@ -451,9 +451,9 @@ export const attractionsWesternSouthern: Destination[] = [
     tagline: 'Colonial Financial Hub, 1857 Clock Tower & Heritage Architecture',
     category: 'City',
     photoStatus: 'VERIFIED_REAL',
-    heroImage: 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Colombo_Lighthouse.jpg/1280px-Colombo_Lighthouse.jpg',
+    heroImage: 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/38/LK-colombo-uhrturm.jpg/1280px-LK-colombo-uhrturm.jpg',
     gallery: [
-      'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Colombo_Lighthouse.jpg/1280px-Colombo_Lighthouse.jpg',
+      'https://upload.wikimedia.org/wikipedia/commons/thumb/3/38/LK-colombo-uhrturm.jpg/1280px-LK-colombo-uhrturm.jpg',
     ],
     description:
       "Colombo's historic commercial core, with colonial-era buildings, the Old Lighthouse Clock Tower, Cargills department store, and the World Trade Center. A walking district of heritage architecture and offices.",
@@ -955,9 +955,9 @@ export const attractionsWesternSouthern: Destination[] = [
     tagline: 'Lush Lowland Rainforest Sanctuary, Canopy Streams & Endemic Birds',
     category: 'Nature',
     photoStatus: 'VERIFIED_REAL',
-    heroImage: 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/8e/Kanneliya_Forest_Reserve.jpg/1280px-Kanneliya_Forest_Reserve.jpg',
+    heroImage: 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Kanneliya_rain_forest.jpg/1280px-Kanneliya_rain_forest.jpg',
     gallery: [
-      'https://upload.wikimedia.org/wikipedia/commons/thumb/8/8e/Kanneliya_Forest_Reserve.jpg/1280px-Kanneliya_Forest_Reserve.jpg',
+      'https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Kanneliya_rain_forest.jpg/1280px-Kanneliya_rain_forest.jpg',
     ],
     description:
       "Part of the KDN complex and the second largest lowland rainforest in Sri Lanka after Sinharaja. It has suspension bridges, jungle streams, and endemic bird species.",
@@ -1124,9 +1124,9 @@ export const attractionsWesternSouthern: Destination[] = [
     tagline: "World's 2nd Largest Marine Blowhole Shooting Water 30 Meters High",
     category: 'Nature',
     photoStatus: 'VERIFIED_REAL',
-    heroImage: 'https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Hummanaya_Blowhole.jpg/1280px-Hummanaya_Blowhole.jpg',
+    heroImage: 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/48/Hummanaya-1.jpg/1280px-Hummanaya-1.jpg',
     gallery: [
-      'https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Hummanaya_Blowhole.jpg/1280px-Hummanaya_Blowhole.jpg',
+      'https://upload.wikimedia.org/wikipedia/commons/thumb/4/48/Hummanaya-1.jpg/1280px-Hummanaya-1.jpg',
     ],
     description:
       "Sri Lanka's largest blowhole, located at Kudawella near Dickwella. During rough seas, seawater is forced through a cavern and jets up to about 23 meters high.",
@@ -1158,9 +1158,9 @@ export const attractionsWesternSouthern: Destination[] = [
     tagline: "Sri Lanka's First 500-Acre Open-Range Safari Park with Lions & Tigers",
     category: 'Wildlife',
     photoStatus: 'VERIFIED_REAL',
-    heroImage: 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/36/African_Lions_in_Ridiyagama_Safari_Park.jpg/1280px-African_Lions_in_Ridiyagama_Safari_Park.jpg',
+    heroImage: 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/81/Ridiyagama_safari_park.jpg/1280px-Ridiyagama_safari_park.jpg',
     gallery: [
-      'https://upload.wikimedia.org/wikipedia/commons/thumb/3/36/African_Lions_in_Ridiyagama_Safari_Park.jpg/1280px-African_Lions_in_Ridiyagama_Safari_Park.jpg',
+      'https://upload.wikimedia.org/wikipedia/commons/thumb/8/81/Ridiyagama_safari_park.jpg/1280px-Ridiyagama_safari_park.jpg',
     ],
     description:
       'Government-run wildlife park opened in 2019 near Hambantota, with a range of animals in open-range enclosures. Visitors tour by safari bus.',

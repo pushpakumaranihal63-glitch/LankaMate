@@ -149,9 +149,9 @@ export const attractionsCentralHighlands: Destination[] = [
     tagline: 'Windswept Knuckles Ridge, Mini World\'s End & Misty Cloud Forests',
     category: 'Mountain',
     photoStatus: 'VERIFIED_REAL',
-    heroImage: 'https://upload.wikimedia.org/wikipedia/commons/thumb/7/7a/Riverston%2C_Matale.jpg/1280px-Riverston%2C_Matale.jpg',
+    heroImage: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/5f/Pitawala_Pathana_Sri_Lanka.jpg/1280px-Pitawala_Pathana_Sri_Lanka.jpg',
     gallery: [
-      'https://upload.wikimedia.org/wikipedia/commons/thumb/7/7a/Riverston%2C_Matale.jpg/1280px-Riverston%2C_Matale.jpg',
+      'https://upload.wikimedia.org/wikipedia/commons/thumb/5/5f/Pitawala_Pathana_Sri_Lanka.jpg/1280px-Pitawala_Pathana_Sri_Lanka.jpg',
     ],
     description:
       'Situated in the northern range of the Knuckles Conservation Forest, Riverston offers some of the most dramatic mountain trekking in Sri Lanka. The trail passes the famous Mini World\'s End sheer precipice, the vast pygmy-grassland plateau of Pitawala Pathana, and thunderous waterfalls like Sera Ella and Bambarakiri Ella.',
@@ -1062,9 +1062,9 @@ export const attractionsCentralHighlands: Destination[] = [
     tagline: 'Heart-Shaped Cascade Resembling the Sacred Bo Tree Leaf',
     category: 'Nature',
     photoStatus: 'VERIFIED_REAL',
-    heroImage: 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/4f/Bopath_Ella.ogv/250px--Bopath_Ella.ogv.jpg',
+    heroImage: 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/Bopath_Ella_Falls.jpg/1280px-Bopath_Ella_Falls.jpg',
     gallery: [
-      'https://upload.wikimedia.org/wikipedia/commons/thumb/4/4f/Bopath_Ella.ogv/250px--Bopath_Ella.ogv.jpg',
+      'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/Bopath_Ella_Falls.jpg/1280px-Bopath_Ella_Falls.jpg',
     ],
     description:
       'Cascading 30 meters down a narrow rock cleft near Kuruwita, Bopath Ella is uniquely shaped like the heart-shaped leaf of the sacred Bo tree (Ficus religiosa). Surrounded by lush green hills, riverside tea stalls, and natural bathing rock pools, it is one of the most accessible and celebrated waterfalls in the Sabaragamuwa province.',
