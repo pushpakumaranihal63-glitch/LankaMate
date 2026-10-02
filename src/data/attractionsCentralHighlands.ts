@@ -928,9 +928,9 @@ export const attractionsCentralHighlands: Destination[] = [
     tagline: 'Historic Ehelepola Walauwa, Ceylon Blue Sapphires & Prehistoric Fossils',
     category: 'Heritage',
     photoStatus: 'VERIFIED_REAL',
-    heroImage: 'https://images.pexels.com/photos/34522415/pexels-photo-34522415.jpeg?auto=compress&cs=tinysrgb&w=1200&h=800&fit=crop',
+    heroImage: '/ratnapura-museum-building.webp',
     gallery: [
-      'https://images.pexels.com/photos/34522415/pexels-photo-34522415.jpeg?auto=compress&cs=tinysrgb&w=1200&h=800&fit=crop',
+      '/ratnapura-museum-building.webp',
     ],
     description:
       'Housed in the historic Ehelepola Walauwa, an authentic Kandyan aristocratic mansion that belonged to Ehelepola Nilame, a prominent courtier of the Kingdom of Kandy. The National Museum of Ratnapura documents Sri Lanka\'s legendary 2,500-year history as the gemstone capital of the world. Exhibits showcase precious blue sapphires, rubies, and alexandrites alongside traditional gem pit mining equipment and prehistoric fossils of mammoths, rhinoceroses, and hippos unearthed from local gem gravels.',

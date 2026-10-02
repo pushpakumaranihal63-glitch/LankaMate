@@ -1193,9 +1193,9 @@ export const attractionsWesternSouthern: Destination[] = [
     tagline: '13th-Century Rock Citadel, Majestic Stone Stairway & Chinese Lions',
     category: 'Heritage',
     photoStatus: 'VERIFIED_REAL',
-    heroImage: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Yapahuwa_rock_top_2_cdm.jpg/1280px-Yapahuwa_rock_top_2_cdm.jpg',
+    heroImage: 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Yapahuwa_Staircase_1_cdm.jpg/1280px-Yapahuwa_Staircase_1_cdm.jpg',
     gallery: [
-      'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Yapahuwa_rock_top_2_cdm.jpg/1280px-Yapahuwa_rock_top_2_cdm.jpg',
+      'https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Yapahuwa_Staircase_1_cdm.jpg/1280px-Yapahuwa_Staircase_1_cdm.jpg',
     ],
     description:
       '13th-century rock fortress of King Bhuvanaikabahu I, who kept the Tooth Relic here from 1272 to 1284. A 90-meter ornate staircase leads up the rock to the summit terrace.',
