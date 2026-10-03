@@ -124,9 +124,11 @@ export const AIAssistantView: React.FC<AIAssistantViewProps> = ({ onNavigatePage
   const stopListening = useCallback(() => {
     if (mediaRecorderRef.current && mediaRecorderRef.current.state !== 'inactive') {
       try { mediaRecorderRef.current.stop(); } catch { /* noop */ }
+    } else {
+      stopMediaTracks();
+      mediaRecorderRef.current = null;
+      setIsListening(false);
     }
-    stopMediaTracks();
-    setIsListening(false);
   }, [stopMediaTracks]);
 
   const transcribeAudio = useCallback(async (audioBlob: Blob, lang: string, existingText: string): Promise<string> => {
@@ -165,7 +167,12 @@ export const AIAssistantView: React.FC<AIAssistantViewProps> = ({ onNavigatePage
     audioChunksRef.current = [];
 
     try {
-      const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+      const stream = await Promise.race([
+        navigator.mediaDevices.getUserMedia({ audio: true }),
+        new Promise<never>((_, reject) =>
+          setTimeout(() => reject(new Error('getUserMedia_timeout')), 8000)
+        ),
+      ]);
       mediaStreamRef.current = stream;
 
       const mimeType = MediaRecorder.isTypeSupported('audio/webm;codecs=opus')
@@ -212,15 +219,19 @@ export const AIAssistantView: React.FC<AIAssistantViewProps> = ({ onNavigatePage
         }
       };
 
-      recorder.start();
+      recorder.start(1000);
     } catch (err: any) {
       stopMediaTracks();
       mediaRecorderRef.current = null;
       setIsListening(false);
-      if (err.name === 'NotAllowedError' || err.name === 'PermissionDeniedError') {
+      if (err.message === 'getUserMedia_timeout') {
+        setMicError(t('Microphone access timed out. Please allow microphone access or try Chrome.'));
+      } else if (err.name === 'NotAllowedError' || err.name === 'PermissionDeniedError') {
         setMicError(t('Microphone access was denied. Please allow microphone permissions to use voice input.'));
       } else if (err.name === 'NotFoundError' || err.name === 'DevicesNotFoundError') {
         setMicError(t('No microphone was found on this device.'));
+      } else if (err.name === 'NotReadableError') {
+        setMicError(t('Microphone is in use by another app. Please close it and try again.'));
       } else {
         setMicError(t('Could not start voice input. Please check microphone permissions and try again.'));
       }
