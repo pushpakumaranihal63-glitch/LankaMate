@@ -161,7 +161,7 @@ export const beachesData: BeachItem[] = [
     region: 'Eastern Coast',
     description:
       'Miles of unblemished, powdery white sands and crystal-clear azure waters, serving as the main jumping-off point to Pigeon Island Marine National Park for world-class reef snorkeling.',
-    image: 'https://images.unsplash.com/photo-1519046904884-53103b34b206?auto=format&fit=crop&w=1200&q=80',
+    image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/dc/Nilaveli_Beach_Sri_Lanka.jpg/1280px-Nilaveli_Beach_Sri_Lanka.jpg',
     coordinates: {
       lat: 8.6885,
       lng: 81.1895,

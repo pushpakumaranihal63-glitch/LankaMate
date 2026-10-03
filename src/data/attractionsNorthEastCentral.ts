@@ -618,9 +618,9 @@ export const attractionsNorthEastCentral: Destination[] = [
     tagline: 'World-Class Snorkeling with Blacktip Reef Sharks & Hawksbill Sea Turtles',
     category: 'Beach',
     photoStatus: 'VERIFIED_REAL',
-    heroImage: 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/Uppveli_Beach_in_Trincomalee%2C_Sri_Lanka.jpg/1280px-Uppveli_Beach_in_Trincomalee%2C_Sri_Lanka.jpg',
+    heroImage: 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/dc/Nilaveli_Beach_Sri_Lanka.jpg/1280px-Nilaveli_Beach_Sri_Lanka.jpg',
     gallery: [
-      'https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/Uppveli_Beach_in_Trincomalee%2C_Sri_Lanka.jpg/1280px-Uppveli_Beach_in_Trincomalee%2C_Sri_Lanka.jpg',
+      'https://upload.wikimedia.org/wikipedia/commons/thumb/d/dc/Nilaveli_Beach_Sri_Lanka.jpg/1280px-Nilaveli_Beach_Sri_Lanka.jpg',
     ],
     description:
       'A marine national park on a small island about 1 km off Nilaveli Beach, near Trincomalee. Its coral reefs support blacktip reef sharks, sea turtles, and a variety of reef fish. The island is reached by boat and is popular for snorkelling.',
