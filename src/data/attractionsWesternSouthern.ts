@@ -755,9 +755,9 @@ export const attractionsWesternSouthern: Destination[] = [
     category: 'Beach',
     photoStatus: 'VERIFIED_REAL',
     heroImage:
-      'https://upload.wikimedia.org/wikipedia/commons/thumb/9/9f/Unawatuna_beach_sri_lanka.jpg/1280px-Unawatuna_beach_sri_lanka.jpg',
+      'https://upload.wikimedia.org/wikipedia/commons/thumb/5/52/The_Turquoise_Beach_-_Unawatuna.jpg/1280px-The_Turquoise_Beach_-_Unawatuna.jpg',
     gallery: [
-      'https://upload.wikimedia.org/wikipedia/commons/thumb/9/9f/Unawatuna_beach_sri_lanka.jpg/1280px-Unawatuna_beach_sri_lanka.jpg',
+      'https://upload.wikimedia.org/wikipedia/commons/thumb/5/52/The_Turquoise_Beach_-_Unawatuna.jpg/1280px-The_Turquoise_Beach_-_Unawatuna.jpg',
     ],
     description:
       'Sheltered bay 6 km south of Galle, protected by a coral reef that keeps the water calm for swimming. The palm-lined shore is busy with tourists, beachfront restaurants, and coconut tree swings.',
