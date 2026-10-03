@@ -167,8 +167,14 @@ export const AIAssistantView: React.FC<AIAssistantViewProps> = ({ onNavigatePage
     audioChunksRef.current = [];
 
     try {
+      if (!navigator.mediaDevices?.getUserMedia) {
+        setIsListening(false);
+        setMicError(t('Microphone access is not available in this browser. Please try Chrome or type your question.'));
+        return;
+      }
+
       const stream = await Promise.race([
-        navigator.mediaDevices.getUserMedia({ audio: true }),
+        (async () => navigator.mediaDevices.getUserMedia({ audio: true }))(),
         new Promise<never>((_, reject) =>
           setTimeout(() => reject(new Error('getUserMedia_timeout')), 8000)
         ),
