@@ -295,9 +295,9 @@ const initialDestinations: Destination[] = [
     tagline: 'Cool Mountain Air, Pure Ceylon Tea Fields & Victorian Heritage',
     category: 'Mountain',
     photoStatus: 'VERIFIED_REAL',
-    heroImage: 'https://images.unsplash.com/photo-1546708973-b339540b5162?q=80&w=1200&auto=format&fit=crop',
+    heroImage: 'https://images.unsplash.com/photo-1544735716-392fe2489ffa?auto=format&fit=crop&q=80&w=1200',
     gallery: [
-      'https://images.unsplash.com/photo-1546708973-b339540b5162?q=80&w=1200&auto=format&fit=crop',
+      'https://images.unsplash.com/photo-1544735716-392fe2489ffa?auto=format&fit=crop&q=80&w=1200',
     ],
     description:
       'Perched at 1,868 meters above sea level beneath Mount Pidurutalagala (Sri Lanka’s highest peak), Nuwara Eliya earned the moniker "Little England" for its cool highland climate, Tudor-style country cottages, British colonial post office, 18-hole golf course, and endless rolling carpets of world-famous Ceylon tea bushes.',
