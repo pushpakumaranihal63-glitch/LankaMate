@@ -434,9 +434,9 @@ const initialDestinations: Destination[] = [
     tagline: 'Pristine White Sands, Whale Migrations & The Cliffside Koneswaram Temple',
     category: 'Beach',
     photoStatus: 'VERIFIED_REAL',
-    heroImage: 'https://images.unsplash.com/photo-1519046904884-53103b34b206?q=80&w=1200&auto=format&fit=crop',
+    heroImage: 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/Marble_beach_Trincomalee_close_view.jpg/1280px-Marble_beach_Trincomalee_close_view.jpg',
     gallery: [
-      'https://images.unsplash.com/photo-1519046904884-53103b34b206?q=80&w=1200&auto=format&fit=crop',
+      'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/Marble_beach_Trincomalee_close_view.jpg/1280px-Marble_beach_Trincomalee_close_view.jpg',
     ],
     description:
       'Home to the world’s fifth largest natural harbor, Trincomalee ("Trinco") on the eastern coast offers serene turquoise waters, powdery white beaches at Nilaveli, and the cliffside Hindu temple of Koneswaram perched high above Swami Rock. When the southwest monsoon brings rain to the south in summer, Trincomalee basks in warm, sunny perfection.',

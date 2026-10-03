@@ -887,9 +887,9 @@ export const attractionsWesternSouthern: Destination[] = [
     tagline: "Galle's Premier Beginner Surf Bay with Gentle Sand-Break Waves",
     category: 'Beach',
     photoStatus: 'VERIFIED_REAL',
-    heroImage: 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/8e/Galle_Closenberg_Hotel_%281%29.JPG/1280px-Galle_Closenberg_Hotel_%281%29.JPG',
+    heroImage: 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Galle_Closenberg_Hotel_%282%29.jpg/1280px-Galle_Closenberg_Hotel_%282%29.jpg',
     gallery: [
-      'https://upload.wikimedia.org/wikipedia/commons/thumb/8/8e/Galle_Closenberg_Hotel_%281%29.JPG/1280px-Galle_Closenberg_Hotel_%281%29.JPG',
+      'https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Galle_Closenberg_Hotel_%282%29.jpg/1280px-Galle_Closenberg_Hotel_%282%29.jpg',
     ],
     description:
       'Calm sandy-bottomed bay east of Galle, popular as a beginner surf beach. Sand-break waves and surf schools line the shore.',

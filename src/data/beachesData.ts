@@ -25,7 +25,7 @@ export const beachesData: BeachItem[] = [
     region: 'Southern Coast',
     description:
       'A postcard-perfect crescent bay celebrated for Coconut Tree Hill, playful spinner dolphins, blue whale ocean safaris, and candlelit seafood tables set right on golden sands at sunset.',
-    image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/8b/View_from_Coconut_Tree_Hill_to_Mirissa_in_March.jpg/1280px-View_from_Coconut_Tree_Hill_to_Mirissa_in_March.jpg',
+    image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/9c/Mirissa_Beach_Coconut_Tree_hills.jpg/1280px-Mirissa_Beach_Coconut_Tree_hills.jpg',
     coordinates: {
       lat: 5.9482,
       lng: 80.4572,
