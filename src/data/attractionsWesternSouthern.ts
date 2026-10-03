@@ -755,9 +755,9 @@ export const attractionsWesternSouthern: Destination[] = [
     category: 'Beach',
     photoStatus: 'VERIFIED_REAL',
     heroImage:
-      'https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Japanese_peace_pagoda_in_Rumassala%2CUnawatuna.jpg/1280px-Japanese_peace_pagoda_in_Rumassala%2CUnawatuna.jpg',
+      'https://images.pexels.com/photos/30992808/pexels-photo-30992808.jpeg?auto=compress&cs=tinysrgb&w=1200&h=800&fit=crop',
     gallery: [
-      'https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Japanese_peace_pagoda_in_Rumassala%2CUnawatuna.jpg/1280px-Japanese_peace_pagoda_in_Rumassala%2CUnawatuna.jpg',
+      'https://images.pexels.com/photos/30992808/pexels-photo-30992808.jpeg?auto=compress&cs=tinysrgb&w=1200&h=800&fit=crop',
     ],
     description:
       'Sheltered bay 6 km south of Galle, protected by a coral reef that keeps the water calm for swimming. The palm-lined shore is busy with tourists, beachfront restaurants, and coconut tree swings.',

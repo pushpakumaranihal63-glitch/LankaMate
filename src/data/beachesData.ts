@@ -48,7 +48,7 @@ export const beachesData: BeachItem[] = [
     region: 'Southern Coast',
     description:
       'A sparkling horseshoe bay sheltered by coral reefs, offering calm turquoise swimming waters, beachfront cafes with coconut tree swings, and the cliffside Japanese Peace Pagoda.',
-    image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Japanese_peace_pagoda_in_Rumassala%2CUnawatuna.jpg/1280px-Japanese_peace_pagoda_in_Rumassala%2CUnawatuna.jpg',
+    image: 'https://images.pexels.com/photos/30992808/pexels-photo-30992808.jpeg?auto=compress&cs=tinysrgb&w=1200&h=800&fit=crop',
     coordinates: {
       lat: 6.0108,
       lng: 80.2486,
