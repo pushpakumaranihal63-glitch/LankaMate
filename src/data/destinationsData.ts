@@ -60,9 +60,9 @@ const initialDestinations: Destination[] = [
     tagline: 'Misty Cloud Forests, Emerald Tea Ridges & The Iconic Nine Arches Bridge',
     category: 'Mountain',
     photoStatus: 'VERIFIED_REAL',
-    heroImage: 'https://images.unsplash.com/photo-1586861635167-e5223aadc9fe?auto=format&fit=crop&q=80&w=1200',
+    heroImage: 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/90/Nine_arch_bridge%2C_Ella%2C_Sri_lanka.jpg/1280px-Nine_arch_bridge%2C_Ella%2C_Sri_lanka.jpg',
     gallery: [
-      'https://images.unsplash.com/photo-1586861635167-e5223aadc9fe?auto=format&fit=crop&q=80&w=1200',
+      'https://upload.wikimedia.org/wikipedia/commons/thumb/9/90/Nine_arch_bridge%2C_Ella%2C_Sri_lanka.jpg/1280px-Nine_arch_bridge%2C_Ella%2C_Sri_lanka.jpg',
     ],
     description:
       'Tucked away at 1,041 meters elevation in the southern hill country, Ella is Sri Lanka’s premier backpacker and nature retreat. Surrounded by cascading waterfalls, tea estates, and misty mountain gaps, Ella is famed for the Demodara Nine Arches railway bridge, invigorating ridge hikes, and vibrant cafe culture.',

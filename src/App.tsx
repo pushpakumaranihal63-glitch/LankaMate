@@ -70,7 +70,7 @@ function AppContent() {
           if (
             item.id === 'sigiriya' &&
             (item.image.includes('unsplash.com') ||
-              item.image.includes('1586861635167') ||
+              item.image.includes('Nine_arch_bridge') ||
               item.image.includes('photo-'))
           ) {
             return { ...item, image: sigiriyaFavouriteImage };
