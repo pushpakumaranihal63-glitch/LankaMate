@@ -48,7 +48,7 @@ export const beachesData: BeachItem[] = [
     region: 'Southern Coast',
     description:
       'A sparkling horseshoe bay sheltered by coral reefs, offering calm turquoise swimming waters, beachfront cafes with coconut tree swings, and the cliffside Japanese Peace Pagoda.',
-    image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/9f/Unawatuna_beach_sri_lanka.jpg/1280px-Unawatuna_beach_sri_lanka.jpg',
+    image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/52/The_Turquoise_Beach_-_Unawatuna.jpg/1280px-The_Turquoise_Beach_-_Unawatuna.jpg',
     coordinates: {
       lat: 6.0108,
       lng: 80.2486,
