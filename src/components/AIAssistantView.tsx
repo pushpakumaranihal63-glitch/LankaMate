@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useRef, useEffect, useCallback } from 'react';
 import {
   Bot,
   Send,
@@ -7,11 +7,17 @@ import {
   Copy,
   Check,
   RefreshCw,
+  Mic,
+  MicOff,
 } from 'lucide-react';
 import { PageId } from '../types';
 import { QUICK_ASK_ITEMS, QuickAskItem, getQuickAskAnswer } from '../data/quickAskAnswers';
 import { useTranslation } from '../i18n/LanguageContext';
 import { LanguageCode } from '../types';
+import {
+  isSpeechRecognitionSupported,
+  createSpeechRecognizer,
+} from '../services/voiceService';
 
 async function translateAnswer(text: string, lang: LanguageCode): Promise<string> {
   if (lang === 'en' || !text) return text;
@@ -83,8 +89,79 @@ export const AIAssistantView: React.FC<AIAssistantViewProps> = ({ onNavigatePage
   const [inputText, setInputText] = useState('');
   const [loading, setLoading] = useState(false);
   const [copiedId, setCopiedId] = useState<string | null>(null);
+  const [isListening, setIsListening] = useState(false);
+  const [micError, setMicError] = useState<string | null>(null);
   const messagesContainerRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
+  const recognizerRef = useRef<{ start: () => void; stop: () => void; abort: () => void } | null>(null);
+  const baseInputRef = useRef<string>('');
+
+  const stopListening = useCallback(() => {
+    recognizerRef.current?.stop();
+    recognizerRef.current = null;
+    setIsListening(false);
+  }, []);
+
+  const handleMicToggle = useCallback(() => {
+    setMicError(null);
+
+    if (isListening) {
+      stopListening();
+      return;
+    }
+
+    if (!isSpeechRecognitionSupported()) {
+      setMicError(t('Voice input is not supported on this browser.'));
+      return;
+    }
+
+    baseInputRef.current = inputText;
+
+    const recognizer = createSpeechRecognizer(language, {
+      onStart: () => {
+        setIsListening(true);
+      },
+      onResult: (transcript: string, isFinal: boolean) => {
+        const combined = baseInputRef.current
+          ? `${baseInputRef.current} ${transcript}`.trim()
+          : transcript;
+        setInputText(combined);
+        if (isFinal) {
+          baseInputRef.current = combined;
+        }
+      },
+      onError: (error: string) => {
+        setIsListening(false);
+        recognizerRef.current = null;
+        if (error === 'micPermissionDenied') {
+          setMicError(t('Microphone access was denied. Please allow microphone permissions to use voice input.'));
+        } else if (error === 'no-speech') {
+          setMicError(t('No speech was detected. Please try speaking again.'));
+        } else if (error === 'micNotSupported') {
+          setMicError(t('Voice input is not supported on this browser.'));
+        } else {
+          setMicError(t('Voice input encountered an error. Please try again.'));
+        }
+      },
+      onEnd: () => {
+        setIsListening(false);
+        recognizerRef.current = null;
+        setTimeout(() => inputRef.current?.focus(), 100);
+      },
+    });
+
+    if (recognizer) {
+      recognizerRef.current = recognizer;
+      recognizer.start();
+    }
+  }, [isListening, language, inputText, t, stopListening]);
+
+  useEffect(() => {
+    return () => {
+      recognizerRef.current?.abort();
+      recognizerRef.current = null;
+    };
+  }, []);
 
   // Handle Quick Ask click: translate answer if needed, then display
   const handleQuickAsk = async (item: QuickAskItem) => {
@@ -409,11 +486,32 @@ export const AIAssistantView: React.FC<AIAssistantViewProps> = ({ onNavigatePage
               type="text"
               value={inputText}
               onChange={(e) => setInputText(e.target.value)}
-              placeholder={t('Ask anything: blue train tickets, temple dress code, seafood spots, monsoons...')}
+              placeholder={isListening ? t('Listening... speak your question') : t('Ask anything: blue train tickets, temple dress code, seafood spots, monsoons...')}
               autoComplete="off"
               className="flex-1 px-3 py-2.5 text-xs sm:text-sm text-stone-900 placeholder-stone-400 focus:outline-none bg-transparent cursor-text select-text"
               aria-label={t('Ask AI travel question')}
             />
+
+            <button
+              type="button"
+              onClick={(e) => {
+                e.stopPropagation();
+                handleMicToggle();
+              }}
+              className={`flex items-center justify-center w-10 h-10 rounded-xl transition-all cursor-pointer shrink-0 select-none ${
+                isListening
+                  ? 'bg-red-500 text-white animate-pulse shadow-xs'
+                  : 'bg-stone-100 text-stone-600 hover:bg-stone-200 hover:text-stone-800'
+              }`}
+              title={isListening ? t('Stop listening') : t('Tap to speak')}
+              aria-label={isListening ? t('Stop listening') : t('Tap to speak')}
+            >
+              {isListening ? (
+                <MicOff className="w-4 h-4" />
+              ) : (
+                <Mic className="w-4 h-4" />
+              )}
+            </button>
 
             <button
               id="ask-ai-submit-button"
@@ -425,6 +523,12 @@ export const AIAssistantView: React.FC<AIAssistantViewProps> = ({ onNavigatePage
               <span className="hidden sm:inline">{t('Ask AI')}</span>
             </button>
           </form>
+
+          {micError && (
+            <div className="px-2 pb-1 text-[11px] text-red-600 font-medium">
+              {micError}
+            </div>
+          )}
         </div>
       </div>
     </div>
