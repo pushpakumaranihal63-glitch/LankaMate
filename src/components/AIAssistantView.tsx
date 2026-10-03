@@ -11,6 +11,27 @@ import {
 import { PageId } from '../types';
 import { QUICK_ASK_ITEMS, QuickAskItem, getQuickAskAnswer } from '../data/quickAskAnswers';
 import { useTranslation } from '../i18n/LanguageContext';
+import { LanguageCode } from '../types';
+
+async function translateAnswer(text: string, lang: LanguageCode): Promise<string> {
+  if (lang === 'en' || !text) return text;
+  try {
+    const controller = new AbortController();
+    const timeoutId = setTimeout(() => controller.abort(), 15000);
+    const response = await fetch('/api/translate', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ text, sourceLang: 'en' as LanguageCode, targetLang: lang }),
+      signal: controller.signal,
+    });
+    clearTimeout(timeoutId);
+    if (!response.ok) throw new Error(`HTTP error ${response.status}`);
+    const data = await response.json();
+    return data.translatedText || text;
+  } catch {
+    return text;
+  }
+}
 
 interface Message {
   id: string;
@@ -26,14 +47,37 @@ interface AIAssistantViewProps {
 export const AIAssistantView: React.FC<AIAssistantViewProps> = ({ onNavigatePage }) => {
   const { language, t, currentLangOption } = useTranslation();
 
+  const welcomeText = `**Ayubowan! 🙏 Welcome to LankaMate AI.**\n\nI am your culturally grounded Sri Lankan travel companion. Ask me anything or tap any topic below:\n\n• **Blue Train Tickets:** Kandy to Ella booking guidance & unreserved seats.\n• **Temple Dress Code:** Sacred site etiquette, shoulders/knees rules & customs.\n• **Best Street Food:** Crispy hoppers, hot kottu, isso wade & food safety.\n• **Yala Safari Guide:** Leopard tracking tips, 4x4 jeeps & park safety.\n• **Weather & Seasons:** Dual monsoon patterns & best regional travel times.\n• **7-Day Itinerary:** Balanced Colombo, Sigiriya, Kandy, Nuwara Eliya, Ella, Yala & Galle route.\n\nAsk me in any language and I will gladly guide you!`;
+
+  const [translatedWelcome, setTranslatedWelcome] = useState<string>(welcomeText);
+
+  useEffect(() => {
+    if (language === 'en') {
+      setTranslatedWelcome(welcomeText);
+      return;
+    }
+    let cancelled = false;
+    translateAnswer(welcomeText, language).then((translated) => {
+      if (!cancelled) setTranslatedWelcome(translated);
+    });
+    return () => { cancelled = true; };
+  }, [language]);
+
   const [messages, setMessages] = useState<Message[]>([
     {
       id: 'welcome',
       sender: 'assistant',
-      text: t(`**Ayubowan! 🙏 Welcome to LankaMate AI.**\n\nI am your culturally grounded Sri Lankan travel companion. Ask me anything or tap any topic below:\n\n• **Blue Train Tickets:** Kandy to Ella booking guidance & unreserved seats.\n• **Temple Dress Code:** Sacred site etiquette, shoulders/knees rules & customs.\n• **Best Street Food:** Crispy hoppers, hot kottu, isso wade & food safety.\n• **Yala Safari Guide:** Leopard tracking tips, 4x4 jeeps & park safety.\n• **Weather & Seasons:** Dual monsoon patterns & best regional travel times.\n• **7-Day Itinerary:** Balanced Colombo, Sigiriya, Kandy, Nuwara Eliya, Ella, Yala & Galle route.\n\nAsk me in any language (English, Sinhala, Tamil, Korean, Japanese, Chinese, German, French, Spanish, Russian, Arabic, Hindi, Italian) and I will gladly guide you!`),
+      text: welcomeText,
       timestamp: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
     },
   ]);
+
+  // Update welcome message in place when language changes
+  useEffect(() => {
+    setMessages((prev) =>
+      prev.map((m) => (m.id === 'welcome' ? { ...m, text: translatedWelcome } : m))
+    );
+  }, [translatedWelcome]);
 
   const [activeQuickAsk, setActiveQuickAsk] = useState<string | null>(null);
   const [inputText, setInputText] = useState('');
@@ -42,10 +86,10 @@ export const AIAssistantView: React.FC<AIAssistantViewProps> = ({ onNavigatePage
   const messagesContainerRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
 
-  // Handle Quick Ask click: immediately display selected question and comprehensive answer in the visible response area
-  const handleQuickAsk = (item: QuickAskItem) => {
+  // Handle Quick Ask click: translate answer if needed, then display
+  const handleQuickAsk = async (item: QuickAskItem) => {
     setActiveQuickAsk(item.label);
-    setLoading(false);
+    setLoading(true);
     const timeNow = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
 
     const userMessage: Message = {
@@ -55,17 +99,18 @@ export const AIAssistantView: React.FC<AIAssistantViewProps> = ({ onNavigatePage
       timestamp: timeNow,
     };
 
+    const answerText = await translateAnswer(item.answer, language);
+
     const assistantMessage: Message = {
       id: `assistant-${Date.now() + 1}`,
       sender: 'assistant',
-      text: item.answer,
+      text: answerText,
       timestamp: timeNow,
     };
 
-    // Replace or set visible messages with the selected Quick Ask
     setMessages([userMessage, assistantMessage]);
+    setLoading(false);
 
-    // Scroll internal response container to top so the answer is immediately visible at the start, without scrolling the page
     if (messagesContainerRef.current) {
       messagesContainerRef.current.scrollTop = 0;
     }
@@ -114,7 +159,10 @@ export const AIAssistantView: React.FC<AIAssistantViewProps> = ({ onNavigatePage
       }
 
       const data = await response.json();
-      const replyText = data.reply || getQuickAskAnswer(query);
+      let replyText = data.reply || getQuickAskAnswer(query);
+      if (data.isOfflineFallback && language !== 'en') {
+        replyText = await translateAnswer(replyText, language);
+      }
 
       const assistantMessage: Message = {
         id: `assistant-${Date.now() + 1}`,
@@ -126,7 +174,7 @@ export const AIAssistantView: React.FC<AIAssistantViewProps> = ({ onNavigatePage
       setMessages((prev) => [...prev, assistantMessage]);
     } catch (err) {
       console.warn('Backend assistant error, falling back to local database', err);
-      const fallbackAnswer = getQuickAskAnswer(query);
+      const fallbackAnswer = await translateAnswer(getQuickAskAnswer(query), language);
       const assistantMessage: Message = {
         id: `assistant-${Date.now() + 1}`,
         sender: 'assistant',
@@ -157,7 +205,7 @@ export const AIAssistantView: React.FC<AIAssistantViewProps> = ({ onNavigatePage
       {
         id: 'welcome',
         sender: 'assistant',
-        text: t(`**Ayubowan! 🙏 Welcome back to LankaMate AI.**\n\nHow can I help plan your Sri Lanka travels today? Tap any Quick Ask topic above or type a custom question below.`),
+        text: translatedWelcome,
         timestamp: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
       },
     ]);
@@ -214,7 +262,7 @@ export const AIAssistantView: React.FC<AIAssistantViewProps> = ({ onNavigatePage
                   : 'bg-white text-emerald-950 border border-stone-200 hover:border-emerald-700 hover:bg-emerald-50'
               }`}
             >
-              {item.label}
+              {t(item.label)}
             </button>
           ))}
         </div>
