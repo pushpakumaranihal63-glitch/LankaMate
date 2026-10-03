@@ -25,7 +25,7 @@ export const beachesData: BeachItem[] = [
     region: 'Southern Coast',
     description:
       'A postcard-perfect crescent bay celebrated for Coconut Tree Hill, playful spinner dolphins, blue whale ocean safaris, and candlelit seafood tables set right on golden sands at sunset.',
-    image: 'https://images.unsplash.com/photo-1586861635167-e5223aadc9fe?auto=format&fit=crop&w=1200&q=80',
+    image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/8b/View_from_Coconut_Tree_Hill_to_Mirissa_in_March.jpg/1280px-View_from_Coconut_Tree_Hill_to_Mirissa_in_March.jpg',
     coordinates: {
       lat: 5.9482,
       lng: 80.4572,
@@ -48,7 +48,7 @@ export const beachesData: BeachItem[] = [
     region: 'Southern Coast',
     description:
       'A sparkling horseshoe bay sheltered by coral reefs, offering calm turquoise swimming waters, beachfront cafes with coconut tree swings, and the cliffside Japanese Peace Pagoda.',
-    image: 'https://images.unsplash.com/photo-1544735716-392fe2489ffa?auto=format&fit=crop&w=1200&q=80',
+    image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/9f/Unawatuna_beach_sri_lanka.jpg/1280px-Unawatuna_beach_sri_lanka.jpg',
     coordinates: {
       lat: 6.0108,
       lng: 80.2486,
@@ -184,7 +184,7 @@ export const beachesData: BeachItem[] = [
     region: 'Eastern Coast',
     description:
       'Renowned for its extraordinary shallow coral reef bay where visitors can safely wade hundreds of meters into warm, glass-like turquoise water with virtually zero current.',
-    image: 'https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=1200&q=80',
+    image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/34/Pasikuda_beach.jpg/1280px-Pasikuda_beach.jpg',
     coordinates: {
       lat: 7.9248,
       lng: 81.5647,
@@ -206,7 +206,7 @@ export const beachesData: BeachItem[] = [
     region: 'Southern Coast',
     description:
       'A legendary coastal town famed for its national marine coral park, friendly wild sea turtles swimming right to the shoreline, exciting reef breaks, and energetic beachfront dining.',
-    image: 'https://images.unsplash.com/photo-1544551763-77ef2d0cfc6c?auto=format&fit=crop&w=1200&q=80',
+    image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/68/Hikkaduwa_beach_beauty.jpg/1280px-Hikkaduwa_beach_beauty.jpg',
     coordinates: {
       lat: 6.1395,
       lng: 80.1063,

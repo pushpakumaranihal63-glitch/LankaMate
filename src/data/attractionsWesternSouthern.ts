@@ -552,9 +552,9 @@ export const attractionsWesternSouthern: Destination[] = [
     tagline: 'Vibrant Lagoon Seaside Town, Catamaran Fishing & Colonial Canals',
     category: 'Beach',
     photoStatus: 'VERIFIED_REAL',
-    heroImage: 'https://upload.wikimedia.org/wikipedia/commons/9/97/Negombo_Beach%2C_Sri_Lanka.jpg',
+    heroImage: 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/1e/Negombo%2C_Beach%2C_2025-08_CN-01.jpg/1280px-Negombo%2C_Beach%2C_2025-08_CN-01.jpg',
     gallery: [
-      'https://upload.wikimedia.org/wikipedia/commons/9/97/Negombo_Beach%2C_Sri_Lanka.jpg',
+      'https://upload.wikimedia.org/wikipedia/commons/thumb/1/1e/Negombo%2C_Beach%2C_2025-08_CN-01.jpg/1280px-Negombo%2C_Beach%2C_2025-08_CN-01.jpg',
     ],
     description:
       "Busy fishing town 35 km north of Colombo with a beach, a Dutch-era canal, and seafood restaurants. Often used as a first or last stop due to its proximity to the international airport.",
@@ -719,9 +719,9 @@ export const attractionsWesternSouthern: Destination[] = [
     tagline: 'Golden Sand Spit Sandwiched Between River Waters and Ocean Surf',
     category: 'Beach',
     photoStatus: 'VERIFIED_REAL',
-    heroImage: 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/31/Aerial_view_of_Kalutara_City%2C_Sri_Lanka.jpg/1280px-Aerial_view_of_Kalutara_City%2C_Sri_Lanka.jpg',
+    heroImage: 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/e4/Kalutara_Beach_-_Sri_Lanka_2023-11-11.jpg/1280px-Kalutara_Beach_-_Sri_Lanka_2023-11-11.jpg',
     gallery: [
-      'https://upload.wikimedia.org/wikipedia/commons/thumb/3/31/Aerial_view_of_Kalutara_City%2C_Sri_Lanka.jpg/1280px-Aerial_view_of_Kalutara_City%2C_Sri_Lanka.jpg',
+      'https://upload.wikimedia.org/wikipedia/commons/thumb/e/e4/Kalutara_Beach_-_Sri_Lanka_2023-11-11.jpg/1280px-Kalutara_Beach_-_Sri_Lanka_2023-11-11.jpg',
     ],
     description:
       'West coast beach in Kalutara, popular with domestic tourists. A sand spit separates the Kalu Ganga estuary from the open ocean, with sunset views and street food vendors.',
@@ -755,9 +755,9 @@ export const attractionsWesternSouthern: Destination[] = [
     category: 'Beach',
     photoStatus: 'VERIFIED_REAL',
     heroImage:
-      'https://images.unsplash.com/photo-1544735716-392fe2489ffa?auto=format&fit=crop&w=1200&q=80',
+      'https://upload.wikimedia.org/wikipedia/commons/thumb/9/9f/Unawatuna_beach_sri_lanka.jpg/1280px-Unawatuna_beach_sri_lanka.jpg',
     gallery: [
-      'https://images.unsplash.com/photo-1544735716-392fe2489ffa?auto=format&fit=crop&w=1200&q=80',
+      'https://upload.wikimedia.org/wikipedia/commons/thumb/9/9f/Unawatuna_beach_sri_lanka.jpg/1280px-Unawatuna_beach_sri_lanka.jpg',
     ],
     description:
       'Sheltered bay 6 km south of Galle, protected by a coral reef that keeps the water calm for swimming. The palm-lined shore is busy with tourists, beachfront restaurants, and coconut tree swings.',
@@ -887,9 +887,9 @@ export const attractionsWesternSouthern: Destination[] = [
     tagline: "Galle's Premier Beginner Surf Bay with Gentle Sand-Break Waves",
     category: 'Beach',
     photoStatus: 'VERIFIED_REAL',
-    heroImage: 'https://upload.wikimedia.org/wikipedia/commons/2/2b/Galle_Harbour.JPG',
+    heroImage: 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/8e/Galle_Closenberg_Hotel_%281%29.JPG/1280px-Galle_Closenberg_Hotel_%281%29.JPG',
     gallery: [
-      'https://upload.wikimedia.org/wikipedia/commons/2/2b/Galle_Harbour.JPG',
+      'https://upload.wikimedia.org/wikipedia/commons/thumb/8/8e/Galle_Closenberg_Hotel_%281%29.JPG/1280px-Galle_Closenberg_Hotel_%281%29.JPG',
     ],
     description:
       'Calm sandy-bottomed bay east of Galle, popular as a beginner surf beach. Sand-break waves and surf schools line the shore.',
@@ -921,9 +921,9 @@ export const attractionsWesternSouthern: Destination[] = [
     tagline: 'Shallow Coral Gardens, Wild Green Sea Turtles & Surf Breaks',
     category: 'Beach',
     photoStatus: 'VERIFIED_REAL',
-    heroImage: 'https://images.pexels.com/photos/11887209/pexels-photo-11887209.jpeg?auto=compress&cs=tinysrgb&w=1200&h=800&fit=crop',
+    heroImage: 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/68/Hikkaduwa_beach_beauty.jpg/1280px-Hikkaduwa_beach_beauty.jpg',
     gallery: [
-      'https://images.pexels.com/photos/11887209/pexels-photo-11887209.jpeg?auto=compress&cs=tinysrgb&w=1200&h=800&fit=crop',
+      'https://upload.wikimedia.org/wikipedia/commons/thumb/6/68/Hikkaduwa_beach_beauty.jpg/1280px-Hikkaduwa_beach_beauty.jpg',
     ],
     description:
       "Sri Lanka's first marine national park, with a shallow fringing reef close to shore. Sea turtles can be seen at the shoreline, and surf breaks are located at Benny\'s.",

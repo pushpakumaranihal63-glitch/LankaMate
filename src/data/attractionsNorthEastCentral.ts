@@ -618,9 +618,9 @@ export const attractionsNorthEastCentral: Destination[] = [
     tagline: 'World-Class Snorkeling with Blacktip Reef Sharks & Hawksbill Sea Turtles',
     category: 'Beach',
     photoStatus: 'VERIFIED_REAL',
-    heroImage: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/5f/Pigeon_Island_National_Park%2C_Trincomalee.jpg/1280px-Pigeon_Island_National_Park%2C_Trincomalee.jpg',
+    heroImage: 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/Uppveli_Beach_in_Trincomalee%2C_Sri_Lanka.jpg/1280px-Uppveli_Beach_in_Trincomalee%2C_Sri_Lanka.jpg',
     gallery: [
-      'https://upload.wikimedia.org/wikipedia/commons/thumb/5/5f/Pigeon_Island_National_Park%2C_Trincomalee.jpg/1280px-Pigeon_Island_National_Park%2C_Trincomalee.jpg',
+      'https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/Uppveli_Beach_in_Trincomalee%2C_Sri_Lanka.jpg/1280px-Uppveli_Beach_in_Trincomalee%2C_Sri_Lanka.jpg',
     ],
     description:
       'A marine national park on a small island about 1 km off Nilaveli Beach, near Trincomalee. Its coral reefs support blacktip reef sharks, sea turtles, and a variety of reef fish. The island is reached by boat and is popular for snorkelling.',
@@ -686,9 +686,9 @@ export const attractionsNorthEastCentral: Destination[] = [
     tagline: 'World’s Safest Natural Swimming Pool with Knee-Deep Azure Waters',
     category: 'Beach',
     photoStatus: 'VERIFIED_REAL',
-    heroImage: 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/11/Pasikudah_beach.JPG/1280px-Pasikudah_beach.JPG',
+    heroImage: 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/34/Pasikuda_beach.jpg/1280px-Pasikuda_beach.jpg',
     gallery: [
-      'https://upload.wikimedia.org/wikipedia/commons/thumb/1/11/Pasikudah_beach.JPG/1280px-Pasikudah_beach.JPG',
+      'https://upload.wikimedia.org/wikipedia/commons/thumb/3/34/Pasikuda_beach.jpg/1280px-Pasikuda_beach.jpg',
     ],
     description:
       'A shallow, calm bay on the east coast near Batticaloa, protected by an outer coral reef that blocks waves. The water is very shallow for a long distance from shore, making it popular for safe swimming. Several resorts line the bay.',
@@ -752,9 +752,9 @@ export const attractionsNorthEastCentral: Destination[] = [
     tagline: 'Scenic Eastern Shoreline & British 1924 Ocean Lighthouse',
     category: 'Beach',
     photoStatus: 'VERIFIED_REAL',
-    heroImage: 'https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/Batticaloa_Lagoon.jpg/1280px-Batticaloa_Lagoon.jpg',
+    heroImage: 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Batticaloa_Lighthouse_%26_Sunset.jpg/1280px-Batticaloa_Lighthouse_%26_Sunset.jpg',
     gallery: [
-      'https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/Batticaloa_Lagoon.jpg/1280px-Batticaloa_Lagoon.jpg',
+      'https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Batticaloa_Lighthouse_%26_Sunset.jpg/1280px-Batticaloa_Lighthouse_%26_Sunset.jpg',
     ],
     description:
       'An eastern beach near Batticaloa town, with a lighthouse built by the British in 1924. The beach is popular for morning and evening walks and has views of the Indian Ocean sunrise.',
