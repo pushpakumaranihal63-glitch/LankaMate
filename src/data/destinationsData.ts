@@ -201,9 +201,9 @@ const initialDestinations: Destination[] = [
     tagline: 'Whale Watching Capital, Coconut Tree Hill & Golden Surf Coast',
     category: 'Beach',
     photoStatus: 'VERIFIED_REAL',
-    heroImage: 'https://images.unsplash.com/photo-1537996194471-e657df975ab4?q=80&w=1200&auto=format&fit=crop',
+    heroImage: 'https://images.unsplash.com/photo-1552465011-b4e21bf6e79a?auto=format&fit=crop&q=80&w=1200',
     gallery: [
-      'https://images.unsplash.com/photo-1537996194471-e657df975ab4?q=80&w=1200&auto=format&fit=crop',
+      'https://images.unsplash.com/photo-1552465011-b4e21bf6e79a?auto=format&fit=crop&q=80&w=1200',
     ],
     description:
       'Fringed by swaying coconut palms and sparkling turquoise waters, Mirissa is world-renowned as one of the best locations on earth to spot Blue Whales and playful spinner dolphins in their natural habitat. By day, enjoy relaxed surfing and beach hammocks; by night, candlelit beachfront tables serve freshly caught grilled fish.',
