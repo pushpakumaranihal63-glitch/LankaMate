@@ -362,7 +362,7 @@ ${text}
 
       if (!apiKey) {
         // Fallback intelligent response generator if API key is not configured
-        const fallbackAnswer = generateOfflineTravelResponse(message);
+        const fallbackAnswer = generateOfflineTravelResponse(message, language || "en");
         return res.json({
           reply: fallbackAnswer,
           isOfflineFallback: true,
@@ -444,7 +444,7 @@ The user's preferred language is ${preferredLanguage}. Unless the user specifica
     } catch (err: any) {
       console.error("Gemini Assistant Error:", err);
       // If API error occurs, provide a helpful fallback answer based on user query
-      const fallback = generateOfflineTravelResponse(req.body?.message || "");
+      const fallback = generateOfflineTravelResponse(req.body?.message || "", req.body?.language || "en");
       return res.json({
         reply: fallback,
         isOfflineFallback: true,
@@ -477,9 +477,44 @@ The user's preferred language is ${preferredLanguage}. Unless the user specifica
   });
 }
 
-function generateOfflineTravelResponse(prompt: string): string {
+function generateOfflineTravelResponse(prompt: string, lang: string = "en"): string {
   const p = prompt.toLowerCase();
-  if (p.includes("train") || p.includes("kandy to ella") || p.includes("blue train") || p.includes("railway")) {
+
+  // Multilingual keyword sets for common travel topics
+  const transportKW = ["train", "railway", "station", "ticket", "bus", "tuk", "tuk-tuk", "tuktuk", "pickme", "uber", "taxi", "driver", "chauffeur", "expressway", "transport", "how to get", "how to go", "how to travel",
+    // Sinhala
+    "දුම්රිය", "බස්", "ටියුක්", "ට්‍රයින්", "ස්ටේෂන්", "ටිකට්", "කොහොමද යන්නේ", "කොහොමද යන්න", "යන්න ඕන", "යන්න",
+    // Tamil
+    "ரயில்", "பஸ்", "டக்ஸ்", "ஸ்டேஷன்", "டிக்கெட்", "எப்படி போக", "போக",
+    // Other languages
+    "列車", "電車", "기차", "Zug", "tren", "поезд", "قطار", "रेल", "treno"];
+  const templeKW = ["temple", "dress", "etiquette", "wear", "monk", "buddha", "sacred", "shoes", "knees", "shoulders",
+    "දේවාල", "විහාර", "බුදු", "සංඝ", "ඇඳුම", "ගමන්",
+    "கோவில்", "புத்தர்", "ஆடை",
+    "寺", "절", "Tempel", "templo", "храм", "معبد"];
+  const foodKW = ["food", "kottu", "eat", "dish", "hopper", "street", "curry", "rice", "restaurant", "meal", "seafood",
+    "කෑම", "කොත්තු", "හොපර්", "බත්", "කරි", "ආහාර",
+    "உணவு", "கொඤ்து", "சாதம்", "கறி",
+    "食べ物", "음식", "Essen", "comida", "еда", "طعام", "खाना", "cibo"];
+  const wildlifeKW = ["yala", "safari", "leopard", "national park", "elephant", "wildlife", "animal", "bird",
+    "යාල", "සතුන්", "වන", "ඇතා", "කොළ",
+    "யால", "விலங்கு", "யானை",
+    "サファリ", "사파리", "Safari", "safari", "сафари", " سفاري"];
+  const weatherKW = ["weather", "monsoon", "season", "rain", "climate", "best time", "when to visit", "hot", "cold", "temperature",
+    "කාලගුණ", "වැසි", "ඍතු", "උණුසුම",
+    "வானிலை", "மழை", "பருவ",
+    "天気", "날씨", "Wetter", "clima", "погода", "طقس", "मौसम", "tempo"];
+  const itineraryKW = ["itinerary", "7 day", "7-day", "plan", "days", "trip", "route", "schedule", "day plan",
+    "චාරිකා", "සංචාර", "දින", "සැලසුම",
+    "சுற்றுப்பயணம்", "நாட்கள்", "திட்டம்",
+    "旅行計画", "여행", "Reiseplan", "itinerario", "маршрут", "رحلة", "यात्रा", "itinerario"];
+  const destinationKW = ["sigiriya", "ella", "kandy", "galle", "mirissa", "nuwara eliya", "jaffna", "trincomalee", "anuradhapura", "polonnaruwa", "dambulla", "colombo", "kataragama", "bentota", "arugam", "nuwara", "badulla", "matale", "ratnapura",
+    "සීගිරිය", "ඇල්ල", "මහනුවර", "ගාල්ල", "මිරිස්ස", "නුවර", "යාපනය", "ත්‍රිකුණාමලය", "අනුරාධපුර", "පොළොන්නරුව", "දඹුල්ල", "කොළඹ", "කතරගම", "බදුල්ල", "මාතල",
+    "சிகிரியா", "எல்லா", "கண்டி", "காலி", "யாழ்ப்பாணம்", "திருகோணமலை", "அனுராதபுரம்", "பொலந்நறுவ", "கட்டரகாம"];
+
+  const hasAny = (keywords: string[]) => keywords.some((kw) => p.includes(kw.toLowerCase()));
+
+  if (hasAny(transportKW)) {
     return `**Sri Lanka Scenic Blue Train Guide & Ticket Booking** 🚂
 
 **1. Ticket Booking Guidance & Procedures:**
@@ -503,7 +538,7 @@ function generateOfflineTravelResponse(prompt: string): string {
 • **Etiquette & Refreshments:** Be courteous at carriage doors; pack bottled water and snacks, or purchase hot vegetable samosas and tea from station vendors.`;
   }
 
-  if (p.includes("dress") || p.includes("temple") || p.includes("etiquette") || p.includes("wear") || p.includes("monk")) {
+  if (hasAny(templeKW)) {
     return `**Sacred Temple Dress Code & Etiquette in Sri Lanka** 🛕
 
 **1. Cover Shoulders and Knees:**
@@ -528,7 +563,7 @@ function generateOfflineTravelResponse(prompt: string): string {
 • **Monks:** Greet Buddhist monks with palms pressed together (*Ayubowan*). Women should never touch a monk or hand items directly into their hands.`;
   }
 
-  if (p.includes("food") || p.includes("kottu") || p.includes("eat") || p.includes("dish") || p.includes("hopper") || p.includes("street")) {
+  if (hasAny(foodKW)) {
     return `**Ultimate Sri Lankan Street Food Guide** 🥘
 
 **1. Iconic Street Food Specialties:**
@@ -551,7 +586,7 @@ function generateOfflineTravelResponse(prompt: string): string {
 • Use travel hand sanitizer before eating, as traditional food is enjoyed with the right hand.`;
   }
 
-  if (p.includes("yala") || p.includes("safari") || p.includes("leopard") || p.includes("national park")) {
+  if (hasAny(wildlifeKW)) {
     return `**Yala National Park Wildlife Safari Guide** 🐆
 
 **1. Safari Planning & Booking:**
@@ -579,7 +614,7 @@ function generateOfflineTravelResponse(prompt: string): string {
 • Obey park speed limits (25 km/h), maintain zero littering, and never pressure your driver to harass or crowd animals.`;
   }
 
-  if (p.includes("weather") || p.includes("monsoon") || p.includes("season") || p.includes("rain") || p.includes("climate")) {
+  if (hasAny(weatherKW)) {
     return `**Sri Lanka Weather, Seasons & Monsoon Guide** ⛅
 
 **1. Sri Lanka's Main Monsoon Seasons:**
@@ -603,7 +638,7 @@ Sri Lanka experiences two distinct monsoon cycles:
 • *Note:* Please check local day-to-day forecasts for live weather updates.`;
   }
 
-  if (p.includes("itinerary") || p.includes("7 day") || p.includes("7-day") || p.includes("plan") || p.includes("days")) {
+  if (hasAny(itineraryKW)) {
     return `**Classic 7-Day Sri Lanka Itinerary (Highlights Circuit)** 🗺️
 
 • **Day 1: Colombo (Arrival & Coastal Heritage)**
@@ -628,15 +663,34 @@ Sri Lanka experiences two distinct monsoon cycles:
   Travel along the southern coastline past Weligama Bay; explore 400-year-old ramparts and the lighthouse of UNESCO Galle Dutch Fort before returning via Expressway E01 to BIA Airport.`;
   }
 
-  return `**Ayubowan! Welcome to LankaMate Travel Guide** 🇱🇰
-I can assist you with all your Sri Lanka travel inquiries:
-- **Destinations**: Sigiriya, Ella, Galle, Kandy, Mirissa, Yala, Jaffna, Nuwara Eliya
-- **Transport**: Scenic blue trains, PickMe tuk-tuks, expressway routes, private drivers
-- **Authentic Food**: Kottu, Hoppers, String Hoppers, Isso Wade, Rice & Curry
-- **Itineraries**: Custom day-by-day plans tailored to your budget & pace
-- **Cultural Etiquette**: Sacred temple dress codes, respectful customs, emergency contacts (1990 ambulance, 1912 tourist police)
+  // Destination-specific or general travel question — provide a useful contextual answer
+  // instead of a generic welcome message
+  if (hasAny(destinationKW)) {
+    return `**Sri Lanka Travel Guide** 🇱🇰
 
-How can I help plan your Sri Lanka journey today?`;
+Here are some key tips for traveling in Sri Lanka:
+
+• **Transport Options:** Buses and trains connect most cities. The scenic Kandy–Ella train is highly recommended. For shorter trips, use PickMe or Uber tuk-tuks. For intercity travel, highway express buses are fast and affordable.
+• **Best Time to Visit:** December to April for the south and west coasts; May to September for the east coast. Sri Lanka is a year-round destination.
+• **Cultural Etiquette:** Cover shoulders and knees at temples. Remove shoes and hats before entering sacred areas. Never pose with your back to a Buddha statue.
+• **Food:** Try kottu roti, hoppers, string hoppers, and rice & curry at local eateries for authentic flavors.
+• **Emergency Numbers:** 1990 (Ambulance), 1912 (Tourist Police).
+
+For more specific guidance, please ask about transport routes, hotel recommendations, or day-by-day itinerary planning!`;
+  }
+
+  return `**Ayubowan! 🙏 LankaMate Travel Guide** 🇱🇰
+
+Here are some key travel tips for Sri Lanka:
+
+• **Getting Around:** Trains (especially the scenic Kandy–Ella route), highway express buses, PickMe/Uber tuk-tuks, and private chauffeur drivers are all great options.
+• **Must-Visit Places:** Sigiriya Lion Rock, Temple of the Tooth in Kandy, Galle Dutch Fort, Yala National Park, Ella's Nine Arches Bridge, and Mirissa beach.
+• **Food to Try:** Kottu roti, egg hoppers, string hoppers, isso wade, and authentic rice & curry.
+• **Temple Etiquette:** Cover shoulders and knees, remove shoes/hats, and never turn your back to a Buddha statue.
+• **Best Seasons:** South/West coast: December–April. East coast: May–September.
+• **Emergency:** Dial 1990 for ambulance, 1912 for Tourist Police.
+
+Please ask me about specific destinations, transport routes, food recommendations, or itinerary planning, and I will provide detailed guidance!`;
 }
 
 startServer();

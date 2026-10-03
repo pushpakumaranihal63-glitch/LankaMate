@@ -131,7 +131,11 @@ export const AIAssistantView: React.FC<AIAssistantViewProps> = ({ onNavigatePage
       timestamp: timeNow,
     };
 
-    setMessages((prev) => [...prev, userMessage]);
+    // Replace welcome message with the user's question (welcome is only an empty-state message)
+    setMessages((prev) => {
+      const withoutWelcome = prev.filter((m) => m.id !== 'welcome');
+      return [...withoutWelcome, userMessage];
+    });
     setLoading(true);
 
     setTimeout(() => {
@@ -147,7 +151,7 @@ export const AIAssistantView: React.FC<AIAssistantViewProps> = ({ onNavigatePage
         body: JSON.stringify({
           message: query,
           language: language,
-          history: messages.slice(-4).map((m) => ({
+          history: messages.filter((m) => m.id !== 'welcome').slice(-4).map((m) => ({
             role: m.sender === 'user' ? 'user' : 'model',
             parts: [{ text: m.text }],
           })),
