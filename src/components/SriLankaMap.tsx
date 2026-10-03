@@ -124,6 +124,18 @@ export const SriLankaMap: React.FC<SriLankaMapProps> = ({
     return getLocalizedDestinations(destinationsData, language);
   }, [language]);
 
+  // Map each destination id to its raw (English) district and category for stable filtering
+  // regardless of the active display language (translations change district and category names)
+  const rawDistrictMap = React.useMemo(() => {
+    const dMap: Record<string, string> = {};
+    const cMap: Record<string, string> = {};
+    destinationsData.forEach((d) => {
+      dMap[d.id] = d.district || '';
+      cMap[d.id] = d.category || '';
+    });
+    return { dMap, cMap };
+  }, []);
+
   const [selectedDestId, setSelectedDestId] = useState<string>('sigiriya');
   const [activeFilter, setActiveFilter] = useState<string>('all');
   const [selectedDistrict, setSelectedDistrict] = useState<string>('all');
@@ -144,14 +156,14 @@ export const SriLankaMap: React.FC<SriLankaMapProps> = ({
   // Filter pins based on selected category, district, and search query
   const filteredDestinations = localizedDestinations.filter((dest) => {
     // 1. Category filter
-    if (activeFilter === 'beach' && dest.category !== 'Beach') return false;
-    if (activeFilter === 'heritage' && dest.category !== 'Heritage') return false;
-    if (activeFilter === 'mountain' && dest.category !== 'Mountain') return false;
-    if (activeFilter === 'wildlife' && dest.category !== 'Wildlife') return false;
-    if (activeFilter === 'nature' && dest.category !== 'Nature') return false;
+    if (activeFilter === 'beach' && rawDistrictMap.cMap[dest.id] !== 'Beach') return false;
+    if (activeFilter === 'heritage' && rawDistrictMap.cMap[dest.id] !== 'Heritage') return false;
+    if (activeFilter === 'mountain' && rawDistrictMap.cMap[dest.id] !== 'Mountain') return false;
+    if (activeFilter === 'wildlife' && rawDistrictMap.cMap[dest.id] !== 'Wildlife') return false;
+    if (activeFilter === 'nature' && rawDistrictMap.cMap[dest.id] !== 'Nature') return false;
 
-    // 2. District filter
-    if (selectedDistrict !== 'all' && dest.district !== selectedDistrict) return false;
+    // 2. District filter (use raw English district so it works in all languages)
+    if (selectedDistrict !== 'all' && rawDistrictMap.dMap[dest.id] !== selectedDistrict) return false;
 
     // 3. Search query filter
     if (searchQuery.trim()) {
@@ -362,7 +374,7 @@ export const SriLankaMap: React.FC<SriLankaMapProps> = ({
 
     filteredDestinations.forEach((dest) => {
       const isSelected = dest.id === selectedDestId;
-      const isDistrictActive = selectedDistrict !== 'all' && dest.district === selectedDistrict;
+      const isDistrictActive = selectedDistrict !== 'all' && rawDistrictMap.dMap[dest.id] === selectedDistrict;
       const icon = createMarkerIcon(dest, isSelected, isDistrictActive);
 
       const marker = L.marker([dest.coordinates.lat, dest.coordinates.lng], {
