@@ -139,6 +139,8 @@ export const AIAssistantView: React.FC<AIAssistantViewProps> = ({ onNavigatePage
           setMicError(t('No speech was detected. Please try speaking again.'));
         } else if (error === 'micNotSupported') {
           setMicError(t('Voice input is not supported on this browser.'));
+        } else if (error === 'start_failed') {
+          setMicError(t('Could not start voice input. Please check microphone permissions and try again.'));
         } else {
           setMicError(t('Voice input encountered an error. Please try again.'));
         }
@@ -152,7 +154,15 @@ export const AIAssistantView: React.FC<AIAssistantViewProps> = ({ onNavigatePage
 
     if (recognizer) {
       recognizerRef.current = recognizer;
-      recognizer.start();
+      setIsListening(true);
+      try {
+        recognizer.start();
+      } catch (err) {
+        console.warn('Speech recognition start failed:', err);
+        setIsListening(false);
+        recognizerRef.current = null;
+        setMicError(t('Could not start voice input. Please check microphone permissions and try again.'));
+      }
     }
   }, [isListening, language, inputText, t, stopListening]);
 

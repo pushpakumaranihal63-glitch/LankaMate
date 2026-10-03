@@ -578,6 +578,8 @@ export function createSpeechRecognizer(
         recognizer.start();
       } catch (err) {
         console.warn('Could not start recognition:', err);
+        handlers.onError?.('start_failed');
+        handlers.onEnd?.();
       }
     },
     stop: () => {
