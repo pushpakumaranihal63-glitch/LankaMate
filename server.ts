@@ -453,6 +453,78 @@ The user's preferred language is ${preferredLanguage}. Unless the user specifica
     }
   });
 
+  // Speech-to-text endpoint using Gemini audio transcription
+  app.post("/api/speech-to-text", async (req, res) => {
+    try {
+      const { audio, mimeType, language } = req.body;
+
+      if (!audio || typeof audio !== "string") {
+        return res.status(400).json({ error: "Audio data is required" });
+      }
+
+      const apiKey = process.env.GEMINI_API_KEY;
+      if (!apiKey) {
+        return res.status(503).json({ error: "Speech recognition service is not configured." });
+      }
+
+      const ai = new GoogleGenAI({
+        apiKey: apiKey,
+        httpOptions: {
+          headers: {
+            "User-Agent": "aistudio-build",
+          },
+        },
+      });
+
+      const langNames: Record<string, string> = {
+        en: "English",
+        si: "Sinhala",
+        ta: "Tamil",
+        zh: "Chinese",
+        ja: "Japanese",
+        ko: "Korean",
+        de: "German",
+        fr: "French",
+        es: "Spanish",
+        ru: "Russian",
+        ar: "Arabic",
+        hi: "Hindi",
+        it: "Italian",
+        tr: "Turkish",
+      };
+      const langName = langNames[language] || "English";
+
+      const response = await ai.models.generateContent({
+        model: "gemini-2.0-flash",
+        contents: [
+          {
+            role: "user",
+            parts: [
+              {
+                inlineData: {
+                  data: audio,
+                  mimeType: mimeType || "audio/webm",
+                },
+              },
+              {
+                text: `Transcribe the spoken audio in this clip. The user is speaking ${langName}. Return ONLY the transcribed text, nothing else. If the audio is silent or unclear, return an empty string.`,
+              },
+            ],
+          },
+        ],
+        config: {
+          temperature: 0,
+        },
+      });
+
+      const transcript = (response.text || "").trim();
+      return res.json({ transcript });
+    } catch (err: any) {
+      console.error("Speech-to-text error:", err);
+      return res.status(500).json({ error: "Could not transcribe audio. Please try again." });
+    }
+  });
+
   // Serve static assets from public folder
   app.use(express.static(path.join(process.cwd(), "public")));
 

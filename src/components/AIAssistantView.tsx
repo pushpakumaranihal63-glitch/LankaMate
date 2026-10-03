@@ -9,6 +9,7 @@ import {
   RefreshCw,
   Mic,
   MicOff,
+  Loader2,
 } from 'lucide-react';
 import { PageId } from '../types';
 import { QUICK_ASK_ITEMS, QuickAskItem, getQuickAskAnswer } from '../data/quickAskAnswers';
@@ -18,6 +19,23 @@ import {
   isSpeechRecognitionSupported,
   createSpeechRecognizer,
 } from '../services/voiceService';
+
+const SPEECH_TO_TEXT_LANG_MAP: Record<string, string> = {
+  en: 'English',
+  si: 'Sinhala',
+  ta: 'Tamil',
+  zh: 'Chinese',
+  ja: 'Japanese',
+  ko: 'Korean',
+  de: 'German',
+  fr: 'French',
+  es: 'Spanish',
+  ru: 'Russian',
+  ar: 'Arabic',
+  hi: 'Hindi',
+  it: 'Italian',
+  tr: 'Turkish',
+};
 
 async function translateAnswer(text: string, lang: LanguageCode): Promise<string> {
   if (lang === 'en' || !text) return text;
@@ -90,17 +108,131 @@ export const AIAssistantView: React.FC<AIAssistantViewProps> = ({ onNavigatePage
   const [loading, setLoading] = useState(false);
   const [copiedId, setCopiedId] = useState<string | null>(null);
   const [isListening, setIsListening] = useState(false);
+  const [isTranscribing, setIsTranscribing] = useState(false);
   const [micError, setMicError] = useState<string | null>(null);
   const messagesContainerRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
   const recognizerRef = useRef<{ start: () => void; stop: () => void; abort: () => void } | null>(null);
+  const mediaRecorderRef = useRef<MediaRecorder | null>(null);
+  const mediaStreamRef = useRef<MediaStream | null>(null);
+  const audioChunksRef = useRef<Blob[]>([]);
   const baseInputRef = useRef<string>('');
+  const webSpeechFailedRef = useRef(false);
+
+  const cleanupMediaRecorder = useCallback(() => {
+    if (mediaRecorderRef.current && mediaRecorderRef.current.state !== 'inactive') {
+      try { mediaRecorderRef.current.stop(); } catch { /* noop */ }
+    }
+    mediaRecorderRef.current = null;
+    if (mediaStreamRef.current) {
+      mediaStreamRef.current.getTracks().forEach((track) => track.stop());
+      mediaStreamRef.current = null;
+    }
+    audioChunksRef.current = [];
+  }, []);
 
   const stopListening = useCallback(() => {
     recognizerRef.current?.stop();
     recognizerRef.current = null;
+    cleanupMediaRecorder();
     setIsListening(false);
+  }, [cleanupMediaRecorder]);
+
+  const transcribeAudio = useCallback(async (audioBlob: Blob, lang: string, existingText: string): Promise<string> => {
+    const reader = new FileReader();
+    const base64Promise = new Promise<string>((resolve, reject) => {
+      reader.onloadend = () => {
+        const result = reader.result as string;
+        const base64 = result.split(',')[1];
+        if (base64) resolve(base64);
+        else reject(new Error('Failed to read audio data'));
+      };
+      reader.onerror = reject;
+      reader.readAsDataURL(audioBlob);
+    });
+
+    const base64 = await base64Promise;
+    const langName = SPEECH_TO_TEXT_LANG_MAP[lang] || 'English';
+
+    const response = await fetch('/api/speech-to-text', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ audio: base64, mimeType: audioBlob.type || 'audio/webm', language: langName }),
+    });
+
+    if (!response.ok) throw new Error(`Transcription failed: ${response.status}`);
+    const data = await response.json();
+    const transcript = (data.transcript || '').trim();
+    if (!transcript) throw new Error('Empty transcription');
+    return existingText ? `${existingText} ${transcript}`.trim() : transcript;
   }, []);
+
+  const startMediaRecorderFallback = useCallback(async (lang: string, existingText: string) => {
+    setIsListening(true);
+    setMicError(null);
+    baseInputRef.current = existingText;
+    audioChunksRef.current = [];
+
+    try {
+      const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+      mediaStreamRef.current = stream;
+
+      const mimeType = MediaRecorder.isTypeSupported('audio/webm;codecs=opus')
+        ? 'audio/webm;codecs=opus'
+        : MediaRecorder.isTypeSupported('audio/webm')
+          ? 'audio/webm'
+          : '';
+
+      const recorder = mimeType ? new MediaRecorder(stream, { mimeType }) : new MediaRecorder(stream);
+      mediaRecorderRef.current = recorder;
+
+      recorder.ondataavailable = (e: BlobEvent) => {
+        if (e.data.size > 0) audioChunksRef.current.push(e.data);
+      };
+
+      recorder.onstop = async () => {
+        cleanupMediaRecorder();
+        setIsListening(false);
+
+        if (audioChunksRef.current.length === 0) {
+          setMicError(t('No speech was detected. Please try speaking again.'));
+          return;
+        }
+
+        const audioBlob = new Blob(audioChunksRef.current, { type: mimeType || 'audio/webm' });
+        audioChunksRef.current = [];
+
+        if (audioBlob.size < 1000) {
+          setMicError(t('No speech was detected. Please try speaking again.'));
+          return;
+        }
+
+        setIsTranscribing(true);
+        try {
+          const combined = await transcribeAudio(audioBlob, lang, baseInputRef.current);
+          setInputText(combined);
+          setTimeout(() => inputRef.current?.focus(), 100);
+        } catch (err) {
+          console.warn('Audio transcription failed:', err);
+          setMicError(t('Could not transcribe your speech. Please try again or type your question.'));
+        } finally {
+          setIsTranscribing(false);
+        }
+      };
+
+      recorder.start();
+    } catch (err: any) {
+      cleanupMediaRecorder();
+      setIsListening(false);
+      if (err.name === 'NotAllowedError' || err.name === 'PermissionDeniedError') {
+        setMicError(t('Microphone access was denied. Please allow microphone permissions to use voice input.'));
+      } else if (err.name === 'NotFoundError' || err.name === 'DevicesNotFoundError') {
+        setMicError(t('No microphone was found on this device.'));
+      } else {
+        setMicError(t('Could not start voice input. Please check microphone permissions and try again.'));
+      }
+    }
+  }, [cleanupMediaRecorder, transcribeAudio, t]);
 
   const handleMicToggle = useCallback(() => {
     setMicError(null);
@@ -110,15 +242,19 @@ export const AIAssistantView: React.FC<AIAssistantViewProps> = ({ onNavigatePage
       return;
     }
 
-    if (!isSpeechRecognitionSupported()) {
-      setMicError(t('Voice input is not supported on this browser.'));
+    if (isTranscribing) return;
+
+    if (!isSpeechRecognitionSupported() || webSpeechFailedRef.current) {
+      startMediaRecorderFallback(language, inputText);
       return;
     }
 
     baseInputRef.current = inputText;
+    let settled = false;
 
     const recognizer = createSpeechRecognizer(language, {
       onStart: () => {
+        settled = true;
         setIsListening(true);
       },
       onResult: (transcript: string, isFinal: boolean) => {
@@ -131,6 +267,13 @@ export const AIAssistantView: React.FC<AIAssistantViewProps> = ({ onNavigatePage
         }
       },
       onError: (error: string) => {
+        if (!settled) {
+          webSpeechFailedRef.current = true;
+          recognizerRef.current = null;
+          setIsListening(false);
+          startMediaRecorderFallback(language, baseInputRef.current);
+          return;
+        }
         setIsListening(false);
         recognizerRef.current = null;
         if (error === 'micPermissionDenied') {
@@ -154,24 +297,26 @@ export const AIAssistantView: React.FC<AIAssistantViewProps> = ({ onNavigatePage
 
     if (recognizer) {
       recognizerRef.current = recognizer;
-      setIsListening(true);
       try {
         recognizer.start();
       } catch (err) {
-        console.warn('Speech recognition start failed:', err);
-        setIsListening(false);
+        console.warn('Speech recognition start threw, falling back to MediaRecorder:', err);
+        webSpeechFailedRef.current = true;
         recognizerRef.current = null;
-        setMicError(t('Could not start voice input. Please check microphone permissions and try again.'));
+        startMediaRecorderFallback(language, baseInputRef.current);
       }
+    } else {
+      startMediaRecorderFallback(language, inputText);
     }
-  }, [isListening, language, inputText, t, stopListening]);
+  }, [isListening, isTranscribing, language, inputText, t, stopListening, startMediaRecorderFallback]);
 
   useEffect(() => {
     return () => {
       recognizerRef.current?.abort();
       recognizerRef.current = null;
+      cleanupMediaRecorder();
     };
-  }, []);
+  }, [cleanupMediaRecorder]);
 
   // Handle Quick Ask click: translate answer if needed, then display
   const handleQuickAsk = async (item: QuickAskItem) => {
@@ -496,7 +641,7 @@ export const AIAssistantView: React.FC<AIAssistantViewProps> = ({ onNavigatePage
               type="text"
               value={inputText}
               onChange={(e) => setInputText(e.target.value)}
-              placeholder={isListening ? t('Listening... speak your question') : t('Ask anything: blue train tickets, temple dress code, seafood spots, monsoons...')}
+              placeholder={isTranscribing ? t('Transcribing your speech...') : isListening ? t('Listening... speak your question') : t('Ask anything: blue train tickets, temple dress code, seafood spots, monsoons...')}
               autoComplete="off"
               className="flex-1 px-3 py-2.5 text-xs sm:text-sm text-stone-900 placeholder-stone-400 focus:outline-none bg-transparent cursor-text select-text"
               aria-label={t('Ask AI travel question')}
@@ -516,7 +661,9 @@ export const AIAssistantView: React.FC<AIAssistantViewProps> = ({ onNavigatePage
               title={isListening ? t('Stop listening') : t('Tap to speak')}
               aria-label={isListening ? t('Stop listening') : t('Tap to speak')}
             >
-              {isListening ? (
+              {isTranscribing ? (
+                <Loader2 className="w-4 h-4 animate-spin" />
+              ) : isListening ? (
                 <MicOff className="w-4 h-4" />
               ) : (
                 <Mic className="w-4 h-4" />
