@@ -1236,9 +1236,8 @@ export const attractionsCentralHighlands: Destination[] = [
     tagline: 'Replica Pilgrimage Complex of India\'s Sacred Buddhist Sites Beside the Rath Ganga River',
     category: 'Heritage',
     photoStatus: 'VERIFIED_REAL',
-    heroImage: 'https://upload.wikimedia.org/wikipedia/commons/thumb/7/70/Punchi_dabadiwa_Rathganga_Asu_Maha_Shrawaka_Pasvisu_Rajamaha_Viharaya_%28Punchi_Dambadiva%29_%E2%80%93_%E0%B6%BB%E0%B6%AD%E0%B7%8A%E0%B6%9C%E0%B6%9F_%E0%B6%85%E0%B7%83%E0%B7%96_%E0%B6%B8%E0%B7%84%E0%B7%8F_%E0%B7%81%E0%B7%8A%E2%80%8D%E0%B6%BB%E0%B7%8F%E0%B7%80%E0%B6%9A_%E0%B6%B4%E0%B7%83%E0%B7%8A%E0%B7%80%E0%B7%92%E0%B7%83%E0%B7%96_%E0%B6%BB%E0%B6%A2%E0%B6%AE%E0%B7%8F_%E0%B7%80%E0%B7%92%E0%B7%84%E0%B7%8F%E0%B6%BB%E0%B6%BA.jpg/1280px-thumbnail.jpg',
+    heroImage: 'https://upload.wikimedia.org/wikipedia/commons/7/7a/2020-02-04-10-03-19-603_edited.jpg',
     gallery: [
-      'https://upload.wikimedia.org/wikipedia/commons/thumb/7/70/Punchi_dabadiwa_Rathganga_Asu_Maha_Shrawaka_Pasvisu_Rajamaha_Viharaya_%28Punchi_Dambadiva%29_%E2%80%93_%E0%B6%BB%E0%B6%AD%E0%B7%8A%E0%B6%9C%E0%B6%9F_%E0%B6%85%E0%B7%83%E0%B7%96_%E0%B6%B8%E0%B7%84%E0%B7%8F_%E0%B7%81%E0%B7%8A%E2%80%8D%E0%B6%BB%E0%B7%8F%E0%B7%80%E0%B6%9A_%E0%B6%B4%E0%B7%83%E0%B7%8A%E0%B7%80%E0%B7%92%E0%B7%83%E0%B7%96_%E0%B6%BB%E0%B6%A2%E0%B6%AE%E0%B7%8F_%E0%B7%80%E0%B7%92%E0%B7%84%E0%B7%8F%E0%B6%BB%E0%B6%BA.jpg/1280px-thumbnail.jpg',
       'https://upload.wikimedia.org/wikipedia/commons/7/7a/2020-02-04-10-03-19-603_edited.jpg',
       'https://upload.wikimedia.org/wikipedia/commons/f/ff/2020-02-04-09-34-05-144_edited.jpg',
       'https://upload.wikimedia.org/wikipedia/commons/9/97/2020-02-04-10-11-51-371_edited.jpg',
