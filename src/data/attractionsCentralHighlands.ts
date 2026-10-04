@@ -283,6 +283,108 @@ export const attractionsCentralHighlands: Destination[] = [
 
   // --- NUWARA ELIYA DISTRICT ---
   {
+    id: 'bomburu-ella-waterfall',
+    name: 'Bomburu Ella Waterfall',
+    localName: 'බෝඹුරු ඇල්ල',
+    region: 'Hill Country',
+    district: 'Nuwara Eliya',
+    tagline: 'Wide Highland Cascade in the Forested Hills Near Welimada',
+    category: 'Nature',
+    photoStatus: 'VERIFIED_REAL',
+    heroImage: 'https://upload.wikimedia.org/wikipedia/commons/thumb/7/73/Bomburu_Ella_Waterfall.jpg/1280px-Bomburu_Ella_Waterfall.jpg',
+    gallery: [
+      'https://upload.wikimedia.org/wikipedia/commons/thumb/7/73/Bomburu_Ella_Waterfall.jpg/1280px-Bomburu_Ella_Waterfall.jpg',
+    ],
+    description:
+      'Bomburu Ella, also known as Perawella Falls, is a broad waterfall in the Uva-Paranagama area near the Nuwara Eliya–Badulla district boundary. Fed by streams descending from the central highlands, the cascade spreads over a rocky, forested slope surrounded by vegetable gardens, tea-country hills, and cool montane vegetation. Visitors can follow the approach trail through the countryside, photograph the wide falling curtain, and enjoy views across the quiet highland valley near Welimada.',
+    bestTimeToVisit: 'October to April for greener hills and reliable flow, with morning visits best for clearer views',
+    entryFee: 'Free entry',
+    coordinates: { lat: 6.9475, lng: 80.83083, svgX: 53, svgY: 65 },
+    weather: { tempC: 20, condition: 'Cool Highland Mist', icon: 'rain' },
+    highlights: [
+      'Viewing one of the widest and most scenic cascades in the central highlands',
+      'Walking through vegetable-growing villages and forested slopes near Welimada',
+      'Photographing the waterfall against the misty Nuwara Eliya mountain landscape',
+    ],
+    activities: [
+      'Waterfall photography and countryside walking',
+      'Birdwatching and nature observation along the approach trail',
+    ],
+    travelTips: [
+      'The waterfall is approximately 15 km from Welimada and is reached by a rural trail.',
+      'Wear sturdy shoes because the path can be muddy and slippery after rain.',
+    ],
+    travelTimeFromColombo: '5.5 hours drive via Kandy and Nuwara Eliya',
+  },
+  {
+    id: 'kolapathana-waterfall',
+    name: 'Kolapathana Waterfall',
+    localName: 'කොළපතන ඇල්ල',
+    region: 'Hill Country',
+    district: 'Nuwara Eliya',
+    tagline: 'Hidden Multi-Step Cascade Below the Pidurutalagala Forests',
+    category: 'Nature',
+    photoStatus: 'VERIFIED_REAL',
+    heroImage: 'https://upload.wikimedia.org/wikipedia/commons/3/38/Kolapathana_ella%2C_mandaram_nuwara.jpg',
+    gallery: [
+      'https://upload.wikimedia.org/wikipedia/commons/3/38/Kolapathana_ella%2C_mandaram_nuwara.jpg',
+    ],
+    description:
+      'Kolapathana Ella is a hidden multi-step waterfall near Mandaram Nuwara in the Nuwara Eliya District. Its streams rise in the Pidurutalagala mountain forests and descend through rugged highland terrain before joining the Belihul Oya system. The surrounding landscape combines misty montane forest, steep rocky slopes, tea and smallholder cultivation, and quiet village paths. Visitors can trek to the cascade, photograph its successive drops, and explore the cool, secluded valley away from the main Nuwara Eliya resort area.',
+    bestTimeToVisit: 'October to April for fuller flow and safer trail conditions between heavy rains',
+    entryFee: 'Free entry',
+    coordinates: { lat: 7.075, lng: 80.791389, svgX: 52, svgY: 61 },
+    weather: { tempC: 19, condition: 'Misty Mountain Air', icon: 'cloud' },
+    highlights: [
+      'Exploring a secluded multi-step cascade near the historic village of Mandaram Nuwara',
+      'Walking through cool mountain forest and rocky highland scenery',
+      'Viewing streams descending from the Pidurutalagala range toward Belihul Oya',
+    ],
+    activities: [
+      'Guided waterfall trekking and landscape photography',
+      'Forest birdwatching and streamside nature walks',
+    ],
+    travelTips: [
+      'Use a local guide for the approach because the waterfall is not a fully developed tourist site.',
+      'Avoid the stream and rock ledges during heavy rainfall or flash-flood conditions.',
+    ],
+    travelTimeFromColombo: '4.5 hours drive via Kandy and Padiyapelella',
+  },
+  {
+    id: 'nanu-oya-waterfall',
+    name: 'Nanu Oya Waterfall',
+    localName: 'නනු ඔය ඇල්ල',
+    region: 'Hill Country',
+    district: 'Nuwara Eliya',
+    tagline: '60-Metre Railway-Side Cascade in the Misty Nanu Oya Valley',
+    category: 'Nature',
+    photoStatus: 'VERIFIED_REAL',
+    heroImage: 'https://upload.wikimedia.org/wikipedia/commons/thumb/f/f3/Nanu_oya_waterfalls.jpg/1280px-Nanu_oya_waterfalls.jpg',
+    gallery: [
+      'https://upload.wikimedia.org/wikipedia/commons/thumb/f/f3/Nanu_oya_waterfalls.jpg/1280px-Nanu_oya_waterfalls.jpg',
+    ],
+    description:
+      'Nanu Oya Waterfall is a picturesque cascade near Nanu Oya village, approximately 6–8 km from Nuwara Eliya. The waterfall drops about 60 metres through the cool, wet highland landscape near the Nanu Oya stream and railway line toward Radella. Tea estates, eucalyptus and montane vegetation, misty ridges, and the historic mountain railway define the surrounding environment. Visitors can view the falls from nearby road and rail approaches, photograph the cascade, and combine the stop with a scenic walk around Nanu Oya station and the tea-country valley.',
+    bestTimeToVisit: 'October to April for stronger water flow and clear morning light between showers',
+    entryFee: 'Free entry',
+    coordinates: { lat: 6.9449679, lng: 80.7387368, svgX: 52, svgY: 66 },
+    weather: { tempC: 18, condition: 'Cool & Misty', icon: 'rain' },
+    highlights: [
+      'Viewing a roughly 60-metre cascade in the Nanu Oya highlands',
+      'Photographing the waterfall with the scenic mountain railway landscape',
+      'Exploring tea-country scenery and misty valleys near Nanu Oya village',
+    ],
+    activities: [
+      'Waterfall and railway landscape photography',
+      'Short scenic walks near Nanu Oya station and the surrounding tea estates',
+    ],
+    travelTips: [
+      'The falls are visible from the Nanu Oya area; stay clear of active railway tracks and private land.',
+      'Carry a waterproof layer because the highland weather changes quickly.',
+    ],
+    travelTimeFromColombo: '4.5 hours drive via Kandy, or train to Nanu Oya station',
+  },
+  {
     id: 'ramboda-falls',
     name: 'Ramboda Falls & Pass',
     localName: 'රම්බොඩ ඇල්ල',
