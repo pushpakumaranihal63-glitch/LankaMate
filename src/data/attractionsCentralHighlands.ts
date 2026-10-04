@@ -928,6 +928,76 @@ export const attractionsCentralHighlands: Destination[] = [
 
   // --- RATNAPURA DISTRICT ---
   {
+    id: 'mapalana-falls',
+    name: 'Mapalana Falls (Mapalana Ella)',
+    localName: 'මාපලන ඇල්ල',
+    region: 'Sabaragamuwa',
+    district: 'Ratnapura',
+    tagline: '148-Meter Three-Tier Cascade in the Monsoon Forests South of Sri Pada',
+    category: 'Nature',
+    photoStatus: 'VERIFIED_REAL',
+    heroImage: 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/Mapalana_Waterfalls.jpg/1280px-Mapalana_Waterfalls.jpg',
+    gallery: [
+      'https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/Mapalana_Waterfalls.jpg/1280px-Mapalana_Waterfalls.jpg',
+    ],
+    description:
+      'Mapalana Ella is a tall three-tier waterfall situated in the remote hamlet of Mapalana in the Ratnapura District, nestled in the monsoon forests on the southern slopes of the Sri Pada (Adam\'s Peak) mountain range. The waterfall is formed by the Elle Oya stream, which cascades approximately 148 meters down a series of rocky cliff faces before joining the Kalu Ganga river system. The surrounding area is characterized by dense tropical montane rainforest with high rainfall, endemic flora, and diverse birdlife. The falls are accessible on foot from the Palabaddala area, the traditional southern trailhead for the Sri Pada pilgrimage, making it a rewarding detour for hikers and nature enthusiasts visiting the region during the dry season.',
+    bestTimeToVisit: 'December to April during the Sri Pada pilgrimage season for drier trails and safer access',
+    entryFee: 'Free entry',
+    coordinates: { lat: 6.7749, lng: 80.4617, svgX: 47, svgY: 72 },
+    weather: { tempC: 24, condition: 'Cool Montane Rainforest', icon: 'rain' },
+    highlights: [
+      'Witnessing the dramatic 148-meter three-tier cascade plunging through virgin montane rainforest',
+      'Trekking through the lush monsoon forests on the southern slopes of the Sri Pada range',
+      'Enjoying the pristine, uncrowded natural setting far from mainstream tourist routes',
+      'Combining the visit with a Sri Pada pilgrimage or Palabaddala nature walk',
+    ],
+    activities: [
+      'Waterfall photography and jungle trekking',
+      'Birdwatching for endemic montane species in the surrounding rainforest',
+    ],
+    travelTips: [
+      'Accessible on foot from Palabaddala, the southern trailhead for the Sri Pada pilgrimage.',
+      'The trail passes through dense rainforest; hire a local guide and carry rain gear.',
+    ],
+    travelTimeFromColombo: '4 hours drive via Ratnapura and Palabaddala',
+  },
+  {
+    id: 'katugas-falls',
+    name: 'Katugas Falls (Katugas Ella)',
+    localName: 'කටුගස් ඇල්ල',
+    region: 'Sabaragamuwa',
+    district: 'Ratnapura',
+    tagline: 'Secluded Forest Cascade on the Katugas Ela Stream Near Kospelavinna',
+    category: 'Nature',
+    photoStatus: 'VERIFIED_REAL',
+    heroImage: 'https://amazinglanka.com/wp/wp-content/uploads/2014/06/katugasella-01.jpg',
+    gallery: [
+      'https://amazinglanka.com/wp/wp-content/uploads/2014/06/katugasella-01.jpg',
+    ],
+    description:
+      'Katugas Ella is a secluded waterfall situated in the village of Kospelavinna (also spelled Kospelawinna) near Ratnapura town, on the Ratnapura-Wewelwatta road. The falls lie on the Katugas Ela stream, whose waters originate in the monsoon forests on the southern slopes of the Minuwangala mountain before eventually joining the Kalu Ganga river. The waterfall cascades approximately 6 meters (though some sources estimate up to 21 meters) over a rocky ledge into a natural plunge pool surrounded by dense tropical foliage. The site is easily accessible via a short 100-meter walk from the main road, making it one of the most convenient natural attractions near Ratnapura town. The surrounding forest supports diverse butterfly and bird species typical of the Sabaragamuwa lowland wet zone.',
+    bestTimeToVisit: 'October to February after monsoon rains for the fullest water flow',
+    entryFee: 'Free entry',
+    coordinates: { lat: 6.6962, lng: 80.4067, svgX: 44, svgY: 73 },
+    weather: { tempC: 28, condition: 'Warm & Tropical Forest', icon: 'rain' },
+    highlights: [
+      'Enjoying a secluded forest waterfall just a short walk from the main road',
+      'Swimming in the natural plunge pool surrounded by lush tropical vegetation',
+      'Exploring the scenic Ratnapura-Wewelwatta road with its many cascading streams',
+      'Spotting butterflies and lowland wet-zone bird species along the forest path',
+    ],
+    activities: [
+      'Natural waterfall swimming and forest photography',
+      'Short nature walks along the Katugas Ela stream',
+    ],
+    travelTips: [
+      'Take the Weralupa junction turnoff from the Ratnapura-Wewelwatta road; the falls are 100 meters down this side road.',
+      'Only 200 LKR by tuk-tuk from Ratnapura town center.',
+    ],
+    travelTimeFromColombo: '2 hours drive via the A4 highway to Ratnapura',
+  },
+  {
     id: 'kuragala-ancient-buddhist-monastery',
     name: 'Kuragala Ancient Buddhist Monastery (Kuragala Pansala)',
     localName: 'කුරගල පැරණි බෞද්ධ ආරාමය',
