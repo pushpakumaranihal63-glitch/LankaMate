@@ -495,7 +495,7 @@ The user's preferred language is ${preferredLanguage}. Unless the user specifica
       const langName = langNames[language] || "English";
 
       const response = await ai.models.generateContent({
-        model: "gemini-2.0-flash",
+        model: "gemini-3.8-flash",
         contents: [
           {
             role: "user",
