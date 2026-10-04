@@ -514,6 +514,7 @@ The user's preferred language is ${preferredLanguage}. Unless the user specifica
         ],
         config: {
           temperature: 0,
+          thinkingConfig: { thinkingBudget: 0 },
         },
       });
 
