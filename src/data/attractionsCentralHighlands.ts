@@ -654,6 +654,108 @@ export const attractionsCentralHighlands: Destination[] = [
 
   // --- BADULLA DISTRICT ---
   {
+    id: 'bambarakanda-falls',
+    name: 'Bambarakanda Falls',
+    localName: 'බඹරකන්ද ඇල්ල',
+    region: 'Hill Country',
+    district: 'Badulla',
+    tagline: 'Sri Lanka\'s Tallest Waterfall Cascading 263 Metres at Kalupahana',
+    category: 'Nature',
+    photoStatus: 'VERIFIED_REAL',
+    heroImage: 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/8c/Bambarakanda_Falls.jpg/1280px-Bambarakanda_Falls.jpg',
+    gallery: [
+      'https://upload.wikimedia.org/wikipedia/commons/thumb/8/8c/Bambarakanda_Falls.jpg/1280px-Bambarakanda_Falls.jpg',
+    ],
+    description:
+      'Bambarakanda Falls is Sri Lanka\'s tallest waterfall, dropping about 263 metres from the Horton Plains plateau through a steep, forested valley near Kalupahana in the Badulla District. The cascade is fed by mountain streams of the Walawe River basin and is surrounded by pine woodland, montane vegetation, tea-country slopes, and rugged rock faces. Visitors can view the falls from the footpath and roadside approaches, photograph the long white ribbon against the green mountains, and explore the surrounding highland landscape on short walks.',
+    bestTimeToVisit: 'March to May and October to January for stronger flow and clearer mountain views',
+    entryFee: 'Free entry (a small local access fee may apply)',
+    coordinates: { lat: 6.7733, lng: 80.8311, svgX: 56, svgY: 71 },
+    weather: { tempC: 22, condition: 'Cool Highland Mist', icon: 'rain' },
+    highlights: [
+      'Seeing Sri Lanka\'s tallest waterfall descend approximately 263 metres',
+      'Photographing the cascade framed by Kalupahana\'s forested mountain slopes',
+      'Walking through the cool highland environment around the Walawe River headwaters',
+    ],
+    activities: [
+      'Waterfall photography from the established viewing approaches',
+      'Short nature walks through pine woodland and montane vegetation',
+    ],
+    travelTips: [
+      'Located near Kalupahana on the A4 road between Balangoda and Haputale.',
+      'Wear shoes with good grip because mist and rain can make the access paths slippery.',
+    ],
+    travelTimeFromColombo: '4.5 hours drive via Ratnapura and Balangoda',
+  },
+  {
+    id: 'nilmini-waterfall',
+    name: 'Nilmini Waterfall',
+    localName: 'නිල්මිණි ඇල්ල',
+    region: 'Hill Country',
+    district: 'Badulla',
+    tagline: 'Quiet Mountain Cascade on the Badulla–Passara Namunukula Road',
+    category: 'Nature',
+    photoStatus: 'VERIFIED_REAL',
+    heroImage: 'https://img.youtube.com/vi/ukwNjEpPJUo/maxresdefault.jpg',
+    gallery: [
+      'https://img.youtube.com/vi/ukwNjEpPJUo/maxresdefault.jpg',
+    ],
+    description:
+      'Nilmini Waterfall is a lesser-known cascade in the Badulla highlands, reached from the Badulla side of the Passara–Namunukula road near Diyanagala. The fall drops through the steep, densely vegetated mountain landscape of the Namunukula range, where tea estates, home gardens, cloud-misted slopes, and remnant wet-zone forest create a cool environment. Visitors come for the quiet scenery, distant waterfall views, photography, and a peaceful short nature excursion away from the busier Badulla attractions.',
+    bestTimeToVisit: 'October to February after the rains, when the stream has stronger flow and the hills are green',
+    entryFee: 'Free entry',
+    coordinates: { lat: 6.9847, lng: 81.0712, svgX: 62, svgY: 65 },
+    weather: { tempC: 23, condition: 'Cool & Misty Mountain Air', icon: 'cloud' },
+    highlights: [
+      'Viewing a quiet cascade set among the Namunukula mountain slopes',
+      'Taking in tea-country, forest, and valley scenery along the Badulla–Passara road',
+      'Enjoying a less-visited waterfall stop close to Badulla',
+    ],
+    activities: [
+      'Landscape photography and scenic roadside walks',
+      'Birdwatching in the surrounding mountain vegetation',
+    ],
+    travelTips: [
+      'Approach from Badulla via the Passara–Namunukula road and confirm local access conditions before walking to the falls.',
+      'Carry water and avoid visiting alone during heavy rain because mountain paths can become slippery.',
+    ],
+    travelTimeFromColombo: '5 hours drive via Kandy and Mahiyanganaya',
+  },
+  {
+    id: 'the-secret-falls-badulla',
+    name: 'The Secret Falls',
+    localName: 'රහස් ඇල්ල',
+    region: 'Hill Country',
+    district: 'Badulla',
+    tagline: 'Hidden Cascade in the Forested Ravines Above Ella–Wellawaya Road',
+    category: 'Nature',
+    photoStatus: 'VERIFIED_REAL',
+    heroImage: 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/9d/Forbidden_waterfalls_around_Ella.jpg/1280px-Forbidden_waterfalls_around_Ella.jpg',
+    gallery: [
+      'https://upload.wikimedia.org/wikipedia/commons/thumb/9/9d/Forbidden_waterfalls_around_Ella.jpg/1280px-Forbidden_waterfalls_around_Ella.jpg',
+    ],
+    description:
+      'The Secret Falls is a little-known waterfall in the Ella area of the Badulla District, within the forested ravines and steep stream valleys around the Ella–Wellawaya road. The exact cascade is reached away from the main tourist viewpoints, where seasonal mountain runoff runs over exposed rock through dense tropical vegetation. Visitors can enjoy a quiet forest walk and photograph the secluded falls, but should treat the route as a natural, lightly developed site rather than a managed attraction.',
+    bestTimeToVisit: 'October to February after rainfall, with dry-weather visits best for safer paths',
+    entryFee: 'Free entry',
+    coordinates: { lat: 6.8276, lng: 81.0770, svgX: 62, svgY: 68 },
+    weather: { tempC: 24, condition: 'Misty Forest Breeze', icon: 'rain' },
+    highlights: [
+      'Discovering a quiet cascade away from Ella\'s busiest viewpoints',
+      'Walking through steep forested ravines and mountain stream habitat',
+      'Photographing the waterfall in its natural, undeveloped setting',
+    ],
+    activities: [
+      'Guided nature walking and waterfall photography',
+      'Birdwatching in the surrounding Ella highlands',
+    ],
+    travelTips: [
+      'Use a local guide because the approach is not a formal, signposted tourist trail.',
+      'Do not enter the ravine during heavy rain or attempt slippery rock crossings.',
+    ],
+    travelTimeFromColombo: '5 hours drive via Kandy and Ella',
+  },
+  {
     id: 'dunhinda-falls-badulla',
     name: 'Dunhinda Falls',
     localName: 'දුන්හිඳ ඇල්ල',
