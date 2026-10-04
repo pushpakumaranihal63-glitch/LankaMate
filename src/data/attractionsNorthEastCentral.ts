@@ -574,6 +574,43 @@ export const attractionsNorthEastCentral: Destination[] = [
     travelTimeFromColombo: '3.5 to 4 hours drive',
   },
 
+  {
+    id: 'kimbulagala-rock',
+    name: 'Kimbulagala Rock Archaeological Site',
+    localName: 'කිඹුලාගල පුරාවිද්‍යා ස්ථානය',
+    region: 'Northern Peninsula',
+    district: 'Vavuniya',
+    tagline: 'Ancient Buddhist Cave Monastery with 13 Early Brahmi Inscriptions (3rd Century BC)',
+    category: 'Heritage',
+    photoStatus: 'VERIFIED_REAL',
+    heroImage: 'https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhBJywKQI7HPHLarj6fil8_UKUiuptjYTDPrt01WLoQUlVTdM5mmO4PsAou5xulONXZI2ld4YP8dG3z28YgIVgJ1Dvf_a98oxVucrkVx4yogwREe8h8tJ_N1nuY3eyBB3oWys2Dw9JmzAFyPx7l5Djiz2LEq5B-uD8vYIkTpHZpqAis3a8dv9a8_FBF5A/s1084-rw/Kimbulagala.JPG',
+    gallery: [
+      'https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhBJywKQI7HPHLarj6fil8_UKUiuptjYTDPrt01WLoQUlVTdM5mmO4PsAou5xulONXZI2ld4YP8dG3z28YgIVgJ1Dvf_a98oxVucrkVx4yogwREe8h8tJ_N1nuY3eyBB3oWys2Dw9JmzAFyPx7l5Djiz2LEq5B-uD8vYIkTpHZpqAis3a8dv9a8_FBF5A/s1084-rw/Kimbulagala.JPG',
+    ],
+    description:
+      'An ancient Buddhist cave monastery site on the Mamaduwa-Mahakachchakodiya road in Nandimithra village near Erupotana, Vavuniya District. The rock contains approximately 18 drip-ledged caves, of which 13 bear Early Brahmi inscriptions dating from the 3rd century BC to the 1st century AD. These inscriptions record the donation of caves to the Buddhist monastic community (Sangha) and name individual donors, providing archaeological evidence that this site functioned as a Buddhist monastery from the early Anuradhapura period. The inscriptions are written in Early Brahmi script in the Old Sinhala language, as documented by S. Paranavitana in "Inscriptions of Ceylon, Volume I" (1970). The surrounding dry-zone landscape features scrub forest and flat agricultural land typical of the Vanni region.',
+    bestTimeToVisit: 'Year-round; early mornings are cooler for exploring the rock and caves',
+    entryFee: 'Free entry',
+    coordinates: { lat: 8.7333, lng: 80.5167, svgX: 47, svgY: 29 },
+    weather: { tempC: 31, condition: 'Warm & Dry Zone', icon: 'sun' },
+    highlights: [
+      'Viewing 13 ancient drip-ledged caves with Early Brahmi inscriptions (3rd century BC – 1st century AD)',
+      'Examining inscriptions that record cave donations to the Buddhist Sangha, as documented by Paranavitana (1970)',
+      'Visiting the Vanni Archaeological and Folk Museum and the statue of Nandimithra near the rock',
+      'Exploring the surrounding dry-zone scrub forest and rural Vanni landscape',
+    ],
+    activities: [
+      'Archaeological exploration of ancient cave inscriptions',
+      'Visiting the nearby Vanni Archaeological and Folk Museum',
+      'Birdwatching and nature walks in the dry-zone surroundings',
+    ],
+    travelTips: [
+      'Located on the Mamaduwa-Mahakachchakodiya road near Erupotana, approximately 20 km northwest of Vavuniya town.',
+      'The site is remote; arrange private transport from Vavuniya as public transport is limited.',
+    ],
+    travelTimeFromColombo: '4 hours drive via A9 highway to Vavuniya, then local roads northwest',
+  },
+
   // --- TRINCOMALEE DISTRICT ---
   {
     id: 'koneswaram-temple',

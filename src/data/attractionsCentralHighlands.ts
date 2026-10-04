@@ -747,6 +747,42 @@ export const attractionsCentralHighlands: Destination[] = [
     ],
     travelTimeFromColombo: '5 hours by road or 9 hours on the world-famous scenic train',
   },
+  {
+    id: 'kumbalwela-mahamevnawa-monastery',
+    name: 'Kumbalwela Mahamevnawa Buddhist Monastery (Sri Sathbudu Maha Seya)',
+    localName: 'කුඹල්වෙල මහමෙව්නාව බෞද්ධ ආරාමය (ශ්‍රී සත්බුදු මහා සෑය)',
+    region: 'Hill Country',
+    district: 'Badulla',
+    tagline: 'Modern Hilltop Meditation Monastery with a Brilliant White Stupa Overlooking Ella Valley',
+    category: 'Heritage',
+    photoStatus: 'VERIFIED_REAL',
+    heroImage: 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/Mahamevnawa_Buddhist_Monastery_2023-05-05.jpg/1280px-Mahamevnawa_Buddhist_Monastery_2023-05-05.jpg',
+    gallery: [
+      'https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/Mahamevnawa_Buddhist_Monastery_2023-05-05.jpg/1280px-Mahamevnawa_Buddhist_Monastery_2023-05-05.jpg',
+    ],
+    description:
+      'A modern Theravada Buddhist monastery perched on a tranquil mountain ridge near Kumbalwela, between Ella and Bandarawela in the Badulla District. Officially known as Sri Sathbudu Maha Seya Viharaya, it belongs to the Mahamevnawa Buddhist Monastery network founded by Ven. Kiribathgoda Gnanananda Thero in 1999. The monastery is renowned for its striking white stupa, the Sri Sathbudu Maha Seya, which stands as a prominent landmark visible from the surrounding hills. The monastery focuses on meditation practice, Dhamma education, and monastic discipline rather than archaeological heritage, hosting regular meditation retreats and Dhamma sermons attended by thousands of devotees throughout the year.',
+    bestTimeToVisit: 'Year-round; early morning or late afternoon for panoramic hill-country views and cool mountain air',
+    entryFee: 'Free entry (donations appreciated)',
+    coordinates: { lat: 6.8795, lng: 81.0274, svgX: 60, svgY: 66 },
+    weather: { tempC: 20, condition: 'Cool & Misty Hill Country', icon: 'cloud' },
+    highlights: [
+      'Admiring the brilliant white Sri Sathbudu Maha Seya stupa against the lush green mountain backdrop',
+      'Enjoying sweeping panoramic views across Ella, Bandarawela, and surrounding tea plantations',
+      'Experiencing meditation and Dhamma teachings in a serene hilltop monastery setting',
+      'Walking the peaceful landscaped garden pathways surrounding the stupa',
+    ],
+    activities: [
+      'Meditation and silent contemplation in the monastery gardens',
+      'Attending Dhamma sermons and religious observances with resident monks',
+      'Hill-country landscape photography from the monastery ridge',
+    ],
+    travelTips: [
+      'Located approximately 6 km from Ella and 8 km from Bandarawela via the Ella-Wellawaya Road.',
+      'Dress modestly with covered shoulders and knees as this is an active monastery.',
+    ],
+    travelTimeFromColombo: '5 hours drive, or scenic train to Ella followed by a short tuk-tuk ride',
+  },
 
   // --- MONARAGALA DISTRICT ---
   {
@@ -1188,6 +1224,42 @@ export const attractionsCentralHighlands: Destination[] = [
       'Wear sturdy hiking shoes.',
     ],
     travelTimeFromColombo: '2 hours drive',
+  },
+  {
+    id: 'rathganga-punchi-dambadiva',
+    name: 'Rathganga Punchi Dambadiva (Asu Maha Shrawaka Pasvisu Rajamaha Viharaya)',
+    localName: 'රත්ගඟ අසූ මහා ශ්‍රාවක පස්විසූ රජමහා විහාරය (පුංචි දඹදිව)',
+    region: 'Sabaragamuwa',
+    district: 'Ratnapura',
+    tagline: 'Replica Pilgrimage Complex of India\'s Sacred Buddhist Sites Beside the Rath Ganga River',
+    category: 'Heritage',
+    photoStatus: 'VERIFIED_REAL',
+    heroImage: 'https://upload.wikimedia.org/wikipedia/commons/7/7a/2020-02-04-10-03-19-603_edited.jpg',
+    gallery: [
+      'https://upload.wikimedia.org/wikipedia/commons/7/7a/2020-02-04-10-03-19-603_edited.jpg',
+    ],
+    description:
+      'A unique Buddhist temple complex near Nonagama in the Ratnapura District, officially known as Rathganga Asu Maha Shrawaka Pasvisu Rajamaha Viharaya. Founded by Ven. Girimale Chandraloka Thera, the temple was established in 1981 and features life-sized replicas of the sacred Buddhist pilgrimage sites of ancient Dambadiva (present-day India and Nepal), including Lumbini, Buddhagaya, and other locations associated with the life of the Buddha. The concept of "Punchi Dambadiva" (Little Dambadiva) was created to provide Sri Lankan devotees who cannot afford to travel to India with the opportunity to experience and worship replicas of these sacred sites. The Suvisi Viharaya Mandiraya houses 24 Buddha statues together with 80 Arahant statues under one roof, depicting the first Buddhist Convention held at Jethawanaramaya. This ensemble, unveiled in 1986, is considered unique in Sri Lanka. The temple is situated on a hillock skirted by the meandering Rath Ganga river, surrounded by scenic mountain landscapes.',
+    bestTimeToVisit: 'Year-round; early mornings and poya (full moon) days are especially peaceful',
+    entryFee: 'Free entry (donations welcome)',
+    coordinates: { lat: 6.6347, lng: 80.5833, svgX: 49, svgY: 76 },
+    weather: { tempC: 29, condition: 'Warm & River Valley Breeze', icon: 'sun' },
+    highlights: [
+      'Viewing the Suvisi Viharaya Mandiraya with 24 Buddha statues and 80 Arahant statues under one roof',
+      'Exploring replica monuments of sacred Indian Buddhist pilgrimage sites (Lumbini, Buddhagaya, and others)',
+      'Walking the temple grounds beside the scenic Rath Ganga river with surrounding mountain views',
+      'Experiencing a Buddhist pilgrimage site designed for devotees unable to travel to India',
+    ],
+    activities: [
+      'Buddhist pilgrimage and religious observances',
+      'Exploring the replica Dambadiva sacred site complex',
+      'Riverside meditation and contemplation',
+    ],
+    travelTips: [
+      'Located along the Colombo-Ratnapura-Pelmadulla-Embilipitiya main highway (A4), near Nonagama.',
+      'Dress modestly with covered shoulders and knees as this is an active temple.',
+    ],
+    travelTimeFromColombo: '2.5 hours drive via A4 highway',
   },
 
   // --- KEGALLE DISTRICT ---
