@@ -756,8 +756,10 @@ export const attractionsCentralHighlands: Destination[] = [
     tagline: 'Modern Hilltop Meditation Monastery with a Brilliant White Stupa Overlooking Ella Valley',
     category: 'Heritage',
     photoStatus: 'VERIFIED_REAL',
-    heroImage: 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/Mahamevnawa_Buddhist_Monastery_2023-05-05.jpg/1280px-Mahamevnawa_Buddhist_Monastery_2023-05-05.jpg',
+    heroImage: 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/dc/Kumbalwela%2C_Mahamevnawa_Buddhist_Monastery%2C_2025-07_CN-01.jpg/1280px-Kumbalwela%2C_Mahamevnawa_Buddhist_Monastery%2C_2025-07_CN-01.jpg',
     gallery: [
+      'https://upload.wikimedia.org/wikipedia/commons/thumb/d/dc/Kumbalwela%2C_Mahamevnawa_Buddhist_Monastery%2C_2025-07_CN-01.jpg/1280px-Kumbalwela%2C_Mahamevnawa_Buddhist_Monastery%2C_2025-07_CN-01.jpg',
+      'https://upload.wikimedia.org/wikipedia/commons/thumb/f/ff/Sri_Satbudhu_Maha_Seya%2C_Mahamevnawa_Buddhist_Monastery%2C_KUMBALWELA_Ella%2C_SRI_LANKA_%2855155954931%29.jpg/1280px-Sri_Satbudhu_Maha_Seya%2C_Mahamevnawa_Buddhist_Monastery%2C_KUMBALWELA_Ella%2C_SRI_LANKA_%2855155954931%29.jpg',
       'https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/Mahamevnawa_Buddhist_Monastery_2023-05-05.jpg/1280px-Mahamevnawa_Buddhist_Monastery_2023-05-05.jpg',
     ],
     description:
@@ -1234,9 +1236,11 @@ export const attractionsCentralHighlands: Destination[] = [
     tagline: 'Replica Pilgrimage Complex of India\'s Sacred Buddhist Sites Beside the Rath Ganga River',
     category: 'Heritage',
     photoStatus: 'VERIFIED_REAL',
-    heroImage: 'https://upload.wikimedia.org/wikipedia/commons/7/7a/2020-02-04-10-03-19-603_edited.jpg',
+    heroImage: 'https://upload.wikimedia.org/wikipedia/commons/thumb/7/70/Punchi_dabadiwa_Rathganga_Asu_Maha_Shrawaka_Pasvisu_Rajamaha_Viharaya_%28Punchi_Dambadiva%29_%E2%80%93_%E0%B6%BB%E0%B6%AD%E0%B7%8A%E0%B6%9C%E0%B6%9F_%E0%B6%85%E0%B7%83%E0%B7%96_%E0%B6%B8%E0%B7%84%E0%B7%8F_%E0%B7%81%E0%B7%8A%E2%80%8D%E0%B6%BB%E0%B7%8F%E0%B7%80%E0%B6%9A_%E0%B6%B4%E0%B7%83%E0%B7%8A%E0%B7%80%E0%B7%92%E0%B7%83%E0%B7%96_%E0%B6%BB%E0%B6%A2%E0%B6%AE%E0%B7%8F_%E0%B7%80%E0%B7%92%E0%B7%84%E0%B7%8F%E0%B6%BB%E0%B6%BA.jpg/1280px-thumbnail.jpg',
     gallery: [
+      'https://upload.wikimedia.org/wikipedia/commons/thumb/7/70/Punchi_dabadiwa_Rathganga_Asu_Maha_Shrawaka_Pasvisu_Rajamaha_Viharaya_%28Punchi_Dambadiva%29_%E2%80%93_%E0%B6%BB%E0%B6%AD%E0%B7%8A%E0%B6%9C%E0%B6%9F_%E0%B6%85%E0%B7%83%E0%B7%96_%E0%B6%B8%E0%B7%84%E0%B7%8F_%E0%B7%81%E0%B7%8A%E2%80%8D%E0%B6%BB%E0%B7%8F%E0%B7%80%E0%B6%9A_%E0%B6%B4%E0%B7%83%E0%B7%8A%E0%B7%80%E0%B7%92%E0%B7%83%E0%B7%96_%E0%B6%BB%E0%B6%A2%E0%B6%AE%E0%B7%8F_%E0%B7%80%E0%B7%92%E0%B7%84%E0%B7%8F%E0%B6%BB%E0%B6%BA.jpg/1280px-thumbnail.jpg',
       'https://upload.wikimedia.org/wikipedia/commons/7/7a/2020-02-04-10-03-19-603_edited.jpg',
+      'https://upload.wikimedia.org/wikipedia/commons/f/ff/2020-02-04-09-34-05-144_edited.jpg',
     ],
     description:
       'A unique Buddhist temple complex near Nonagama in the Ratnapura District, officially known as Rathganga Asu Maha Shrawaka Pasvisu Rajamaha Viharaya. Founded by Ven. Girimale Chandraloka Thera, the temple was established in 1981 and features life-sized replicas of the sacred Buddhist pilgrimage sites of ancient Dambadiva (present-day India and Nepal), including Lumbini, Buddhagaya, and other locations associated with the life of the Buddha. The concept of "Punchi Dambadiva" (Little Dambadiva) was created to provide Sri Lankan devotees who cannot afford to travel to India with the opportunity to experience and worship replicas of these sacred sites. The Suvisi Viharaya Mandiraya houses 24 Buddha statues together with 80 Arahant statues under one roof, depicting the first Buddhist Convention held at Jethawanaramaya. This ensemble, unveiled in 1986, is considered unique in Sri Lanka. The temple is situated on a hillock skirted by the meandering Rath Ganga river, surrounded by scenic mountain landscapes.',
