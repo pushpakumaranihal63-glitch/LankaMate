@@ -113,6 +113,12 @@ export interface Destination {
   description: string;
   category: 'Heritage' | 'Nature' | 'Beach' | 'Wildlife' | 'City' | 'Mountain';
   photoStatus?: 'VERIFIED_REAL' | 'PHOTO_REVIEW_REQUIRED';
+  photoCredit?: {
+    author: string;
+    source: string;
+    license: string;
+    licenseUrl: string;
+  };
   bestTimeToVisit: string;
   entryFee: string;
   coordinates: {

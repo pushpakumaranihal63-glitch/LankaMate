@@ -1077,6 +1077,17 @@ export const HomeView: React.FC<HomeViewProps> = ({
                                       <div className="text-xs text-stone-500 truncate">
                                         {locDest.region} • {locDest.category}
                                       </div>
+                                      {dest.photoCredit && (
+                                        <a
+                                          href={dest.photoCredit.licenseUrl}
+                                          target="_blank"
+                                          rel="noreferrer"
+                                          onClick={(event) => event.stopPropagation()}
+                                          className="block truncate text-[9px] text-stone-500 hover:underline"
+                                        >
+                                          Photo: {dest.photoCredit.author} · {dest.photoCredit.source} · {dest.photoCredit.license}
+                                        </a>
+                                      )}
                                     </div>
                                     <ArrowRight className="w-4 h-4 text-emerald-700 shrink-0" />
                                   </button>
@@ -1504,6 +1515,17 @@ export const HomeView: React.FC<HomeViewProps> = ({
                     }}
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
+
+                  {dest.photoCredit && (
+                    <a
+                      href={dest.photoCredit.licenseUrl}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="absolute bottom-2 right-2 z-20 rounded bg-black/70 px-2 py-1 text-[9px] text-white hover:bg-black/90"
+                    >
+                      Photo: {dest.photoCredit.author} · {dest.photoCredit.source} · {dest.photoCredit.license}
+                    </a>
+                  )}
 
                   {/* Category Badge */}
                   <div className="absolute top-2.5 left-2.5">

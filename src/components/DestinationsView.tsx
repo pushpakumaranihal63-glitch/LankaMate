@@ -496,6 +496,17 @@ export const DestinationsView: React.FC<DestinationsViewProps> = ({
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-transparent" />
 
+                    {dest.photoCredit && (
+                      <a
+                        href={dest.photoCredit.licenseUrl}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="absolute bottom-2 right-2 z-20 rounded bg-black/70 px-2 py-1 text-[9px] text-white hover:bg-black/90"
+                      >
+                        Photo: {dest.photoCredit.author} · {dest.photoCredit.source} · {dest.photoCredit.license}
+                      </a>
+                    )}
+
                     {/* Top Left Badges: Category & District */}
                     <div className="absolute top-3 left-3 flex flex-wrap items-center gap-1.5 z-10">
                       <span className="px-2.5 py-0.5 rounded-full bg-emerald-800/90 backdrop-blur-md text-white text-[10px] font-bold shadow-2xs">
@@ -709,6 +720,17 @@ export const DestinationsView: React.FC<DestinationsViewProps> = ({
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/35 to-transparent" />
 
+              {localizedModal.photoCredit && (
+                <a
+                  href={localizedModal.photoCredit.licenseUrl}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="absolute bottom-2 right-2 z-20 rounded bg-black/70 px-2 py-1 text-[9px] text-white hover:bg-black/90"
+                >
+                  Photo: {localizedModal.photoCredit.author} · {localizedModal.photoCredit.source} · {localizedModal.photoCredit.license}
+                </a>
+              )}
+
               <div className="absolute bottom-6 left-6 right-6 text-white space-y-1.5 z-10">
                 <div className="flex flex-wrap items-center gap-2 mb-1">
                   <span className="px-3 py-1 rounded-full bg-emerald-700 text-white text-xs font-bold">
@@ -782,17 +804,28 @@ export const DestinationsView: React.FC<DestinationsViewProps> = ({
                   </h4>
                   <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
                     {localizedModal.gallery.map((imgUrl, i) => (
-                      <img
-                        key={i}
-                        src={imgUrl}
-                        alt={`${localizedModal.name} view ${i + 1}`}
-                        className="w-full h-24 sm:h-32 object-cover rounded-xl border border-stone-200"
-                        referrerPolicy="no-referrer"
-                        onError={(e) => {
-                          (e.target as HTMLImageElement).src =
-                            '/images/destinations/placeholder-destination.svg';
-                        }}
-                      />
+                      <div key={i} className="relative overflow-hidden rounded-xl">
+                        <img
+                          src={imgUrl}
+                          alt={localizedModal.name + ' view ' + (i + 1)}
+                          className="w-full h-24 sm:h-32 object-cover rounded-xl border border-stone-200"
+                          referrerPolicy="no-referrer"
+                          onError={(e) => {
+                            (e.target as HTMLImageElement).src =
+                              '/images/destinations/placeholder-destination.svg';
+                          }}
+                        />
+                        {localizedModal.photoCredit && (
+                          <a
+                            href={localizedModal.photoCredit.licenseUrl}
+                            target="_blank"
+                            rel="noreferrer"
+                            className="absolute bottom-1 left-1 right-1 rounded bg-black/70 px-1 py-0.5 text-center text-[8px] leading-tight text-white hover:bg-black/90"
+                          >
+                            Photo: {localizedModal.photoCredit.author} · {localizedModal.photoCredit.source} · {localizedModal.photoCredit.license}
+                          </a>
+                        )}
+                      </div>
                     ))}
                   </div>
                 </div>

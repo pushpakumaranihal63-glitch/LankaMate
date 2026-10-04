@@ -827,6 +827,17 @@ export const SriLankaMap: React.FC<SriLankaMapProps> = ({
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
 
+              {selectedDestination.photoCredit && (
+                <a
+                  href={selectedDestination.photoCredit.licenseUrl}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="absolute bottom-2 right-2 z-20 rounded bg-black/70 px-2 py-1 text-[9px] text-white hover:bg-black/90"
+                >
+                  Photo: {selectedDestination.photoCredit.author} · {selectedDestination.photoCredit.source} · {selectedDestination.photoCredit.license}
+                </a>
+              )}
+
               {/* Category, District & Region Badges */}
               <div className="absolute top-3 left-3 flex flex-wrap items-center gap-1.5">
                 <span className="px-2.5 py-1 rounded-full bg-emerald-800/90 backdrop-blur-md text-white text-[11px] font-bold tracking-wide">
