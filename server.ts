@@ -492,7 +492,7 @@ The user's preferred language is ${preferredLanguage}. Unless the user specifica
         it: "Italian",
         tr: "Turkish",
       };
-      const langName = langNames[language] || "English";
+      const langName = langNames[language] || (Object.values(langNames).includes(language) ? language : "English");
 
       const response = await ai.models.generateContent({
         model: "gemini-3.8-flash",
