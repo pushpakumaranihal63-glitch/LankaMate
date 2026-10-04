@@ -1346,6 +1346,205 @@ export const attractionsNorthEastCentral: Destination[] = [
     travelTimeFromColombo: '3.5 hours drive',
   },
 
+  {
+    id: 'mirisavetiya-stupa',
+    name: 'Mirisavetiya Stupa',
+    localName: 'මිරිසවැටිය ස්තූපය',
+    region: 'Cultural Triangle',
+    district: 'Anuradhapura',
+    tagline: 'A Major Brick Stupa and Buddhist Pilgrimage Site of Ancient Anuradhapura',
+    category: 'Heritage',
+    photoStatus: 'VERIFIED_REAL',
+    heroImage: 'https://commons.wikimedia.org/wiki/Special:FilePath/SL_Anuradhapura_asv2020-01_img35_Mirisawetiya_Stupa.jpg?width=1280',
+    gallery: [
+      'https://commons.wikimedia.org/wiki/Special:FilePath/SL_Anuradhapura_asv2020-01_img35_Mirisawetiya_Stupa.jpg?width=1280',
+    ],
+    description:
+      'A Buddhist stupa in the sacred city of Anuradhapura. The Department of Archaeology dates its construction to the 2nd century BCE and associates it with King Dutugemunu. Its brick stupa and surrounding monastic remains are part of the city’s long-lived pilgrimage landscape. A later chronicle story about the site’s origin is a religious tradition, not independently established history.',
+    bestTimeToVisit: 'Early morning or late afternoon for cooler temperatures and quieter visits',
+    entryFee: 'Check current local ticketing and access information before visiting.',
+    coordinates: { lat: 8.34425, lng: 80.389083, svgX: 43, svgY: 33 },
+    weather: { tempC: 30, condition: 'Warm & Open Heritage Grounds', icon: 'sun' },
+    highlights: [
+      'Viewing an ancient brick stupa associated with the 2nd century BCE',
+      'Exploring the stupa terrace and remains of the monastic complex',
+      'Experiencing an active Buddhist pilgrimage site in the Sacred City',
+    ],
+    activities: [
+      'Walking around the archaeological precinct',
+      'Observing worship respectfully from public areas',
+    ],
+    travelTips: [
+      'Dress modestly at the religious precinct and follow posted instructions; remove footwear where required.',
+    ],
+    travelTimeFromColombo: 'About 3.5 hours by road, subject to traffic',
+  },
+  {
+    id: 'lankarama',
+    name: 'Lankarama',
+    localName: 'ලංකාරාමය',
+    region: 'Cultural Triangle',
+    district: 'Anuradhapura',
+    tagline: 'A Compact Ancient Dagaba with Rings of Stone Pillars',
+    category: 'Heritage',
+    photoStatus: 'VERIFIED_REAL',
+    heroImage: 'https://commons.wikimedia.org/wiki/Special:FilePath/SL_Anuradhapura_asv2020-01_img33_Lankarama_Stupa.jpg?width=1280',
+    gallery: [
+      'https://commons.wikimedia.org/wiki/Special:FilePath/SL_Anuradhapura_asv2020-01_img33_Lankarama_Stupa.jpg?width=1280',
+    ],
+    description:
+      'Lankarama is a Buddhist dagaba in Anuradhapura, traditionally dated to about the 1st century BCE and associated in Sri Lankan heritage accounts with King Vattagamani Abhaya (Valagamba). Its low, circular form and concentric rows of stone pillars are characteristic features of a vatadage-style shrine. A story connecting the king’s refuge to the site belongs to historical tradition.',
+    bestTimeToVisit: 'Early morning or late afternoon for comfortable walking and soft light',
+    entryFee: 'Check current local ticketing and access information before visiting.',
+    coordinates: { lat: 8.364972, lng: 80.391556, svgX: 45, svgY: 30 },
+    weather: { tempC: 30, condition: 'Warm & Shaded Heritage Grounds', icon: 'sun' },
+    highlights: [
+      'Seeing the dagaba and its circular arrangement of stone pillars',
+      'Noticing the carved pillar capitals and surviving archaeological fabric',
+      'Visiting a Buddhist sacred site within the ancient city',
+    ],
+    activities: [
+      'Exploring the archaeological precinct on foot',
+      'Observing worship respectfully from public areas',
+    ],
+    travelTips: [
+      'Dress modestly and follow local directions at this active religious site; remove footwear where required.',
+    ],
+    travelTimeFromColombo: 'About 3.5 hours by road, subject to traffic',
+  },
+  {
+    id: 'ranmasu-uyana',
+    name: 'Ranmasu Uyana',
+    localName: 'රන්මසු උයන',
+    region: 'Cultural Triangle',
+    district: 'Anuradhapura',
+    tagline: 'An Archaeological Garden Landscape beside Isurumuniya and Tissa Wewa',
+    category: 'Heritage',
+    photoStatus: 'VERIFIED_REAL',
+    heroImage: 'https://commons.wikimedia.org/wiki/Special:FilePath/Ranmasu_Uyana.jpg?width=1280',
+    gallery: [
+      'https://commons.wikimedia.org/wiki/Special:FilePath/Ranmasu_Uyana.jpg?width=1280',
+    ],
+    description:
+      'Ranmasu Uyana is an archaeological garden site near Isurumuniya and Tissa Wewa in Anuradhapura, with rock-cut and masonry features including ponds. A late 10th-century Vessagiriya inscription refers to a “Ranmasu park”; whether that reference identifies the present garden site is debated. The inscription therefore does not establish the date, patron, or original purpose of the surviving garden. Its layout is best explored as an archaeological landscape, without treating popular legends about the site as established history.',
+    bestTimeToVisit: 'Early morning or late afternoon for cooler weather and softer light',
+    entryFee: 'Check current local ticketing and access information before visiting.',
+    coordinates: { lat: 8.338056, lng: 80.389444, svgX: 44, svgY: 34 },
+    weather: { tempC: 30, condition: 'Warm & Shaded Garden Ruins', icon: 'sun' },
+    highlights: [
+      'Viewing ponds and stone features within the archaeological garden',
+      'Seeing the site in relation to nearby Isurumuniya and Tissa Wewa',
+      'Learning about Anuradhapura’s historic water-managed landscapes',
+    ],
+    activities: [
+      'Walking through the garden’s archaeological remains',
+      'Combining a visit with nearby heritage sites',
+    ],
+    travelTips: [
+      'Keep to visitor areas, avoid climbing on archaeological remains, and follow posted site instructions.',
+    ],
+    travelTimeFromColombo: 'About 3.5 hours by road, subject to traffic',
+  },
+  {
+    id: 'nuwara-wewa',
+    name: 'Nuwara Wewa',
+    localName: 'නුවර වැව',
+    region: 'Cultural Triangle',
+    district: 'Anuradhapura',
+    tagline: 'An Ancient Reservoir in Anuradhapura’s Irrigation Landscape',
+    category: 'Nature',
+    photoStatus: 'VERIFIED_REAL',
+    heroImage: 'https://commons.wikimedia.org/wiki/Special:FilePath/Nuwara_Wewa_Lake_Anuradhapura_-_Sri_Lanka_%288281461334%29.jpg?width=1280',
+    gallery: [
+      'https://commons.wikimedia.org/wiki/Special:FilePath/Nuwara_Wewa_Lake_Anuradhapura_-_Sri_Lanka_%288281461334%29.jpg?width=1280',
+    ],
+    description:
+      'Nuwara Wewa is a large human-made reservoir beside Anuradhapura. A 2nd-century CE slab inscription from Thuparama refers to Nagaravapi, identified by historical researchers with present-day Nuwara Wewa; this is evidence of its early recorded history, not a confirmed construction date or named builder. Like other dry-zone tanks, it belongs to a connected system of reservoirs, channels and spillways that supported water storage and irrigation.',
+    bestTimeToVisit: 'Early morning or late afternoon for cooler conditions and views across the water',
+    entryFee: 'Check local access conditions; parts of the reservoir are working irrigation infrastructure.',
+    coordinates: { lat: 8.33238, lng: 80.43492, svgX: 48, svgY: 34 },
+    weather: { tempC: 30, condition: 'Warm with Reservoir Breezes', icon: 'sun' },
+    highlights: [
+      'Looking across one of Anuradhapura’s large historic reservoirs',
+      'Learning how tanks, channels and spillways supported dry-zone water management',
+      'Watching the changing light and birdlife around the water',
+    ],
+    activities: [
+      'Enjoying views from publicly accessible banks',
+      'Birdwatching from suitable public viewpoints',
+    ],
+    travelTips: [
+      'Respect irrigation operations, stay out of restricted areas and take litter with you.',
+    ],
+    travelTimeFromColombo: 'About 3.5 hours by road, subject to traffic',
+  },
+  {
+    id: 'tissa-wewa-anuradhapura',
+    name: 'Tissa Wewa (Anuradhapura)',
+    localName: 'තිස්ස වැව (අනුරාධපුරය)',
+    region: 'Cultural Triangle',
+    district: 'Anuradhapura',
+    tagline: 'A Historic Reservoir beside the Southern Edge of the Ancient City',
+    category: 'Nature',
+    photoStatus: 'VERIFIED_REAL',
+    heroImage: 'https://commons.wikimedia.org/wiki/Special:FilePath/Thissa_Wewa_Lake_%2843125718780%29.jpg?width=1280',
+    gallery: [
+      'https://commons.wikimedia.org/wiki/Special:FilePath/Thissa_Wewa_Lake_%2843125718780%29.jpg?width=1280',
+    ],
+    description:
+      'Tissa Wewa is a human-made reservoir on the south-eastern side of ancient Anuradhapura, distinct from the similarly named tank at Tissamaharama. Sri Lankan chronicles credit Tissavapi (identified with the present reservoir) to King Devanampiya Tissa, traditionally dated to 307–267 BCE. A modern scholarly study notes that the large-scale Tissa tank belongs to a broader early 1st-century BCE irrigation development, so the precise construction chronology remains uncertain.',
+    bestTimeToVisit: 'Late afternoon for cooler temperatures and views across the reservoir',
+    entryFee: 'Check local access conditions; parts of the reservoir are working irrigation infrastructure.',
+    coordinates: { lat: 8.3353, lng: 80.3789, svgX: 42, svgY: 35 },
+    weather: { tempC: 30, condition: 'Warm with Reservoir Breezes', icon: 'sun' },
+    highlights: [
+      'Viewing the reservoir beside the ancient city',
+      'Learning about the early history of Sri Lankan tank irrigation',
+      'Seeing the water landscape near Isurumuniya and Ranmasu Uyana',
+    ],
+    activities: [
+      'Enjoying views from publicly accessible banks',
+      'Walking in nearby public areas while respecting local access signs',
+    ],
+    travelTips: [
+      'Respect irrigation operations, stay out of restricted areas and take litter with you.',
+    ],
+    travelTimeFromColombo: 'About 3.5 hours by road, subject to traffic',
+  },
+  {
+    id: 'basawakkulama-wewa',
+    name: 'Basawakkulama Wewa (Abhayavapi)',
+    localName: 'බසවක්කුලම වැව (අභය වැව)',
+    region: 'Cultural Triangle',
+    district: 'Anuradhapura',
+    tagline: 'An Early Reservoir Linked to the Beginnings of Anuradhapura’s Tank System',
+    category: 'Nature',
+    photoStatus: 'VERIFIED_REAL',
+    heroImage: 'https://commons.wikimedia.org/wiki/Special:FilePath/Basawakkulama_Tank.jpg?width=1280',
+    gallery: [
+      'https://commons.wikimedia.org/wiki/Special:FilePath/Basawakkulama_Tank.jpg?width=1280',
+    ],
+    description:
+      'Basawakkulama Wewa, identified in historical scholarship with ancient Abhayavapi, is a reservoir within Anuradhapura’s early irrigation landscape. The Mahavamsa tradition associates Abhayavapi with King Pandukabhaya (traditionally dated 437–367 BCE); a modern study also places the large-scale construction of Basawakkulama and neighbouring tanks by the early 1st century BCE. These accounts describe different stages of a long history, so no single construction year is certain.',
+    bestTimeToVisit: 'Early morning or late afternoon for cooler conditions and views over the water',
+    entryFee: 'Check local access conditions; parts of the reservoir are working irrigation infrastructure.',
+    coordinates: { lat: 8.3519, lng: 80.3853, svgX: 43, svgY: 34 },
+    weather: { tempC: 30, condition: 'Warm with Reservoir Breezes', icon: 'sun' },
+    highlights: [
+      'Seeing a reservoir associated with Anuradhapura’s early water-management history',
+      'Understanding the role of tanks in storing water and supporting irrigation',
+      'Viewing the reservoir within the historic landscape of the ancient city',
+    ],
+    activities: [
+      'Enjoying views from publicly accessible banks',
+      'Visiting nearby Anuradhapura heritage sites',
+    ],
+    travelTips: [
+      'Respect irrigation operations, stay out of restricted areas and take litter with you.',
+    ],
+    travelTimeFromColombo: 'About 3.5 hours by road, subject to traffic',
+  },
+
   // --- POLONNARUWA DISTRICT ---
   {
     id: 'gal-vihara-polonnaruwa',
