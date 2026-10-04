@@ -139,6 +139,45 @@ export const attractionsCentralHighlands: Destination[] = [
     travelTimeFromColombo: '2.5 to 3 hours drive',
   },
 
+  {
+    id: 'nelligala-yatihalagala-viharaya',
+    name: 'Nelligala Rajamaha Viharaya (Yatihalagala Rajamaha Viharaya)',
+    localName: 'නැල්ලිගල රජමහා විහාරය (යටිහලගල රජමහා විහාරය)',
+    region: 'Hill Country',
+    district: 'Kandy',
+    tagline: '700-Year-Old Hilltop Temple with Sweeping Tea-Country Valley Vistas',
+    category: 'Heritage',
+    photoStatus: 'VERIFIED_REAL',
+    heroImage: 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/Nelligala_Temple_Sri_Lanka.jpg/1280px-Nelligala_Temple_Sri_Lanka.jpg',
+    gallery: [
+      'https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/Nelligala_Temple_Sri_Lanka.jpg/1280px-Nelligala_Temple_Sri_Lanka.jpg',
+      'https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/View_from_Nelligala_Buddhist_International_Centre.jpg/1280px-View_from_Nelligala_Buddhist_International_Centre.jpg',
+      'https://upload.wikimedia.org/wikipedia/commons/thumb/9/92/Nelligala_temple.jpg/1280px-Nelligala_temple.jpg',
+    ],
+    description:
+      'Nelligala Rajamaha Viharaya, officially known as Yatihalagala Rajamaha Viharaya, is an ancient Buddhist temple situated in the Yatinuwara area of the Kandy District. According to the temple\'s own historical records, the viharaya traces its origins back approximately 700 years and was established in 1319, during the Kandyan era. The temple features a traditional Kandyan-era shrine with period wall paintings and a sacred Bo tree. The surrounding Nelligala International Buddhist Centre, developed later on the same hillside, has enhanced the site with modern meditation facilities, a white stupa, and panoramic viewpoints overlooking the lush Htilly valley and distant Hantane mountain range. The temple is an important pilgrimage destination that blends ancient Kandyan religious heritage with modern Buddhist monastic facilities in a serene hilltop setting.',
+    bestTimeToVisit: 'Year-round; early morning or late afternoon for cool mountain air and clear valley views',
+    entryFee: 'Free entry (donations appreciated)',
+    coordinates: { lat: 7.2189, lng: 80.5978, svgX: 50, svgY: 57 },
+    weather: { tempC: 24, condition: 'Cool Hill-Country Breeze', icon: 'cloud' },
+    highlights: [
+      'Worshipping at the 700-year-old Kandyan-era shrine established in 1319',
+      'Enjoying panoramic views of the Htilly valley and Hantane mountain range from the hilltop',
+      'Meditating in the peaceful surroundings of the Nelligala International Buddhist Centre',
+      'Admiring the brilliant white stupa against the backdrop of emerald tea-carpeted hills',
+    ],
+    activities: [
+      'Buddhist pilgrimage and religious observances at an ancient Kandyan temple',
+      'Hill-country landscape photography from the temple ridge',
+      'Meditation and quiet contemplation in the monastery gardens',
+    ],
+    travelTips: [
+      'Located in the Yatinuwara area near Kandy; accessible via the Peradeniya-Gampola road.',
+      'Dress modestly with covered shoulders and knees as this is an active temple.',
+    ],
+    travelTimeFromColombo: '3 hours drive via Kandy',
+  },
+
   // --- MATALE DISTRICT ---
   {
     id: 'riverston-knuckles',
@@ -888,6 +927,44 @@ export const attractionsCentralHighlands: Destination[] = [
   },
 
   // --- RATNAPURA DISTRICT ---
+  {
+    id: 'kuragala-ancient-buddhist-monastery',
+    name: 'Kuragala Ancient Buddhist Monastery (Kuragala Pansala)',
+    localName: 'කුරගල පැරණි බෞද්ධ ආරාමය',
+    region: 'Sabaragamuwa',
+    district: 'Ratnapura',
+    tagline: '2nd-Century BC Cave Monastery with Brahmi Inscriptions Above Kaltota Valley',
+    category: 'Heritage',
+    photoStatus: 'VERIFIED_REAL',
+    heroImage: 'https://upload.wikimedia.org/wikipedia/commons/0/08/Kuragala_Ancient_Buddhist_Monastery_2.jpg',
+    gallery: [
+      'https://upload.wikimedia.org/wikipedia/commons/0/08/Kuragala_Ancient_Buddhist_Monastery_2.jpg',
+      'https://upload.wikimedia.org/wikipedia/commons/0/07/Kuragala_Ancient_Buddhist_Monastery_1.jpg',
+      'https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Top_of_rock.jpg/1280px-Top_of_rock.jpg',
+    ],
+    description:
+      'Kuragala is an ancient Buddhist cave monastery complex carved into a massive rock outcrop in the Balangoda area of the Ratnapura District, accessible via the Kaltota Road. The site dates to the 2nd century BC and contains natural rock cave shelters used by Buddhist monks for meditation, similar to other ancient cave monasteries of the Sabaragamuwa region. The caves feature early Brahmi inscriptions carved into their drip-ledges, documenting donations of the caves to the Buddhist sangha. These inscriptions are important archaeological evidence of the spread of Buddhism into the interior of Sri Lanka during the Anuradhapura period. A stupa and shrine are located on the rock summit. The monastery is surrounded by dry-zone forest and overlooks the scenic Kaltota valley and the Walawe River basin. In recent years, the site has been the subject of archaeological preservation efforts by the Department of Archaeology to protect the ancient inscriptions and cave structures.',
+    bestTimeToVisit: 'Year-round; early morning or late afternoon for cooler rock walks and clear valley views',
+    entryFee: 'Free entry (donations welcome)',
+    coordinates: { lat: 6.6583, lng: 80.8217, svgX: 54, svgY: 75 },
+    weather: { tempC: 29, condition: 'Warm & Rock Breeze', icon: 'sun' },
+    highlights: [
+      'Examining 2nd-century BC early Brahmi inscriptions carved into cave drip-ledges',
+      'Exploring natural rock cave shelters used by ancient Buddhist monks for meditation',
+      'Climbing to the summit stupa for panoramic views over the Kaltota valley and Walawe River',
+      'Walking through surrounding dry-zone forest with diverse flora and birdlife',
+    ],
+    activities: [
+      'Archaeological exploration of ancient cave inscriptions and monastic ruins',
+      'Rock summit hiking for sweeping valley and mountain landscape photography',
+      'Nature walks through the surrounding dry-mixed evergreen forest',
+    ],
+    travelTips: [
+      'Located approximately 20 km south of Balangoda via the Kaltota Road.',
+      'Wear sturdy shoes for the rock climb and carry water as facilities are limited.',
+    ],
+    travelTimeFromColombo: '3.5 hours drive via Ratnapura and Balangoda',
+  },
   {
     id: 'adams-peak-sri-pada',
     name: 'Sri Pada / Adam\'s Peak',
