@@ -27,6 +27,7 @@ import {
   speakText,
   stopSpeaking,
 } from '../services/voiceService';
+import { speakWithGeminiTts, stopGeminiTts } from '../services/ttsService';
 
 interface VoiceTranslatorViewProps {
   onNavigatePage: (page: PageId) => void;
@@ -88,24 +89,172 @@ export const VoiceTranslatorView: React.FC<VoiceTranslatorViewProps> = ({
   const [dialogInput, setDialogInput] = useState('');
 
   const recognizerRef = useRef<any>(null);
+  const mediaRecorderRef = useRef<MediaRecorder | null>(null);
+  const mediaStreamRef = useRef<MediaStream | null>(null);
+  const audioChunksRef = useRef<Blob[]>([]);
+  const mediaRecorderFallbackRef = useRef(false);
+  const mediaRecorderRequestRef = useRef(0);
 
   // Clean up voice on unmount
   useEffect(() => {
     return () => {
+      stopGeminiTts();
       stopSpeaking();
+      mediaRecorderRequestRef.current += 1;
+      mediaRecorderFallbackRef.current = false;
+      const recorder = mediaRecorderRef.current;
+      if (recorder) {
+        recorder.ondataavailable = null;
+        recorder.onstop = null;
+        recorder.onerror = null;
+        if (recorder.state !== 'inactive') {
+          try { recorder.stop(); } catch { /* noop */ }
+        }
+        mediaRecorderRef.current = null;
+      }
+      mediaStreamRef.current?.getTracks().forEach((track) => track.stop());
+      mediaStreamRef.current = null;
       if (recognizerRef.current) {
         recognizerRef.current.abort();
       }
     };
   }, []);
 
+  const startMediaRecorderFallback = async (
+    langToListen: LanguageCode,
+    onTranscript: (transcript: string) => void
+  ) => {
+    const requestId = ++mediaRecorderRequestRef.current;
+    mediaRecorderFallbackRef.current = true;
+    audioChunksRef.current = [];
+    setIsListening(true);
+    setErrorMessage(null);
+
+    if (!navigator.mediaDevices?.getUserMedia || typeof MediaRecorder === 'undefined') {
+      mediaRecorderFallbackRef.current = false;
+      setIsListening(false);
+      setErrorMessage(t('translator.micNotSupported'));
+      return;
+    }
+
+    let stream: MediaStream | null = null;
+    try {
+      stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+      if (requestId !== mediaRecorderRequestRef.current) {
+        stream.getTracks().forEach((track) => track.stop());
+        return;
+      }
+      mediaStreamRef.current = stream;
+
+      const mimeType = MediaRecorder.isTypeSupported('audio/webm;codecs=opus')
+        ? 'audio/webm;codecs=opus'
+        : MediaRecorder.isTypeSupported('audio/webm')
+          ? 'audio/webm'
+          : '';
+      const recorder = mimeType
+        ? new MediaRecorder(stream, { mimeType })
+        : new MediaRecorder(stream);
+      mediaRecorderRef.current = recorder;
+
+      recorder.ondataavailable = (event: BlobEvent) => {
+        if (event.data.size > 0) audioChunksRef.current.push(event.data);
+      };
+      recorder.onstop = async () => {
+        mediaStreamRef.current?.getTracks().forEach((track) => track.stop());
+        mediaStreamRef.current = null;
+        mediaRecorderRef.current = null;
+        mediaRecorderFallbackRef.current = false;
+        setIsListening(false);
+
+        const audioBlob = new Blob(audioChunksRef.current, { type: mimeType || 'audio/webm' });
+        audioChunksRef.current = [];
+        if (audioBlob.size < 1000) {
+          setErrorMessage(t('translator.micNotSupported'));
+          return;
+        }
+
+        try {
+          const reader = new FileReader();
+          const dataUrl = await new Promise<string>((resolve, reject) => {
+            reader.onloadend = () => {
+              if (typeof reader.result === 'string') resolve(reader.result);
+              else reject(new Error('Could not read recorded audio.'));
+            };
+            reader.onerror = () => reject(new Error('Could not read recorded audio.'));
+            reader.readAsDataURL(audioBlob);
+          });
+          const audio = dataUrl.split(',')[1];
+          if (!audio) throw new Error('Recorded audio was empty.');
+
+          const response = await fetch('/api/speech-to-text', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              audio,
+              mimeType: audioBlob.type || 'audio/webm',
+              language: langToListen,
+            }),
+          });
+          if (!response.ok) throw new Error('Speech transcription failed.');
+
+          const data = await response.json();
+          const transcript = typeof data.transcript === 'string' ? data.transcript.trim() : '';
+          if (!transcript) {
+            setErrorMessage(t('translator.micNotSupported'));
+            return;
+          }
+          onTranscript(transcript);
+        } catch {
+          setErrorMessage(t('translator.micNotSupported'));
+        }
+      };
+      recorder.onerror = () => {
+        recorder.onstop = null;
+        if (recorder.state !== 'inactive') {
+          try { recorder.stop(); } catch { /* noop */ }
+        }
+        mediaRecorderRef.current = null;
+        mediaRecorderFallbackRef.current = false;
+        mediaStreamRef.current?.getTracks().forEach((track) => track.stop());
+        mediaStreamRef.current = null;
+        setIsListening(false);
+        setErrorMessage(t('translator.micNotSupported'));
+      };
+
+      recorder.start(1000);
+    } catch (error: any) {
+      stream?.getTracks().forEach((track) => track.stop());
+      if (mediaStreamRef.current === stream) mediaStreamRef.current = null;
+      if (requestId !== mediaRecorderRequestRef.current) return;
+      mediaRecorderRef.current = null;
+      mediaRecorderFallbackRef.current = false;
+      setIsListening(false);
+      if (error?.name === 'NotAllowedError' || error?.name === 'PermissionDeniedError') {
+        setErrorMessage(t('translator.micPermissionDenied'));
+      } else {
+        setErrorMessage(t('translator.micNotSupported'));
+      }
+    }
+  };
+
   // Handle Voice Recording
   const toggleRecording = (langToListen: LanguageCode, onFinished?: (text: string) => void) => {
     // Cancel any previous speech before starting recording (Requirement 11)
+    stopGeminiTts();
     stopSpeaking();
     setIsPlayingAudio(false);
 
     if (isListening) {
+      if (mediaRecorderFallbackRef.current) {
+        if (mediaRecorderRef.current && mediaRecorderRef.current.state !== 'inactive') {
+          mediaRecorderRef.current.stop();
+        } else {
+          mediaRecorderRequestRef.current += 1;
+          mediaRecorderFallbackRef.current = false;
+          setIsListening(false);
+        }
+        return;
+      }
       if (recognizerRef.current) {
         recognizerRef.current.stop();
       }
@@ -116,7 +265,14 @@ export const VoiceTranslatorView: React.FC<VoiceTranslatorViewProps> = ({
     setErrorMessage(null);
 
     if (!isSpeechRecognitionSupported()) {
-      setErrorMessage(t('translator.micNotSupported'));
+      void startMediaRecorderFallback(langToListen, (transcript) => {
+        if (onFinished) {
+          onFinished(transcript);
+        } else {
+          setInputText(transcript);
+          handleTranslate(transcript, sourceLang, targetLang);
+        }
+      });
       return;
     }
 
@@ -169,6 +325,7 @@ export const VoiceTranslatorView: React.FC<VoiceTranslatorViewProps> = ({
     if (!trimmed) return;
 
     // Cancel any previous speech before starting a new translation (Requirement 11)
+    stopGeminiTts();
     stopSpeaking();
     setIsPlayingAudio(false);
 
@@ -189,8 +346,26 @@ export const VoiceTranslatorView: React.FC<VoiceTranslatorViewProps> = ({
   // Play audio of translation
   const handlePlayVoice = async (text: string, langCode: LanguageCode) => {
     if (isPlayingAudio) {
+      stopGeminiTts();
       stopSpeaking();
       setIsPlayingAudio(false);
+      return;
+    }
+
+    if (langCode === 'si' || langCode === 'ar') {
+      stopSpeaking();
+      setIsPlayingAudio(true);
+      setErrorMessage(null);
+      try {
+        await speakWithGeminiTts(text, langCode);
+      } catch (err) {
+        if (!(err instanceof DOMException && err.name === 'AbortError')) {
+          console.warn('Gemini voice playback failed.');
+          setErrorMessage(t('translator.ttsNotSupported'));
+        }
+      } finally {
+        setIsPlayingAudio(false);
+      }
       return;
     }
 
@@ -199,6 +374,7 @@ export const VoiceTranslatorView: React.FC<VoiceTranslatorViewProps> = ({
       return;
     }
 
+    stopGeminiTts();
     setIsPlayingAudio(true);
     const success = await speakText(
       text,
@@ -221,6 +397,7 @@ export const VoiceTranslatorView: React.FC<VoiceTranslatorViewProps> = ({
   // Swap Languages
   const handleSwapLanguages = () => {
     // Cancel any ongoing speech when switching languages (Requirement 11)
+    stopGeminiTts();
     stopSpeaking();
     setIsPlayingAudio(false);
 
@@ -237,6 +414,7 @@ export const VoiceTranslatorView: React.FC<VoiceTranslatorViewProps> = ({
     if (!dialogInput.trim()) return;
 
     // Cancel any previous speech before starting a new translation (Requirement 11)
+    stopGeminiTts();
     stopSpeaking();
     setIsPlayingAudio(false);
 

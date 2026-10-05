@@ -271,6 +271,54 @@ async function startServer() {
     return res.json({ success: true, transaction: order });
   });
 
+  // Gemini text-to-speech for Sinhala and Arabic translation playback.
+  app.post("/api/tts", async (req, res) => {
+    const { text, language } = req.body ?? {};
+
+    if (typeof text !== "string" || !text.trim() || text.trim().length > 500) {
+      return res.status(400).json({ error: "Valid text of at most 500 characters is required." });
+    }
+    if (language !== "si" && language !== "ar") {
+      return res.status(400).json({ error: "Unsupported speech language." });
+    }
+
+    const apiKey = process.env.GEMINI_API_KEY;
+    if (!apiKey) {
+      return res.status(503).json({ error: "Speech service is temporarily unavailable." });
+    }
+
+    try {
+      const ai = new GoogleGenAI({ apiKey });
+      const voiceByLanguage: Record<"si" | "ar", string> = {
+        si: "Kore",
+        ar: "Kore",
+      };
+      const interaction = await ai.interactions.create({
+        model: "gemini-3.8-flash-tts",
+        input: [
+          {
+            type: "user_input",
+            content: [{ type: "text", text: text.trim() }],
+          },
+        ],
+        response_format: { type: "audio" },
+        generation_config: {
+          speech_config: [{ voice: voiceByLanguage[language] }],
+        },
+      });
+
+      const audioData = interaction.output_audio?.data;
+      if (!audioData) {
+        return res.status(502).json({ error: "Speech audio could not be generated." });
+      }
+
+      res.setHeader("Content-Type", "audio/wav");
+      return res.send(Buffer.from(audioData, "base64"));
+    } catch (err: any) {
+      console.error("Gemini TTS request failed with status:", err?.status ?? "unknown");
+      return res.status(503).json({ error: "Speech service is temporarily unavailable." });
+    }
+  });
   // Translation endpoint powered by Gemini AI
   app.post("/api/translate", async (req, res) => {
     try {

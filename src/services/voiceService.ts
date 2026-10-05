@@ -144,6 +144,13 @@ export interface LanguageVoiceRule {
   nameKeywords: string[];
 }
 
+function isCompatibleVoice(langCode: LanguageCode, voice: SpeechSynthesisVoice): boolean {
+  const locale = (voice.lang || '').replace(/_/g, '-').toLowerCase();
+  if (langCode === 'si') return locale.startsWith('si') || locale.startsWith('sin');
+  if (langCode === 'ar') return locale.startsWith('ar');
+  return true;
+}
+
 /**
  * Returns voice configuration & candidate locales for each language.
  * Adheres strictly to requirements:
@@ -331,8 +338,10 @@ export function findBestVoice(
   voices: SpeechSynthesisVoice[]
 ): { voice: SpeechSynthesisVoice | null; locale: string } {
   const rule = getVoiceRuleForLanguage(langCode);
-
-  if (!voices || voices.length === 0) {
+  const candidates = langCode === 'si' || langCode === 'ar'
+    ? (voices || []).filter((voice) => isCompatibleVoice(langCode, voice))
+    : voices;
+  if (!candidates || candidates.length === 0) {
     return { voice: null, locale: rule.primaryLocale };
   }
 
@@ -341,7 +350,7 @@ export function findBestVoice(
   // 1. Exact candidate match (e.g. si-LK, ta-LK, ta-IN, ar-SA, en-US, en-GB)
   for (const candidate of rule.candidateLocales) {
     const candNorm = cleanLocale(candidate);
-    const match = voices.find((v) => cleanLocale(v.lang) === candNorm);
+    const match = candidates.find((v) => cleanLocale(v.lang) === candNorm);
     if (match) {
       return { voice: match, locale: match.lang || candidate };
     }
@@ -350,7 +359,7 @@ export function findBestVoice(
   // 2. Prefix candidate match (e.g. ta-in matching ta-in-x-..., ar-sa matching ar-sa-x-...)
   for (const candidate of rule.candidateLocales) {
     const candNorm = cleanLocale(candidate);
-    const match = voices.find((v) => {
+    const match = candidates.find((v) => {
       const vLang = cleanLocale(v.lang);
       return vLang.startsWith(candNorm) || candNorm.startsWith(vLang);
     });
@@ -361,7 +370,7 @@ export function findBestVoice(
 
   // 3. Language code prefix match (e.g. starts with 'si'/'sin' for Sinhala, 'ar' for Arabic, or 'ta-', 'en-')
   const langPrefix = langCode.toLowerCase();
-  const langMatch = voices.find((v) => {
+  const langMatch = candidates.find((v) => {
     const vLang = cleanLocale(v.lang);
     if (langCode === 'si') {
       return (
@@ -388,7 +397,7 @@ export function findBestVoice(
   // 4. Voice name keywords match (e.g. "Google Sinhala", "Tamil (India)", "Arabic", "Valluvar")
   for (const kw of rule.nameKeywords) {
     const kwLower = kw.toLowerCase();
-    const nameMatch = voices.find((v) => (v.name || '').toLowerCase().includes(kwLower));
+    const nameMatch = candidates.find((v) => (v.name || '').toLowerCase().includes(kwLower));
     if (nameMatch) {
       return { voice: nameMatch, locale: nameMatch.lang || rule.primaryLocale };
     }
@@ -406,8 +415,10 @@ export function findSuitableFallbackVoice(
   voices: SpeechSynthesisVoice[]
 ): { voice: SpeechSynthesisVoice | null; locale: string } {
   const rule = getVoiceRuleForLanguage(langCode);
-
-  if (!voices || voices.length === 0) {
+  const candidates = langCode === 'si' || langCode === 'ar'
+    ? (voices || []).filter((voice) => isCompatibleVoice(langCode, voice))
+    : voices;
+  if (!candidates || candidates.length === 0) {
     return { voice: null, locale: rule.primaryLocale };
   }
 
@@ -417,7 +428,7 @@ export function findSuitableFallbackVoice(
   // If an exact native voice wasn't matched above, check if any voice has Sinhala keywords or variant tags.
   // Otherwise return voice: null with locale 'si-LK' so Web Speech API delegates to the system Sinhala engine.
   if (langCode === 'si') {
-    const altSinhalaVoice = voices.find((v) => {
+    const altSinhalaVoice = candidates.find((v) => {
       const l = cleanLocale(v.lang);
       const name = (v.name || '').toLowerCase();
       return (
@@ -438,7 +449,7 @@ export function findSuitableFallbackVoice(
   // Never fall back to English default voice which cannot speak Arabic!
   // If no Arabic voice object is present, return voice: null with 'ar-SA' to allow system-level Arabic TTS.
   if (langCode === 'ar') {
-    const altArabicVoice = voices.find((v) => {
+    const altArabicVoice = candidates.find((v) => {
       const l = cleanLocale(v.lang);
       const name = (v.name || '').toLowerCase();
       return (
@@ -637,6 +648,16 @@ export async function speakText(
       : findSuitableFallbackVoice(langCode, voices);
 
     const chosenVoice = matchedVoice || fallbackVoice;
+
+    // Sinhala and Arabic require an explicitly compatible voice; never delegate their
+    // voice choice to a possibly unrelated browser/device default.
+    if ((langCode === 'si' || langCode === 'ar') &&
+        (!chosenVoice || !isCompatibleVoice(langCode, chosenVoice))) {
+      onError?.({ code: 'voice-unavailable', langCode });
+      onEnd?.();
+      return false;
+    }
+
     // When using a matched native voice, use its matched locale (si-LK, ta-LK, ar-SA, etc.)
     // When using a fallback voice, use the fallback voice's own locale
     // NEVER override Sinhala or Arabic to English/Hindi locales
@@ -736,6 +757,7 @@ export async function speakText(
               activeUtterance = retryUtterance;
               retryUtterance.text = cleanText;
               retryUtterance.lang = nextLocale;
+              retryUtterance.voice = chosenVoice!;
               retryUtterance.rate = 0.95;
               retryUtterance.pitch = 1.0;
               retryUtterance.onend = () => {
@@ -764,6 +786,7 @@ export async function speakText(
               activeUtterance = retryUtterance;
               retryUtterance.text = cleanText;
               retryUtterance.lang = nextLocale;
+              retryUtterance.voice = chosenVoice!;
               retryUtterance.rate = 0.95;
               retryUtterance.pitch = 1.0;
               retryUtterance.onend = () => {
