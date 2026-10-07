@@ -381,6 +381,21 @@ function AppContent() {
         onOpenMoreMenu={() => setMoreMenuOpen(true)}
       />
 
+      {/* One shared shortcut to the existing assistant and navigation history. */}
+      {currentPage !== 'assistant' && currentPage !== 'translator' && !moreMenuOpen && !isLangModalOpen && !globalPaymentModal && !selectedDestinationModal && !toastMessage && (
+        <button
+          id="floating-ask-ai"
+          type="button"
+          onClick={() => handleNavigatePage('assistant')}
+          aria-label={t('nav.assistant')}
+          title={t('nav.assistant')}
+          className="fixed z-40 right-[max(1rem,env(safe-area-inset-right))] bottom-[calc(5.25rem+env(safe-area-inset-bottom))] xl:bottom-[calc(1.5rem+env(safe-area-inset-bottom))] min-h-12 px-4 inline-flex items-center gap-2 rounded-full bg-emerald-800 text-white text-sm font-bold shadow-lg border border-emerald-700 hover:bg-emerald-900 active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-emerald-600 transition touch-manipulation [body:has(input:focus)_&]:hidden [body:has(textarea:focus)_&]:hidden"
+        >
+          <span aria-hidden="true">🤖</span>
+          <span>{t('Ask AI', 'Ask AI')}</span>
+        </button>
+      )}
+
       {/* Mobile Drawer "More" Menu */}
       {moreMenuOpen && (
         <div className="xl:hidden fixed inset-0 z-50 bg-black/60 backdrop-blur-xs flex flex-col justify-end animate-in fade-in duration-150">

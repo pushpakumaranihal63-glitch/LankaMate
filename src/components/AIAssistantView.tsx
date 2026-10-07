@@ -15,6 +15,10 @@ import { PageId } from '../types';
 import { QUICK_ASK_ITEMS, QuickAskItem, getQuickAskAnswer } from '../data/quickAskAnswers';
 import { useTranslation } from '../i18n/LanguageContext';
 import { LanguageCode } from '../types';
+import { detectPlaceSearchCategory, extractNamedSearchLocation, type PlaceSearchCategory } from '../utils/placeSearchIntent';
+import { requestUserLocation } from '../utils/navigation';
+import { formatVerifiedPlaceSearch, VERIFIED_PLACE_LABELS, type VerifiedPlaceSearch } from '../utils/verifiedPlaceResults';
+import { detectPlaceFollowup } from '../utils/placeFollowupIntent';
 
 
 const SPEECH_TO_TEXT_LANG_MAP: Record<string, string> = {
@@ -54,11 +58,51 @@ async function translateAnswer(text: string, lang: LanguageCode): Promise<string
   }
 }
 
+interface AssistantNearbySearch {
+  category: PlaceSearchCategory;
+  lat?: number;
+  lng?: number;
+  locationUnavailable?: boolean;
+}
+
+const detectNearbySearch = detectPlaceSearchCategory;
+
+// Local label selection only; no translation of returned place records.
+function resolveConversationLanguage(text: string, established: LanguageCode | undefined, fallback: LanguageCode): LanguageCode {
+  const query = text.normalize('NFKC').toLocaleLowerCase();
+  const scripts: [LanguageCode, RegExp][] = [
+    ['si', /\p{Script=Sinhala}/gu], ['ta', /\p{Script=Tamil}/gu],
+    ['ja', /[\p{Script=Hiragana}\p{Script=Katakana}]/gu], ['ko', /\p{Script=Hangul}/gu],
+    ['ru', /\p{Script=Cyrillic}/gu], ['ar', /\p{Script=Arabic}/gu], ['hi', /\p{Script=Devanagari}/gu],
+  ];
+  const matches = scripts.map(([code, pattern]) => ({ code, count: query.match(pattern)?.length || 0 }))
+    .filter(item => item.count >= 2);
+  // Mixed distinctive scripts are ambiguous. Kana takes precedence over shared Han.
+  if (matches.length === 1) return matches[0].code;
+  if (!matches.length && (query.match(/\p{Script=Han}/gu)?.length || 0) >= 2) return 'zh';
+  if (matches.length) return established || fallback;
+  // Require two distinct language-specific words; place names and single loanwords
+  // cannot change the conversation language. Short requests inherit it.
+  const words = new Set(query.match(/\p{L}+/gu) || []);
+  const indicators: Partial<Record<LanguageCode, string[]>> = {
+    en: ['find', 'near', 'nearby', 'where', 'please', 'looking', 'hospital', 'school', 'pharmacy'],
+    de: ['suche', 'finde', 'krankenhaus', 'nähe', 'apotheke', 'bitte'],
+    fr: ['trouver', 'cherche', 'près', 'pharmacie', 'hôpital', 'bonjour'],
+    es: ['buscar', 'busca', 'encuentra', 'cerca', 'farmacia', 'hola'],
+    it: ['trova', 'cerca', 'vicino', 'farmacia', 'ospedale', 'buongiorno'],
+    tr: ['yakınında', 'yakındaki', 'hastane', 'eczane', 'bul', 'lütfen'],
+  };
+  const candidates = Object.entries(indicators).filter(([, terms]) => terms!.filter(word => words.has(word)).length >= 2);
+  return candidates.length === 1 ? candidates[0][0] as LanguageCode : established || fallback;
+}
+
 interface Message {
   id: string;
   sender: 'user' | 'assistant';
   text: string;
   timestamp: string;
+  verifiedPlaceSearch?: VerifiedPlaceSearch;
+  responseLanguage?: LanguageCode;
 }
 
 interface AIAssistantViewProps {
@@ -67,6 +111,11 @@ interface AIAssistantViewProps {
 
 export const AIAssistantView: React.FC<AIAssistantViewProps> = ({ onNavigatePage }) => {
   const { language, t, currentLangOption } = useTranslation();
+  const verifiedPlaceContext = useRef<{ token: string; search: VerifiedPlaceSearch } | null>(null);
+
+  const conversationLanguage = useRef<LanguageCode | undefined>(undefined);
+  // An explicit UI-language change becomes the fallback for subsequent messages.
+  useEffect(() => { conversationLanguage.current = language; }, [language]);
 
   const welcomeText = `**Ayubowan! 🙏 Welcome to LankaMate AI.**\n\nI am your culturally grounded Sri Lankan travel companion. Ask me anything or tap any topic below:\n\n• **Blue Train Tickets:** Kandy to Ella booking guidance & unreserved seats.\n• **Temple Dress Code:** Sacred site etiquette, shoulders/knees rules & customs.\n• **Best Street Food:** Crispy hoppers, hot kottu, isso wade & food safety.\n• **Yala Safari Guide:** Leopard tracking tips, 4x4 jeeps & park safety.\n• **Weather & Seasons:** Dual monsoon patterns & best regional travel times.\n• **7-Day Itinerary:** Balanced Colombo, Sigiriya, Kandy, Nuwara Eliya, Ella, Yala & Galle route.\n\nAsk me in any language and I will gladly guide you!`;
 
@@ -113,72 +162,93 @@ export const AIAssistantView: React.FC<AIAssistantViewProps> = ({ onNavigatePage
   const mediaStreamRef = useRef<MediaStream | null>(null);
   const audioChunksRef = useRef<Blob[]>([]);
   const baseInputRef = useRef<string>('');
+  const microphoneRequestRef = useRef(0);
 
   const stopMediaTracks = useCallback(() => {
-    if (mediaStreamRef.current) {
-      mediaStreamRef.current.getTracks().forEach((track) => track.stop());
-      mediaStreamRef.current = null;
-    }
+    mediaStreamRef.current?.getTracks().forEach((track) => track.stop());
+    mediaStreamRef.current = null;
   }, []);
 
   const stopListening = useCallback(() => {
-    if (mediaRecorderRef.current && mediaRecorderRef.current.state !== 'inactive') {
-      try { mediaRecorderRef.current.stop(); } catch { /* noop */ }
-    } else {
-      stopMediaTracks();
-      mediaRecorderRef.current = null;
-      setIsListening(false);
+    const recorder = mediaRecorderRef.current;
+    if (recorder && recorder.state !== 'inactive') {
+      try { recorder.stop(); } catch { /* noop */ }
+      return;
     }
+
+    microphoneRequestRef.current += 1;
+    stopMediaTracks();
+    mediaRecorderRef.current = null;
+    audioChunksRef.current = [];
+    setIsListening(false);
   }, [stopMediaTracks]);
 
   const transcribeAudio = useCallback(async (audioBlob: Blob, lang: string, existingText: string): Promise<string> => {
     const reader = new FileReader();
     const base64Promise = new Promise<string>((resolve, reject) => {
       reader.onloadend = () => {
-        const result = reader.result as string;
-        const base64 = result.split(',')[1];
+        if (typeof reader.result !== 'string') {
+          reject(new Error('Could not read recorded audio.'));
+          return;
+        }
+        const base64 = reader.result.split(',')[1];
         if (base64) resolve(base64);
-        else reject(new Error('Failed to read audio data'));
+        else reject(new Error('Recorded audio was empty.'));
       };
-      reader.onerror = reject;
+      reader.onerror = () => reject(new Error('Could not read recorded audio.'));
       reader.readAsDataURL(audioBlob);
     });
 
-    const base64 = await base64Promise;
+    const audio = await base64Promise;
     const langName = SPEECH_TO_TEXT_LANG_MAP[lang] || 'English';
-
     const response = await fetch('/api/speech-to-text', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ audio: base64, mimeType: audioBlob.type || 'audio/webm', language: langName }),
+      body: JSON.stringify({
+        audio,
+        mimeType: audioBlob.type || 'audio/webm',
+        language: langName,
+      }),
     });
+    if (!response.ok) {
+      let serverError = '';
+      try {
+        const errorData = await response.json();
+        if (typeof errorData?.error === 'string') serverError = errorData.error;
+      } catch {
+        // Use the HTTP status when the error response is not valid JSON.
+      }
+      throw new Error(serverError
+        ? `Transcription failed: ${response.status}: ${serverError}`
+        : `Transcription failed: ${response.status}`);
+    }
 
-    if (!response.ok) throw new Error(`Transcription failed: ${response.status}`);
     const data = await response.json();
-    const transcript = (data.transcript || '').trim();
-    if (!transcript) throw new Error('Empty transcription');
+    const transcript = typeof data.transcript === 'string' ? data.transcript.trim() : '';
+    if (!transcript) throw new Error('Speech transcription returned an empty transcript.');
     return existingText ? `${existingText} ${transcript}`.trim() : transcript;
   }, []);
 
   const startMediaRecorderFallback = useCallback(async (lang: string, existingText: string) => {
+    const requestId = ++microphoneRequestRef.current;
     setIsListening(true);
     setMicError(null);
     baseInputRef.current = existingText;
     audioChunksRef.current = [];
 
+    if (!navigator.mediaDevices?.getUserMedia || typeof MediaRecorder === 'undefined') {
+      setIsListening(false);
+      setMicError(t('Microphone access is not available in this browser. Please try Chrome or type your question.'));
+      return;
+    }
+
+    let stream: MediaStream | null = null;
     try {
-      if (!navigator.mediaDevices?.getUserMedia) {
-        setIsListening(false);
-        setMicError(t('Microphone access is not available in this browser. Please try Chrome or type your question.'));
+      stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+      if (requestId !== microphoneRequestRef.current) {
+        stream.getTracks().forEach((track) => track.stop());
         return;
       }
-
-      const stream = await Promise.race([
-        (async () => navigator.mediaDevices.getUserMedia({ audio: true }))(),
-        new Promise<never>((_, reject) =>
-          setTimeout(() => reject(new Error('getUserMedia_timeout')), 8000)
-        ),
-      ]);
       mediaStreamRef.current = stream;
 
       const mimeType = MediaRecorder.isTypeSupported('audio/webm;codecs=opus')
@@ -186,27 +256,21 @@ export const AIAssistantView: React.FC<AIAssistantViewProps> = ({ onNavigatePage
         : MediaRecorder.isTypeSupported('audio/webm')
           ? 'audio/webm'
           : '';
-
-      const recorder = mimeType ? new MediaRecorder(stream, { mimeType }) : new MediaRecorder(stream);
+      const recorder = mimeType
+        ? new MediaRecorder(stream, { mimeType })
+        : new MediaRecorder(stream);
       mediaRecorderRef.current = recorder;
 
-      recorder.ondataavailable = (e: BlobEvent) => {
-        if (e.data.size > 0) audioChunksRef.current.push(e.data);
+      recorder.ondataavailable = (event: BlobEvent) => {
+        if (event.data.size > 0) audioChunksRef.current.push(event.data);
       };
-
       recorder.onstop = async () => {
         stopMediaTracks();
         mediaRecorderRef.current = null;
         setIsListening(false);
 
-        if (audioChunksRef.current.length === 0) {
-          setMicError(t('No speech was detected. Please try speaking again.'));
-          return;
-        }
-
         const audioBlob = new Blob(audioChunksRef.current, { type: mimeType || 'audio/webm' });
         audioChunksRef.current = [];
-
         if (audioBlob.size < 1000) {
           setMicError(t('No speech was detected. Please try speaking again.'));
           return;
@@ -218,25 +282,41 @@ export const AIAssistantView: React.FC<AIAssistantViewProps> = ({ onNavigatePage
           setInputText(combined);
           setTimeout(() => inputRef.current?.focus(), 100);
         } catch (err) {
-          console.warn('Audio transcription failed:', err);
+          const transcriptionError = err as { name?: string; message?: string };
+          console.error('AI_MIC_TRANSCRIPTION_ERROR', {
+            errorName: transcriptionError?.name || 'Error',
+            errorMessage: transcriptionError?.message || String(err),
+          });
           setMicError(t('Could not transcribe your speech. Please try again or type your question.'));
         } finally {
           setIsTranscribing(false);
         }
       };
+      recorder.onerror = () => {
+        recorder.ondataavailable = null;
+        recorder.onstop = null;
+        if (recorder.state !== 'inactive') {
+          try { recorder.stop(); } catch { /* noop */ }
+        }
+        mediaRecorderRef.current = null;
+        audioChunksRef.current = [];
+        stopMediaTracks();
+        setIsListening(false);
+        setMicError(t('Could not transcribe your speech. Please try again or type your question.'));
+      };
 
       recorder.start(1000);
     } catch (err: any) {
-      stopMediaTracks();
+      stream?.getTracks().forEach((track) => track.stop());
+      if (mediaStreamRef.current === stream) mediaStreamRef.current = null;
+      if (requestId !== microphoneRequestRef.current) return;
       mediaRecorderRef.current = null;
       setIsListening(false);
-      if (err.message === 'getUserMedia_timeout') {
-        setMicError(t('Microphone access timed out. Please allow microphone access or try Chrome.'));
-      } else if (err.name === 'NotAllowedError' || err.name === 'PermissionDeniedError') {
+      if (err?.name === 'NotAllowedError' || err?.name === 'PermissionDeniedError') {
         setMicError(t('Microphone access was denied. Please allow microphone permissions to use voice input.'));
-      } else if (err.name === 'NotFoundError' || err.name === 'DevicesNotFoundError') {
+      } else if (err?.name === 'NotFoundError' || err?.name === 'DevicesNotFoundError') {
         setMicError(t('No microphone was found on this device.'));
-      } else if (err.name === 'NotReadableError') {
+      } else if (err?.name === 'NotReadableError') {
         setMicError(t('Microphone is in use by another app. Please close it and try again.'));
       } else {
         setMicError(t('Could not start voice input. Please check microphone permissions and try again.'));
@@ -259,11 +339,19 @@ export const AIAssistantView: React.FC<AIAssistantViewProps> = ({ onNavigatePage
 
   useEffect(() => {
     return () => {
-      stopMediaTracks();
-      if (mediaRecorderRef.current && mediaRecorderRef.current.state !== 'inactive') {
-        try { mediaRecorderRef.current.stop(); } catch { /* noop */ }
+      microphoneRequestRef.current += 1;
+      const recorder = mediaRecorderRef.current;
+      if (recorder) {
+        recorder.ondataavailable = null;
+        recorder.onstop = null;
+        recorder.onerror = null;
+        if (recorder.state !== 'inactive') {
+          try { recorder.stop(); } catch { /* noop */ }
+        }
+        mediaRecorderRef.current = null;
       }
-      mediaRecorderRef.current = null;
+      audioChunksRef.current = [];
+      stopMediaTracks();
     };
   }, [stopMediaTracks]);
 
@@ -289,6 +377,7 @@ export const AIAssistantView: React.FC<AIAssistantViewProps> = ({ onNavigatePage
       timestamp: timeNow,
     };
 
+    verifiedPlaceContext.current = null;
     setMessages([userMessage, assistantMessage]);
     setLoading(false);
 
@@ -325,17 +414,60 @@ export const AIAssistantView: React.FC<AIAssistantViewProps> = ({ onNavigatePage
       }
     }, 50);
 
+    const responseLanguage = resolveConversationLanguage(query, conversationLanguage.current, language);
+    conversationLanguage.current = responseLanguage;
+    const previousPlaceContext = verifiedPlaceContext.current;
+    const placeFollowup = detectPlaceFollowup(query, previousPlaceContext?.search.places || []);
+    if (!placeFollowup) verifiedPlaceContext.current = null;
     try {
+      let nearbySearch: AssistantNearbySearch | undefined;
+      const nearbyCategory = detectNearbySearch(query);
+      if (!placeFollowup && nearbyCategory && extractNamedSearchLocation(query)) {
+        // The server resolves the explicit area; do not prompt for or substitute GPS.
+        nearbySearch = { category: nearbyCategory };
+      } else if (!placeFollowup && nearbyCategory) {
+        try {
+          const location = await requestUserLocation();
+          const locationUnavailable = !(location.coordinates && location.isRealGps && location.isInsideSriLanka);
+          console.info('[AI nearby GPS] location resolved', {
+            isRealGps: location.isRealGps,
+            hasCoordinates: Boolean(location.coordinates),
+            locationUnavailable,
+            ...(location.errorName ? { errorName: location.errorName } : {}),
+            ...(location.errorCode !== undefined ? { errorCode: location.errorCode } : {}),
+            ...(location.error ? { error: location.error } : {}),
+          });
+          nearbySearch = location.coordinates && location.isRealGps && location.isInsideSriLanka
+            ? { category: nearbyCategory, lat: location.coordinates.lat, lng: location.coordinates.lng }
+            : { category: nearbyCategory, locationUnavailable: true };
+        } catch (error) {
+          const diagnosticError = error as { name?: string; message?: string; code?: number };
+          console.warn('[AI nearby GPS] location request threw', {
+            locationUnavailable: true,
+            ...(diagnosticError?.name ? { errorName: diagnosticError.name } : {}),
+            ...(diagnosticError?.code !== undefined ? { errorCode: diagnosticError.code } : {}),
+            ...(diagnosticError?.message ? { error: diagnosticError.message } : {}),
+          });
+          nearbySearch = { category: nearbyCategory, locationUnavailable: true };
+        }
+      }
+      console.info('[AI nearby GPS] outgoing assistant request', {
+        hasLatitude: typeof nearbySearch?.lat === 'number' && Number.isFinite(nearbySearch.lat),
+        hasLongitude: typeof nearbySearch?.lng === 'number' && Number.isFinite(nearbySearch.lng),
+        locationUnavailable: nearbySearch?.locationUnavailable === true,
+      });
       const response = await fetch('/api/gemini/assistant', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           message: query,
-          language: language,
+          language: nearbyCategory || placeFollowup ? responseLanguage : language,
           history: messages.filter((m) => m.id !== 'welcome').slice(-4).map((m) => ({
             role: m.sender === 'user' ? 'user' : 'model',
             parts: [{ text: m.text }],
           })),
+          ...(nearbySearch ? { nearbySearch } : {}),
+          ...(placeFollowup && previousPlaceContext ? { verifiedPlaceContext: previousPlaceContext.token } : {}),
         }),
       });
 
@@ -344,8 +476,17 @@ export const AIAssistantView: React.FC<AIAssistantViewProps> = ({ onNavigatePage
       }
 
       const data = await response.json();
-      let replyText = data.reply || getQuickAskAnswer(query);
-      if (data.isOfflineFallback && language !== 'en') {
+      const verifiedPlaceSearch: VerifiedPlaceSearch | undefined = data.verifiedPlaceSearch;
+      if ((detectNearbySearch(query) || placeFollowup) && !verifiedPlaceSearch) {
+        throw new Error('Place search response did not include verified records');
+      }
+      if (verifiedPlaceSearch?.status === 'results' && typeof data.verifiedPlaceContext === 'string') {
+        // Keep the complete original candidate set when a follow-up selects one.
+        verifiedPlaceContext.current = previousPlaceContext?.token === data.verifiedPlaceContext
+          ? previousPlaceContext : { token: data.verifiedPlaceContext, search: verifiedPlaceSearch };
+      } else if (verifiedPlaceSearch) verifiedPlaceContext.current = null;
+      let replyText = verifiedPlaceSearch ? formatVerifiedPlaceSearch(verifiedPlaceSearch, responseLanguage) : data.reply || getQuickAskAnswer(query);
+      if (!verifiedPlaceSearch && data.isOfflineFallback && language !== 'en') {
         replyText = await translateAnswer(replyText, language);
       }
 
@@ -353,17 +494,20 @@ export const AIAssistantView: React.FC<AIAssistantViewProps> = ({ onNavigatePage
         id: `assistant-${Date.now() + 1}`,
         sender: 'assistant',
         text: replyText,
+        ...(verifiedPlaceSearch ? { verifiedPlaceSearch, responseLanguage } : {}),
         timestamp: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
       };
 
       setMessages((prev) => [...prev, assistantMessage]);
     } catch (err) {
       console.warn('Backend assistant error, falling back to local database', err);
-      const fallbackAnswer = await translateAnswer(getQuickAskAnswer(query), language);
+      const failedPlaceSearch: VerifiedPlaceSearch | undefined = detectNearbySearch(query) || placeFollowup ? { status: placeFollowup ? 'context_unavailable' : 'unavailable', places: [] } : undefined;
+      const fallbackAnswer = failedPlaceSearch ? formatVerifiedPlaceSearch(failedPlaceSearch, responseLanguage) : await translateAnswer(getQuickAskAnswer(query), language);
       const assistantMessage: Message = {
         id: `assistant-${Date.now() + 1}`,
         sender: 'assistant',
         text: fallbackAnswer,
+        ...(failedPlaceSearch ? { verifiedPlaceSearch: failedPlaceSearch, responseLanguage } : {}),
         timestamp: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
       };
       setMessages((prev) => [...prev, assistantMessage]);
@@ -384,6 +528,8 @@ export const AIAssistantView: React.FC<AIAssistantViewProps> = ({ onNavigatePage
   };
 
   const handleResetChat = () => {
+    conversationLanguage.current = language;
+    verifiedPlaceContext.current = null;
     setActiveQuickAsk(null);
     setLoading(false);
     setMessages([
@@ -479,7 +625,7 @@ export const AIAssistantView: React.FC<AIAssistantViewProps> = ({ onNavigatePage
                 >
                   {/* Message Content formatted with line breaks and lists */}
                   <div className="space-y-2">
-                    {msg.text.split('\n\n').map((paragraph, pIdx) => {
+                    {(msg.verifiedPlaceSearch ? formatVerifiedPlaceSearch(msg.verifiedPlaceSearch, msg.responseLanguage || language, false) : msg.text).split('\n\n').map((paragraph, pIdx) => {
                       const lines = paragraph.split('\n');
                       return (
                         <div key={pIdx} className="space-y-1">
@@ -517,6 +663,16 @@ export const AIAssistantView: React.FC<AIAssistantViewProps> = ({ onNavigatePage
                         </div>
                       );
                     })}
+                    {msg.verifiedPlaceSearch?.places.map((place, index) => (
+                      <div key={`${place.latitude},${place.longitude}-${index}`} className="rounded-xl border border-stone-200 bg-white p-3 space-y-1">
+                        <p className="font-semibold text-emerald-950">{place.name}</p>
+                        <p>{place.distanceKm.toFixed(1)} km</p>
+                        {place.address && <p>{place.address}</p>}
+                        <a href={place.mapsUrl} target="_blank" rel="noopener noreferrer" className="inline-block text-emerald-800 font-semibold underline">
+                          {(VERIFIED_PLACE_LABELS[msg.responseLanguage || language] || VERIFIED_PLACE_LABELS.en).maps}
+                        </a>
+                      </div>
+                    ))}
                   </div>
 
                   {/* Timestamp & Copy */}
