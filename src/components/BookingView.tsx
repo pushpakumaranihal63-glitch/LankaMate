@@ -1,3 +1,4 @@
+import { getGoogleMapsSearchUrl } from '../utils/navigation';
 import React, { useState, useMemo } from 'react';
 import {
   Hotel as HotelIcon,
@@ -476,7 +477,7 @@ export const BookingView: React.FC<BookingViewProps> = ({
                             {hotel.status === 'partner_ready' ? t('Partner Booking') : t('Coming Soon')} • {hotel.partnerName}
                           </span>
                           <a
-                            href={`https://www.google.com/maps/dir/?api=1&destination=${hotel.coordinates.lat},${hotel.coordinates.lng}`}
+                            href={getGoogleMapsSearchUrl(hotel.name, hotel.location, hotel.coordinates)}
                             target="_blank"
                             rel="noopener noreferrer"
                             className="text-emerald-700 hover:underline flex items-center gap-0.5 shrink-0"
@@ -648,7 +649,7 @@ export const BookingView: React.FC<BookingViewProps> = ({
                             {home.status === 'partner_ready' ? t('Partner Booking') : t('Coming Soon')} • {home.partnerName}
                           </span>
                           <a
-                            href={`https://www.google.com/maps/dir/?api=1&destination=${home.coordinates.lat},${home.coordinates.lng}`}
+                            href={getGoogleMapsSearchUrl(home.name, home.location, home.coordinates)}
                             target="_blank"
                             rel="noopener noreferrer"
                             className="text-emerald-700 hover:underline flex items-center gap-0.5 shrink-0"
@@ -795,7 +796,7 @@ export const BookingView: React.FC<BookingViewProps> = ({
                             {tour.status === 'partner_ready' ? t('Partner Booking') : t('Coming Soon')} • {tour.partnerName}
                           </span>
                           <a
-                            href={`https://www.google.com/maps/dir/?api=1&destination=${tour.coordinates.lat},${tour.coordinates.lng}`}
+                            href={getGoogleMapsSearchUrl(tour.name, tour.location, tour.coordinates)}
                             target="_blank"
                             rel="noopener noreferrer"
                             className="text-emerald-700 hover:underline flex items-center gap-0.5 shrink-0"
@@ -1259,7 +1260,7 @@ export const BookingView: React.FC<BookingViewProps> = ({
                   <span className="text-emerald-900">{selectedTourModal.meetingPoint}</span>
                 </div>
                 <a
-                  href={`https://www.google.com/maps/dir/?api=1&destination=${selectedTourModal.coordinates.lat},${selectedTourModal.coordinates.lng}`}
+                  href={getGoogleMapsSearchUrl(selectedTourModal.name, selectedTourModal.location, selectedTourModal.coordinates)}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="px-3 py-1.5 rounded-lg bg-emerald-800 hover:bg-emerald-900 text-white font-bold text-[11px] flex items-center gap-1 shrink-0"

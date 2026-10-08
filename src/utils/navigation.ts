@@ -98,6 +98,39 @@ export function openGoogleMapsDirections(
   window.open(url, '_blank', 'noopener,noreferrer');
 }
 
+
+/** Opens a place search for traveler confirmation, not verified entrance directions.
+ * Without a usable name, the fallback is a coordinate pin rather than a property. */
+export function getGoogleMapsSearchUrl(
+  placeName: string,
+  addressOrLocality?: string,
+  coordinates?: Coordinates
+): string {
+  const name = placeName.trim();
+  let query: string;
+  if (name) {
+    const parts = [name, addressOrLocality?.trim()].filter(Boolean);
+    query = parts.join(', ');
+    if (!/sri\s+lanka/i.test(query)) query += ', Sri Lanka';
+  } else if (coordinates && Number.isFinite(coordinates.lat) &&
+    Number.isFinite(coordinates.lng) && Math.abs(coordinates.lat) <= 90 &&
+    Math.abs(coordinates.lng) <= 180) {
+    query = `${coordinates.lat},${coordinates.lng}`;
+  } else {
+    throw new Error('A place name or valid coordinates are required for Maps search.');
+  }
+  return `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(query)}`;
+}
+
+export function openGoogleMapsSearch(
+  placeName: string,
+  addressOrLocality?: string,
+  coordinates?: Coordinates
+): void {
+  window.open(getGoogleMapsSearchUrl(placeName, addressOrLocality, coordinates),
+    '_blank', 'noopener,noreferrer');
+}
+
 export interface GeolocationResult {
   coordinates: Coordinates | null;
   isRealGps: boolean;

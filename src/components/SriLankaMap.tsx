@@ -1,3 +1,4 @@
+import { openGoogleMapsSearch } from '../utils/navigation';
 import React, { useState, useEffect, useRef } from 'react';
 import L from 'leaflet';
 import {
@@ -952,11 +953,10 @@ export const SriLankaMap: React.FC<SriLankaMapProps> = ({
                 <button
                   type="button"
                   onClick={() => {
-                    const url = `https://www.google.com/maps/dir/?api=1&destination=${selectedDestination.coordinates.lat},${selectedDestination.coordinates.lng}&destination_place_id=&travelmode=driving`;
-                    window.open(url, '_blank', 'noopener,noreferrer');
+                    openGoogleMapsSearch(selectedDestination.name, selectedDestination.district || selectedDestination.region, selectedDestination.coordinates);
                   }}
                   className="flex-1 flex items-center justify-center gap-1.5 px-3.5 py-2.5 rounded-xl bg-blue-900 hover:bg-blue-950 text-white font-black text-xs transition-colors cursor-pointer shadow-2xs"
-                  title={t('Open directions in Google Maps')}
+                  title="Confirm the destination in Google Maps before choosing Directions"
                 >
                   <Navigation className="w-3.5 h-3.5 text-amber-300" />
                   <span>{t('Navigate')}</span>

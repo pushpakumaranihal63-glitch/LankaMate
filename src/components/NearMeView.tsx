@@ -35,9 +35,10 @@ import {
   NEAR_ME_CATEGORIES,
   nearMePlacesData,
 } from '../data/nearMeData';
+import { SRI_LANKAN_ACCOMMODATIONS } from '../data/accommodationsData';
 import { fetchNearbyOsmPlaces } from '../utils/osmNearbySearch';
 import {
-  openGoogleMapsDirections,
+  openGoogleMapsSearch,
   requestUserLocation,
   calculateDistanceKm,
   formatDistanceKm,
@@ -51,6 +52,8 @@ import { useTranslation } from '../i18n/LanguageContext';
 interface NearMeViewProps {
   onNavigatePage: (page: PageId) => void;
 }
+
+const CURATED_HOTEL_IDS = new Set(SRI_LANKAN_ACCOMMODATIONS.map((hotel) => hotel.id));
 
 const GPS_SESSION_STORAGE_KEY = 'lankamate_detected_user_gps';
 
@@ -492,7 +495,7 @@ export const NearMeView: React.FC<NearMeViewProps> = ({ onNavigatePage }) => {
             <p className="leading-relaxed">
               <strong className="text-white">{t('Live Navigation Handover:')}</strong> {t('Tap')}{' '}
               <span className="font-bold text-amber-300">{t('Navigate')}</span> {t('on any place to launch')}
-              {t('native Google Maps on your device for turn-by-turn routing and live traffic. Static directory')}
+              {t('Google Maps to confirm the destination before choosing Directions. Static directory')}
               {t('operating hours are labeled as reference information.')}
             </p>
           </div>
@@ -1265,21 +1268,22 @@ export const NearMeView: React.FC<NearMeViewProps> = ({ onNavigatePage }) => {
                       )}
                     </div>
 
+                    {CURATED_HOTEL_IDS.has(place.id) && (
+                      <p className="mb-2 text-xs text-stone-600">
+                        Confirm the hotel location in Google Maps before travelling.
+                      </p>
+                    )}
                     {/* Action Buttons: Navigate (Very Prominent) & View Details */}
                     <div className="pt-3 border-t border-stone-100 flex items-center gap-2">
                       {/* Navigate Button */}
                       <button
                         type="button"
                         id={`btn-navigate-${place.id}`}
-                        onClick={() =>
-                          openGoogleMapsDirections(
-                            place.coordinates.lat,
-                            place.coordinates.lng,
-                            place.name
-                          )
-                        }
+                        onClick={() => {
+                          openGoogleMapsSearch(place.name, place.address || `${place.area}, ${place.city}`, place.coordinates);
+                        }}
                         className="flex-1 py-2.5 px-4 bg-blue-900 hover:bg-blue-950 active:bg-[#0c2340] text-white rounded-xl text-xs font-black transition-all flex items-center justify-center gap-2 cursor-pointer shadow-xs touch-manipulation group/btn"
-                        title={t('Open directions in Google Maps')}
+                        title="Confirm the destination in Google Maps before choosing Directions"
                       >
                         <Navigation className="w-4 h-4 text-amber-300 group-hover/btn:translate-x-0.5 transition-transform" />
                         <span>{t('Navigate')}</span>
@@ -1464,17 +1468,20 @@ export const NearMeView: React.FC<NearMeViewProps> = ({ onNavigatePage }) => {
               )}
             </div>
 
+            {CURATED_HOTEL_IDS.has(selectedPlaceForModal.id) && (
+              <p className="mb-3 text-xs text-stone-600">
+                Confirm the hotel location in Google Maps before travelling.
+              </p>
+            )}
             {/* Modal Actions */}
             <div className="pt-4 border-t border-stone-100 flex flex-col sm:flex-row items-center gap-3">
               <button
                 type="button"
                 id="btn-modal-navigate"
                 onClick={() => {
-                  openGoogleMapsDirections(
-                    selectedPlaceForModal.coordinates.lat,
-                    selectedPlaceForModal.coordinates.lng,
-                    selectedPlaceForModal.name
-                  );
+                  openGoogleMapsSearch(selectedPlaceForModal.name,
+                    selectedPlaceForModal.address || `${selectedPlaceForModal.area}, ${selectedPlaceForModal.city}`,
+                    selectedPlaceForModal.coordinates);
                 }}
                 className="w-full sm:flex-1 py-3 px-4 bg-blue-900 hover:bg-blue-950 active:bg-[#0c2340] text-white rounded-2xl text-xs sm:text-sm font-black shadow-md transition-all flex items-center justify-center gap-2 cursor-pointer touch-manipulation"
               >

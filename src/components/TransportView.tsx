@@ -1,3 +1,4 @@
+import { getGoogleMapsSearchUrl } from '../utils/navigation';
 import React, { useState, useEffect } from 'react';
 import {
   Train,
@@ -76,7 +77,7 @@ export const TransportView: React.FC<TransportViewProps> = ({ onNavigatePage }) 
           b.photos.additionalPhotos.length > 0
             ? b.photos.additionalPhotos
             : [b.photos.coverPhotoUrl].filter(Boolean),
-        navigateUrl: `https://www.google.com/maps/search/?api=1&query=${b.business.coordinates.lat},${b.business.coordinates.lng}`,
+        navigateUrl: getGoogleMapsSearchUrl(b.business.businessName, `${b.business.city}, ${b.business.district}`, b.business.coordinates),
         ratesDescription:
           b.services.transport?.priceDescription ||
           (b.services.transport?.startingPrice

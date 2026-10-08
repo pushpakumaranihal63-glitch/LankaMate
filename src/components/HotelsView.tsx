@@ -22,8 +22,9 @@ import {
 } from 'lucide-react';
 import { Hotel, HotelBooking, PageId } from '../types';
 import { hotelsData } from '../data/hotelsData';
+import { HOTEL_DESTINATIONS, HOTEL_PROVINCES, matchesHotelDestination, matchesHotelProvince } from '../utils/hotelDestinations';
 import { HotelLocationSearch } from './HotelLocationSearch';
-import { HotelDetailPage } from './HotelDetailPage';
+import { HotelDetailPage, TRIP_COM_HOTELS_URL } from './HotelDetailPage';
 import { DetectedLocationInfo, calculateDistanceKm } from '../utils/locationHelper';
 import { useTranslation } from '../i18n/LanguageContext';
 
@@ -36,24 +37,6 @@ interface HotelsViewProps {
 }
 
 type DistanceRadius = 1 | 5 | 10 | 25 | 'all';
-
-export type BudgetOption = 'all' | 'under-50' | '50-100' | '100-200' | '200-plus';
-
-interface BudgetConfig {
-  id: BudgetOption;
-  label: string;
-  shortLabel: string;
-  min?: number;
-  max?: number;
-}
-
-export const BUDGET_OPTIONS: BudgetConfig[] = [
-  { id: 'all', label: 'All Budgets', shortLabel: 'All Budgets' },
-  { id: 'under-50', label: '💰 Under $50 / night', shortLabel: '< $50/nt', max: 50 },
-  { id: '50-100', label: '💰 $50–$100 / night', shortLabel: '$50–$100/nt', min: 50, max: 100 },
-  { id: '100-200', label: '💰 $100–$200 / night', shortLabel: '$100–$200/nt', min: 100, max: 200 },
-  { id: '200-plus', label: '💰 $200+ / night', shortLabel: '$200+/nt', min: 200 },
-];
 
 export const HOTEL_TYPES = [
   'All',
@@ -68,14 +51,6 @@ export const HOTEL_TYPES = [
   'Boutique hotel',
 ] as const;
 
-export const matchesBudget = (priceUsd: number, budget: BudgetOption): boolean => {
-  if (budget === 'under-50') return priceUsd < 50;
-  if (budget === '50-100') return priceUsd >= 50 && priceUsd <= 100;
-  if (budget === '100-200') return priceUsd >= 100 && priceUsd <= 200;
-  if (budget === '200-plus') return priceUsd > 200;
-  return true;
-};
-
 export const HotelsView: React.FC<HotelsViewProps> = ({
   onToggleFavourite,
   isFavourite,
@@ -87,17 +62,16 @@ export const HotelsView: React.FC<HotelsViewProps> = ({
   const [selectedLocation, setSelectedLocation] = useState<string>('All');
   const [selectedRegion, setSelectedRegion] = useState<string>('All');
   const [selectedHotelType, setSelectedHotelType] = useState<string>('All');
-  const [budgetFilter, setBudgetFilter] = useState<BudgetOption>('all');
+  const [selectedProvince, setSelectedProvince] = useState('All');
+  const [destinationQuery, setDestinationQuery] = useState('');
   const [searchQuery, setSearchQuery] = useState('');
-  const [inquiryModalHotel, setInquiryModalHotel] = useState<Hotel | null>(null);
-  const [inquirySuccess, setInquirySuccess] = useState(false);
   const [activeLocation, setActiveLocation] = useState<DetectedLocationInfo | null>(null);
   const [distanceFilter, setDistanceFilter] = useState<DistanceRadius>(25);
   const [isManualSearchOpen, setIsManualSearchOpen] = useState(false);
   const [selectedHotelForDetail, setSelectedHotelForDetail] = useState<Hotel | null>(null);
 
   // Persistent Hotel Bookings State
-  const [hotelBookings, setHotelBookings] = useState<HotelBooking[]>(() => {
+  const [hotelBookings] = useState<HotelBooking[]>(() => {
     try {
       const saved = localStorage.getItem('lankamate_hotel_bookings');
       if (saved) return JSON.parse(saved);
@@ -109,24 +83,10 @@ export const HotelsView: React.FC<HotelsViewProps> = ({
   const [showBookingsModal, setShowBookingsModal] = useState<boolean>(false);
 
   // Booking Form State
-  const [guestName, setGuestName] = useState('');
-  const [guestEmail, setGuestEmail] = useState('');
-  const [checkInDate, setCheckInDate] = useState('2026-10-15');
-  const [nights, setNights] = useState(3);
-  const [guestsCount, setGuestsCount] = useState(2);
 
-  const locations = [
-    'All',
-    'Sigiriya',
-    'Ella',
-    'Galle',
-    'Kandy',
-    'Nuwara Eliya',
-    'Yala',
-    'Mirissa',
-    'Colombo',
-    'Jaffna',
-  ];
+  const popularDestinationNames = ['Sigiriya', 'Ella', 'Galle', 'Kandy', 'Nuwara Eliya', 'Yala', 'Mirissa', 'Colombo', 'Jaffna'];
+  const locations = ['All', ...popularDestinationNames.map(name =>
+    HOTEL_DESTINATIONS.find(destination => destination.name === name)!.name)];
 
   // Calculate distance for all hotels relative to detected or selected location
   const hotelsWithDistance = useMemo(() => {
@@ -156,47 +116,6 @@ export const HotelsView: React.FC<HotelsViewProps> = ({
     };
   }, [activeLocation, hotelsWithDistance]);
 
-  // Dynamic counts for each budget bracket based on other active filters
-  const budgetCounts = useMemo(() => {
-    const baseList = hotelsWithDistance.filter((h) => {
-      if (activeLocation && distanceFilter !== 'all') {
-        if (h.distanceKm === undefined || h.distanceKm > distanceFilter) return false;
-      }
-      if (!activeLocation && selectedLocation !== 'All') {
-        if (!h.destinationName.toLowerCase().includes(selectedLocation.toLowerCase())) return false;
-      }
-      if (selectedRegion !== 'All' && h.region !== selectedRegion) return false;
-      if (selectedHotelType !== 'All' && h.hotelType !== selectedHotelType) return false;
-      if (searchQuery.trim()) {
-        const q = searchQuery.toLowerCase();
-        const match =
-          h.name.toLowerCase().includes(q) ||
-          h.destinationName.toLowerCase().includes(q) ||
-          (h.badge && h.badge.toLowerCase().includes(q)) ||
-          (h.hotelType && h.hotelType.toLowerCase().includes(q)) ||
-          h.facilities.some((f) => f.toLowerCase().includes(q));
-        if (!match) return false;
-      }
-      return true;
-    });
-
-    return {
-      all: baseList.length,
-      'under-50': baseList.filter((h) => h.pricePerNightUsd < 50).length,
-      '50-100': baseList.filter((h) => h.pricePerNightUsd >= 50 && h.pricePerNightUsd <= 100).length,
-      '100-200': baseList.filter((h) => h.pricePerNightUsd >= 100 && h.pricePerNightUsd <= 200).length,
-      '200-plus': baseList.filter((h) => h.pricePerNightUsd > 200).length,
-    };
-  }, [
-    hotelsWithDistance,
-    activeLocation,
-    distanceFilter,
-    selectedLocation,
-    selectedRegion,
-    selectedHotelType,
-    searchQuery,
-  ]);
-
   // Dynamic counts for each hotel type based on other active filters
   const hotelTypeCounts = useMemo(() => {
     const baseList = hotelsWithDistance.filter((h) => {
@@ -204,10 +123,10 @@ export const HotelsView: React.FC<HotelsViewProps> = ({
         if (h.distanceKm === undefined || h.distanceKm > distanceFilter) return false;
       }
       if (!activeLocation && selectedLocation !== 'All') {
-        if (!h.destinationName.toLowerCase().includes(selectedLocation.toLowerCase())) return false;
+        if (!matchesHotelDestination(h, selectedLocation)) return false;
       }
       if (selectedRegion !== 'All' && h.region !== selectedRegion) return false;
-      if (budgetFilter !== 'all' && !matchesBudget(h.pricePerNightUsd, budgetFilter)) return false;
+      if (!matchesHotelProvince(h, selectedProvince)) return false;
       if (searchQuery.trim()) {
         const q = searchQuery.toLowerCase();
         const match =
@@ -233,11 +152,11 @@ export const HotelsView: React.FC<HotelsViewProps> = ({
     distanceFilter,
     selectedLocation,
     selectedRegion,
-    budgetFilter,
+    selectedProvince,
     searchQuery,
   ]);
 
-  // Filtered hotels combining Location, Distance, Region, Hotel Type, Budget, and Search Query
+  // Filtered hotels combining Location, Distance, Province, Tourism Region, Hotel Type, and Search Query
   const filteredHotels = useMemo(() => {
     let list = hotelsWithDistance;
 
@@ -250,7 +169,7 @@ export const HotelsView: React.FC<HotelsViewProps> = ({
       // 2. City / Destination filter (when standard browse is used)
       if (selectedLocation !== 'All') {
         list = list.filter((h) =>
-          h.destinationName.toLowerCase().includes(selectedLocation.toLowerCase())
+          matchesHotelDestination(h, selectedLocation)
         );
       }
     }
@@ -260,14 +179,11 @@ export const HotelsView: React.FC<HotelsViewProps> = ({
       list = list.filter((h) => h.region === selectedRegion);
     }
 
+    list = list.filter(h => matchesHotelProvince(h, selectedProvince));
+
     // 4. Hotel Type filter
     if (selectedHotelType !== 'All') {
       list = list.filter((h) => h.hotelType === selectedHotelType);
-    }
-
-    // 5. Budget per Night filter
-    if (budgetFilter !== 'all') {
-      list = list.filter((h) => matchesBudget(h.pricePerNightUsd, budgetFilter));
     }
 
     // 6. Search query
@@ -300,12 +216,12 @@ export const HotelsView: React.FC<HotelsViewProps> = ({
     selectedLocation,
     selectedRegion,
     selectedHotelType,
-    budgetFilter,
+    selectedProvince,
     searchQuery,
   ]);
 
   const hasActiveFilters =
-    budgetFilter !== 'all' ||
+    selectedProvince !== 'All' ||
     selectedHotelType !== 'All' ||
     selectedRegion !== 'All' ||
     selectedLocation !== 'All' ||
@@ -313,7 +229,8 @@ export const HotelsView: React.FC<HotelsViewProps> = ({
     (activeLocation !== null && distanceFilter !== 'all');
 
   const handleClearFilters = () => {
-    setBudgetFilter('all');
+    setSelectedProvince('All');
+    setDestinationQuery('');
     setSelectedHotelType('All');
     setSelectedRegion('All');
     setSelectedLocation('All');
@@ -321,15 +238,6 @@ export const HotelsView: React.FC<HotelsViewProps> = ({
     if (activeLocation) {
       setDistanceFilter('all');
     }
-  };
-
-  const handleBookSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    setInquirySuccess(true);
-    setTimeout(() => {
-      setInquirySuccess(false);
-      setInquiryModalHotel(null);
-    }, 2800);
   };
 
   // If a hotel card has been tapped, display the detailed hotel page
@@ -341,22 +249,6 @@ export const HotelsView: React.FC<HotelsViewProps> = ({
         onClose={() => setSelectedHotelForDetail(null)}
         onToggleFavourite={onToggleFavourite}
         isFavourite={isFavourite}
-        onBookingConfirmed={(newBooking) => {
-          setHotelBookings((prev) => {
-            const next = [newBooking, ...prev];
-            localStorage.setItem('lankamate_hotel_bookings', JSON.stringify(next));
-            return next;
-          });
-        }}
-        onOpenInquiry={(hotel) => {
-          setSelectedHotelForDetail(null);
-          setInquiryModalHotel(hotel);
-        }}
-        onNavigatePage={onNavigatePage}
-        onOpenMyBookings={() => {
-          setSelectedHotelForDetail(null);
-          setShowBookingsModal(true);
-        }}
       />
     );
   }
@@ -402,7 +294,7 @@ export const HotelsView: React.FC<HotelsViewProps> = ({
               className="px-4 py-2.5 rounded-xl bg-emerald-800 hover:bg-emerald-900 active:bg-emerald-950 text-white text-xs font-bold transition-colors cursor-pointer flex items-center gap-2 shadow-xs shrink-0 self-start sm:self-auto"
             >
               <Calendar className="w-4 h-4" />
-              <span>{t('My Bookings')} ({hotelBookings.length})</span>
+              <span>{t('Saved Demo Records', 'Saved Demo Records')} ({hotelBookings.length})</span>
             </button>
           )}
         </div>
@@ -504,57 +396,6 @@ export const HotelsView: React.FC<HotelsViewProps> = ({
                       key={opt.label}
                       id={`distance-filter-${opt.value}`}
                       onClick={() => setDistanceFilter(opt.value)}
-                      className={`px-3.5 py-2 rounded-xl text-xs font-bold flex items-center gap-2 transition-all cursor-pointer ${
-                        isSelected
-                          ? 'bg-emerald-800 text-white shadow-xs'
-                          : 'bg-stone-100 text-stone-700 hover:bg-stone-200 border border-stone-200/60'
-                      }`}
-                    >
-                      <span>{t(opt.label)}</span>
-                      <span
-                        className={`px-1.5 py-0.5 rounded-full text-[10px] font-black ${
-                          isSelected
-                            ? 'bg-emerald-950 text-emerald-200'
-                            : 'bg-white text-stone-600 border border-stone-200'
-                        }`}
-                      >
-                        {count}
-                      </span>
-                    </button>
-                  );
-                })}
-              </div>
-            </div>
-
-            {/* Budget per Night Filter Controls */}
-            <div className="space-y-2.5 pt-3 border-t border-stone-100">
-              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1 text-xs">
-                <span className="font-bold text-stone-700 uppercase tracking-wide flex items-center gap-1.5">
-                  <DollarSign className="w-3.5 h-3.5 text-emerald-700" />
-                  <span>{t('Budget per Night:')}</span>
-                </span>
-                {budgetFilter !== 'all' && (
-                  <button
-                    onClick={() => setBudgetFilter('all')}
-                    className="text-emerald-700 hover:text-emerald-900 font-bold text-xs flex items-center gap-1 cursor-pointer self-start sm:self-auto"
-                  >
-                    <span>{t('Reset Budget')}</span>
-                    <X className="w-3 h-3" />
-                  </button>
-                )}
-              </div>
-
-              <div className="flex flex-wrap items-center gap-2">
-                {BUDGET_OPTIONS.map((opt) => {
-                  const isSelected = budgetFilter === opt.id;
-                  const count = budgetCounts[opt.id];
-
-                  return (
-                    <button
-                      key={opt.id}
-                      id={`nearby-budget-filter-${opt.id}`}
-                      type="button"
-                      onClick={() => setBudgetFilter(isSelected && opt.id !== 'all' ? 'all' : opt.id)}
                       className={`px-3.5 py-2 rounded-xl text-xs font-bold flex items-center gap-2 transition-all cursor-pointer ${
                         isSelected
                           ? 'bg-emerald-800 text-white shadow-xs'
@@ -693,57 +534,6 @@ export const HotelsView: React.FC<HotelsViewProps> = ({
               ))}
             </div>
 
-            {/* Budget per Night Filter Controls */}
-            <div className="pt-3 border-t border-stone-100 space-y-2">
-              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1 text-xs">
-                <span className="font-bold text-stone-700 uppercase tracking-wide flex items-center gap-1.5">
-                  <DollarSign className="w-3.5 h-3.5 text-emerald-700" />
-                  <span>{t('Budget per Night:')}</span>
-                </span>
-                {budgetFilter !== 'all' && (
-                  <button
-                    onClick={() => setBudgetFilter('all')}
-                    className="text-emerald-700 hover:text-emerald-900 font-bold text-xs flex items-center gap-1 cursor-pointer self-start sm:self-auto"
-                  >
-                    <span>{t('Reset Budget')}</span>
-                    <X className="w-3 h-3" />
-                  </button>
-                )}
-              </div>
-
-              <div className="flex flex-wrap items-center gap-2">
-                {BUDGET_OPTIONS.map((opt) => {
-                  const isSelected = budgetFilter === opt.id;
-                  const count = budgetCounts[opt.id];
-
-                  return (
-                    <button
-                      key={opt.id}
-                      id={`budget-filter-${opt.id}`}
-                      type="button"
-                      onClick={() => setBudgetFilter(isSelected && opt.id !== 'all' ? 'all' : opt.id)}
-                      className={`px-3.5 py-2 rounded-xl text-xs font-bold flex items-center gap-2 transition-all cursor-pointer ${
-                        isSelected
-                          ? 'bg-emerald-800 text-white shadow-xs'
-                          : 'bg-stone-100 text-stone-700 hover:bg-stone-200 border border-stone-200/60'
-                      }`}
-                    >
-                      <span>{t(opt.label)}</span>
-                      <span
-                        className={`px-1.5 py-0.5 rounded-full text-[10px] font-black ${
-                          isSelected
-                            ? 'bg-emerald-950 text-emerald-200'
-                            : 'bg-white text-stone-600 border border-stone-200'
-                        }`}
-                      >
-                        {count}
-                      </span>
-                    </button>
-                  );
-                })}
-              </div>
-            </div>
-
             {/* Hotel Type Filter Controls */}
             <div className="pt-2.5 border-t border-stone-100 space-y-2">
               <div className="flex items-center justify-between text-xs">
@@ -793,6 +583,29 @@ export const HotelsView: React.FC<HotelsViewProps> = ({
           </div>
         )}
 
+        <div className="bg-white border border-stone-200 rounded-2xl p-4 grid sm:grid-cols-2 gap-4">
+          <div className="space-y-2">
+            <label htmlFor="hotel-destination-search" className="text-xs font-bold text-stone-700">{t('Search destinations', 'Search destinations')}</label>
+            <input id="hotel-destination-search" value={destinationQuery} onChange={e => setDestinationQuery(e.target.value)} placeholder="Search the destination list…" className="w-full border border-stone-200 rounded-xl px-3 py-2 text-sm" />
+            <select aria-label="Destination" value={selectedLocation} onChange={e => { setSelectedLocation(e.target.value); setActiveLocation(null); }} className="w-full border border-stone-200 rounded-xl px-3 py-2 text-sm">
+              <option value="All">All destinations</option>
+              {HOTEL_DESTINATIONS.filter(item => item.name.toLowerCase().includes(destinationQuery.trim().toLowerCase()) || item.name === selectedLocation).map(item => <option key={item.name} value={item.name}>{item.name}</option>)}
+            </select>
+          </div>
+          <div className="space-y-2">
+            <label htmlFor="hotel-province" className="text-xs font-bold text-stone-700">{t('Province', 'Province')} — {t('separate from tourism region', 'separate from tourism region')}</label>
+            <select id="hotel-province" value={selectedProvince} onChange={e => setSelectedProvince(e.target.value)} className="w-full border border-stone-200 rounded-xl px-3 py-2 text-sm">
+              <option value="All">All provinces</option>
+              {HOTEL_PROVINCES.map(province => <option key={province} value={province}>{province} Province</option>)}
+            </select>
+          </div>
+        </div>
+        <div className="bg-white border border-emerald-200 rounded-2xl p-5 space-y-3">
+          <p className="text-sm font-bold text-emerald-950">Booking Partner: Trip.com</p>
+          <p className="text-xs text-stone-600">Select your destination and dates on Trip.com. This general affiliate link does not transfer LankaMate filters. Live prices, availability, reservations and payment are handled on Trip.com.</p>
+          <a id="trip-com-more-hotels" href={TRIP_COM_HOTELS_URL} target="_blank" rel="noopener noreferrer sponsored" className="inline-block rounded-xl bg-emerald-800 hover:bg-emerald-900 text-white px-4 py-3 text-sm font-normal">More Hotels, Prices &amp; Book on <strong style={{ color: '#60C5FF' }}>Trip.com</strong></a>
+        </div>
+
         {/* Results Header & Active Filter Bar with Clear Filters option */}
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 px-1 py-1 text-xs">
           <div className="flex flex-wrap items-center gap-2">
@@ -800,19 +613,6 @@ export const HotelsView: React.FC<HotelsViewProps> = ({
               {filteredHotels.length} {filteredHotels.length === 1 ? t('hotel') : t('hotels')} {t('found')}
             </span>
             {hasActiveFilters && <span className="text-stone-300">|</span>}
-            {/* Active budget filter chip */}
-            {budgetFilter !== 'all' && (
-              <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-lg bg-emerald-50 text-emerald-900 font-medium border border-emerald-200">
-                <span>{t('Budget')}: {t(BUDGET_OPTIONS.find((b) => b.id === budgetFilter)?.label)}</span>
-                <button
-                  onClick={() => setBudgetFilter('all')}
-                  className="hover:text-emerald-700 cursor-pointer ml-0.5"
-                  title={t('Remove budget filter')}
-                >
-                  <X className="w-3 h-3" />
-                </button>
-              </span>
-            )}
             {/* Active hotel type filter chip */}
             {selectedHotelType !== 'All' && (
               <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-lg bg-stone-100 text-stone-800 font-medium border border-stone-200">
@@ -881,126 +681,11 @@ export const HotelsView: React.FC<HotelsViewProps> = ({
 
         {/* Hotels Grid or Empty State */}
         {filteredHotels.length === 0 ? (
-          activeLocation ? (
-            /* Clear "No hotels found in this area" display */
-            <div className="bg-white border border-stone-200 rounded-3xl p-8 sm:p-12 text-center space-y-4 shadow-2xs">
-              <div className="w-16 h-16 rounded-2xl bg-amber-50 text-amber-700 border border-amber-200 flex items-center justify-center mx-auto shadow-2xs">
-                <MapPin className="w-8 h-8" />
-              </div>
-              <div className="space-y-1.5">
-                <h3 className="text-xl sm:text-2xl font-black text-stone-900 tracking-tight">
-                  {distanceFilter !== 'all'
-                    ? `${t('No accommodation found within')} ${distanceFilter} km.`
-                    : `${t('No accommodation found matching your filters')}`}
-                </h3>
-                <p className="text-xs sm:text-sm text-stone-600 max-w-lg mx-auto leading-relaxed">
-                  {budgetFilter !== 'all' ? (
-                    <>
-                      {t('No accommodation near')} <strong className="text-stone-800">{activeLocation.displayName}</strong> {t('match the selected budget of')}{' '}
-                      <strong className="text-emerald-800">{t(BUDGET_OPTIONS.find((b) => b.id === budgetFilter)?.label)}</strong>.
-                    </>
-                  ) : distanceFilter !== 'all' ? (
-                    <>
-                      {t('No accommodation found within')}{' '}
-                      <strong className="text-emerald-900">{distanceFilter} km</strong> {t('of')}{' '}
-                      <strong className="text-stone-800">{activeLocation.displayName}</strong>. {t('Expand the radius to view more accommodations.')}
-                    </>
-                  ) : (
-                    <>
-                      {t('No accommodation found matching your current filter criteria near')}{' '}
-                      <strong className="text-stone-800">{activeLocation.displayName}</strong>.
-                    </>
-                  )}
-                </p>
-                <p className="text-xs text-stone-500 max-w-md mx-auto">
-                  {t('Try adjusting your budget per night, expanding the distance radius, or clearing applied filters.')}
-                </p>
-              </div>
-
-              <div className="flex flex-wrap items-center justify-center gap-2.5 pt-3">
-                {budgetFilter !== 'all' && (
-                  <button
-                    onClick={() => setBudgetFilter('all')}
-                    className="px-4 py-2.5 bg-emerald-800 text-white rounded-xl text-xs font-bold hover:bg-emerald-900 cursor-pointer transition-colors shadow-2xs"
-                  >
-                    {t('Reset Budget Filter')}
-                  </button>
-                )}
-                {hasActiveFilters && (
-                  <button
-                    onClick={handleClearFilters}
-                    className="px-4 py-2.5 bg-stone-800 text-white rounded-xl text-xs font-bold hover:bg-stone-900 cursor-pointer transition-colors"
-                  >
-                    {t('Clear Filters')}
-                  </button>
-                )}
-                {distanceFilter !== 25 && distanceFilter !== 'all' && (
-                  <button
-                    onClick={() => setDistanceFilter(25)}
-                    className="px-4 py-2.5 bg-emerald-100 text-emerald-900 rounded-xl text-xs font-bold hover:bg-emerald-200 cursor-pointer transition-colors"
-                  >
-                    {t('Expand to Within 25 km')} ({distanceCounts[25]})
-                  </button>
-                )}
-                {distanceFilter !== 'all' && (
-                  <button
-                    onClick={() => setDistanceFilter('all')}
-                    className="px-4 py-2.5 bg-stone-100 text-stone-800 rounded-xl text-xs font-bold hover:bg-stone-200 border border-stone-200 cursor-pointer transition-colors"
-                  >
-                    {t('Show All Distances')} ({distanceCounts.all})
-                  </button>
-                )}
-                <button
-                  onClick={() => setIsManualSearchOpen(true)}
-                  className="px-4 py-2.5 bg-white text-emerald-800 rounded-xl text-xs font-bold border border-emerald-300 hover:bg-emerald-50 cursor-pointer transition-colors"
-                >
-                  {t('Search Another Location')}
-                </button>
-                <button
-                  onClick={() => {
-                    setActiveLocation(null);
-                    handleClearFilters();
-                  }}
-                  className="px-4 py-2.5 text-stone-500 hover:text-stone-800 text-xs font-semibold cursor-pointer"
-                >
-                  {t('Reset to All Hotels')}
-                </button>
-              </div>
-            </div>
-          ) : (
-            /* Standard no matches state */
-            <div className="bg-white border border-stone-200 rounded-2xl p-10 text-center space-y-4">
-              <div className="w-12 h-12 rounded-full bg-stone-100 text-stone-500 flex items-center justify-center mx-auto">
-                <Search className="w-6 h-6" />
-              </div>
-              <h3 className="text-lg font-black text-stone-900">{t('No hotels match your filters')}</h3>
-              <p className="text-xs text-stone-500 max-w-sm mx-auto">
-                {budgetFilter !== 'all' ? (
-                  <>
-                    {t('No hotels match the selected budget')} ({t(BUDGET_OPTIONS.find((b) => b.id === budgetFilter)?.label)}) {t('with your current filters')}.
-                  </>
-                ) : (
-                  <>{t("We couldn't find any hotels matching your current city, region, or search criteria.")}</>
-                )}
-              </p>
-              <div className="flex flex-wrap items-center justify-center gap-2 pt-1">
-                {budgetFilter !== 'all' && (
-                  <button
-                    onClick={() => setBudgetFilter('all')}
-                    className="px-4 py-2 bg-emerald-800 text-white rounded-xl text-xs font-bold hover:bg-emerald-900 cursor-pointer transition-colors"
-                  >
-                    {t('Reset Budget Filter')}
-                  </button>
-                )}
-                <button
-                  onClick={handleClearFilters}
-                  className="px-4 py-2 bg-stone-800 text-white rounded-xl text-xs font-bold hover:bg-stone-900 cursor-pointer transition-colors"
-                >
-                  {t('Clear Filters')}
-                </button>
-              </div>
-            </div>
-          )
+          <div className="bg-white border border-stone-200 rounded-2xl p-8 text-center space-y-4">
+            <p className="text-sm text-stone-600">{t('No LankaMate recommended stays listed here yet. Explore more hotels and live prices on Trip.com.', 'No LankaMate recommended stays listed here yet. Explore more hotels and live prices on Trip.com.')}</p>
+            <button onClick={handleClearFilters} className="px-4 py-2 rounded-xl bg-stone-800 text-white text-xs font-bold">{t('Clear Filters')}</button>
+            {activeLocation && <button onClick={() => setDistanceFilter('all')} className="ml-2 px-4 py-2 rounded-xl bg-stone-100 text-xs font-bold">{t('Show All Distances')}</button>}
+          </div>
         ) : (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {filteredHotels.map((hotel) => (
@@ -1062,7 +747,7 @@ export const HotelsView: React.FC<HotelsViewProps> = ({
                           id: hotel.id,
                           type: 'hotel',
                           title: hotel.name,
-                          subtitle: `${hotel.destinationName} • $${hotel.pricePerNightUsd}/night`,
+                          subtitle: hotel.destinationName,
                           image: hotel.image,
                           linkPage: 'hotels',
                           targetId: hotel.id,
@@ -1141,16 +826,6 @@ export const HotelsView: React.FC<HotelsViewProps> = ({
 
                 {/* Card Footer: Price & Booking Action */}
                 <div className="p-5 pt-0 border-t border-stone-100/80 mt-2 flex items-center justify-between gap-2">
-                  <div>
-                    <span className="text-[10px] text-stone-400 block uppercase font-bold">{t('Per Night')}</span>
-                    <div className="text-base font-black text-emerald-950">
-                      ${hotel.pricePerNightUsd} USD
-                    </div>
-                    <span className="text-[11px] text-stone-500 block">
-                      ~{hotel.pricePerNightLkr.toLocaleString()} LKR
-                    </span>
-                  </div>
-
                   <div className="flex items-center gap-1.5">
                     <button
                       id={`view-detail-btn-${hotel.id}`}
@@ -1160,198 +835,21 @@ export const HotelsView: React.FC<HotelsViewProps> = ({
                       }}
                       className="px-3 py-2 bg-stone-900 hover:bg-stone-800 text-white rounded-xl text-xs font-bold transition-colors cursor-pointer flex items-center gap-1 shadow-2xs"
                     >
-                      <span>{t('Book')}</span>
+                      <span>{t('View Details')}</span>
                     </button>
 
-                    <button
-                      id={`book-hotel-btn-${hotel.id}`}
-                      onClick={(e) => {
-                        e.stopPropagation();
-                        setInquiryModalHotel(hotel);
-                      }}
-                      className="px-3 py-2 bg-emerald-800 hover:bg-emerald-900 text-white rounded-xl text-xs font-bold transition-colors cursor-pointer flex items-center gap-1 shadow-2xs"
-                      title={t('Send reservation inquiry')}
-                    >
-                      <Calendar className="w-3.5 h-3.5" />
-                      <span className="hidden sm:inline">{t('Inquire')}</span>
-                    </button>
+
                   </div>
+                </div>
+                <div className="px-5 pb-5 space-y-2">
+                  <p className="text-xs font-bold text-emerald-950">{t('Booking Partner: Trip.com', 'Booking Partner: Trip.com')}</p>
+                  <p className="text-xs text-stone-600">{t('Search, live prices, availability, reservation and payment are handled on Trip.com. Select your destination and dates there; LankaMate filters are not transferred.', 'Search, live prices, availability, reservation and payment are handled on Trip.com. Select your destination and dates there; LankaMate filters are not transferred.')}</p>
+                  <a id={'book-hotel-btn-' + hotel.id} href={TRIP_COM_HOTELS_URL} target="_blank" rel="noopener noreferrer sponsored" onClick={e => e.stopPropagation()} className="block rounded-xl bg-emerald-800 hover:bg-emerald-900 text-white px-3 py-3 text-xs font-normal text-center">
+                    <span>{t('More Hotels, Prices & Book on Trip.com', 'More Hotels, Prices & Book on Trip.com').split(/(Trip\.com)/).map((part, index) => part === 'Trip.com' ? <span key={index} style={{ color: '#60C5FF', fontWeight: 700 }}>{part}</span> : part)}</span>
+                  </a>
                 </div>
               </div>
             ))}
-          </div>
-        )}
-
-        {/* Reserve / Booking Inquiry Modal */}
-        {inquiryModalHotel && (
-          <div className="fixed inset-0 z-50 bg-black/60 backdrop-blur-xs flex items-center justify-center p-4 overflow-y-auto">
-            <div className="bg-white rounded-3xl max-w-lg w-full overflow-hidden shadow-2xl border border-stone-200 animate-in fade-in zoom-in-95 duration-200">
-              {/* Modal Header */}
-              <div className="relative h-44 bg-stone-900">
-                <img
-                  src={inquiryModalHotel.image}
-                  alt={inquiryModalHotel.name}
-                  className="w-full h-full object-cover"
-                  referrerPolicy="no-referrer"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/40 to-transparent" />
-                <button
-                  onClick={() => setInquiryModalHotel(null)}
-                  className="absolute top-4 right-4 w-8 h-8 rounded-full bg-black/60 text-white flex items-center justify-center hover:bg-black transition-colors cursor-pointer"
-                >
-                  <X className="w-4 h-4" />
-                </button>
-                <div className="absolute bottom-4 left-5 right-5 text-white">
-                  <div className="flex items-center gap-1.5 text-xs text-amber-300 font-bold mb-1">
-                    <Star className="w-3.5 h-3.5 fill-amber-300 text-amber-300" />
-                    <span>{inquiryModalHotel.starRating} {t('Star Luxury Heritage')}</span>
-                    {inquiryModalHotel.distanceKm !== undefined && (
-                      <span className="text-white bg-emerald-800 px-2 py-0.5 rounded-full text-[10px]">
-                        {inquiryModalHotel.distanceKm < 1 ? t('< 1 km away') : `${inquiryModalHotel.distanceKm} km ${t('away')}`}
-                      </span>
-                    )}
-                  </div>
-                  <h3 className="text-xl font-black">{inquiryModalHotel.name}</h3>
-                  <p className="text-xs text-stone-300 flex items-center gap-1 mt-0.5">
-                    <MapPin className="w-3 h-3 text-emerald-400" />
-                    {inquiryModalHotel.destinationName} • {inquiryModalHotel.region}
-                  </p>
-                </div>
-              </div>
-
-              {/* Inquiry Form */}
-              {inquirySuccess ? (
-                <div className="p-8 text-center space-y-4">
-                  <div className="w-14 h-14 rounded-full bg-emerald-100 text-emerald-800 flex items-center justify-center mx-auto">
-                    <ShieldCheck className="w-8 h-8" />
-                  </div>
-                  <div className="space-y-1">
-                    <h4 className="text-xl font-black text-emerald-950">{t('Inquiry Received!')}</h4>
-                    <p className="text-xs text-stone-600 max-w-sm mx-auto">
-                      {t("Our LankaMate concierge and the hotel reservations desk will confirm room availability and special rates within 2 hours.")}
-                    </p>
-                  </div>
-                  <div className="bg-stone-50 border border-stone-200 rounded-xl p-3 text-xs text-stone-700">
-                    {t('Reference Code')}: <span className="font-mono font-bold text-emerald-800">LM-RES-{Math.floor(100000 + Math.random() * 900000)}</span>
-                  </div>
-                </div>
-              ) : (
-                <form onSubmit={handleBookSubmit} className="p-6 space-y-4">
-                  <div className="space-y-1">
-                    <h4 className="text-sm font-black text-stone-900 uppercase tracking-wide">
-                      {t('Direct Reservation Inquiry')}
-                    </h4>
-                    <p className="text-xs text-stone-500">
-                      {t('Best rate guarantee with complimentary breakfast & free cancellation.')}
-                    </p>
-                  </div>
-
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
-                    <div>
-                      <label className="block font-bold text-stone-700 mb-1">{t('Your Full Name')}</label>
-                      <input
-                        type="text"
-                        required
-                        placeholder={t('e.g. Maya Fernando')}
-                        value={guestName}
-                        onChange={(e) => setGuestName(e.target.value)}
-                        className="w-full px-3 py-2 border border-stone-200 rounded-xl focus:outline-none focus:border-emerald-600"
-                      />
-                    </div>
-                    <div>
-                      <label className="block font-bold text-stone-700 mb-1">{t('Email Address')}</label>
-                      <input
-                        type="email"
-                        required
-                        placeholder="maya@example.com"
-                        value={guestEmail}
-                        onChange={(e) => setGuestEmail(e.target.value)}
-                        className="w-full px-3 py-2 border border-stone-200 rounded-xl focus:outline-none focus:border-emerald-600"
-                      />
-                    </div>
-                  </div>
-
-                  <div className="grid grid-cols-3 gap-2 text-xs">
-                    <div>
-                      <label className="block font-bold text-stone-700 mb-1">{t('Check-in')}</label>
-                      <input
-                        type="date"
-                        value={checkInDate}
-                        onChange={(e) => setCheckInDate(e.target.value)}
-                        className="w-full px-2 py-2 border border-stone-200 rounded-xl focus:outline-none focus:border-emerald-600 text-stone-700"
-                      />
-                    </div>
-                    <div>
-                      <label className="block font-bold text-stone-700 mb-1">{t('Nights')}</label>
-                      <input
-                        type="number"
-                        min="1"
-                        max="30"
-                        value={nights}
-                        onChange={(e) => setNights(Number(e.target.value))}
-                        className="w-full px-3 py-2 border border-stone-200 rounded-xl focus:outline-none focus:border-emerald-600"
-                      />
-                    </div>
-                    <div>
-                      <label className="block font-bold text-stone-700 mb-1">{t('Guests')}</label>
-                      <input
-                        type="number"
-                        min="1"
-                        max="10"
-                        value={guestsCount}
-                        onChange={(e) => setGuestsCount(Number(e.target.value))}
-                        className="w-full px-3 py-2 border border-stone-200 rounded-xl focus:outline-none focus:border-emerald-600"
-                      />
-                    </div>
-                  </div>
-
-                  {/* Pricing estimation */}
-                  <div className="bg-emerald-50/70 border border-emerald-200/80 rounded-2xl p-3.5 flex items-center justify-between text-xs">
-                    <div>
-                      <span className="text-emerald-900 font-bold block">{t('Estimated Total')}</span>
-                      <span className="text-stone-500 text-[11px]">
-                        ${inquiryModalHotel.pricePerNightUsd} × {nights} {t('nights')}
-                      </span>
-                    </div>
-                    <div className="text-right">
-                      <div className="text-base font-black text-emerald-950">
-                        ${inquiryModalHotel.pricePerNightUsd * nights} USD
-                      </div>
-                      <div className="text-[11px] text-stone-500">
-                        ~{(inquiryModalHotel.pricePerNightLkr * nights).toLocaleString()} LKR
-                      </div>
-                    </div>
-                  </div>
-
-                  <div className="text-[11px] text-stone-500 space-y-1">
-                    <p className="flex items-center gap-1 text-emerald-800 font-medium">
-                      <Check className="w-3 h-3 text-emerald-600" />
-                      {t('Free cancellation up to 48 hours prior to check-in.')}
-                    </p>
-                    <p className="flex items-center gap-1">
-                      <Phone className="w-3 h-3 text-stone-400" />
-                      {t('Hotel desk')}: {inquiryModalHotel.phone}
-                    </p>
-                  </div>
-
-                  <div className="pt-2 flex items-center justify-end gap-2">
-                    <button
-                      type="button"
-                      onClick={() => setInquiryModalHotel(null)}
-                      className="px-4 py-2 text-stone-600 hover:text-stone-900 text-xs font-semibold cursor-pointer"
-                    >
-                      {t('Cancel')}
-                    </button>
-                    <button
-                      type="submit"
-                      className="px-5 py-2.5 bg-emerald-800 hover:bg-emerald-900 text-white rounded-xl text-xs font-bold transition-all shadow-xs cursor-pointer"
-                    >
-                      {t('Submit Reservation Inquiry')}
-                    </button>
-                  </div>
-                </form>
-              )}
-            </div>
           </div>
         )}
 
@@ -1365,7 +863,7 @@ export const HotelsView: React.FC<HotelsViewProps> = ({
                     <Calendar className="w-3.5 h-3.5 text-emerald-700" />
                     <span>{t('Trip Records')}</span>
                   </div>
-                  <h3 className="text-2xl font-black text-emerald-950">{t('My Hotel Bookings')}</h3>
+                  <h3 className="text-2xl font-black text-emerald-950">{t('Saved Demo Hotel Records', 'Saved Demo Hotel Records')}</h3>
                 </div>
                 <button
                   onClick={() => setShowBookingsModal(false)}
@@ -1375,6 +873,7 @@ export const HotelsView: React.FC<HotelsViewProps> = ({
                 </button>
               </div>
 
+              <p className="text-xs text-amber-900 bg-amber-50 p-3 rounded-xl">{t('These are historical local demo records, not real reservations or Trip.com confirmations. Manage real bookings on Trip.com.', 'These are historical local demo records, not real reservations or Trip.com confirmations. Manage real bookings on Trip.com.')}</p>
               {hotelBookings.length === 0 ? (
                 <div className="text-center py-8 space-y-3">
                   <HotelIcon className="w-12 h-12 text-stone-300 mx-auto" />

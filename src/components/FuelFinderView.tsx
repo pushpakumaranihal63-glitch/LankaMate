@@ -25,7 +25,7 @@ import {
 } from 'lucide-react';
 import { FuelStation, fuelStationsData } from '../data/fuelData';
 import { PageId } from '../types';
-import { openGoogleMapsDirections } from '../utils/navigation';
+import { openGoogleMapsSearch, getGoogleMapsSearchUrl } from '../utils/navigation';
 import { useTranslation } from '../i18n/LanguageContext';
 
 interface FuelFinderViewProps {
@@ -356,7 +356,7 @@ export const FuelFinderView: React.FC<FuelFinderViewProps> = ({ onNavigatePage }
         <p class="text-[11px] text-stone-600 mb-2">${st.address}</p>
         <div class="flex items-center gap-1.5">
           <a
-            href="https://www.google.com/maps/dir/?api=1&destination=${st.coordinates.lat},${st.coordinates.lng}"
+            href="${getGoogleMapsSearchUrl(st.name, st.address || `${st.city}, ${st.province}`, st.coordinates)}"
             target="_blank"
             rel="noopener noreferrer"
             class="inline-flex items-center gap-1 px-2.5 py-1 bg-blue-900 hover:bg-blue-950 text-white rounded-lg text-[10px] font-bold shadow-2xs no-underline"
@@ -446,9 +446,9 @@ export const FuelFinderView: React.FC<FuelFinderViewProps> = ({ onNavigatePage }
     }
   };
 
-  // Open Google Maps Directions via unified navigation utility
+  // Open Google Maps search for destination confirmation
   const handleNavigate = (station: FuelStation) => {
-    openGoogleMapsDirections(station.coordinates.lat, station.coordinates.lng, station.name);
+    openGoogleMapsSearch(station.name, station.address || `${station.city}, ${station.province}`, station.coordinates);
   };
 
   return (

@@ -1,3 +1,4 @@
+import { getGoogleMapsSearchUrl } from '../utils/navigation';
 import React, { useState } from 'react';
 import {
   Compass,
@@ -2190,7 +2191,7 @@ export const HomeView: React.FC<HomeViewProps> = ({
               {/* Action Buttons */}
               <div className="pt-3 border-t border-stone-100 flex flex-col sm:flex-row gap-2.5">
                 <a
-                  href={`https://www.google.com/maps/dir/?api=1&destination=${localizedModalBeach.coordinates.lat},${localizedModalBeach.coordinates.lng}&travelmode=driving`}
+                  href={getGoogleMapsSearchUrl(localizedModalBeach.name, localizedModalBeach.district || localizedModalBeach.region, localizedModalBeach.coordinates)}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex-1 flex items-center justify-center gap-2 px-4 py-3 rounded-xl bg-blue-900 hover:bg-blue-950 active:bg-blue-900 text-white font-bold text-xs sm:text-sm transition-colors shadow-2xs cursor-pointer"

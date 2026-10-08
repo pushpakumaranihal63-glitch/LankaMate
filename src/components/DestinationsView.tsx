@@ -1,3 +1,4 @@
+import { openGoogleMapsSearch } from '../utils/navigation';
 import React, { useState, useMemo } from 'react';
 import {
   MapPin,
@@ -602,17 +603,16 @@ export const DestinationsView: React.FC<DestinationsViewProps> = ({
                 {/* Card Actions: Navigate, Explore, Add to Plan */}
                 <div className="p-5 pt-0 border-t border-stone-100 mt-2 space-y-2">
                   <div className="flex items-center gap-2 pt-3">
-                    {/* Navigate Button (Google Maps Turn-by-Turn GPS) */}
+                    {/* Navigate Button (Google Maps place search) */}
                     <button
                       id={`navigate-btn-${dest.id}`}
                       type="button"
                       onClick={(e) => {
                         e.stopPropagation();
-                        const navUrl = `https://www.google.com/maps/dir/?api=1&destination=${dest.coordinates.lat},${dest.coordinates.lng}`;
-                        window.open(navUrl, '_blank', 'noopener,noreferrer');
+                        openGoogleMapsSearch(dest.name, dest.district || dest.region, dest.coordinates);
                       }}
                       className="flex-1 py-2.5 px-3 rounded-xl bg-blue-900 hover:bg-blue-950 active:scale-95 text-white font-bold text-xs transition-all cursor-pointer flex items-center justify-center gap-1.5 shadow-2xs touch-manipulation"
-                      title={`${t('Navigate to')} ${dest.name} in Google Maps`}
+                      title={`Confirm ${dest.name} in Google Maps before choosing Directions`}
                     >
                       <Navigation className="w-3.5 h-3.5 text-amber-300" />
                       <span>{t('Navigate')}</span>
@@ -764,8 +764,7 @@ export const DestinationsView: React.FC<DestinationsViewProps> = ({
                 <button
                   id="modal-navigate-maps-btn"
                   onClick={() => {
-                    const navUrl = `https://www.google.com/maps/dir/?api=1&destination=${localizedModal.coordinates.lat},${localizedModal.coordinates.lng}`;
-                    window.open(navUrl, '_blank', 'noopener,noreferrer');
+                    openGoogleMapsSearch(localizedModal.name, localizedModal.district || localizedModal.region, localizedModal.coordinates);
                   }}
                   className="flex-1 py-3 px-4 rounded-xl bg-blue-900 hover:bg-blue-950 active:scale-95 text-white font-bold text-xs flex items-center justify-center gap-2 shadow-xs transition-all cursor-pointer touch-manipulation"
                 >
